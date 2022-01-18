@@ -1382,17 +1382,18 @@ label.custom-checkbox .checkmark:after {
     width: 120px;
     position: relative;
     top: 0px;
-    background-color: #fd5d14;
-    height: 82px;
+    background-color: #FFFFFF;
+    height: 65px;
 }
 .menu-style .header>.logo img{
     position: absolute;
-    height: 117px;
+    height: 90px;
+    width: 120px;
     z-index: 10;
 }
 .menu-style .header>.logo:after{
     content: '';
-    background-color: #fd5d14;
+    background-color: #FFFFFF;
     display: block;
     width: 120px;
     left: 0;
