@@ -1393,7 +1393,7 @@ label.custom-checkbox .checkmark:after {
 }
 .menu-style .header>.logo:after{
     content: '';
-    background-color: #FFFFFF;
+    background-color: #fd5d14;
     display: block;
     width: 120px;
     left: 0;
@@ -4856,4 +4856,7 @@ background-position: center;
 .product-detail .listing-detail-heading .social-media ul li a:hover{
     background-color: #fd5d14;
     color: #fff;
+}
+.logo-border{
+    border: 5px solid #fd5d14;
 }
