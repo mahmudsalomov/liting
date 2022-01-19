@@ -52,16 +52,8 @@ public class AuthService implements UserDetailsService {
             String jwt = jwtTokenProvider.generateToken(principal);
             return new ResToken(jwt);
         } catch (Exception e) {
-//            e.printStackTrace();
             return null;
         }
     }
 
-//    public ApiResponse searchUser(String search) {
-//        return new ApiResponseObject("Ok", true, userRepository.byUsername(search));
-//    }
-
-//    public ApiResponse all() {
-//        return new ApiResponse("Ok", true, userRepository.findAll().stream().map(item -> dtoService.userDto(item)).collect(Collectors.toList()));
-//    }
 }

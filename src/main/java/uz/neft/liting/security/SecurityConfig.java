@@ -73,13 +73,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/webjars/**")
                 .permitAll()
                 .anyRequest()
-//                .authenticated();
                 .permitAll();
         http.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
     }
-//    @Bean
-//    public AccessDeniedHandler accessDeniedHandler(){
-//        return new CustomAccessDeniedHandler();
-//    }
 
 }

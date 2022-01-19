@@ -16,8 +16,6 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-//    @Autowired
-//    private Converter converter;
     @PostMapping("/login")
     public HttpEntity<?> login(@RequestBody SignIn signIn){
         ResToken resToken=authService.signIn(signIn);
@@ -25,10 +23,6 @@ public class AuthController {
     }
 
 
-//    @GetMapping("/test")
-//    public HttpEntity<?> test(){
-//        return ResponseEntity.ok(converter.apiSuccess());
-//    }
 
     @GetMapping("/me")
     public HttpEntity<?> me(@CurrentUser User user){
