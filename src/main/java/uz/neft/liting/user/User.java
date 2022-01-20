@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import uz.neft.liting.template.AbsEntityInteger;
 import uz.neft.liting.template.AbsEntityLong;
 
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity(name = "users")
-public class User extends AbsEntityLong implements UserDetails {
+public class User extends AbsEntityInteger implements UserDetails {
 
 
 
