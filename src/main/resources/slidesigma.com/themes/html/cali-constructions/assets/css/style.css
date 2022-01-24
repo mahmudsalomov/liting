@@ -1352,7 +1352,7 @@ label.custom-checkbox .checkmark:after {
     z-index: 22;
     background: #fff;
     animation-duration: 1s;
-    animation-fill-mode: both;
+
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 .topbar.fixed-top,
@@ -1381,27 +1381,28 @@ label.custom-checkbox .checkmark:after {
 .menu-style .header>.logo{
     width: 120px;
     position: relative;
-    top: 0px;
+    top: 0;
     background-color: #FFFFFF;
-    height: 65px;
+    height: 80px;
+}
+.menu-style .header>.logon{
+    width: 65px;
+    position: relative;
+    top: 0;
+    background-color: #FFFFFF;
+    height: 55px;
 }
 .menu-style .header>.logo img{
     position: absolute;
-    height: 90px;
-    width: 120px;
+    height: 75px;
+    width: 100px;
     z-index: 10;
 }
-.menu-style .header>.logo:after{
-    content: '';
-    background-color: #fd5d14;
-    display: block;
-    width: 120px;
-    left: 0;
+.menu-style .header>.logon img{
     position: absolute;
-    height: 35px;
-    z-index: 2;
-    right: 0;
-    bottom: -35px;
+    height: 55px;
+    width: 70px;
+    z-index: 10;
 }
 .menu-style .header .right-side{
     display: flex;
@@ -1626,16 +1627,16 @@ label.custom-checkbox .checkmark:after {
     left: 100%;
     top: -3%;
 }
-.menu-style.sticky .header>.logo{
-    height: 60px;
-}
-.menu-style.sticky .header>.logo img{
-    height: 87px;
-}
-.menu-style.sticky .header>.logo:after{
-    height: 25px;
-    bottom: -25px;
-}
+/*.menu-style.sticky .header>.logo{*/
+/*    height: 60px;*/
+/*}*/
+/*.menu-style.sticky .header>.logo img{*/
+/*    height: 87px;*/
+/*}*/
+/*.menu-style.sticky .header>.logo:after{*/
+/*    height: 25px;*/
+/*    bottom: -25px;*/
+/*}*/
 .menu-style.sticky .main-menu>li.menu-item{
     padding: 0;
 }
@@ -4857,6 +4858,93 @@ background-position: center;
     background-color: #fd5d14;
     color: #fff;
 }
-.logo-border{
-    border: 5px solid #fd5d14;
+.client .image{
+    text-align: center;
+}
+.section-title{
+    text-align: center;
+    padding-bottom: 55px;
+    margin-top: -8px;
+}
+.p-120 {
+    padding: 120px 0;
+}
+/*================================================
+5.10: client css Style
+==================================================*/
+.client .image{
+    text-align: center;
+}
+.client .item .author{
+    padding-bottom: 20px;
+}
+.client .item h5{
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.client .item .rating li{
+    padding-right: 10px;
+}
+.client .item .rating li:last-child{
+    padding-right: 0;
+}
+.client .item .rating li i{
+    font-size: 16px;
+    color: var(--yellow);
+}
+.client .item .designation{
+    text-transform: capitalize;
+}
+.client .item img{
+    padding-top: 10px;
+}
+.client .client-nav button{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 1px solid var(--orange);
+    text-align: center;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    z-index: 9;
+    opacity: 0;
+}
+.client .slider-area:hover .client-nav button{
+    opacity: 1;
+}
+.client .client-nav .client-button-prev{
+    left: 0;
+}
+.client .client-nav .client-button-next{
+    right: 0;
+}
+.client .client-nav button i{
+    line-height: 40px;
+    font-size: 16px;
+    color: var(--orange);
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+client .client-nav button:hover{
+    background: var(--orange);
+}
+.client .client-nav button:hover i{
+    color: var(--white);
 }

@@ -467,4 +467,26 @@ Version: 1.0.0
 		margin-left: 0;
 		margin-top: 10px;
 	}
+	/* project */
+	.home1.project .project-menu {
+		display: block !important;
+	}
+	.home1.project .project-menu li {
+		padding: 0 15px;
+		text-align: center;
+	}
+	/* client */
+	.home1.client .client-img-slider{
+		margin-bottom: 30px;
+	}
+	.home1.client .item .author {
+		display: block !important;
+	}
+	/* blog */
+	.home1.blog{
+		padding-bottom: 70px;
+	}
+	.home1.blog .item{
+		margin-bottom: 30px;
+	}
 }
