@@ -483,10 +483,10 @@ Version: 1.0.0
 		display: block !important;
 	}
 	/* blog */
-	.home1.blog{
-		padding-bottom: 70px;
+	.blog{
+		padding-bottom: 90px;
 	}
-	.home1.blog .item{
+	.blog .item{
 		margin-bottom: 30px;
 	}
 }
