@@ -1385,12 +1385,15 @@ label.custom-checkbox .checkmark:after {
     background-color: #FFFFFF;
     height: 80px;
 }
-.menu-style .header>.logon{
-    width: 65px;
-    position: relative;
-    top: 0;
-    background-color: #FFFFFF;
-    height: 55px;
+.logon-parent{
+    width:200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.logon:last-child{
+    margin-left: 10px;
 }
 .menu-style .header>.logo img{
     position: absolute;
@@ -1398,11 +1401,17 @@ label.custom-checkbox .checkmark:after {
     width: 100px;
     z-index: 10;
 }
-.menu-style .header>.logon img{
-    position: absolute;
-    height: 55px;
+.logon-img{
     width: 70px;
-    z-index: 10;
+    animation: rounding 5s ease-in-out forwards infinite ;
+}
+@keyframes rounding {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
 }
 .menu-style .header .right-side{
     display: flex;
@@ -1478,6 +1487,16 @@ label.custom-checkbox .checkmark:after {
     transform: rotate(-45deg);
     transition: 0.3s;
     background-color: #fff;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+@media (max-width: 992px) {
+    .navigation{
+        flex-direction: column;
+    }
 }
 .menu-style .header .right-side .navigation .logo{
     display: none;
@@ -5088,5 +5107,82 @@ client .client-nav button:hover{
 .blog .item h5:hover,
 .blog .item ul li a:hover{
     color: var(--orange);
+}
+
+/*================================================
+5.6: service css Style
+==================================================*/
+.service{
+    background: #f4fbff;
+}
+.service .single{
+    box-shadow: 0 0 92px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+.service .single .overlay{
+    background: var(--white);
+    padding: 35px 50px;
+    text-align: center;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+.service .single .icon i{
+    font-size: 70px;
+    line-height: 70px;
+    color: var(--orange);
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+.service .single h4{
+    font-weight: 700;
+    text-transform: capitalize;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.service .single p{
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.service .single a{
+    display: inline-block;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--orange);
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+.service .single:hover .overlay{
+    background: rgba(0, 0, 0, 0.5);
+}
+.service .single:hover h4,
+.service .single:hover p,
+.service .single:hover .icon i,
+.service .single:hover a{
+    color: var(--white);
+}
+.service .single:hover p{
+    border-color: var(--white);
+}
+.service .single a:hover{
+    color: var(--orange);
+}
+.service .single.bg-show .overlay{
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.5);
+}
+.service .single.bg-show:hover .overlay{
+    opacity: 1;
+    visibility: visible;
 }
 

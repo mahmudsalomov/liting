@@ -468,18 +468,18 @@ Version: 1.0.0
 		margin-top: 10px;
 	}
 	/* project */
-	.home1.project .project-menu {
+	.project .project-menu {
 		display: block !important;
 	}
-	.home1.project .project-menu li {
+	.project .project-menu li {
 		padding: 0 15px;
 		text-align: center;
 	}
 	/* client */
-	.home1.client .client-img-slider{
+	.client .client-img-slider{
 		margin-bottom: 30px;
 	}
-	.home1.client .item .author {
+	.client .item .author {
 		display: block !important;
 	}
 	/* blog */
@@ -488,5 +488,25 @@ Version: 1.0.0
 	}
 	.blog .item{
 		margin-bottom: 30px;
+	}
+	/* service */
+	.service .single .overlay {
+		padding: 35px;
+	}
+	/* service */
+	.service .single .overlay {
+		padding: 35px;
+	}
+	/* service */
+	.service .single .overlay {
+		padding: 35px;
+	}
+	/* service */
+	.service .single .overlay {
+		padding: 35px;
+	}
+	/* service */
+	.service .single .overlay {
+		padding: 35px;
 	}
 }
