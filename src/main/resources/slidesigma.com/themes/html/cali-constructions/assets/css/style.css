@@ -1385,12 +1385,15 @@ label.custom-checkbox .checkmark:after {
     background-color: #FFFFFF;
     height: 80px;
 }
-.menu-style .header>.logon{
-    width: 65px;
-    position: relative;
-    top: 0;
-    background-color: #FFFFFF;
-    height: 55px;
+.logon-parent{
+    width:200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.logon:last-child{
+    margin-left: 10px;
 }
 .menu-style .header>.logo img{
     position: absolute;
@@ -1398,11 +1401,17 @@ label.custom-checkbox .checkmark:after {
     width: 100px;
     z-index: 10;
 }
-.menu-style .header>.logon img{
-    position: absolute;
-    height: 55px;
+.logon-img{
     width: 70px;
-    z-index: 10;
+    animation: rounding 5s ease-in-out forwards infinite ;
+}
+@keyframes rounding {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
 }
 .menu-style .header .right-side{
     display: flex;
@@ -1478,6 +1487,16 @@ label.custom-checkbox .checkmark:after {
     transform: rotate(-45deg);
     transition: 0.3s;
     background-color: #fff;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+@media (max-width: 992px) {
+    .navigation{
+        flex-direction: column;
+    }
 }
 .menu-style .header .right-side .navigation .logo{
     display: none;
