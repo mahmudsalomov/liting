@@ -21,7 +21,9 @@ public class Category extends AbsEntityInteger {
 
 
     @Builder
-    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, Set<Category> children) {
+    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
+//            , Set<Category> children
+    ) {
         super(id, createdAt, deleted);
         this.name_oz = name_oz;
         this.name_uz = name_uz;
@@ -32,10 +34,12 @@ public class Category extends AbsEntityInteger {
         this.description_en = description_en;
         this.description_ru = description_ru;
         this.parent = parent;
-        this.children=children;
+//        this.children=children;
     }
 
-    public Category(String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent,Set<Category> children) {
+    public Category(String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
+//            , Set<Category> children
+    ) {
         this.name_oz = name_oz;
         this.name_uz = name_uz;
         this.name_en = name_en;
@@ -45,7 +49,7 @@ public class Category extends AbsEntityInteger {
         this.description_en = description_en;
         this.description_ru = description_ru;
         this.parent = parent;
-        this.children=children;
+//        this.children=children;
     }
 
     public Category(CategoryDto dto){
@@ -89,19 +93,18 @@ public class Category extends AbsEntityInteger {
     @Column(columnDefinition = "text")
     private String description_ru;
 
-    @OneToOne
-    @JoinColumn(name = "parent_id")
+    @ManyToOne
     private Category parent;
-
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-    private Set<Category> children;
+//
+//    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+//    private Set<Category> children;
 
 
 
 
 
     public CategoryDto toDto(){
-        System.out.println(children);
+//        System.out.println(children);
         return CategoryDto
                 .builder()
                 .id(getId())

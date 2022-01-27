@@ -30,14 +30,14 @@ public class CategoryService {
 //                category.setParent(value);
 //                category.setParent_id(value.getId());
 //            });
-//            parent.ifPresent(category::setParent);
-            parent.ifPresent(value->{
-                category.setParent(parent.get());
-                Set<Category> children = parent.get().getChildren();
-                children.add(category);
-                parent.get().setChildren(children);
-                categoryRepository.save(parent.get());
-            });
+            parent.ifPresent(category::setParent);
+//            parent.ifPresent(value->{
+//                category.setParent(parent.get());
+////                Set<Category> children = parent.get().getChildren();
+////                children.add(category);
+////                parent.get().setChildren(children);
+//                categoryRepository.save(parent.get());
+//            });
         }
         return Payload.ok(categoryRepository.save(category).toDto());
     }
