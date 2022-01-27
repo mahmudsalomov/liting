@@ -1,6 +1,9 @@
 package uz.neft.liting.payload;
 
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+
 public class ApiResponse {
     private String message;
     private boolean success;
@@ -64,5 +67,9 @@ public class ApiResponse {
 
     public void setStatus(HttpStatus status) {
         this.status = status;
+    }
+
+    public HttpEntity<?> response(){
+        return ResponseEntity.status(org.springframework.http.HttpStatus.valueOf(this.status.getCode())).body(this);
     }
 }

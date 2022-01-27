@@ -1,4 +1,4 @@
-package uz.neft.liting.blog;
+package uz.neft.liting.category;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

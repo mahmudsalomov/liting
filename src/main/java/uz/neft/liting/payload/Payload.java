@@ -1,6 +1,9 @@
 package uz.neft.liting.payload;
 
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+
 public class Payload {
 
 
@@ -611,7 +614,6 @@ public class Payload {
     public static ApiResponse unknown(String message,Object object){
         return api(message,HttpStatus.Unknown,object);
     }
-
 
 }
 

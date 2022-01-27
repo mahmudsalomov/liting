@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import uz.neft.liting.security.CurrentUser;
 import uz.neft.liting.user.User;
 
+import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.Optional;
 
+@RestController
 public interface RestCrud<T> extends Serializable {
     @GetMapping("/all")
     HttpEntity<?> all( @RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
@@ -17,8 +19,11 @@ public interface RestCrud<T> extends Serializable {
     @PostMapping("/add")
     HttpEntity<?> add(@RequestBody T t, @CurrentUser User user);
     @PutMapping("/edit")
-    HttpEntity<?> edit(@RequestBody T t, @CurrentUser User user);
+    HttpEntity<?> edit(@Valid @RequestBody T t, @CurrentUser User user);
     @PostMapping("/delete/{id}")
     HttpEntity<?> delete(@PathVariable Integer id, @CurrentUser User user);
+
+    @GetMapping("/one/{id}")
+    HttpEntity<?> one(@PathVariable Integer id);
 
 }

@@ -1,6 +1,9 @@
 package uz.neft.liting.payload;
 
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+
 public class ApiResponseObject extends ApiResponse {
     private Object object;
 
@@ -30,5 +33,10 @@ public class ApiResponseObject extends ApiResponse {
 
     public void setObject(Object object) {
         this.object = object;
+    }
+
+    @Override
+    public HttpEntity<?> response() {
+        return ResponseEntity.status(org.springframework.http.HttpStatus.valueOf(getStatus().getCode())).body(this);
     }
 }
