@@ -131,36 +131,4 @@ public class CategoryService {
 
     }
 
-//    public ApiResponse allByChildren(){
-//        try {
-//
-//            List<Category> children=categoryRepository.findAllByDeletedFalseAndParentNotNull();
-//            List<Category> roots = categoryRepository.findAllByDeletedFalseAndParentIsNull();
-//
-//            List<Category.CategoryDto> categoryDtos=new ArrayList<>();
-//
-//            roots.forEach(r->categoryDtos.add(r.toDto()));
-//
-////            while (true){
-//                categoryDtos.forEach(c->{
-//                    children.forEach(child->{
-//                        if (Objects.equals(c.id, child.getParent().getId())){
-//                            c.children.add(child.toDto());
-//                        }
-//                    });
-//                });
-//
-////            }
-//
-//
-//
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return Payload.conflict();
-//        }
-//    }
-//
-//    private static void helper(Category.CategoryDto roots,Category.){
-//
-//    }
 }

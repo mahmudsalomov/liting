@@ -15,47 +15,12 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @NoArgsConstructor
-//@Builder
 @Entity
 @ToString
 public class Category extends AbsEntityInteger {
-//    @Override
-//    public String toString() {
-//        return "Category{" +
-//                "name_oz='" + name_oz + '\'' +
-//                ", name_uz='" + name_uz + '\'' +
-//                ", name_en='" + name_en + '\'' +
-//                ", name_ru='" + name_ru + '\'' +
-//                ", description_oz='" + description_oz + '\'' +
-//                ", description_uz='" + description_uz + '\'' +
-//                ", description_en='" + description_en + '\'' +
-//                ", description_ru='" + description_ru + '\'' +
-//                ", parent=" + parent +
-//                ", children=" + children +
-//                '}';
-//    }
-
-    //    @Override
-//    public String toString() {
-//        return "Category{" +
-//                "id='" + this.getId() + '\'' +
-//                ", createdAt='" + this.getCreatedAt() + '\'' +
-//                ", name_oz='" + name_oz + '\'' +
-//                ", name_uz='" + name_uz + '\'' +
-//                ", name_en='" + name_en + '\'' +
-//                ", name_ru='" + name_ru + '\'' +
-//                ", description_oz='" + description_oz + '\'' +
-//                ", description_uz='" + description_uz + '\'' +
-//                ", description_en='" + description_en + '\'' +
-//                ", description_ru='" + description_ru + '\'' +
-//                ", parent=" + parent +
-////                ", children=" + children +
-//                '}';
-//    }
 
     @Builder
     public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
-//            , List<Category> children
     ) {
         super(id, createdAt, deleted);
         this.name_oz = name_oz;
@@ -67,11 +32,9 @@ public class Category extends AbsEntityInteger {
         this.description_en = description_en;
         this.description_ru = description_ru;
         this.parent = parent;
-//        this.children=children;
     }
 
     public Category(String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
-//            , List<Category> children
     ) {
         this.name_oz = name_oz;
         this.name_uz = name_uz;
@@ -82,7 +45,6 @@ public class Category extends AbsEntityInteger {
         this.description_en = description_en;
         this.description_ru = description_ru;
         this.parent = parent;
-//        this.children=children;
     }
 
     public Category(CategoryDto dto){
@@ -106,7 +68,6 @@ public class Category extends AbsEntityInteger {
         description_oz=dto.description_uz;
         description_uz=dto.description_uz;
         description_ru=dto.description_ru;
-//        category=dto.category!=null?dto.category.toEntity():null;
         return this;
     }
 
@@ -127,27 +88,14 @@ public class Category extends AbsEntityInteger {
     private String description_ru;
 
     @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "parent_id")
     private Category parent;
-//    @OneToMany(fetch = FetchType.EAGER,mappedBy = "parent",cascade = CascadeType.ALL)
-//    @ToString.Exclude
-//    private List<Category> children;
 
-
-//    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-//    @ToString.Exclude
-//
-//    private Set<Category> children = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-//    private Set<Category> children;
 
 
 
 
 
     public CategoryDto toDto(){
-//        System.out.println(children);
         return CategoryDto
                 .builder()
                 .id(getId())
@@ -161,7 +109,6 @@ public class Category extends AbsEntityInteger {
                 .description_ru(description_ru)
                 .description_uz(description_uz)
                 .parent(parent!=null?parent.toDto():null)
-//                .children(children!=null?children.stream().map(Category::toDto).collect(Collectors.toList()):null)
                 .build();
     }
 
@@ -183,7 +130,6 @@ public class Category extends AbsEntityInteger {
         public String description_en;
         public String description_ru;
         public CategoryDto parent;
-//        public List<CategoryDto> children=new ArrayList<>();
 
 
         public Category toEntity(){
