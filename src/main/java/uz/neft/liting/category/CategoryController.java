@@ -1,6 +1,7 @@
 package uz.neft.liting.category;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uz.neft.liting.template.RestCrud;
@@ -43,4 +44,11 @@ public class CategoryController implements RestCrud<Category.CategoryDto> {
     public HttpEntity<?> one(Integer id) {
         return categoryService.one(id).response();
     }
+
+//    @GetMapping("/all")
+
+//    @GetMapping("/all/children")
+//    public HttpEntity<?> allByChildren(){
+//
+//    }
 }

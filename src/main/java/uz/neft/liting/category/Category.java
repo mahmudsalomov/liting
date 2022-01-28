@@ -15,14 +15,47 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @NoArgsConstructor
-@Builder
+//@Builder
 @Entity
+@ToString
 public class Category extends AbsEntityInteger {
+//    @Override
+//    public String toString() {
+//        return "Category{" +
+//                "name_oz='" + name_oz + '\'' +
+//                ", name_uz='" + name_uz + '\'' +
+//                ", name_en='" + name_en + '\'' +
+//                ", name_ru='" + name_ru + '\'' +
+//                ", description_oz='" + description_oz + '\'' +
+//                ", description_uz='" + description_uz + '\'' +
+//                ", description_en='" + description_en + '\'' +
+//                ", description_ru='" + description_ru + '\'' +
+//                ", parent=" + parent +
+//                ", children=" + children +
+//                '}';
+//    }
 
+    //    @Override
+//    public String toString() {
+//        return "Category{" +
+//                "id='" + this.getId() + '\'' +
+//                ", createdAt='" + this.getCreatedAt() + '\'' +
+//                ", name_oz='" + name_oz + '\'' +
+//                ", name_uz='" + name_uz + '\'' +
+//                ", name_en='" + name_en + '\'' +
+//                ", name_ru='" + name_ru + '\'' +
+//                ", description_oz='" + description_oz + '\'' +
+//                ", description_uz='" + description_uz + '\'' +
+//                ", description_en='" + description_en + '\'' +
+//                ", description_ru='" + description_ru + '\'' +
+//                ", parent=" + parent +
+////                ", children=" + children +
+//                '}';
+//    }
 
     @Builder
     public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
-//            , Set<Category> children
+//            , List<Category> children
     ) {
         super(id, createdAt, deleted);
         this.name_oz = name_oz;
@@ -38,7 +71,7 @@ public class Category extends AbsEntityInteger {
     }
 
     public Category(String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
-//            , Set<Category> children
+//            , List<Category> children
     ) {
         this.name_oz = name_oz;
         this.name_uz = name_uz;
@@ -93,8 +126,18 @@ public class Category extends AbsEntityInteger {
     @Column(columnDefinition = "text")
     private String description_ru;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "parent_id")
     private Category parent;
+//    @OneToMany(fetch = FetchType.EAGER,mappedBy = "parent",cascade = CascadeType.ALL)
+//    @ToString.Exclude
+//    private List<Category> children;
+
+
+//    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+//    @ToString.Exclude
+//
+//    private Set<Category> children = new HashSet<>();
 //
 //    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
 //    private Set<Category> children;
@@ -127,6 +170,7 @@ public class Category extends AbsEntityInteger {
     @AllArgsConstructor
     @NoArgsConstructor
     @Builder
+    @ToString
     public static class CategoryDto{
         public Integer id;
         public Timestamp createdAt;
@@ -139,7 +183,7 @@ public class Category extends AbsEntityInteger {
         public String description_en;
         public String description_ru;
         public CategoryDto parent;
-        public List<CategoryDto> children=new ArrayList<>();
+//        public List<CategoryDto> children=new ArrayList<>();
 
 
         public Category toEntity(){
