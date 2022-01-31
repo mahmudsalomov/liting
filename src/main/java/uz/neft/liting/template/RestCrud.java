@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public interface RestCrud<T> extends Serializable {
     @GetMapping("/all")
     HttpEntity<?> all( @RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
