@@ -1,6 +1,7 @@
 package uz.neft.liting.category;
 
 import lombok.*;
+import uz.neft.liting.blog.BlogType;
 import uz.neft.liting.template.AbsEntityInteger;
 
 import javax.persistence.*;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 public class Category extends AbsEntityInteger {
 
     @Builder
-    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
+    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, CategoryType type
     ) {
         super(id, createdAt, deleted);
         this.name_oz = name_oz;
@@ -32,9 +33,10 @@ public class Category extends AbsEntityInteger {
         this.description_en = description_en;
         this.description_ru = description_ru;
         this.parent = parent;
+        this.type=type;
     }
 
-    public Category(String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent
+    public Category(String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, CategoryType type
     ) {
         this.name_oz = name_oz;
         this.name_uz = name_uz;
@@ -45,6 +47,7 @@ public class Category extends AbsEntityInteger {
         this.description_en = description_en;
         this.description_ru = description_ru;
         this.parent = parent;
+        this.type=type;
     }
 
     public Category(CategoryDto dto){
@@ -68,6 +71,7 @@ public class Category extends AbsEntityInteger {
         description_oz=dto.description_uz;
         description_uz=dto.description_uz;
         description_ru=dto.description_ru;
+        type=dto.type;
         return this;
     }
 
@@ -90,6 +94,9 @@ public class Category extends AbsEntityInteger {
     @ManyToOne(fetch = FetchType.EAGER)
     private Category parent;
 
+    @Enumerated(EnumType.STRING)
+    private CategoryType type;
+
 
 
 
@@ -109,6 +116,7 @@ public class Category extends AbsEntityInteger {
                 .description_ru(description_ru)
                 .description_uz(description_uz)
                 .parent(parent!=null?parent.toDto():null)
+                .type(type)
                 .build();
     }
 
@@ -130,6 +138,7 @@ public class Category extends AbsEntityInteger {
         public String description_en;
         public String description_ru;
         public CategoryDto parent;
+        public CategoryType type;
 
 
         public Category toEntity(){
@@ -144,6 +153,7 @@ public class Category extends AbsEntityInteger {
                     .description_oz(description_oz)
                     .description_ru(description_ru)
                     .description_uz(description_uz)
+                    .type(type!=null?type:CategoryType.PARENT)
                     .build();
         }
     }

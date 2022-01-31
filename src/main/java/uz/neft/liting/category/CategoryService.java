@@ -23,6 +23,8 @@ public class CategoryService {
 
     public ApiResponse add(Category.CategoryDto dto){
 
+//        if (dto.parent != null && dto.type == CategoryType.PARENT) return Payload.badRequest();
+
         try {
             Category category = dto.toEntity();
 
