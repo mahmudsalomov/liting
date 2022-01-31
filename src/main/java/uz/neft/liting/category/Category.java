@@ -1,5 +1,6 @@
 package uz.neft.liting.category;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import uz.neft.liting.blog.BlogType;
 import uz.neft.liting.template.AbsEntityInteger;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
 public class Category extends AbsEntityInteger {
 
     @Builder
-    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, CategoryType type
+    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, List<Category> children, CategoryType type
     ) {
         super(id, createdAt, deleted);
         this.name_oz = name_oz;
@@ -33,6 +34,7 @@ public class Category extends AbsEntityInteger {
         this.description_en = description_en;
         this.description_ru = description_ru;
         this.parent = parent;
+        this.children=children;
         this.type=type;
     }
 
@@ -91,8 +93,14 @@ public class Category extends AbsEntityInteger {
     @Column(columnDefinition = "text")
     private String description_ru;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+
+    @JsonIgnore
+    @ManyToOne
     private Category parent;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "parent",cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Category> children;
 
     @Enumerated(EnumType.STRING)
     private CategoryType type;
@@ -115,8 +123,9 @@ public class Category extends AbsEntityInteger {
                 .description_oz(description_oz)
                 .description_ru(description_ru)
                 .description_uz(description_uz)
-                .parent(parent!=null?parent.toDto():null)
+//                .parent(parent!=null?parent.toDto():null)
                 .type(type)
+                .children(children!=null?children.stream().map(Category::toDto).collect(Collectors.toList()):new ArrayList<>())
                 .build();
     }
 
@@ -139,6 +148,7 @@ public class Category extends AbsEntityInteger {
         public String description_ru;
         public CategoryDto parent;
         public CategoryType type;
+        public List<CategoryDto> children=new ArrayList<>();
 
 
         public Category toEntity(){

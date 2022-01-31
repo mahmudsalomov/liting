@@ -45,7 +45,10 @@ public class CategoryController implements RestCrud<Category.CategoryDto> {
         return categoryService.one(id).response();
     }
 
-//    @GetMapping("/all")
+    @GetMapping("/all/sort")
+    public HttpEntity<?> allBySort(){
+        return categoryService.allBySort().response();
+    }
 
 //    @GetMapping("/all/children")
 //    public HttpEntity<?> allByChildren(){

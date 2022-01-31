@@ -133,4 +133,22 @@ public class CategoryService {
 
     }
 
+    public ApiResponse allBySort(){
+
+        try {
+
+            List<Category> allParents = categoryRepository.findAllByDeletedFalseAndParentIsNull();
+
+            return Payload.ok(allParents.stream().map(Category::toDto));
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+
+
+
+
+    }
+
 }
