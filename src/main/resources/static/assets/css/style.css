@@ -4659,7 +4659,7 @@ background-position: center;
     border-radius: 3px;
     position: relative;
     overflow: hidden;
-    border:1px solid transparent; 
+    border:1px solid transparent;
 }
 .shop-section .shop-wrapper:hover .product-item-img .product-img-inner .hover-icons{
     opacity: 1;
@@ -4849,7 +4849,7 @@ background-position: center;
     width: auto;
     float: left;
     background: #f5f5f5;
-    padding: 15px;  
+    padding: 15px;
     border-radius: 3px;
 }
 .product-detail .details .product-variant p{
@@ -5185,4 +5185,114 @@ client .client-nav button:hover{
     opacity: 1;
     visibility: visible;
 }
-
+/*================================================
+8.1: menubar css Style
+==================================================*/
+.inner-page.menubar{
+    top: 0;
+}
+.inner-page.menubar .header-menu{
+    margin-left: auto;
+}
+.inner-page.menubar .right-part button{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: var(--orange);
+    margin-left: 20px;
+}
+.inner-page.menubar .right-part button i{
+    font-size: 16px;
+    line-height: 40px;
+    color: var(--white);
+}
+/*================================================
+14: project detail page
+==================================================*/
+.project-page.project-detail .image img{
+    width: 100%;
+}
+.project-page.project-detail .info-area{
+    padding-left: 60px;
+}
+.project-page.project-detail .sub-title{
+    padding-bottom: 20px;
+}
+.project-page.project-detail .sub-title h5{
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.project-page.project-detail .info li{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+.project-page.project-detail .info li:last-child{
+    border-bottom: 0;
+}
+.project-page.project-detail .info li h6{
+    font-weight: 700;
+    text-transform: capitalize;
+    width: 50%;
+}
+.project-page.project-detail .info li p{
+    width: 50%;
+    text-transform: capitalize;
+}
+.project-page.project-detail .info li ul li{
+    border: 0;
+    padding: 0;
+    padding-right: 15px;
+}
+.project-page.project-detail .info li ul li a i{
+    font-size: 16px;
+    color: var(--dark);
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+.project-page.project-detail .info li ul li a:hover i{
+    color: var(--orange);
+}
+.project-page.project-detail .list-part{
+    padding-top: 10px;
+}
+.project-page.project-detail .title{
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+.project-page.project-detail .title h4{
+    font-size: 29px;
+    line-height: 44px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.project-page.project-detail .desc-list{
+    padding-top: 20px;
+}
+.project-page.project-detail .desc-list li{
+    position: relative;
+    padding: 5px 0 5px 30px;
+}
+.project-page.project-detail .desc-list li:before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: var(--orange);
+}

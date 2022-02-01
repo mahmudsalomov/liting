@@ -12,6 +12,10 @@ public class Controller {
     public String main404(){
         return "404";
     }
+    @GetMapping("/homepage-2")
+    public String homepage(){
+        return "homepage-2";
+    }
     @GetMapping("/managment")
     public String managment(){
         return "managment";

@@ -509,4 +509,27 @@ Version: 1.0.0
 	.service .single .overlay {
 		padding: 35px;
 	}
+	/*--------------------- project detail page -------------------*/
+	.project-page.project-detail .info-area {
+		padding-left: 0;
+	}
+	.project-page.project-detail .list-part .row {
+		align-items: flex-start !important;
+	}
+	/*--------------------- project detail page -------------------*/
+	.project-page.project-detail .info-area {
+		padding-left: 0;
+		padding-top: 40px;
+	}
+	.project-page.project-detail .list-part .image {
+		padding-top: 40px;
+	}
+	/*--------------------- project detail page -------------------*/
+	.project-page.project-detail .info-area {
+		padding-left: 0;
+		padding-top: 40px;
+	}
+	.project-page.project-detail .list-part .image {
+		padding-top: 40px;
+	}
 }
