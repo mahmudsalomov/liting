@@ -255,10 +255,14 @@ function all() {
     axios.get("/api/category/all/sort")
         .then(function (response) {
 
+
+
             let categories=response.data.object;
 
+            if (categories.length!=0){
+                document.getElementById("navbar-root").innerHTML=menuBuilder(categories);
+            }
 
-            document.getElementById("navbar-root").innerHTML=menuBuilder(categories);
 
             console.log(response)
             console.log(categories)
