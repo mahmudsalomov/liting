@@ -8,4 +8,24 @@ public class Controller {
     public String main(){
         return "index";
     }
+    @GetMapping("/404")
+    public String main404(){
+        return "404";
+    }
+    @GetMapping("/managment.html")
+    public String managment(){
+        return "managment";
+    }
+    @GetMapping("/nablyudatelniySovet")
+    public String nablyudatelniySovet(){
+        return "nablyudatelniySovet";
+    }
+    @GetMapping("/index2")
+    public String index2(){
+        return "index2";
+    }
+    @GetMapping("/structure")
+    public String structure(){
+        return "structure";
+    }
 }
