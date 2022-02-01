@@ -15,29 +15,29 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/assets/images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/assets/images/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="../static/assets/images/favicon.ico">
-    <link rel="shortcut icon" href="../static/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../static/assets/images/favicon.ico" th:src="@{assets/images/favicon.ico}">
     <!-- Bootstrap -->
-    <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/assets/css/bootstrap.min.css" th:src="@{assets/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Fontawesome -->
-    <link href="../static/assets/css/font-awesome.css" rel="stylesheet">
+    <link href="../static/assets/css/font-awesome.css" th:src="@{assets/css/font-awesome.css}" rel="stylesheet">
     <!-- Icon Font -->
-    <link href="../static/assets/css/font/flaticon.css" rel="stylesheet">
+    <link href="../static/assets/css/font/flaticon.css" th:src="@{assets/css/font/flaticon.css}" rel="stylesheet">
     <!-- Swiper Slider -->
-    <link href="../static/assets/css/swiper.min.css" rel="stylesheet">
+    <link href="../static/assets/css/swiper.min.css" th:src="@{assets/css/swiper.min.css}" rel="stylesheet">
     <!-- Slick Slider -->
-    <link href="../static/assets/css/slick.css" rel="stylesheet">
+    <link href="../static/assets/css/slick.css" th:src="@{assets/css/slick.css}" rel="stylesheet">
     <!-- Range Slider -->
-    <link href="../static/assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="../static/assets/css/jquery-ui.css" th:src="@{assets/css/jquery-ui.css}" rel="stylesheet">
     <!-- magnific popup -->
-    <link href="../static/assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="../static/assets/css/magnific-popup.css" th:src="@{assets/css/magnific-popup.css}" rel="stylesheet">
     <!-- Nice Select -->
-    <link href="../static/assets/css/nice-select.css" rel="stylesheet">
+    <link href="../static/assets/css/nice-select.css" th:src="@{assets/css/nice-select.css}" rel="stylesheet">
     <!-- Animate -->
-    <link href="../static/assets/css/animate.css" rel="stylesheet">
+    <link href="../static/assets/css/animate.css" th:src="@{assets/css/animate.css}" rel="stylesheet">
     <!-- Custom Stylesheet -->
-    <link href="../static/assets/css/style.css" rel="stylesheet">
+    <link href="../static/assets/css/style.css" th:src="@{assets/css/style.css}" rel="stylesheet">
     <!-- Custom Responsive -->
-    <link href="../static/assets/css/responsive.css" rel="stylesheet">
+    <link href="../static/assets/css/responsive.css" th:src="@{assets/css/responsive.css}" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
@@ -46,7 +46,8 @@
 <body class="loader">
 <!-- preloader -->
 <div class="preloader">
-    <img src="../static/assets/images/pre-loader-1.svg" alt="img">
+    <img src="../static/assets/images/pre-loader-1.svg"
+         th:src="@{assets/images/pre-loader-1.svg}" alt="img">
 </div>
 <!-- preloader -->
 <!-- Start Header -->
@@ -81,16 +82,16 @@
                             </select>
                         </li>
                         <li>
-                            <a href="#" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" th:src="@{#}" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>
                         </li>
                         <li>
-                            <a href="#" class="text-custom-white"><i class="fab fa-twitter"></i></a>
+                            <a href="#" th:src="@{#}" class="text-custom-white"><i class="fab fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a href="#" class="text-custom-white"><i class="fab fa-instagram"></i></a>
+                            <a href="#" th:src="@{#}" class="text-custom-white"><i class="fab fa-instagram"></i></a>
                         </li>
                         <li>
-                            <a href="#" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#" th:src="@{#}" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -106,152 +107,152 @@
             <div class="col-12">
                 <div class="header">
                     <div class="logo">
-                        <a href="index.html">
-                            <img src="../static/assets/images/logo.png" class="logo" alt="Logo">
+                        <a href="/">
+                            <img src="../static/assets/images/logo.png" th:src="@{assets/images/logo.png}" class="logo" alt="Logo">
                         </a>
                     </div>
                     <div class="right-side">
                         <div class="navigation">
-<!--                            <div class="logo">-->
-<!--                                <a href="index.html">-->
-<!--                                    <img src="assets/images/logo.png" class="img-fluid image-fit" alt="Logo">-->
-<!--                                </a>-->
-<!--                            </div>-->
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="../static/assets/images/logo.png" th:src="@{assets/images/logo.png}" class="img-fluid image-fit" alt="Logo">
+                                </a>
+                            </div>
                             <nav>
                                 <ul class="custom main-menu">
                                     <li class="menu-item menu-item-has-children active">
                                         <a href="#" class="text-theme fs-14">О Компании</a>
                                         <ul class="custom sub-menu" style="width: 320px">
                                             <li class="menu-item">
-                                                <a href="https://t.me/litinguz" class="text-theme">Телеграм-канал!</a>
+                                                <a href="https://t.me/litinguz" th:src="@{//t.me/litinguz}" class="text-theme">Телеграм-канал!</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="homepage-2.html" class="text-theme">Исотрия института</a>
+                                                <a href="homepage-2.html" th:src="@{homepage-2.html}" class="text-theme">Исотрия института</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="structure.html" class="text-theme">Организационная структура</a>
+                                                <a href="structure.html" th:src="@{structure.html}" class="text-theme">Организационная структура</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="shortAboutUs.html" class="text-theme">Кратко о нас</a>
+                                                <a href="shortAboutUs.html" th:src="@{shortAboutUs.html}" class="text-theme">Кратко о нас</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="management.html" class="text-theme">Рукаводство</a>
+                                                <a href="managment.html" th:src="@{managment.html}" class="text-theme">Рукаводство</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="nablyudatelniySovet.html" class="text-theme">Наблюдателный совет</a>
+                                                <a href="nablyudatelniySovet.html" th:src="@{nablyudatelniySovet.html}" class="text-theme">Наблюдателный совет</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="revezionnayaKomessiya.html" class="text-theme">Ревезионная комиссия</a>
+                                                <a href="revezionnayaKomessiya.html" th:src="@{revezionnayaKomessiya.html}"  class="text-theme">Ревезионная комиссия</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="homepage-2.html" class="text-theme">Вакансии</a>
+                                                <a href="homepage-2.html" th:src="@{homepage-2.html}" class="text-theme">Вакансии</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="homepage-2.html" class="text-theme">Информация по долям участия</a>
+                                                <a href="homepage-2.html" th:src="@{homepage-2.html}" class="text-theme">Информация по долям участия</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="homepage-2.html" class="text-theme">Служба внутреннего аудита</a>
+                                                <a href="homepage-2.html" th:src="@{homepage-2.html}" class="text-theme">Служба внутреннего аудита</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="homepage-2.html" class="text-theme">Инвестицонная привлекательность</a>
+                                                <a href="homepage-2.html" th:src="@{homepage-2.html}" class="text-theme">Инвестицонная привлекательность</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="homepage-2.html" class="text-theme">СМИ о нас</a>
+                                                <a href="homepage-2.html" th:src="@{homepage-2.html}" class="text-theme">СМИ о нас</a>
                                             </li><li class="menu-item">
-                                            <a href="homepage-2.html" class="text-theme">Контакты</a>
+                                            <a href="homepage-2.html" th:src="@{homepage-2.html}" class="text-theme">Контакты</a>
                                         </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="about.html" class="text-theme fs-14">Наша Десятельность</a>
+                                        <a href="about.html" th:src="@{about.html}" class="text-theme fs-14">Наша Десятельность</a>
                                         <ul class="custom sub-menu" style="width: 500px">
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Научно-технологическая десятелность</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Научно-технологическая десятелность</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Проектно-техическая десятельность</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Проектно-техическая десятельность</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Экспертная организация по промышленной безопасности</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Экспертная организация по промышленной безопасности</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Нормативный документы</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Нормативный документы</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Патенты и свидетельства</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Патенты и свидетельства</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Фундаментальный и технический анализ</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Фундаментальный и технический анализ</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Реализованный проекты</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Реализованный проекты</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Новые направления десятельности</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Новые направления десятельности</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="#" class="text-theme fs-14">Акционерам и Инвестерам</a>
+                                        <a href="#" th:src="@{#}" class="text-theme fs-14">Акционерам и Инвестерам</a>
                                         <ul class="custom sub-menu" style="width: 510px">
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Соблюдай или объясняй(COMPANY OR EXPLAIN) </a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Соблюдай или объясняй(COMPANY OR EXPLAIN) </a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Проспект емиссии</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Проспект емиссии</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Структура акционерного капитала</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Структура акционерного капитала</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Устав общества и свидетельство</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Устав общества и свидетельство</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Положения Общества</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Положения Общества</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Существенные факты</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Существенные факты</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Бизнес-план</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Бизнес-план</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Финансовые отчеты</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Финансовые отчеты</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Итоги голосования акционеров</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Итоги голосования акционеров</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Сведения о начисленных и выплаченных дивидендах</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Сведения о начисленных и выплаченных дивидендах</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Аффилированные лица общества</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Аффилированные лица общества</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Стратегия развития</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Стратегия развития</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Заключения аудиторских организаций</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Заключения аудиторских организаций</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Благотворительность</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Благотворительность</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Принятие рекомендаций Кодекса Корпоративного Управления</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Принятие рекомендаций Кодекса Корпоративного Управления</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service.html" class="text-theme">Информация по вознаграждениям</a>
+                                                <a href="service.html" th:src="@{service.html}" class="text-theme">Информация по вознаграждениям</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service-detail.html" class="text-theme">Распределение прибыли</a>
+                                                <a href="service-detail.html" th:src="@{service-detail.html}" class="text-theme">Распределение прибыли</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="#" class="text-theme fs-14">Наука</a>
+                                        <a href="#" th:src="@{#}" class="text-theme fs-14">Наука</a>
                                         <ul class="custom sub-menu">
                                             <li class="menu-item menu-item-has-children">
-                                                <a href="#" class="text-theme">Научный Совет</a>
+                                                <a href="#" th:src="@{#}" class="text-theme">Научный Совет</a>
                                                 <ul class="custom sub-menu">
                                                     <li class="menu-item">
                                                         <a href="portfolio-grid.html" class="text-theme">Grid Style</a>
@@ -265,101 +266,101 @@
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children">
-                                                <a href="#" class="text-theme">Научно-технический совет</a>
+                                                <a href="#" th:src="@{#}" class="text-theme">Научно-технический совет</a>
                                                 <ul class="custom sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="portfolio-detail.html" class="text-theme">Full Width</a>
+                                                        <a href="portfolio-detail.html" th:src="@{portfolio-detail.html}" class="text-theme">Full Width</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="portfolio-detail-left-sidebar.html" class="text-theme">Left Sidebar</a>
+                                                        <a href="portfolio-detail-left-sidebar.html" th:src="@{portfolio-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="portfolio-detail-right-sidebar.html" class="text-theme">Right Sidebar</a>
+                                                        <a href="portfolio-detail-right-sidebar.html" th:src="@{portfolio-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="service-detail.html" class="text-theme">Распределение прибыли</a>
+                                                <a href="service-detail.html" th:src="@{service-detail.html}" class="text-theme">Распределение прибыли</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="#" class="text-theme fs-14">Повышение Квалификации</a>
+                                        <a href="#" th:src="@{#}" class="text-theme fs-14">Повышение Квалификации</a>
                                         <ul class="custom sub-menu" style="width: 340px">
                                             <li class="menu-item menu-item-has-children">
-                                                <a href="#" class="text-theme">Учебные курсы "NEFTGAZ-MALAKA</a>
+                                                <a href="#" th:src="@{#}" class="text-theme">Учебные курсы "NEFTGAZ-MALAKA</a>
                                                 <ul class="custom sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="shop-left.html" class="text-theme">Shop Left Sidebar</a>
+                                                        <a href="shop-left.html" th:src="@{shop-left.html}" class="text-theme">Shop Left Sidebar</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="shop-right.html" class="text-theme">Shop Right Sidebar</a>
+                                                        <a href="shop-right.html" th:src="@{shop-right.html}" class="text-theme">Shop Right Sidebar</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="shop-full-width.html" class="text-theme">Shop Full Width</a>
+                                                        <a href="shop-full-width.html" th:src="@{shop-full-width.html}" class="text-theme">Shop Full Width</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="shop-detail.html" class="text-theme">Shop Detail</a>
+                                                        <a href="shop-detail.html" th:src="@{shop-detail.html}" class="text-theme">Shop Detail</a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="404.html" class="text-theme">404</a>
+                                                <a href="404.html" th:src="@{404.html}" class="text-theme">404</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="coming-soon.html" class="text-theme">Coming Soon</a>
+                                                <a href="coming-soon.html" th:src="@{coming-soon.html}" class="text-theme">Coming Soon</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="gallery.html" class="text-theme">Gallery</a>
+                                                <a href="gallery.html" th:src="@{gallery.html}" class="text-theme">Gallery</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="faqs.html" class="text-theme">Faqs</a>
+                                                <a href="faqs.html" th:src="@{faqs.html}" class="text-theme">Faqs</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="contact-style-1.html" class="text-theme fs-14">Contact Style 1</a>
+                                                <a href="contact-style-1.html" th:src="@{contact-style-1.html}" class="text-theme fs-14">Contact Style 1</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="contact-style-2.html" class="text-theme fs-14">Contact Style 2</a>
+                                                <a href="contact-style-2.html" th:src="@{contact-style-2.html}" class="text-theme fs-14">Contact Style 2</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a href="heading-and-paragraphs.html" class="text-theme">Heading and Paragraphs</a>
+                                                <a href="heading-and-paragraphs.html" th:src="@{heading-and-paragraphs.html}" class="text-theme">Heading and Paragraphs</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="#" class="text-theme fs-14">Новости</a>
+                                        <a href="#" th:src="@{#}" class="text-theme fs-14">Новости</a>
                                         <ul class="custom sub-menu">
                                             <li class="menu-item menu-item-has-children">
-                                                <a href="#" class="text-theme">Новости</a>
+                                                <a href="#" th:src="@{#}" class="text-theme">Новости</a>
                                                 <ul class="custom sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="blog.html" class="text-theme">Grid Style</a>
+                                                        <a href="blog.html" th:src="@{blog.html}" class="text-theme">Grid Style</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="blog-left-sidebar.html" class="text-theme">Left Sidebar</a>
+                                                        <a href="blog-left-sidebar.html" th:src="@{blog-left-sidebar.html}" class="text-theme">Left Sidebar</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="blog-right-sidebar.html" class="text-theme">Right Sidebar</a>
+                                                        <a href="blog-right-sidebar.html" th:src="@{blog-right-sidebar.html}" class="text-theme">Right Sidebar</a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children">
-                                                <a href="#" class="text-theme">Конкурсы</a>
+                                                <a href="#" th:src="@{#}" class="text-theme">Конкурсы</a>
                                                 <ul class="custom sub-menu">
                                                     <li class="menu-item">
-                                                        <a href="blog-single.html" class="text-theme">Single</a>
+                                                        <a href="blog-single.html" th:src="@{blog-single.html}" class="text-theme">Single</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="blog-video.html" class="text-theme">Video</a>
+                                                        <a href="blog-video.html" th:src="@{blog-video.html}" class="text-theme">Video</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="blog-gallery.html" class="text-theme">Gallery</a>
+                                                        <a href="blog-gallery.html" th:src="@{blog-gallery.html}" class="text-theme">Gallery</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="blog-detail-left-sidebar.html" class="text-theme">Left Sidebar</a>
+                                                        <a href="blog-detail-left-sidebar.html" th:src="@{blog-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a href="blog-detail-right-sidebar.html" class="text-theme">Right Sidebar</a>
+                                                        <a href="blog-detail-right-sidebar.html" th:src="@{blog-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -367,23 +368,32 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <div class="social-media">
-                                <ul class="custom">
-                                    <li>
-                                        <a href="#" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-custom-white"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-custom-white"><i class="fab fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>
-                                    </li>
-                                </ul>
+                            <div class="logon-parent">
+                                <div class="logon">
+                                    <img src="../static/assets/images/iqnet.png" th:src="@{assets/images/iqnet.png}" class="logon-img" alt="Logo">
+                                </div>
+                                <div class="logon">
+                                    <img src="../static/assets/images/russian.png" th:src="@{assets/images/russian.png}" class="logon-img" alt="Logo">
+                                </div>
                             </div>
+                            <!--                            <div class="social-media">-->
+                            <!--                                <ul class="custom">-->
+                            <!--                                    <li>-->
+                            <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>-->
+                            <!--                                    </li>-->
+                            <!--                                    <li>-->
+                            <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-twitter"></i></a>-->
+                            <!--                                    </li>-->
+                            <!--                                    <li>-->
+                            <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-instagram"></i></a>-->
+                            <!--                                    </li>-->
+                            <!--                                    <li>-->
+                            <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>-->
+                            <!--                                    </li>-->
+                            <!--                                </ul>-->
+                            <!--                            </div>-->
                         </div>
+
                         <div class="hamburger-menu">
                             <div class="menu-btn">
                                 <span></span>
@@ -391,16 +401,6 @@
                                 <span></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="logon" style="margin-right:-45px">
-                        <a href="index.html">
-                            <img src="../static/assets/images/iqnet.png" class="logon" alt="Logo">
-                        </a>
-                    </div>
-                    <div class="logon">
-                        <a href="index.html">
-                            <img src="../static/assets/images/russian.png" class="logon" alt="Logo">
-                        </a>
                     </div>
                     <div class="right-side-2">
                         <div class="cta-btn">
@@ -421,7 +421,7 @@
     <div class="main-banner swiper-container p-relative">
         <div class="swiper-wrapper">
             <div class="swiper-slide slide-item">
-                <img src="../static/assets/images/birinchi.jpg" class="image-fit" alt="img">
+                <img src="../static/assets/images/birinchi.jpg" th:src="@{assets/images/birinchi.jpg}" class="image-fit" alt="img">
                 <div class="transform-center">
                     <div class="container">
                         <div class="row">
@@ -429,8 +429,8 @@
                                 <div class="content-wrapper">
                                     <h1 class="text-custom-white" style="font-size: 80px">Проектирование <span class="text-custom-blue">обьектов в</span> области нефти и газа</h1>
                                     <p class="text-custom-white mb-xl-40">Укрепление стабильности в обществе и обеспечение безопасности государства жизненно важны для Узбекистана.  В связи с этим, 12 января 2022 года для молодых специалистов АО «O‘ZLITINEFTGAZ» был проведен патриотический час на тему «Я –опора  Родины».</p>
-                                    <a href="#" class="btn-first btn-submit text-custom-white mr-2">ЧИТАТЬ ДАЛЕЕ</a>
-                                    <a href="#" class="btn-first btn-border">ЗАПИСАТЬСЯ НА ПРИЕМ</a>
+                                    <a href="#" th:src="@{#}" class="btn-first btn-submit text-custom-white mr-2">ЧИТАТЬ ДАЛЕЕ</a>
+                                    <a href="#" th:src="@{#}" class="btn-first btn-border">ЗАПИСАТЬСЯ НА ПРИЕМ</a>
                                 </div>
                             </div>
                         </div>
@@ -438,7 +438,7 @@
                 </div>
             </div>
             <div class="swiper-slide slide-item">
-                <img src="../static/assets/images/ikkinchi.jpg" class="image-fit" alt="img">
+                <img src="../static/assets/images/ikkinchi.jpg" th:src="@{assets/images/ikkinchi.jpg}" class="image-fit" alt="img">
                 <div class="transform-center">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -446,8 +446,8 @@
                                 <div class="content-wrapper text-center">
                                     <h1 class="text-custom-white" style="font-size: 80px">Повышения <span class="text-custom-blue"> специалистов </span>АО</h1>
                                     <p class="text-custom-white mb-xl-40">В целях совершенствования процесса оформления патентов на изобретения, полезные модели, повышения знаний и навыков работников АО “O‘ZLITINEFTGAZ” в сфере патентоведения, 6-8 января вступившего в силу нового 2022 года были организованы очередные   курсы повышения квалификации.</p>
-                                    <a href="#" class="btn-first btn-submit text-custom-white mr-1">ЧИТАТЬ ДАЛЕЕ</a>
-                                    <a href="#" class="btn-first btn-border ml-1">ЗАПИСАТЬСЯ НА ПРИЕМ</a>
+                                    <a href="#" th:src="@{#}" class="btn-first btn-submit text-custom-white mr-1">ЧИТАТЬ ДАЛЕЕ</a>
+                                    <a href="#" th:src="@{#}" class="btn-first btn-border ml-1">ЗАПИСАТЬСЯ НА ПРИЕМ</a>
                                 </div>
                             </div>
                         </div>
@@ -455,7 +455,7 @@
                 </div>
             </div>
             <div class="swiper-slide slide-item">
-                <img src="../static/assets/images/uchinchi.jpg" class="image-fit" alt="img">
+                <img src="../static/assets/images/uchinchi.jpg" th:src="@{assets/images/uchinchi.jpg}" class="image-fit" alt="img">
                 <div class="transform-center">
                     <div class="container">
                         <div class="row justify-content-end">
@@ -463,8 +463,8 @@
                                 <div class="content-wrapper text-right">
                                     <h1 class="text-custom-white" style="font-size: 80px">СОВЕТЫ <br><span class="text-custom-blue">ПРИ АО<br></span></h1>
                                     <p class="text-custom-white mb-xl-40">В целях совершенствования процесса оформления патентов на изобретения, полезные модели, повышения знаний и навыков работников АО “O‘ZLITINEFTGAZ” в сфере патентоведения, 6-8 января вступившего в силу нового 2022 года были организованы очередные   курсы повышения квалификации.</p>
-                                    <a href="#" class="btn-first btn-submit text-custom-white mr-2">ЧИТАТЬ ДАЛЕЕ</a>
-                                    <a href="#" class="btn-first btn-border">ЗАПИСАТЬСЯ НА ПРИЕМ</a>
+                                    <a href="#" th:src="@{#}" class="btn-first btn-submit text-custom-white mr-2">ЧИТАТЬ ДАЛЕЕ</a>
+                                    <a href="#" th:src="@{#}" class="btn-first btn-border">ЗАПИСАТЬСЯ НА ПРИЕМ</a>
                                 </div>
                             </div>
                         </div>
@@ -485,1504 +485,7 @@
     </div>
 </div>
 <!-- End Banner -->
-<!-- Start About us -->
-<section class="section-padding about-us">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-5 col-lg-6">
-                <div class="about-right-side p-relative mb-md-80">
-                    <img src="../static/assets/images/homepage-1/about-us-410x450.jpg" class="img-fluid full-width" alt="about">
-                    <div class="about-meta">
-                        <div class="meta-icon wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                            <img src="../static/assets/images/banner-icon-01.png" class="full-width" alt="img">
-                        </div>
-                        <div class="meta-text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                            <h4 class="text-custom-white no-margin fs-20">28 успешно завершенных проектов</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-7 col-lg-6 align-self-center">
-                <div class="about-left-side p-relative">
-                    <div class="section-header">
-                        <div class="section-heading">
-                            <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">О нас</h5>
-                            <h3 class="text-theme fw-700">Наша история</h3>
-                        </div>
-                    </div>
-                    <div class="about-desc">
-                        <p class="text-light-white mb-xl-20">
-                            Акционерное общество «O‘ZLITINEFTGAZ» - отраслевой головной научно-исследовательский и проектный институт Узбекистана, обеспечивающий комплексное научно-проектное сопровождение разработки и обустройства месторождений углеводородного сырья и строительство объектов нефтегазовой отрасли Узбекистана...<a href="about.html" class="text-custom-blue">Читать далее</a>
-                        </p>
-                    </div>
-                    <div class="company-progress">
-                        <div class="progress-item">
-                            <label class="text-custom-black fs-16 fw-600">Проектирование <span>70%</span></label>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped active">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <label class="text-custom-black fs-16 fw-600">Разработка <span>80%</span></label>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped active">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <label class="text-custom-black fs-16 fw-600">Автоматизация <span>75%</span></label>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped active">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End About us -->
-<!-- Start Our Category -->
-<section class="section-padding bg-light-white our-category">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-heading">
-                <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">НАШИ КАТЕГОРИИ</h5>
-                <h3 class="text-theme fw-700">Наша инженерная категория мирового уровня</h3>
-            </div>
-            <div class="section-description">
-                <p class="text-light-white">Проектные работы по полному циклу с разработкой и реализацией высокотехнологичной, качественной проектной документации.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane show active" id="home-maintainance">
-                        <div class="home-maintainance-slider categories-slider-box">
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service1.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Моделирование</h5>
-                                            <p class="text-light-white no-margin">Моделирование проекта</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service2.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Проектирование</h5>
-                                            <p class="text-light-white no-margin">Проектирование</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service3.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Научно-исследовательских</h5>
-                                            <p class="text-light-white no-margin">Научно-исследовательских</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service4.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Проектно-изыскательских работ</h5>
-                                            <p class="text-light-white no-margin">Проектно-изыскательских работ</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service5.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">техническое обслуживание</h5>
-                                            <p class="text-light-white no-margin">Техническое обслуживание здания</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add Arrows -->
-                        <div class="slider-btn">
-                            <div class="hm-button-next swiper-button-next">
-                                <span class="flaticon-arrow-1"></span>
-                            </div>
-                            <div class="hm-button-prev swiper-button-prev">
-                                <span class="flaticon-left"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="gen-construction">
-                        <div class="gen-construction-slider categories-slider-box">
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service6.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">техническое обслуживание</h5>
-                                            <p class="text-light-white no-margin">Техническое обслуживание здания</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service7.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Качество жизни</h5>
-                                            <p class="text-light-white no-margin">Качественные дома</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service1.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Эксперт Механический</h5>
-                                            <p class="text-light-white no-margin">Ремонт здания</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service2.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Apartment Design</h5>
-                                            <p class="text-light-white no-margin">Architecture Design</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service3.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Дом Строительство</h5>
-                                            <p class="text-light-white no-margin">Строительство зданий</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add Arrows -->
-                        <div class="slider-btn">
-                            <div class="gen-con-button-next swiper-button-next">
-                                <span class="flaticon-arrow-1"></span>
-                            </div>
-                            <div class="gen-con-button-prev swiper-button-prev">
-                                <span class="flaticon-left"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="restructured">
-                        <div class="restructured-slider categories-slider-box">
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service4.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Дом Строительство</h5>
-                                            <p class="text-light-white no-margin">Строительство зданий</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service5.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Дизайн квартиры</h5>
-                                            <p class="text-light-white no-margin">Архитектурный дизайн</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service6.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Эксперт Механический</h5>
-                                            <p class="text-light-white no-margin">Ремонт здания</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service7.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Качество жизни</h5>
-                                            <p class="text-light-white no-margin">Качественные дома</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service1.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">техническое обслуживание</h5>
-                                            <p class="text-light-white no-margin">Техническое обслуживание здания</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add Arrows -->
-                        <div class="slider-btn">
-                            <div class="res-button-next swiper-button-next">
-                                <span class="flaticon-arrow-1"></span>
-                            </div>
-                            <div class="res-button-prev swiper-button-prev">
-                                <span class="flaticon-left"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="project-management">
-                        <div class="project-management-slider categories-slider-box">
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service1.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Плоский</h5>
-                                            <p class="text-light-white no-margin">Управление проектом</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service2.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Качественные дома</h5>
-                                            <p class="text-light-white no-margin">Техническое обслуживание здания</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service3.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Плоский</h5>
-                                            <p class="text-light-white no-margin">Управление проектом</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service4.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Качественные дома</h5>
-                                            <p class="text-light-white no-margin">Техническое обслуживание здания</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="slide-item">
-                                <div class="categories-box animate-img">
-                                    <a href="#">
-                                        <img src="../static/assets/images/services/service5.jpg" class="image-fit" alt="img">
-                                        <div class="text-wrapper">
-                                            <h5 class="text-custom-blue no-margin fw-600 fs-20">Плоский</h5>
-                                            <p class="text-light-white no-margin">Управление проектом</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add Arrows -->
-                        <div class="slider-btn">
-                            <div class="pm-button-next swiper-button-next">
-                                <span class="flaticon-arrow-1"></span>
-                            </div>
-                            <div class="pm-button-prev swiper-button-prev">
-                                <span class="flaticon-left"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="categories-tabs">
-                    <ul class="custom nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active text-custom-black" data-toggle="tab" href="#home-maintainance"><span><img src="../static/assets/images/svg/home-main.svg" class="image-fit" alt="svg"></span> Обслуживание дома</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom-black" data-toggle="tab" href="#gen-construction"><span><img src="../static/assets/images/svg/gen-const.svg" class="image-fit" alt="svg"></span> Общее строительство</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom-black" data-toggle="tab" href="#restructured"><span><img src="../static/assets/images/svg/restructer.svg" class="image-fit" alt="svg"></span> Реструктурированный</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom-black" data-toggle="tab" href="#project-management"><span><img src="../static/assets/images/svg/project-m.svg" class="image-fit" alt="svg"></span> Управление проектом</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Our Category -->
-<!-- Start fullwidth sec -->
-<section class="full-services-sec bg-light-white">
-    <div class="container-fluid no-padding">
-        <div class="row no-gutters">
-            <div class="col-lg-6">
-                <div class="left-side animate-img full-height wow fadeInLeftBig">
-                    <img src="../static/assets/images/video1.jpg" class="image-fit" alt="img">
-                    <div class="service-text-2 bg-custom-black text-center">
-                        <h5 class="text-custom-white mb-1">Доверяют</h5>
-                        <h2 class="no-margin text-custom-white"><span class="count">15090</span><span>+</span></h2>
-                    </div>
-                    <div class="video-play-btn bg-custom-blue padding-10">
-                        <h4 class="text-custom-white no-margin fw-400">Play video</h4>
-                        <a href="https://www.youtube.com/watch?v=KH1pcNUTa6U" class="popup-video">
-                            <i class="fas fa-play"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="right-side custom-container wow fadeInRightBig">
-                    <div class="text-wrapper">
-                        <h2 class="text-custom-white fw-600">Мы обеспечиваем строительство сложных проблем и все виды услуг. Свяжитесь с нами сегодня для получения лучших услуг.</h2>
-                        <p class="text-custom-white mb-xl-20 fs-16 fw-600">Мы обеспечиваем строительство сложных проблем и все виды услуг. Свяжитесь с нами сегодня для получения лучших услуг.</p>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="right-side-box wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                                    <div class="icon">
-                                        <i class="flaticon-architecture-and-city"></i>
-                                    </div>
-                                    <h5 class="text-custom-white">Высококачественная конструкция</h5>
-                                    <p class="text-custom-white">это просто фиктивный текст полиграфической и наборной промышленности. </p>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="right-side-box wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
-                                    <div class="icon">
-                                        <i class="flaticon-360-degrees"></i>
-                                    </div>
-                                    <h5 class="text-custom-white">Вы можете узнать что угодно</h5>
-                                    <p class="text-custom-white">это просто фиктивный текст полиграфической и наборной промышленности. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn-first btn-border">Запланировать встречу</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End fullwidth sec -->
-<!-- Start portfolio -->
-<section class="section-padding">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-heading">
-                <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">НАШЕ ПОРТФОЛИО</h5>
-                <h3 class="text-theme fw-700">Взгляд на нашу работу</h3>
-            </div>
-            <div class="section-description">
-                <p class="text-light-white">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="swiper-container featured-property-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="property-grid-box">
-                                <div class="property-grid-wrapper">
-                                    <div class="property-img animate-img">
-                                        <a href="portfolio-detail.html">
-                                            <img src="../static/assets/images/portfolio/port1.jpg" class="img-fluid full-width" alt="#">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="property-grid-box">
-                                <div class="property-grid-wrapper">
-                                    <div class="property-img animate-img">
-                                        <a href="portfolio-detail.html">
-                                            <img src="../static/assets/images/portfolio/port2.jpg" class="img-fluid full-width" alt="#">
-                                        </a>
-                                    </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="property-grid-box">
-                                <div class="property-grid-wrapper">
-                                    <div class="property-img animate-img">
-                                        <a href="portfolio-detail.html">
-                                            <img src="../static/assets/images/portfolio/port3.jpg" class="img-fluid full-width" alt="#">
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="property-grid-box">
-                                <div class="property-grid-wrapper">
-                                    <div class="property-img animate-img">
-                                        <a href="portfolio-detail.html">
-                                            <img src="../static/assets/images/portfolio/port4.jpg" class="img-fluid full-width" alt="#">
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="property-grid-box">
-                                <div class="property-grid-wrapper">
-                                    <div class="property-img animate-img">
-                                        <a href="portfolio-detail.html">
-                                            <img src="../static/assets/images/portfolio/port5.jpg" class="img-fluid full-width" alt="#">
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add Arrows -->
-                <div class="slider-btn">
-                    <div class="featured-button-next swiper-button-next">
-                        <span class="flaticon-arrow-1"></span>
-                    </div>
-                    <div class="featured-button-prev swiper-button-prev">
-                        <span class="flaticon-left"></span>
-                    </div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="featured-pagination swiper-pagination"></div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End portfolio -->
-<!-- Start Our History -->
-<section class="section-padding bg-light-white our-history">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-heading">
-                <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">НАША ИСТОРИЯ</h5>
-                <h3 class="text-theme fw-700">Рекордный рубеж пройден</h3>
-            </div>
-            <div class="section-description">
-                <p class="text-light-white">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="video-box mb-xl-40">
-                    <div class="video_wrapper">
-                        <div class="videoPoster">
-                            <img src="../static/assets/images/img.jpg" class="image-fit" alt="#">
-                            <div class="video-inner video-btn-wrapper"> <a href="https://www.youtube.com/watch?v=KH1pcNUTa6U" class="text-custom-blue popup-video"><i class="far fa-play-circle"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-tabs">
-                    <ul class="nav nav-tabs custom p-relative mb-xl-40">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#start">1990 - 1999</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#setup">2000 - 2009</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#medium">2010 - 2022</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#advance">2022 - to</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content padding-20 bg-custom-white bx-wrapper">
-                        <div class="tab-pane fade show active" id="start">
-                            <div class="tab-inner">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="img-sec mb-md-40">
-                                            <img src="../static/assets/images/about-us/history3.jpg" class="full-width" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 align-self-center">
-                                        <div class="content-box">
-                                            <h4 class="text-custom-black fw-600">Компания начала</h4>
-                                            <p class="text-custom-blue mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности.</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-                                            <div class="list">
-                                                <ul class="custom">
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">СОТРУДНИКОВ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">ЗАВЕРШЕННЫХ ПРОЕКТОВ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">ВЫПОЛНЕННЫХ РАБОТ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">ЛЕТ РАБОТЫ</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="btn-first btn-submit">ЧИТАТЬ ДАЛЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="setup">
-                            <div class="tab-inner">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="img-sec mb-md-40">
-                                            <img src="../static/assets/images/about-us/history2.jpg" class="full-width" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 align-self-center">
-                                        <div class="content-box">
-                                            <h4 class="text-custom-black fw-600">Улучшенная компания</h4>
-                                            <p class="text-custom-blue mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности.</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.Это просто фиктивный текст полиграфической</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-                                            <div class="list">
-                                                <ul class="custom">
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">СОТРУДНИКО</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">ЗАВЕРШЕННЫХ ПРОЕКТОВ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">ВЫПОЛНЕННЫХ РАБОТ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">ЛЕТ РАБОТЫ</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="btn-first btn-submit">ЧИТАТЬ ДАЛЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="medium">
-                            <div class="tab-inner">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="img-sec mb-md-40">
-                                            <img src="../static/assets/images/about-us/history4.jpg" class="full-width" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 align-self-center">
-                                        <div class="content-box">
-                                            <h4 class="text-custom-black fw-600">Достижение результатов</h4>
-                                            <p class="text-custom-blue mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности.</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.Это просто фиктивный текст полиграфической</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-                                            <div class="list">
-                                                <ul class="custom">
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white"> СОТРУДНИКО</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white"> ЗАВЕРШЕННЫХ ПРОЕКТОВ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white"> ВЫПОЛНЕННЫХ РАБОТ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white"> ЛЕТ РАБОТЫ</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="btn-first btn-submit">ЧИТАТЬ ДАЛЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="advance">
-                            <div class="tab-inner">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="img-sec mb-md-40">
-                                            <img src="../static/assets/images/about-us/history1.jpg" class="full-width" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 align-self-center">
-                                        <div class="content-box">
-                                            <h4 class="text-custom-black fw-600">Откройте 3 новых филиала</h4>
-                                            <p class="text-custom-blue mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности.</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.Это просто фиктивный текст полиграфической</p>
-                                            <p class="text-light-white mb-xl-20">Это просто фиктивный текст полиграфической и наборной промышленности. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-                                            <div class="list">
-                                                <ul class="custom">
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white"> СОТРУДНИКО</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white"> ЗАВЕРШЕННЫХ ПРОЕКТОВ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white"> ВЫПОЛНЕННЫХ РАБОТ</span>
-                                                    </li>
-                                                    <li class="fs-14 text-custom-blue">
-                                                        <i class="fas fa-check"></i>
-                                                        <span class="text-light-white">ЛЕТ РАБОТЫ</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="btn-first btn-submit">ЧИТАТЬ ДАЛЕЕ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Our History -->
-<!-- Start fullwidth sec -->
-<section class="full-services-sec bg-light-white">
-    <div class="container-fluid no-padding">
-        <div class="row no-gutters">
-            <div class="col-lg-6">
-                <div class="right-side custom-container wow fadeInLeftBig">
-                    <div class="text-wrapper">
-                        <h2 class="text-custom-white fw-600">Мы обеспечиваем строительство сложных проблем и все виды услуг. Свяжитесь с нами сегодня для получения лучших услуг. </h2>
-                        <p class="text-custom-white mb-xl-20 fs-16 fw-600">сложных проблем и все виды услуг. Свяжитесь с нами сегодня для получения сложных проблем и все виды услуг. </p>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="right-side-box wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                                    <div class="icon">
-                                        <i class="flaticon-reuse"></i>
-                                    </div>
-                                    <h5 class="text-custom-white">Мы перечисляем ваши варианты по штатам</h5>
-                                    <p class="text-custom-white">Это просто текст-пустышка полиграфической и наборной индустрии. </p>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="right-side-box wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.5s">
-                                    <div class="icon">
-                                        <i class="flaticon-employee"></i>
-                                    </div>
-                                    <h5 class="text-custom-white">Контент и ресурсы, созданные экспертами</h5>
-                                    <p class="text-custom-white">Это просто текст-пустышка полиграфической и наборной индустрии. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn-first btn-border">Запланировать встречу</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="left-side animate-img full-height wow fadeInRightBig">
-                    <img src="../static/assets/images/video.jpg" class="image-fit" alt="img">
-                    <div class="service-text bg-custom-black">
-                        <div class="transform-center text-wrapper">
-                            <h5 class="text-custom-white">Мы открыты для возможностей!</h5>
-                            <p class="text-custom-white mb-xl-20">Это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-                            <div class="btns">
-                                <a href="#" class="small-btn">
-                                    <i class="flaticon-arrow-1"></i>
-                                </a>
-                                <a href="#" class="text-custom-white fs-14 fw-500 ml-2">Посмотреть наши работы</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End fullwidth sec -->
-<!-- Start Services -->
-<section class="section-padding our-services">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-heading">
-                <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">Our Services</h5>
-                <h3 class="text-theme fw-700">Мы охватили почти все услуги</h3>
-            </div>
-            <div class="section-description">
-                <p class="text-light-white">Это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="filter-gallery custom-tabs mb-xl-40">
-                    <ul class="custom">
-                        <li class="active" data-filter="*">
-                            <a href="#" class="text-custom-black">Все</a>
-                        </li>
-                        <li data-filter=".h-main">
-                            <a href="#" class="text-custom-black">Обслуживание дома</a>
-                        </li>
-                        <li data-filter=".genrl-cons">
-                            <a href="#" class="text-custom-black">Общее строительство</a>
-                        </li>
-                        <li data-filter=".restructured">
-                            <a href="#" class="text-custom-black">Реструктурированный</a>
-                        </li>
-                        <li data-filter=".pro-manage">
-                            <a href="#" class="text-custom-black">Управление проектом</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row gallery-grid">
-                    <div class="col-lg-3 col-md-6 filter-box h-main">
-                        <div class="service-item animate-img mb-xl-20">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service1.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Плоский</h5>
-                                    <p class="text-light-white no-margin">Обслуживание дома</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 filter-box genrl-cons">
-                        <div class="service-item animate-img mb-xl-20">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service2.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Отели</h5>
-                                    <p class="text-light-white no-margin">Общее строительство</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 filter-box restructured">
-                        <div class="service-item animate-img mb-xl-20">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service3.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Здания</h5>
-                                    <p class="text-light-white no-margin">Реструктурированный</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 filter-box pro-manage">
-                        <div class="service-item animate-img mb-xl-20">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service4.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Апартаменты</h5>
-                                    <p class="text-light-white no-margin">Управление проектом</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 filter-box h-main">
-                        <div class="service-item animate-img mb-md-20">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service5.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Школы</h5>
-                                    <p class="text-light-white no-margin">Обслуживание дома</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 filter-box genrl-cons">
-                        <div class="service-item animate-img mb-md-20">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service6.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Правительственный</h5>
-                                    <p class="text-light-white no-margin">Общее строительство</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 filter-box restructured">
-                        <div class="service-item animate-img mb-sm-20">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service7.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Стадионы</h5>
-                                    <p class="text-light-white no-margin">Реструктурированный</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 filter-box pro-manage">
-                        <div class="service-item animate-img">
-                            <a href="service-detail.html" tabindex="0">
-                                <img src="../static/assets/images/services/service8.jpg" class="image-fit" alt="img">
-                                <div class="text-wrapper">
-                                    <h5 class="text-custom-blue no-margin fw-600 fs-20">Больницы</h5>
-                                    <p class="text-light-white no-margin">Управление проектом</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Services -->
-<!-- Start team -->
-<section class="section-padding our-team arrow-shape-1">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-heading">
-                <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">Наша команда</h5>
-                <h3 class="text-custom-white fw-700">Познакомьтесь с нашей отмеченной командой</h3>
-            </div>
-            <div class="section-description">
-                <p class="text-custom-white">Это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="team-block p-relative mb-md-40 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                    <div class="inner-box bx-wrapper">
-                        <div class="image animate-img">
-                            <img src="../static/assets/images/homepage-1/agent-1.jpg" alt="img" class="full-width">
-                            <div class="overlay-box">
-                                <div class="overlay-inner p-relative full-height">
-                                    <ul class="team-social-box custom">
-                                        <li class="youtube"><a href="#" class="fab fa-youtube fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">youtube</span></li>
-                                        <li class="linkedin"><a href="#" class="fab fa-linkedin fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">linkedin</span></li>
-                                        <li class="facebook"><a href="#" class="fab fa-facebook-f fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">facebook</span></li>
-                                        <li class="twitter"><a href="#" class="fab fa-twitter fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">twitter</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lower-content p-relative text-center">
-                            <div class="icon-box fs-18 text-custom-white">
-                                <span class="fas fa-cogs"></span>
-                            </div>
-                            <h4><a href="#" class="fw-600 fs-20" tabindex="0">Tony Stark</a></h4>
-                            <p class="designation text-custom-white mb-xl-20">Агент</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="team-block p-relative mb-md-40 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">
-                    <div class="inner-box bx-wrapper">
-                        <div class="image animate-img">
-                            <img src="../static/assets/images/homepage-1/agent-2.jpg" alt="img" class="full-width">
-                            <div class="overlay-box">
-                                <div class="overlay-inner p-relative full-height">
-                                    <ul class="team-social-box custom">
-                                        <li class="youtube"><a href="#" class="fab fa-youtube fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">youtube</span></li>
-                                        <li class="linkedin"><a href="#" class="fab fa-linkedin fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">linkedin</span></li>
-                                        <li class="facebook"><a href="#" class="fab fa-facebook-f fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">facebook</span></li>
-                                        <li class="twitter"><a href="#" class="fab fa-twitter fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">twitter</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lower-content p-relative text-center">
-                            <div class="icon-box fs-18 text-custom-white">
-                                <span class="fas fa-cogs"></span>
-                            </div>
-                            <h4><a href="#" class="fw-600 fs-20" tabindex="0">Bob Haris</a></h4>
-                            <p class="designation text-custom-white mb-xl-20">Директор по продажам</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="team-block p-relative mb-sm-40 wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
-                    <div class="inner-box bx-wrapper">
-                        <div class="image animate-img">
-                            <img src="../static/assets/images/homepage-1/agent-3.jpg" alt="img" class="full-width">
-                            <div class="overlay-box">
-                                <div class="overlay-inner p-relative full-height">
-                                    <ul class="team-social-box custom">
-                                        <li class="youtube"><a href="#" class="fab fa-youtube fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">youtube</span></li>
-                                        <li class="linkedin"><a href="#" class="fab fa-linkedin fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">linkedin</span></li>
-                                        <li class="facebook"><a href="#" class="fab fa-facebook-f fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">facebook</span></li>
-                                        <li class="twitter"><a href="#" class="fab fa-twitter fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">twitter</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lower-content p-relative text-center">
-                            <div class="icon-box fs-18 text-custom-white">
-                                <span class="fas fa-cogs"></span>
-                            </div>
-                            <h4><a href="#" class="fw-600 fs-20" tabindex="0">Jim Karry</a></h4>
-                            <p class="designation text-custom-white mb-xl-20">Строитель</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="team-block p-relative wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="1.3s">
-                    <div class="inner-box bx-wrapper">
-                        <div class="image animate-img">
-                            <img src="../static/assets/images/homepage-1/agent-4.jpg" alt="img" class="full-width">
-                            <div class="overlay-box">
-                                <div class="overlay-inner p-relative full-height">
-                                    <ul class="team-social-box custom">
-                                        <li class="youtube"><a href="#" class="fab fa-youtube fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">youtube</span></li>
-                                        <li class="linkedin"><a href="#" class="fab fa-linkedin fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">linkedin</span></li>
-                                        <li class="facebook"><a href="#" class="fab fa-facebook-f fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">facebook</span></li>
-                                        <li class="twitter"><a href="#" class="fab fa-twitter fs-16" tabindex="0"></a><span class="social-name fs-12 text-custom-white">twitter</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lower-content p-relative text-center">
-                            <div class="icon-box fs-18 text-custom-white">
-                                <span class="fas fa-cogs"></span>
-                            </div>
-                            <h4><a href="#" class="fw-600 fs-20" tabindex="0">Alfred Jhon</a></h4>
-                            <p class="designation text-custom-white mb-xl-20">Директор по продажам</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End team -->
-<!-- Start Blog -->
-<section class="section-padding bg-light-white our_articles">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-heading">
-                <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">Наш блог</h5>
-                <h3 class="text-theme fw-700">Наш еженедельный строительный блог</h3>
-            </div>
-            <div class="section-description">
-                <p class="text-light-white">Это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="swiper-container blog-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <!-- article -->
-                            <article class="post">
-                                <div class="post-wrapper">
-                                    <div class="blog-img animate-img">
-                                        <a href="blog-single.html">
-                                            <img src="../static/assets/images/homepage-1/blog-1-350x300.jpg" class="img-fluid full-width" alt="blog">
-                                        </a>
-
-                                        <div class="post-video">
-                                            <div class="video-btn-wrapper">
-                                                <a href="https://www.youtube.com/watch?v=KH1pcNUTa6U" class="text-custom-blue popup-video"><i class="far fa-play-circle"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post-date">
-                                        <a href="blog-single.html">09 Dec 2022</a>
-                                    </div>
-                                    <div class="blog-meta bg-custom-white padding-20">
-                                        <div class="cat-box">
-                                            <div class="cats">
-                                                <a href="#">Офис</a>
-                                                <a href="#">Аренда</a>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title"><a href="blog-single.html" class="text-theme">Цвета спальни, о которых вы никогда не пожалеете</a></h2>
-                                        <p class="text-light-white no-margin">Это просто текст-пустышка полиграфической и наборной индустрии.</p>
-                                    </div>
-                                    <div class="blog-footer-meta bg-custom-white padding-20">
-                                        <div class="post-author">
-                                            <div class="author-img">
-                                                <a href="blog-single.html">
-                                                    <img src="../static/assets/images/homepage-1/admin-1-40x40.jpg" class="rounded-circle" alt="#">
-                                                </a>
-                                            </div>
-                                            <span class="text-theme fs-14">By <a href="blog-single.html" class="text-theme fw-500">Администратор</a></span>
-                                        </div>
-                                        <div class="post-link">
-                                            <a href="blog-single.html" class="link-btn text-custom-blue fw-600 fs-14">Читать далее</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- article -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- article -->
-                            <article class="post">
-                                <div class="post-wrapper">
-                                    <div class="blog-img animate-img">
-                                        <a href="blog-single.html">
-                                            <img src="../static/assets/images/homepage-1/blog-2-350x300.jpg" class="img-fluid full-width" alt="blog">
-                                        </a>
-                                    </div>
-                                    <div class="post-date">
-                                        <a href="blog-single.html">26 Oct 2022</a>
-                                    </div>
-                                    <div class="blog-meta bg-custom-white padding-20">
-                                        <div class="cat-box">
-                                            <div class="cats">
-                                                <a href="#">Офис</a>
-                                                <a href="#">Аренда</a>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title"><a href="blog-single.html" class="text-theme">Цвета спальни, о которых вы никогда не пожалеете</a></h2>
-                                        <p class="text-light-white no-margin">Это просто текст-пустышка полиграфической и наборной индустрии.</p>
-                                    </div>
-                                    <div class="blog-footer-meta bg-custom-white padding-20">
-                                        <div class="post-author">
-                                            <div class="author-img">
-                                                <a href="blog-single.html">
-                                                    <img src="../static/assets/images/homepage-1/admin-2-40x40.jpg" class="rounded-circle" alt="#">
-                                                </a>
-                                            </div>
-                                            <span class="text-theme fs-14">By <a href="blog-single.html" class="text-theme fw-500">Администратор</a></span>
-                                        </div>
-                                        <div class="post-link">
-                                            <a href="blog-single.html" class="link-btn text-custom-blue fw-600 fs-14">Читать далее</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- article -->
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- article -->
-                            <article class="post">
-                                <div class="post-wrapper">
-                                    <div class="blog-img animate-img">
-                                        <a href="blog-single.html">
-                                            <img src="../static/assets/images/homepage-1/blog-2-350x300.jpg" class="img-fluid full-width" alt="blog">
-                                        </a>
-                                    </div>
-                                    <div class="post-date">
-                                        <a href="blog-single.html">26 Oct 2022</a>
-                                    </div>
-                                    <div class="blog-meta bg-custom-white padding-20">
-                                        <div class="cat-box">
-                                            <div class="cats">
-                                                <a href="#">Офис</a>
-                                                <a href="#">Аренда</a>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title"><a href="blog-single.html" class="text-theme">Что делать за год до покупки квартиры</a></h2>
-                                        <p class="text-light-white no-margin">Это просто текст-пустышка полиграфической и наборной индустрии.</p>
-                                    </div>
-                                    <div class="blog-footer-meta bg-custom-white padding-20">
-                                        <div class="post-author">
-                                            <div class="author-img">
-                                                <a href="blog-single.html">
-                                                    <img src="../static/assets/images/homepage-1/admin-3-40x40.jpg" class="rounded-circle" alt="#">
-                                                </a>
-                                            </div>
-                                            <span class="text-theme fs-14">By <a href="blog-single.html" class="text-theme fw-500">Администратор</a></span>
-                                        </div>
-                                        <div class="post-link">
-                                            <a href="blog-single.html" class="link-btn text-custom-blue fw-600 fs-14">Читать далее</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- article -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Add Arrows -->
-                <div class="slider-btn">
-                    <div class="blog-button-next swiper-button-next">
-                        <span class="flaticon-arrow-1"></span>
-                    </div>
-                    <div class="blog-button-prev swiper-button-prev">
-                        <span class="flaticon-left"></span>
-                    </div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="blog-pagination swiper-pagination"></div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Blog -->
-
-<!-- start client area -->
-<section class="client p-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
-                <div class="section-title wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
-                    <h2>our customers love</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua saidul</p>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="slider-area position-relative">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <div class="client-img-slider swiper-container wow fadeInRight" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="image">
-                                            <img src="../static/assets/images/client1.png" alt="Client">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="image">
-                                            <img src="../static/assets/images/client2.png" alt="Client">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="client-slider swiper-container wow fadeInLeft" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <div class="swiper-wrapper">
-                                    <div class="item swiper-slide">
-                                        <div class="content">
-                                            <div class="author d-flex justify-content-between align-items-center">
-                                                <div class="name">
-                                                    <h5>Zachary Farmer</h5>
-                                                    <p class="designation">developer</p>
-                                                </div>
-                                                <ul class="rating d-flex">
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud exercitation ullamco laboris</p>
-                                            <img src="../static/assets/images/signature.png" alt="Signature">
-                                        </div>
-                                    </div>
-                                    <div class="item swiper-slide">
-                                        <div class="content">
-                                            <div class="author d-flex justify-content-between align-items-center">
-                                                <div class="name">
-                                                    <h5>dolor dale</h5>
-                                                    <p class="designation">developer</p>
-                                                </div>
-                                                <ul class="rating d-flex">
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud exercitation ullamco laboris</p>
-                                            <img src="../static/assets/images/signature.png" alt="Signature">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- slider navigation -->
-                    <div class="client-nav">
-                        <button class="client-button-prev">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="client-button-next">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end client area -->
-
-<!-- Start Faqs / Instagram -->
-<section class="section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="faqs-box mb-md-80">
-                    <div class="section-header">
-                        <div class="section-heading">
-                            <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">Часто задаваемые вопросы</h5>
-                            <h3 class="text-theme fw-700">Задайте несколько вопросов/ответов</h3>
-                        </div>
-                        <div class="section-description">
-                            <p class="text-light-white">Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-                        </div>
-                    </div>
-                    <div id="accordion" class="custom-accordion">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <button class="collapsebtn" data-toggle="collapse" data-target="#collapseOne">
-                                    Индивидуальный сервис.
-                                </button>
-                            </div>
-                            <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="text-theme no-margin">
-                                        Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <button class="collapsebtn collapsed" data-toggle="collapse" data-target="#collapseTwo">
-                                    Круглосуточная поддержка.
-                                </button>
-                            </div>
-                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="text-theme no-margin">
-                                        Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <button class="collapsebtn collapsed" data-toggle="collapse" data-target="#collapseThree">
-                                    Финансирование стало проще.
-                                </button>
-                            </div>
-                            <div id="collapseThree" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="text-theme no-margin">
-                                        Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFour">
-                                <button class="collapsebtn collapsed" data-toggle="collapse" data-target="#collapseFour">
-                                    Нам доверяют тысячи.
-                                </button>
-                            </div>
-                            <div id="collapseFour" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="text-theme no-margin">
-                                        Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFive">
-                                <button class="collapsebtn collapsed" data-toggle="collapse" data-target="#collapseFive">
-                                    Лучшая цена когда-либо
-                                </button>
-                            </div>
-                            <div id="collapseFive" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="text-theme no-margin">
-                                        Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingsix">
-                                <button class="collapsebtn collapsed" data-toggle="collapse" data-target="#collapsesix">
-                                    Лучшая цена когда-либо
-                                </button>
-                            </div>
-                            <div id="collapsesix" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p class="text-theme no-margin">
-                                        Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="schdule-box">
-                    <div class="left-side">
-                        <h6 class="text-custom-white">Запишитесь на бесплатную консультацию 24/7</h6>
-                        <h4 class="text-custom-white no-margin">(+347) 123 456 7890</h4>
-                    </div>
-                    <div class="right-side">
-                        <a href="#" class="btn-first btn-submit text-custom-white">Записаться на прием</a>
-                    </div>
-                </div>
-                <div class="instagram-sec">
-                    <h3><i class="fab fa-instagram"></i> Подписывайтесь на нас</h3>
-                    <div class="row clearfix">
-                        <div class="col-md-4 col-6">
-                            <div class="insta-img animate-img">
-                                <a href="#">
-                                    <img src="../static/assets/images/insta/insta3.jpg" class="image-fit" alt="img">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-6">
-                            <div class="insta-img animate-img">
-                                <a href="#">
-                                    <img src="../static/assets/images/insta/insta6.jpg" class="image-fit" alt="img">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-6">
-                            <div class="insta-img animate-img">
-                                <a href="#">
-                                    <img src="../static/assets/images/insta/insta4.jpg" class="image-fit" alt="img">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-6">
-                            <div class="insta-img animate-img">
-                                <a href="#">
-                                    <img src="../static/assets/images/insta/insta5.jpg" class="image-fit" alt="img">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-6">
-                            <div class="insta-img animate-img">
-                                <a href="#">
-                                    <img src="../static/assets/images/insta/insta2.jpg" class="image-fit" alt="img">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-6">
-                            <div class="insta-img animate-img">
-                                <a href="#">
-                                    <img src="../static/assets/images/insta/insta1.jpg" class="image-fit" alt="img">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Faqs / Instagram -->
-<!-- Start Newsletter -->
-<section class="section-padding bg-call-to-action">
-    <div class="overlay overlay-bg"></div>
-    <div class="container">
-        <div class="section-header">
-            <div class="section-heading">
-                <h5 class="text-custom-blue wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</h5>
-                <h3 class="text-custom-white fw-700">Получите бесплатную поддержку</h3>
-            </div>
-            <div class="section-description">
-                <p class="text-custom-white">Lorem Ipsum — это просто текст-пустышка полиграфической и наборной индустрии. Lorem Ipsum был стандартным фиктивным текстом в отрасли.</p>
-            </div>
-        </div>
-        <div class="row consult-form">
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="form-group">
-                    <input type="text" name="#" class="form-control form-control-custom" placeholder="Твое имя">
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="form-group">
-                    <input type="email" name="#" class="form-control form-control-custom" placeholder="Ваш адрес электронной почты">
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="form-group">
-                    <input type="text" name="#" class="form-control form-control-custom" placeholder="Твой номер телефона">
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="form-group">
-                    <select class="form-control form-control-custom custom-select">
-                        <option>Выберите свой город</option>
-                        <option>NewYork</option>
-                        <option>Milan</option>
-                        <option>Florida</option>
-                        <option>Miami</option>
-                        <option>Havana</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="form-group">
-                    <select class="form-control form-control-custom custom-select">
-                        <option>Здание</option>
-                        <option>Hotel</option>
-                        <option>Flyover</option>
-                        <option>Society</option>
-                        <option>Others</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="form-group">
-                    <button type="submit" class="btn-first btn-submit full-width btn-height">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Newsletter -->
 <!-- Start Footer -->
 <footer class="bg-custom-black section-padding footer">
     <div class="container">
