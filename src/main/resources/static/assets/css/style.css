@@ -4852,18 +4852,18 @@ background-position: center;
     padding: 15px;
     border-radius: 3px;
 }
-.product-detail .details .product-variant p{
+.product-detail .details .product-variant h6{
     display: table;
     margin: 0 0 8px;
 }
-.product-detail .details .product-variant p label{
+.product-detail .details .product-variant h6 label{
     display: table-cell;
-    width: 130px;
+    width: 180px;
     font-weight: 600;
     font-size: 14px;
     color: #000;
 }
-.product-detail .details .product-variant p .stock-green{
+.product-detail .details .product-variant h6 .stock-green{
     color: #19be05;
 }
 .product-detail .listing-detail-heading .social-media ul {
