@@ -111,6 +111,8 @@ public class Category extends AbsEntityInteger {
 
 
     public CategoryDto toDto(){
+        System.out.println("PARENT:");
+        System.out.println(parent);
         return CategoryDto
                 .builder()
                 .id(getId())
@@ -123,9 +125,9 @@ public class Category extends AbsEntityInteger {
                 .description_oz(description_oz)
                 .description_ru(description_ru)
                 .description_uz(description_uz)
-//                .parent(parent!=null?parent.toDto():null)
+                .parent(parent!=null?new CategoryDto(parent):null)
                 .type(type)
-                .children(children!=null?children.stream().map(Category::toDto).collect(Collectors.toList()):new ArrayList<>())
+                .children(children!=null&&children.size()>0?children.stream().map(Category::toDto).collect(Collectors.toList()):new ArrayList<>())
                 .build();
     }
 
@@ -150,6 +152,24 @@ public class Category extends AbsEntityInteger {
         public CategoryType type;
         public List<CategoryDto> children=new ArrayList<>();
 
+
+        public CategoryDto(Category category){
+            this.id=category.getId();
+            this.createdAt=category.getCreatedAt();
+            this.name_oz=category.getName_oz();
+            this.name_uz=category.getName_uz();
+            this.name_en=category.getName_en();
+            this.name_ru=category.getName_ru();
+
+            this.description_oz=category.getDescription_oz();
+            this.description_uz=category.getDescription_uz();
+            this.description_en=category.getDescription_en();
+            this.description_ru=category.getDescription_ru();
+            this.type=category.getType();
+            if (category.getParent()!=null){
+                this.parent=category.getParent().toDto();
+            }
+        }
 
         public Category toEntity(){
             return Category

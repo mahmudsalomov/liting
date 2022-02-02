@@ -8,12 +8,14 @@ function all() {
             let categories=response.data.object;
 
             if (categories.length!=0){
+                // console.log(categories)
+                // console.log(menuBuilder(categories))
                 document.getElementById("navbar-root").innerHTML=menuBuilder(categories);
             }
 
-
-            console.log(response)
-            console.log(categories)
+            //
+            // console.log(response)
+            // console.log(categories)
         })
         .catch(function (error) {
             console.log(error)
@@ -29,11 +31,11 @@ function menuBuilder(categories) {
 
         if (c.children.length>0){
             out="<li class=\"menu-item menu-item-has-children active\">" +
-                "<a href=\"#\" class=\"text-theme fs-14\">"+c.name_uz+
+                "<a href=\"#\" class=\"text-theme fs-14\">"+c.name_oz+
                 "<span class=\"arrow\"></span>"+"</a>"+menuContentBuilder(c.children);
         }else {
             out="<li class=\"menu-item menu-item-has-children active\">" +
-                "<a href=\"#\" class=\"text-theme fs-14\">"+c.name_uz+
+                "<a href=\"#\" class=\"text-theme fs-14\">"+c.name_oz+
                 "</a>"+menuContentBuilder(c.children);
         }
 
@@ -53,12 +55,12 @@ function menuContentBuilder(value) {
 
         if (v.children.length>0){
             out+="<li class=\"menu-item menu-item-has-children\">\n" +
-                "        <a href=\"#\" class=\"text-theme\">"+v.name_uz+"" +
+                "        <a href=\"#\" class=\"text-theme\">"+v.name_oz+"" +
                 "<span class=\"arrow\"></span>"+
                 "</a>\n"+menuContentBuilder(v.children)
         }else {
             out+="<li class=\"menu-item\">\n" +
-                "        <a href=\"#\" class=\"text-theme\">"+v.name_uz+"</a>\n";
+                "        <a href=\"#\" class=\"text-theme\">"+v.name_oz+"</a>\n";
         }
         out+="</li>";
         result+=out;

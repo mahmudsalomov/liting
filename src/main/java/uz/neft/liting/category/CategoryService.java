@@ -86,7 +86,8 @@ public class CategoryService {
 
     public ApiResponse all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy){
         try {
-            Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
+//            Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
+            Pageable pg = PageRequest.of(page.orElse(0), 1000, Sort.Direction.DESC, sortBy.orElse("createdAt"));
             Page<Category> all = categoryRepository.findAll(pg);
             return Payload.ok(all.getContent().stream().map(Category::toDto).collect(Collectors.toList()));
         }catch (Exception e){
