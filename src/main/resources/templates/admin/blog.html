@@ -329,6 +329,9 @@
                 <h1 class="h3 mb-2 text-gray-800">Kategoriya</h1>
                 <!--                    <p class="mb-2">Пользователи в системе</p>-->
 
+                <div id="summernote">Hello Summernote</div>
+
+
                 <!--// Add User button and modal-->
                 <div>
                     <section class="ftco-section pb-2">
@@ -636,6 +639,9 @@
         </div>
     </div>
 </div>
+
+
+
 <!-- axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -664,7 +670,13 @@
 <script src="../../static/admin/js/demo/chart-area-demo.js" th:src="@{/admin/js/demo/chart-area-demo.js}"></script>
 <script src="../../static/admin/js/demo/chart-pie-demo.js" th:src="@{/admin/js/demo/chart-pie-demo.js}"></script>
 
-
+<link href="../../static/summernote/summernote-bs5.css" rel="stylesheet">
+<script src="../../static/summernote/summernote-bs5.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+</script>
 <script>
     $(document).ready(function () {
         $("#exampleModalCenter").on('hide.bs.modal', function () {

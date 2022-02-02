@@ -42,6 +42,7 @@ public class CategoryService {
             if (dto.parent!=null){
                 Optional<Category> parent = categoryRepository.findById(dto.parent.id);
 
+//                if (parent)
 //            parent.ifPresent(value -> {
 //                category.setParent(value);
 //                category.setParent_id(value.getId());
@@ -122,6 +123,17 @@ public class CategoryService {
 
             if (categoryDto.parent!=null){
                 Optional<Category> parent = categoryRepository.findById(categoryDto.parent.id);
+
+                // Otasi o'zi bilan bir xil bo'lib qolsa
+                if (parent.equals(category)) return Payload.badRequest("Category must not be equal to parent category");
+
+                // Otasi o'zini bola kategoriyasiga teng bo'lmasligi kerak
+                if (parent.isPresent()&&category.get().getChildren().size()!=0){
+                    for (Category ch:category.get().getChildren()) {
+                        if(ch.getId()==parent.get().getId()) return Payload.badRequest("Parent must not equal himself to child category");
+                    }
+                }
+
                 if (parent.isPresent()) edit.setParent(parent.get());
                 else edit.setParent(null);
             }

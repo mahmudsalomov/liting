@@ -74,7 +74,10 @@ function addOrEditCategory(event) {
             resetAndCloseForm();
         })
         .catch(function (error) {
-            console.log(error);
+            // console.log(error);
+            // console.log(error.data);
+            resetAndCloseForm();
+            alert(error.response.data.message)
         });
 }
 
