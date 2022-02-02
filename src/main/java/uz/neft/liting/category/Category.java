@@ -78,6 +78,7 @@ public class Category extends AbsEntityInteger {
     }
 
     @NotNull
+    @Column(unique = true)
     private String name_oz;
     private String name_uz;
     private String name_en;
