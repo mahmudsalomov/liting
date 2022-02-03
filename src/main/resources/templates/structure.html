@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 
 <!-- Mirrored from slidesigma.com/themes/html/cali-constructions/homepage-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jan 2022 11:26:26 GMT -->
@@ -11,43 +11,43 @@
     <meta name="description" content="#">
     <title>Nyc Builder |  Homepage</title>
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/assets/images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/assets/images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/assets/images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="../static/assets/images/favicon.ico">
-    <link rel="shortcut icon" href="../static/assets/images/favicon.ico" th:src="@{assets/images/favicon.ico}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/assets/images/favicon.ico" th:href="@{assets/images/favicon.ico}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/assets/images/favicon.ico" th:href="@{assets/images/favicon.ico}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/assets/images/favicon.ico" th:href="@{assets/images/favicon.ico}">
+    <link rel="apple-touch-icon-precomposed" href="../static/assets/images/favicon.ico" th:href="@{assets/images/favicon.ico}">
+    <link rel="shortcut icon" href="../static/assets/images/favicon.ico" th:src="@{/assets/images/favicon.ico}">
     <!-- Bootstrap -->
-    <link href="../static/assets/css/bootstrap.min.css" th:href="@{assets/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="../static/assets/css/bootstrap.min.css" th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Fontawesome -->
-    <link href="../static/assets/css/font-awesome.css" th:href="@{assets/css/font-awesome.css}" rel="stylesheet">
+    <link href="../static/assets/css/font-awesome.css" th:href="@{/assets/css/font-awesome.css}" rel="stylesheet">
     <!-- Icon Font -->
-    <link href="../static/assets/css/font/flaticon.css" th:href="@{assets/css/font/flaticon.css}" rel="stylesheet">
+    <link href="../static/assets/css/font/flaticon.css" th:href="@{/assets/css/font/flaticon.css}" rel="stylesheet">
     <!-- Swiper Slider -->
-    <link href="../static/assets/css/swiper.min.css" th:href="@{assets/css/swiper.min.css}" rel="stylesheet">
+    <link href="../static/assets/css/swiper.min.css" th:href="@{/assets/css/swiper.min.css}" rel="stylesheet">
     <!-- Slick Slider -->
-    <link href="../static/assets/css/slick.css" th:href="@{assets/css/slick.css}" rel="stylesheet">
+    <link href="../static/assets/css/slick.css" th:href="@{/assets/css/slick.css}" rel="stylesheet">
     <!-- Range Slider -->
-    <link href="../static/assets/css/jquery-ui.css" th:href="@{assets/css/jquery-ui.css}" rel="stylesheet">
+    <link href="../static/assets/css/jquery-ui.css" th:href="@{/assets/css/jquery-ui.css}" rel="stylesheet">
     <!-- Nice Select -->
-    <link href="../static/assets/css/nice-select.css" th:href="@{assets/css/nice-select.css}" rel="stylesheet">
+    <link href="../static/assets/css/nice-select.css" th:href="@{/assets/css/nice-select.css}" rel="stylesheet">
     <!-- Animate -->
-    <link href="../static/assets/css/animate.css" th:href="@{assets/css/animate.css}" rel="stylesheet">
+    <link href="../static/assets/css/animate.css" th:href="@{/assets/css/animate.css}" rel="stylesheet">
     <!-- Custom Stylesheet -->
-    <link href="../static/assets/css/style.css" th:href="@{assets/css/style.css}" rel="stylesheet">
+    <link href="../static/assets/css/style.css" th:href="@{/assets/css/style.css}" rel="stylesheet">
     <!-- Custom Responsive -->
-    <link href="../static/assets/css/responsive.css" th:href="@{assets/css/responsive.css}" rel="stylesheet">
+    <link href="../static/assets/css/responsive.css" th:href="@{/assets/css/responsive.css}" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
     <!-- place -->
     <!-- font-awesome -->
-    <link rel="stylesheet" href="/static/assets/css/all.min.css" th:href="@{assets/css/all.min.css}">
+    <link rel="stylesheet" href="/static/assets/css/all.min.css" th:href="@{/assets/css/all.min.css}">
 
 </head>
 <body class="loader">
     <!-- preloader -->
     <div class="preloader">
-        <img src="../static/assets/images/pre-loader-1.svg" th:src="@{assets/images/pre-loader-1.svg}" alt="img">
+        <img src="../static/assets/images/pre-loader-1.svg" th:src="@{/assets/images/pre-loader-1.svg}" alt="img">
     </div>
     <!-- preloader -->
     <!-- Start Header -->
@@ -66,7 +66,7 @@
                                 <a href="mailto:info@domain.com" class="text-custom-white"><i class="fas fa-envelope text-custom-blue"></i> liting@liting.uz</a>
                             </li>
                             <li>
-                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fas fa-map-marker-alt text-custom-blue"></i>Узбекистан, г.Ташкент, ул. Т.Шевченко, 2</a>
+                                <a href="#" th:href="@{/#}" class="text-custom-white"><i class="fas fa-map-marker-alt text-custom-blue"></i>Узбекистан, г.Ташкент, ул. Т.Шевченко, 2</a>
                             </li>
                         </ul>
                     </div>
@@ -82,16 +82,16 @@
                                 </select>
                             </li>
                             <li>
-                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" th:href="@{/#}" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <li>
-                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-twitter"></i></a>
+                                <a href="#" th:href="@{/#}" class="text-custom-white"><i class="fab fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-instagram"></i></a>
+                                <a href="#" th:href="@{/#}" class="text-custom-white"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li>
-                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="#" th:href="@{/#}" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -107,152 +107,152 @@
                 <div class="col-12">
                     <div class="header">
                         <div class="logo">
-                            <a href="index.html" th:href="@{index}">
-                                <img src="../static/assets/images/logo.png" th:src="@{assets/images/logo.png}" class="logo" alt="Logo">
+                            <a href="index.html" th:href="@{/}">
+                                <img src="../static/assets/images/logo.png" th:src="@{/assets/images/logo.png}" class="logo" alt="Logo">
                             </a>
                         </div>
                         <div class="right-side">
                             <div class="navigation">
                                 <div class="logo">
-                                    <a href="/">
-                                        <img src="../static/assets/images/logo.png" th:src="@{assets/images/logo.png}" class="img-fluid image-fit" alt="Logo">
+                                    <a href="/" th:href="@{/index}">
+                                        <img src="../static/assets/images/logo.png" th:src="@{/assets/images/logo.png}" class="img-fluid image-fit" alt="Logo">
                                     </a>
                                 </div>
                                 <nav>
                                     <ul class="custom main-menu" id="navbar-root">
                                         <li class="menu-item menu-item-has-children active">
-                                            <a href="#" th:href="@{#}" class="text-theme fs-14">О Компании</a>
+                                            <a href="#" th:href="@{/#}" class="text-theme fs-14">О Компании</a>
                                             <ul class="custom sub-menu" style="width: 320px">
                                                 <li class="menu-item">
-                                                    <a href="https://t.me/litinguz" th:href="@{//t.me/litinguz}" class="text-theme">Телеграм-канал!</a>
+                                                    <a href="https://t.me/litinguz" th:href="@{///t.me/litinguz}" class="text-theme">Телеграм-канал!</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Исотрия института</a>
+                                                    <a href="homepage-2.html" th:href="@{/homepage-2}" class="text-theme">Исотрия института</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="structure.html" th:href="@{structure}" class="text-theme">Организационная структура</a>
+                                                    <a href="structure.html" th:href="@{/structure}" class="text-theme">Организационная структура</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="shortAboutUs.html" th:href="@{shortAboutUs}" class="text-theme">Кратко о нас</a>
+                                                    <a href="shortAboutUs.html" th:href="@{/shortAboutUs}" class="text-theme">Кратко о нас</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="managment.html" th:href="@{managment}" class="text-theme">Рукаводство</a>
+                                                    <a href="managment.html" th:href="@{/managment}" class="text-theme">Рукаводство</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="nablyudatelniySovet.html" th:href="@{nablyudatelniySovet}" class="text-theme">Наблюдателный совет</a>
+                                                    <a href="nablyudatelniySovet.html" th:href="@{/nablyudatelniySovet}" class="text-theme">Наблюдателный совет</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="revezionnayaKomessiya.html" th:href="@{revezionnayaKomessiya}"  class="text-theme">Ревезионная комиссия</a>
+                                                    <a href="revezionnayaKomessiya.html" th:href="@{/revezionnayaKomessiya}"  class="text-theme">Ревезионная комиссия</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Вакансии</a>
+                                                    <a href="homepage-2.html" th:href="@{/homepage-2}" class="text-theme">Вакансии</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Информация по долям участия</a>
+                                                    <a href="homepage-2.html" th:href="@{/homepage-2}" class="text-theme">Информация по долям участия</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Служба внутреннего аудита</a>
+                                                    <a href="homepage-2.html" th:href="@{/homepage-2}" class="text-theme">Служба внутреннего аудита</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Инвестицонная привлекательность</a>
+                                                    <a href="homepage-2.html" th:href="@{/homepage-2}" class="text-theme">Инвестицонная привлекательность</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">СМИ о нас</a>
+                                                    <a href="homepage-2.html" th:href="@{/homepage-2}" class="text-theme">СМИ о нас</a>
                                                 </li><li class="menu-item">
-                                                <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Контакты</a>
+                                                <a href="homepage-2.html" th:href="@{/homepage-2}" class="text-theme">Контакты</a>
                                             </li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children">
-                                            <a href="about.html" th:href="@{about}" class="text-theme fs-14">Наша Десятельность</a>
+                                            <a href="about.html" th:href="@{/about}" class="text-theme fs-14">Наша Десятельность</a>
                                             <ul class="custom sub-menu" style="width: 500px">
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Научно-технологическая десятелность</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Научно-технологическая десятелность</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Проектно-техическая десятельность</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Проектно-техическая десятельность</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Экспертная организация по промышленной безопасности</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Экспертная организация по промышленной безопасности</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Нормативный документы</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Нормативный документы</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Патенты и свидетельства</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Патенты и свидетельства</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Фундаментальный и технический анализ</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Фундаментальный и технический анализ</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Реализованный проекты</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Реализованный проекты</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Новые направления десятельности</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Новые направления десятельности</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children">
-                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Акционерам и Инвестерам</a>
+                                            <a href="#" th:href="@{/#}" class="text-theme fs-14">Акционерам и Инвестерам</a>
                                             <ul class="custom sub-menu" style="width: 510px">
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Соблюдай или объясняй(COMPANY OR EXPLAIN) </a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Соблюдай или объясняй(COMPANY OR EXPLAIN) </a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Проспект емиссии</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Проспект емиссии</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Структура акционерного капитала</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Структура акционерного капитала</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Устав общества и свидетельство</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Устав общества и свидетельство</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Положения Общества</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Положения Общества</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Существенные факты</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Существенные факты</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Бизнес-план</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Бизнес-план</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Финансовые отчеты</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Финансовые отчеты</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Итоги голосования акционеров</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Итоги голосования акционеров</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Сведения о начисленных и выплаченных дивидендах</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Сведения о начисленных и выплаченных дивидендах</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Аффилированные лица общества</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Аффилированные лица общества</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Стратегия развития</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Стратегия развития</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Заключения аудиторских организаций</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Заключения аудиторских организаций</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Благотворительность</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Благотворительность</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service}" class="text-theme">Принятие рекомендаций Кодекса Корпоративного Управления</a>
+                                                    <a href="service.html" th:href="@{/service}" class="text-theme">Принятие рекомендаций Кодекса Корпоративного Управления</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service.html" th:href="@{service.ml}" class="text-theme">Информация по вознаграждениям</a>
+                                                    <a href="service.html" th:href="@{/service.ml}" class="text-theme">Информация по вознаграждениям</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service-detail.html" th:href="@{service-detail}" class="text-theme">Распределение прибыли</a>
+                                                    <a href="service-detail.html" th:href="@{/service-detail}" class="text-theme">Распределение прибыли</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children">
-                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Наука</a>
+                                            <a href="#" th:href="@{/#}" class="text-theme fs-14">Наука</a>
                                             <ul class="custom sub-menu">
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="#" th:href="@{#}" class="text-theme">Научный Совет</a>
+                                                    <a href="#" th:href="@{/#}" class="text-theme">Научный Совет</a>
                                                     <ul class="custom sub-menu">
                                                         <li class="menu-item">
                                                             <a href="portfolio-grid.html" class="text-theme">Grid Style</a>
@@ -266,101 +266,101 @@
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="#" th:href="@{#}" class="text-theme">Научно-технический совет</a>
+                                                    <a href="#" th:href="@{/#}" class="text-theme">Научно-технический совет</a>
                                                     <ul class="custom sub-menu">
                                                         <li class="menu-item">
-                                                            <a href="portfolio-detail.html" th:href="@{portfolio-detail.html}" class="text-theme">Full Width</a>
+                                                            <a href="portfolio-detail.html" th:href="@{/portfolio-detail.html}" class="text-theme">Full Width</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="portfolio-detail-left-sidebar.html" th:href="@{portfolio-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
+                                                            <a href="portfolio-detail-left-sidebar.html" th:href="@{/portfolio-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="portfolio-detail-right-sidebar.html" th:href="@{portfolio-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
+                                                            <a href="portfolio-detail-right-sidebar.html" th:href="@{/portfolio-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
                                                         </li>
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="service-detail.html" th:href="@{service-detail.html}" class="text-theme">Распределение прибыли</a>
+                                                    <a href="service-detail.html" th:href="@{/service-detail.html}" class="text-theme">Распределение прибыли</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children">
-                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Повышение Квалификации</a>
+                                            <a href="#" th:href="@{/#}" class="text-theme fs-14">Повышение Квалификации</a>
                                             <ul class="custom sub-menu" style="width: 340px">
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="#" th:href="@{#}" class="text-theme">Учебные курсы "NEFTGAZ-MALAKA</a>
+                                                    <a href="#" th:href="@{/#}" class="text-theme">Учебные курсы "NEFTGAZ-MALAKA</a>
                                                     <ul class="custom sub-menu">
                                                         <li class="menu-item">
-                                                            <a href="shop-left.html" th:href="@{shop-left.html}" class="text-theme">Shop Left Sidebar</a>
+                                                            <a href="shop-left.html" th:href="@{/shop-left.html}" class="text-theme">Shop Left Sidebar</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="shop-right.html" th:href="@{shop-right.html}" class="text-theme">Shop Right Sidebar</a>
+                                                            <a href="shop-right.html" th:href="@{/shop-right.html}" class="text-theme">Shop Right Sidebar</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="shop-full-width.html" th:href="@{shop-full-width.html}" class="text-theme">Shop Full Width</a>
+                                                            <a href="shop-full-width.html" th:href="@{/shop-full-width.html}" class="text-theme">Shop Full Width</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="shop-detail.html" th:href="@{shop-detail.html}" class="text-theme">Shop Detail</a>
+                                                            <a href="shop-detail.html" th:href="@{/shop-detail.html}" class="text-theme">Shop Detail</a>
                                                         </li>
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="404.html" th:href="@{404.html}" class="text-theme">404</a>
+                                                    <a href="404.html" th:href="@{/404.html}" class="text-theme">404</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="coming-soon.html" th:href="@{coming-soon.html}" class="text-theme">Coming Soon</a>
+                                                    <a href="coming-soon.html" th:href="@{/coming-soon.html}" class="text-theme">Coming Soon</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="gallery.html" th:href="@{gallery.html}" class="text-theme">Gallery</a>
+                                                    <a href="gallery.html" th:href="@{/gallery.html}" class="text-theme">Gallery</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="faqs.html" th:href="@{faqs.html}" class="text-theme">Faqs</a>
+                                                    <a href="faqs.html" th:href="@{/faqs.html}" class="text-theme">Faqs</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="contact-style-1.html" th:href="@{contact-style-1.html}" class="text-theme fs-14">Contact Style 1</a>
+                                                    <a href="contact-style-1.html" th:href="@{/contact-style-1.html}" class="text-theme fs-14">Contact Style 1</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="contact-style-2.html" th:href="@{contact-style-2.html}" class="text-theme fs-14">Contact Style 2</a>
+                                                    <a href="contact-style-2.html" th:href="@{/contact-style-2.html}" class="text-theme fs-14">Contact Style 2</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="heading-and-paragraphs.html" th:href="@{heading-and-paragraphs.html}" class="text-theme">Heading and Paragraphs</a>
+                                                    <a href="heading-and-paragraphs.html" th:href="@{/heading-and-paragraphs.html}" class="text-theme">Heading and Paragraphs</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children">
-                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Новости</a>
+                                            <a href="#" th:href="@{/#}" class="text-theme fs-14">Новости</a>
                                             <ul class="custom sub-menu">
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="#" th:href="@{#}" class="text-theme">Новости</a>
+                                                    <a href="#" th:href="@{/#}" class="text-theme">Новости</a>
                                                     <ul class="custom sub-menu">
                                                         <li class="menu-item">
-                                                            <a href="blog.html" th:href="@{blog.html}" class="text-theme">Grid Style</a>
+                                                            <a href="blog.html" th:href="@{/blog.html}" class="text-theme">Grid Style</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="blog-left-sidebar.html" th:href="@{blog-left-sidebar.html}" class="text-theme">Left Sidebar</a>
+                                                            <a href="blog-left-sidebar.html" th:href="@{/blog-left-sidebar.html}" class="text-theme">Left Sidebar</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="blog-right-sidebar.html" th:href="@{blog-right-sidebar.html}" class="text-theme">Right Sidebar</a>
+                                                            <a href="blog-right-sidebar.html" th:href="@{/blog-right-sidebar.html}" class="text-theme">Right Sidebar</a>
                                                         </li>
                                                     </ul>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="#" th:href="@{#}" class="text-theme">Конкурсы</a>
+                                                    <a href="#" th:href="@{/#}" class="text-theme">Конкурсы</a>
                                                     <ul class="custom sub-menu">
                                                         <li class="menu-item">
-                                                            <a href="blog-single.html" th:href="@{blog-single.html}" class="text-theme">Single</a>
+                                                            <a href="blog-single.html" th:href="@{/blog-single.html}" class="text-theme">Single</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="blog-video.html" th:href="@{blog-video.html}" class="text-theme">Video</a>
+                                                            <a href="blog-video.html" th:href="@{/blog-video.html}" class="text-theme">Video</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="blog-gallery.html" th:href="@{blog-gallery.html}" class="text-theme">Gallery</a>
+                                                            <a href="blog-gallery.html" th:href="@{/blog-gallery.html}" class="text-theme">Gallery</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="blog-detail-left-sidebar.html" th:href="@{blog-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
+                                                            <a href="blog-detail-left-sidebar.html" th:href="@{/blog-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
                                                         </li>
                                                         <li class="menu-item">
-                                                            <a href="blog-detail-right-sidebar.html" th:href="@{blog-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
+                                                            <a href="blog-detail-right-sidebar.html" th:href="@{/blog-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -370,10 +370,10 @@
                                 </nav>
                                 <div class="logon-parent">
                                     <div class="logon">
-                                        <img src="../static/assets/images/iqnet.png" th:src="@{assets/images/iqnet.png}" class="logon-img" alt="Logo">
+                                        <img src="../static/assets/images/iqnet.png" th:src="@{/assets/images/iqnet.png}" class="logon-img" alt="Logo">
                                     </div>
                                     <div class="logon">
-                                        <img src="../static/assets/images/russian.png" th:src="@{assets/images/russian.png}" class="logon-img" alt="Logo">
+                                        <img src="../static/assets/images/russian.png" th:src="@{/assets/images/russian.png}" class="logon-img" alt="Logo">
                                     </div>
                                 </div>
                                 <!--                            <div class="social-media">-->
@@ -458,7 +458,7 @@
                         </div>
                         <ul class="custom links">
                             <li>
-                                <a href="index.html" class="text-custom-white">Home</a>
+                                <a href="index-2.html" class="text-custom-white">Home</a>
                             </li>
                             <li>
                                 <a href="about.html" class="text-custom-white">About Us</a>
@@ -483,32 +483,44 @@
                         <ul class="custom insta-feed">
                             <li class="insta-item animate-img">
                                 <a href="#">
-                                    <img src="../static/assets/images/homepage-1/insta-1-80x80.jpg" class="img-fluid full-width" alt="insta">
+                                    <img src="../static/assets/images/homepage-1/insta-1-80x80.jpg"
+                                         th:src="@{assets/images/homepage-1/insta-1-80x80.jpg}"
+                                         class="img-fluid full-width" alt="insta">
                                 </a>
                             </li>
                             <li class="insta-item animate-img">
                                 <a href="#">
-                                    <img src="../static/assets/images/homepage-1/insta-2-80x80.jpg" class="img-fluid full-width" alt="insta">
+                                    <img src="../static/assets/images/homepage-1/insta-2-80x80.jpg"
+                                         th:src="@{assets/images/homepage-1/insta-2-80x80.jpg}"
+                                         class="img-fluid full-width" alt="insta">
                                 </a>
                             </li>
                             <li class="insta-item animate-img">
                                 <a href="#">
-                                    <img src="../static/assets/images/homepage-1/insta-3-80x80.jpg" class="img-fluid full-width" alt="insta">
+                                    <img src="../static/assets/images/homepage-1/insta-3-80x80.jpg"
+                                         th:src="@{assets/images/homepage-1/insta-3-80x80.jpg}"
+                                         class="img-fluid full-width" alt="insta">
                                 </a>
                             </li>
                             <li class="insta-item animate-img">
                                 <a href="#">
-                                    <img src="../static/assets/images/homepage-1/insta-4-80x80.jpg" class="img-fluid full-width" alt="insta">
+                                    <img src="../static/assets/images/homepage-1/insta-4-80x80.jpg"
+                                         th:src="@{assets/images/homepage-1/insta-4-80x80.jpg}"
+                                         class="img-fluid full-width" alt="insta">
                                 </a>
                             </li>
                             <li class="insta-item animate-img">
                                 <a href="#">
-                                    <img src="../static/assets/images/homepage-1/insta-5-80x80.jpg" class="img-fluid full-width" alt="insta">
+                                    <img src="../static/assets/images/homepage-1/insta-5-80x80.jpg"
+                                         th:src="@{assets/images/homepage-1/insta-5-80x80.jpg}"
+                                         class="img-fluid full-width" alt="insta">
                                 </a>
                             </li>
                             <li class="insta-item animate-img">
                                 <a href="#">
-                                    <img src="../static/assets/images/homepage-1/insta-6-80x80.jpg" class="img-fluid full-width" alt="insta">
+                                    <img src="../static/assets/images/homepage-1/insta-6-80x80.jpg"
+                                         th:src="@{assets/images/homepage-1/insta-6-80x80.jpg}"
+                                         class="img-fluid full-width" alt="insta">
                                 </a>
                             </li>
                         </ul>
@@ -554,9 +566,9 @@
                         </div>
                         <div class="social-media">
                             <ul class="custom social-media">
-                              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                              <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -585,6 +597,7 @@
         </div>
     </div>
     <!-- End Footer -->
+
     <div id="back-top" class="back-top">
       <a href="#top"><i class="fas fa-chevron-up"></i><span class="d-block">Top</span></a>
     </div>
@@ -692,34 +705,71 @@
       </div>
     </div>
     <!-- Place all Scripts Here -->
+    <!-- Place all Scripts Here -->
     <!-- jQuery -->
-    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/jquery.min.js" th:src="@{assets/js/jquery.min.js}"></script>
     <!-- Popper -->
-    <script src="../static/assets/js/popper.min.js"></script>
+    <script src="../static/assets/js/popper.min.js" th:src="@{assets/js/popper.min.js}"></script>
     <!-- Bootstrap -->
-    <script src="../static/assets/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/bootstrap.min.js" th:src="@{assets/js/bootstrap.min.js}"></script>
     <!-- Range Slider -->
-    <script src="../static/assets/js/jquery-ui.js"></script>
+    <script src="../static/assets/js/jquery-ui.js" th:src="@{assets/js/jquery-ui.js}"></script>
     <!-- Swiper Slider -->
-    <script src="../static/assets/js/swiper.min.js"></script>
+    <script src="../static/assets/js/swiper.min.js" th:src="@{assets/js/swiper.min.js}"></script>
     <!-- Slick Slider -->
-    <script src="../static/assets/js/slick.min.js"></script>
-    <!-- Jarallex -->
-    <script src="../static/assets/js/jarallax.min.js"></script>
-    <script src="../static/assets/js/jarallax-video.min.js"></script>
+    <script src="../static/assets/js/slick.min.js" th:src="@{assets/js/slick.min.js}"></script>
     <!-- Nice Select -->
-    <script src="../static/assets/js/jquery.nice-select.js"></script>
+    <script src="../static/assets/js/jquery.nice-select.js" th:href="@{assets/js/jquery.nice-select.js}"></script>
     <!-- Isotope Gallery -->
-    <script src="../static/assets/js/isotope.pkgd.min.js"></script>
+    <script src="../static/assets/js/isotope.pkgd.min.js" th:src="@{assets/js/isotope.pkgd.min.js}"></script>
     <!-- magnific popup -->
-    <script src="../static/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../static/assets/js/jquery.magnific-popup.min.js" th:src="@{assets/js/jquery.magnific-popup.min.js}"></script>
     <!-- Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
     <!-- Wow js -->
-    <script src="../static/assets/js/wow.min.js"></script>
+    <script src="../static/assets/js/wow.min.js" th:src="@{assets/js/wow.min.js}"></script>
     <!-- Custom Js -->
-    <script src="../static/assets/js/custom.js"></script>
+    <script src="../static/assets/js/custom.js" th:src="@{assets/js/custom.js}"></script>
     <!-- /Place all Scripts Here -->
+    <!-- jquery -->
+    <script src="../static/assets/plugins/jquery-3.4.1.min.js" th:src="@{assets/plugins/jquery-3.4.1.min.js}"></script>
+
+    <!-- bootstrap -->
+    <script src="../static/assets/js/bootstrap.bundle.min.js" th:src="@{assets/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- menu -->
+    <script src="../static/assets/plugins/menu.min.js" th:src="@{assets/plugins/menu.min.js}"></script>
+
+    <!-- venobox -->
+    <script src="../static/assets/plugins/venobox.min.js" th:src="@{assets/plugins/venobox.min.js}"></script>
+
+    <!-- megnific popup -->
+    <script src="../static/assets/plugins/jquery.magnific-popup.min.js" th:src="@{assets/plugins/jquery.magnific-popup.min.js}"></script>
+
+    <!-- mixitup popup -->
+    <script src="../static/assets/plugins/mixitup.min.js" th:src="@{assets/plugins/mixitup.min.js}"></script>
+
+    <!-- swiper slider -->
+    <script src="../static/assets/plugins/swiper-bundle.min.js" th:src="@{assets/plugins/swiper-bundle.min.js}"></script>
+
+    <!-- counterup -->
+    <script src="../static/assets/plugins/waypoint.js" th:src="@{assets/plugins/waypoint.js}"></script>
+    <script src="../static/assets/plugins/jquery.counterup.min.js" th:src="@{assets/plugins/jquery.counterup.min.js}"></script>
+
+    <!-- scroll animation -->
+    <script src="../static/assets/plugins/wow.min.js" th:src="@{assets/plugins/wow.min.js}"></script>
+
+    <!-- Google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>
+
+    <!-- script -->
+    <script src="../static/assets/js/script.js" th:src="@{assets/js/script.js}"></script>
+
+
+    <!-- navbar script -->
+    <script src="../static/assets/js/navbar.js" th:src="@{assets/js/navbar.js}">
+        all()
+    </script>
 </body>
 
 <!-- Mirrored from slidesigma.com/themes/html/cali-constructions/homepage-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jan 2022 11:26:32 GMT -->

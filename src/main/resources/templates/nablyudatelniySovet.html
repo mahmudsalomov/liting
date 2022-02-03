@@ -422,7 +422,135 @@
 
 
 
-<!-- Start footer-->
+<!-- Start Footer -->
+<footer class="bg-custom-black section-padding footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-box mb-md-80">
+                    <div class="footer-heading">
+                        <h4 class="text-custom-white no-margin">Useful Links</h4>
+                    </div>
+                    <ul class="custom links">
+                        <li>
+                            <a href="index-2.html" class="text-custom-white">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="text-custom-white">About Us</a>
+                        </li>
+                        <li>
+                            <a href="blog.html" class="text-custom-white">Blog</a>
+                        </li>
+                        <li>
+                            <a href="faqs.html" class="text-custom-white">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="contact-style-1.html" class="text-custom-white">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-box mb-md-80">
+                    <div class="footer-heading">
+                        <h4 class="text-custom-white no-margin">Insta Feeds</h4>
+                    </div>
+                    <ul class="custom insta-feed">
+                        <li class="insta-item animate-img">
+                            <a href="#">
+                                <img src="../static/assets/images/homepage-1/insta-1-80x80.jpg"
+                                     th:src="@{assets/images/homepage-1/insta-1-80x80.jpg}"
+                                     class="img-fluid full-width" alt="insta">
+                            </a>
+                        </li>
+                        <li class="insta-item animate-img">
+                            <a href="#">
+                                <img src="../static/assets/images/homepage-1/insta-2-80x80.jpg"
+                                     th:src="@{assets/images/homepage-1/insta-2-80x80.jpg}"
+                                     class="img-fluid full-width" alt="insta">
+                            </a>
+                        </li>
+                        <li class="insta-item animate-img">
+                            <a href="#">
+                                <img src="../static/assets/images/homepage-1/insta-3-80x80.jpg"
+                                     th:src="@{assets/images/homepage-1/insta-3-80x80.jpg}"
+                                     class="img-fluid full-width" alt="insta">
+                            </a>
+                        </li>
+                        <li class="insta-item animate-img">
+                            <a href="#">
+                                <img src="../static/assets/images/homepage-1/insta-4-80x80.jpg"
+                                     th:src="@{assets/images/homepage-1/insta-4-80x80.jpg}"
+                                     class="img-fluid full-width" alt="insta">
+                            </a>
+                        </li>
+                        <li class="insta-item animate-img">
+                            <a href="#">
+                                <img src="../static/assets/images/homepage-1/insta-5-80x80.jpg"
+                                     th:src="@{assets/images/homepage-1/insta-5-80x80.jpg}"
+                                     class="img-fluid full-width" alt="insta">
+                            </a>
+                        </li>
+                        <li class="insta-item animate-img">
+                            <a href="#">
+                                <img src="../static/assets/images/homepage-1/insta-6-80x80.jpg"
+                                     th:src="@{assets/images/homepage-1/insta-6-80x80.jpg}"
+                                     class="img-fluid full-width" alt="insta">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-box mb-xs-80">
+                    <div class="footer-heading">
+                        <h4 class="text-custom-white no-margin">Quick Links</h4>
+                    </div>
+                    <ul class="custom links">
+                        <li>
+                            <a href="portfolio-detail.html" class="text-custom-white">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="cost-calculator.html" class="text-custom-white">Cost Calculator</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html" class="text-custom-white">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="404.html" class="text-custom-white">404</a>
+                        </li>
+                        <li>
+                            <a href="coming-soon.html" class="text-custom-white">Coming Soon</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-box">
+                    <div class="footer-heading">
+                        <h4 class="text-custom-white no-margin">News Letter</h4>
+                    </div>
+                    <div class="newsletter">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-custom" placeholder="Email Id">
+                            </div>
+                            <button class="btn-first btn-submit btn-height" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="social-media">
+                        <ul class="custom social-media">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 <div class="copyright">
     <div class="container">
         <div class="row">
@@ -448,18 +576,69 @@
     <a href="#top"><i class="fas fa-chevron-up"></i><span class="d-block">Top</span></a>
 </div>
 <!-- jQuery -->
-<script src="../static/assets/js/jquery.min.js"></script>
+<script src="../static/assets/js/jquery.min.js" th:src="@{assets/js/jquery.min.js}"></script>
 <!-- Popper -->
-<script src="../static/assets/js/popper.min.js"></script>
+<script src="../static/assets/js/popper.min.js" th:src="@{assets/js/popper.min.js}"></script>
 <!-- Bootstrap -->
-<script src="../static/assets/js/bootstrap.min.js"></script>
+<script src="../static/assets/js/bootstrap.min.js" th:src="@{assets/js/bootstrap.min.js}"></script>
 <!-- Range Slider -->
-<script src="../static/assets/js/jquery-ui.js"></script>
+<script src="../static/assets/js/jquery-ui.js" th:src="@{assets/js/jquery-ui.js}"></script>
+<!-- Swiper Slider -->
+<script src="../static/assets/js/swiper.min.js" th:src="@{assets/js/swiper.min.js}"></script>
+<!-- Slick Slider -->
+<script src="../static/assets/js/slick.min.js" th:src="@{assets/js/slick.min.js}"></script>
+<!-- Nice Select -->
+<script src="../static/assets/js/jquery.nice-select.js" th:href="@{assets/js/jquery.nice-select.js}"></script>
+<!-- Isotope Gallery -->
+<script src="../static/assets/js/isotope.pkgd.min.js" th:src="@{assets/js/isotope.pkgd.min.js}"></script>
+<!-- magnific popup -->
+<script src="../static/assets/js/jquery.magnific-popup.min.js" th:src="@{assets/js/jquery.magnific-popup.min.js}"></script>
+<!-- Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
 <!-- Wow js -->
-<script src="../static/assets/js/wow.min.js"></script>
+<script src="../static/assets/js/wow.min.js" th:src="@{assets/js/wow.min.js}"></script>
 <!-- Custom Js -->
-<script src="../static/assets/js/custom.js"></script>
+<script src="../static/assets/js/custom.js" th:src="@{assets/js/custom.js}"></script>
+<!-- /Place all Scripts Here -->
+<!-- jquery -->
+<script src="../static/assets/plugins/jquery-3.4.1.min.js" th:src="@{assets/plugins/jquery-3.4.1.min.js}"></script>
 
+<!-- bootstrap -->
+<script src="../static/assets/js/bootstrap.bundle.min.js" th:src="@{assets/js/bootstrap.bundle.min.js}"></script>
+
+<!-- menu -->
+<script src="../static/assets/plugins/menu.min.js" th:src="@{assets/plugins/menu.min.js}"></script>
+
+<!-- venobox -->
+<script src="../static/assets/plugins/venobox.min.js" th:src="@{assets/plugins/venobox.min.js}"></script>
+
+<!-- megnific popup -->
+<script src="../static/assets/plugins/jquery.magnific-popup.min.js" th:src="@{assets/plugins/jquery.magnific-popup.min.js}"></script>
+
+<!-- mixitup popup -->
+<script src="../static/assets/plugins/mixitup.min.js" th:src="@{assets/plugins/mixitup.min.js}"></script>
+
+<!-- swiper slider -->
+<script src="../static/assets/plugins/swiper-bundle.min.js" th:src="@{assets/plugins/swiper-bundle.min.js}"></script>
+
+<!-- counterup -->
+<script src="../static/assets/plugins/waypoint.js" th:src="@{assets/plugins/waypoint.js}"></script>
+<script src="../static/assets/plugins/jquery.counterup.min.js" th:src="@{assets/plugins/jquery.counterup.min.js}"></script>
+
+<!-- scroll animation -->
+<script src="../static/assets/plugins/wow.min.js" th:src="@{assets/plugins/wow.min.js}"></script>
+
+<!-- Google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>
+
+<!-- script -->
+<script src="../static/assets/js/script.js" th:src="@{assets/js/script.js}"></script>
+
+
+<!-- navbar script -->
+<script src="../static/assets/js/navbar.js" th:src="@{assets/js/navbar.js}">
+    all()
+</script>
 </body>
 
 <!-- Mirrored from slidesigma.com/themes/html/cali-constructions/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jan 2022 11:25:36 GMT -->
