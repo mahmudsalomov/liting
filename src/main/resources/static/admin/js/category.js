@@ -112,9 +112,24 @@ function deleteCategory(id) {
         })
 }
 
-function check(parent) {
-    if (parent==null) return "Yo'q";
-    else return parent.name_oz;
+function check(category) {
+
+    for (let i = 0; i <categoryList.length ; i++) {
+        for (let j = 0; j <categoryList[i].children.length ; j++) {
+            if (categoryList[i].children[j].id==category.id){
+                return categoryList[i].name_oz
+            }
+
+        }
+
+    }
+
+    return "Yo'q";
+
+
+
+    // if (parent==null) return "Yo'q";
+    // else return parent.name_oz;
 }
 
 function createViewCategoryTable(categories) {
@@ -126,7 +141,8 @@ function createViewCategoryTable(categories) {
             "                                    <td>" + category.name_uz + "</td>\n" +
             "                                    <td>" + category.name_ru + "</td>\n" +
             "                                    <td>" + category.name_ru + "</td>\n" +
-            "                                    <td>" + check(category.parent) + "</td>\n" +
+            "                                    <td>" + check(category) + "</td>\n" +
+            // "                                    <td>" + check(category.parent) + "</td>\n" +
             // "                                    <td>" + "Parent name" + "</td>\n" +
             "                                    <td><button data-target=\"#exampleModalCenter\" data-toggle=\"modal\" class='btn btn-success mt-1' id='btn-edit-user' value='" + category.id + "' onclick='editCategory(this.value)'>Tahrirlash</button>\n" +
             "                                    <button class='btn btn-danger ml-2 mt-1' id='btn-edit-user' value='" + category.id + "' onclick='deleteCategory(this.value)'>O'chirish</button></td>\n" +

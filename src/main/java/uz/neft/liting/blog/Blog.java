@@ -7,6 +7,7 @@ import uz.neft.liting.template.AbsEntityInteger;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 public class Blog extends AbsEntityInteger {
 
     @Builder
-    public Blog(Integer id, Timestamp createdAt, boolean deleted, @NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, Set<Category> categories, Set<FileStorage> files, BlogType type) {
+    public Blog(Integer id, Timestamp createdAt, boolean deleted, @NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, FileStorage mainImage, Set<Category> categories, Set<FileStorage> files, BlogType type) {
         super(id, createdAt, deleted);
         this.title_oz = title_oz;
         this.title_uz = title_uz;
@@ -33,28 +34,29 @@ public class Blog extends AbsEntityInteger {
         this.text_uz = text_uz;
         this.text_en = text_en;
         this.text_ru = text_ru;
+        this.mainImage=mainImage;
         this.categories = categories;
         this.files = files;
         this.type = type;
     }
 
-    public Blog(@NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, Set<Category> categories, Set<FileStorage> files, BlogType type) {
-        this.title_oz = title_oz;
-        this.title_uz = title_uz;
-        this.title_en = title_en;
-        this.title_ru = title_ru;
-        this.anons_oz = anons_oz;
-        this.anons_uz = anons_uz;
-        this.anons_en = anons_en;
-        this.anons_ru = anons_ru;
-        this.text_oz = text_oz;
-        this.text_uz = text_uz;
-        this.text_en = text_en;
-        this.text_ru = text_ru;
-        this.categories = categories;
-        this.files = files;
-        this.type = type;
-    }
+//    public Blog(@NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, Set<Category> categories, Set<FileStorage> files, BlogType type) {
+//        this.title_oz = title_oz;
+//        this.title_uz = title_uz;
+//        this.title_en = title_en;
+//        this.title_ru = title_ru;
+//        this.anons_oz = anons_oz;
+//        this.anons_uz = anons_uz;
+//        this.anons_en = anons_en;
+//        this.anons_ru = anons_ru;
+//        this.text_oz = text_oz;
+//        this.text_uz = text_uz;
+//        this.text_en = text_en;
+//        this.text_ru = text_ru;
+//        this.categories = categories;
+//        this.files = files;
+//        this.type = type;
+//    }
 
     @NonNull
     private String title_oz;
@@ -83,6 +85,9 @@ public class Blog extends AbsEntityInteger {
     @Column(columnDefinition = "text")
     private String text_ru;
 
+    @ManyToOne
+    private FileStorage mainImage;
+
     @ManyToMany
     private Set<Category> categories;
 
@@ -92,72 +97,33 @@ public class Blog extends AbsEntityInteger {
     @Enumerated(EnumType.STRING)
     private BlogType type;
 
+    @Enumerated(EnumType.STRING)
+    private BlogStatus status;
+
+    @Column(nullable = false)
+    private boolean isMainSlider=false;
 
 
-
-    public BlogDto toDto(){
-        return BlogDto
-                .builder()
-                .title_en(title_en)
-                .title_uz(title_uz)
-                .title_ru(title_ru)
-                .title_oz(title_oz)
-                .anons_en(anons_en)
-                .anons_oz(anons_oz)
-                .anons_ru(anons_ru)
-                .anons_uz(anons_uz)
-                .text_en(text_en)
-                .text_ru(text_ru)
-                .text_oz(text_oz)
-                .text_uz(text_uz)
-                .categories(categories.stream().map(Category::toDto).collect(Collectors.toSet()))
-                .files(files)
-                .type(type)
-                .build();
+    public Blog edit(Blog dto){
+        title_en=dto.title_en;
+        title_uz=dto.title_uz;
+        title_oz=dto.title_oz;
+        title_ru=dto.title_ru;
+        anons_en=dto.anons_en;
+        anons_oz=dto.anons_oz;
+        anons_uz=dto.anons_uz;
+        anons_ru=dto.anons_ru;
+        text_en=dto.text_en;
+        text_oz=dto.text_oz;
+        text_uz=dto.text_uz;
+        text_ru=dto.text_ru;
+        mainImage=dto.mainImage;
+        files=dto.files;
+        type=dto.type;
+        return this;
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    public static class BlogDto{
-        public Integer id;
-        public Timestamp createdAt;
-        public String title_oz;
-        public String title_uz;
-        public String title_en;
-        public String title_ru;
-        public String anons_oz;
-        public String anons_uz;
-        public String anons_en;
-        public String anons_ru;
-        public String text_oz;
-        public String text_uz;
-        public String text_en;
-        public String text_ru;
-        public Set<Category.CategoryDto> categories;
-        public Set<FileStorage> files;
-        public BlogType type;
 
 
-        public Blog toEntity(){
-            return Blog
-                    .builder()
-                    .title_en(title_en)
-                    .title_uz(title_uz)
-                    .title_ru(title_ru)
-                    .title_oz(title_oz)
-                    .anons_en(anons_en)
-                    .anons_oz(anons_oz)
-                    .anons_ru(anons_ru)
-                    .anons_uz(anons_uz)
-                    .text_en(text_en)
-                    .text_ru(text_ru)
-                    .text_oz(text_oz)
-                    .text_uz(text_uz)
-                    .type(type)
-                    .id(id)
-                    .build();
-        }
 
-    }
 }

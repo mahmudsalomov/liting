@@ -6,41 +6,67 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import uz.neft.liting.category.Category;
+import uz.neft.liting.category.CategoryRepository;
 import uz.neft.liting.payload.ApiResponse;
 import uz.neft.liting.payload.Payload;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
 public class BlogService {
     private final BlogRepository blogRepository;
+    private final CategoryRepository categoryRepository;
 
-    public BlogService(BlogRepository blogRepository) {
+    public BlogService(BlogRepository blogRepository, CategoryRepository categoryRepository) {
         this.blogRepository = blogRepository;
+        this.categoryRepository = categoryRepository;
     }
 
-    public ApiResponse add(Blog.BlogDto dto){
-        return Payload.ok(blogRepository.save(dto.toEntity()).toDto());
+    public ApiResponse add(Blog blog){
+        return Payload.ok(blogRepository.save(blog));
     }
 
 
     public ApiResponse all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy){
         Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
-        Page<Blog> all = blogRepository.findAll(pg);
-        return Payload.ok(all.getContent().stream().map(Blog::toDto).collect(Collectors.toList()));
+        Page<Blog> all = blogRepository.findAllByDeletedFalse(pg);
+        return Payload.ok(all.getContent());
     }
 
     public ApiResponse one(Integer id) {
         Optional<Blog> categoryOptional = blogRepository.findById(id);
         if (categoryOptional.isEmpty()) return Payload.notFound();
-        return Payload.ok(categoryOptional.get().toDto());
+        return Payload.ok(categoryOptional.get());
     }
 
-//    public ApiResponse edit(Category.CategoryDto categoryDto) {
-//        if (categoryDto.id==null) return Payload.badRequest("Id is null!");
-//        Optional<Blog> category = blogRepository.findById(categoryDto.id);
-//        if (category.isEmpty()) return Payload.notFound();
-//        return Payload.ok(blogRepository.save(category.get().edit(categoryDto)).toDto());
-//    }
+
+
+    public ApiResponse edit(Blog dto) {
+        try {
+            if (dto.getId()==null) return Payload.badRequest("Id is null!");
+            Optional<Blog> blog = blogRepository.findById(dto.getId());
+            if (blog.isEmpty()) return Payload.notFound();
+            Blog edit = blog.get().edit(dto);
+            if (dto.getCategories()!=null){
+                Set<Category> categorySet=new HashSet<>();
+
+                for (Category set: dto.getCategories()) {
+                    Optional<Category> category = categoryRepository.findById(set.getId());
+                    if (category.isEmpty()) return Payload.badRequest("Category not found!");
+                    categorySet.add(category.get());
+                }
+
+                blog.get().setCategories(categorySet);
+            }
+            return Payload.ok(blogRepository.save(edit));
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.badRequest();
+        }
+
+
+    }
 }

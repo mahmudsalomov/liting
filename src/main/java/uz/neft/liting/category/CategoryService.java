@@ -21,12 +21,12 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public ApiResponse add(Category.CategoryDto dto){
+    public ApiResponse add(Category category){
 
 //        if (dto.parent != null && dto.type == CategoryType.PARENT) return Payload.badRequest();
 
         try {
-            Category category = dto.toEntity();
+//            Category category = dto;
 
 
 //            if (dto.parent!=null){
@@ -39,8 +39,8 @@ public class CategoryService {
 //            }
 //            category.setParent(dto.getParent()!=null?categoryRepository.getOne(dto.getParent().getId()):null);
 
-            if (dto.parent!=null){
-                Optional<Category> parent = categoryRepository.findById(dto.parent.id);
+            if (category.getParent()!=null){
+                Optional<Category> parent = categoryRepository.findById(category.getParent().getId());
 
 //                if (parent)
 //            parent.ifPresent(value -> {
@@ -73,9 +73,9 @@ public class CategoryService {
 //                categoryRepository.save(category.getParent());
 //            }
 
-            Category.CategoryDto save = category.toDto();
+
             System.out.println(category);
-            return Payload.ok(save);
+            return Payload.ok(category);
         }catch (Exception e){
             e.printStackTrace();
             return Payload.badRequest();
@@ -90,7 +90,7 @@ public class CategoryService {
 //            Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
             Pageable pg = PageRequest.of(page.orElse(0), 1000, Sort.Direction.DESC, sortBy.orElse("createdAt"));
             Page<Category> all = categoryRepository.findAll(pg);
-            return Payload.ok(all.getContent().stream().map(Category::toDto).collect(Collectors.toList()));
+            return Payload.ok(all.getContent());
         }catch (Exception e){
             e.printStackTrace();
             return Payload.badRequest();
@@ -104,7 +104,7 @@ public class CategoryService {
             Optional<Category> categoryOptional = categoryRepository.findById(id);
             if (categoryOptional.isEmpty()) return Payload.notFound();
 //            System.out.println(categoryOptional.get().getChildren()!=null?categoryOptional.get().getChildren():"Yo'q");
-            return Payload.ok(categoryOptional.get().toDto());
+            return Payload.ok(categoryOptional.get());
         }catch (Exception e){
             e.printStackTrace();
             return Payload.badRequest();
@@ -113,16 +113,16 @@ public class CategoryService {
 
     }
 
-    public ApiResponse edit(Category.CategoryDto categoryDto) {
+    public ApiResponse edit(Category categoryDto) {
 
         try {
-            if (categoryDto.id==null) return Payload.badRequest("Id is null!");
-            Optional<Category> category = categoryRepository.findById(categoryDto.id);
+            if (categoryDto.getId()==null) return Payload.badRequest("Id is null!");
+            Optional<Category> category = categoryRepository.findById(categoryDto.getId());
             if (category.isEmpty()) return Payload.notFound();
             Category edit = category.get().edit(categoryDto);
 
-            if (categoryDto.parent!=null){
-                Optional<Category> parent = categoryRepository.findById(categoryDto.parent.id);
+            if (categoryDto.getParent()!=null){
+                Optional<Category> parent = categoryRepository.findById(categoryDto.getParent().getId());
 
                 // Otasi o'zi bilan bir xil bo'lib qolsa
                 if (parent.equals(category)) return Payload.badRequest("Category must not be equal to parent category");
@@ -137,7 +137,7 @@ public class CategoryService {
                 if (parent.isPresent()) edit.setParent(parent.get());
                 else edit.setParent(null);
             }
-            return Payload.ok(categoryRepository.save(edit).toDto());
+            return Payload.ok(categoryRepository.save(edit));
         }catch (Exception e){
             e.printStackTrace();
             return Payload.badRequest();
@@ -152,7 +152,7 @@ public class CategoryService {
 
             List<Category> allParents = categoryRepository.findAllByDeletedFalseAndParentIsNull();
 
-            return Payload.ok(allParents.stream().map(Category::toDto));
+            return Payload.ok(allParents);
 
         }catch (Exception e){
             e.printStackTrace();
