@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Setter
 @ToString
 @NoArgsConstructor
-@Builder
+//@Builder
 @Entity(name = "partners_comment")
 public class PartnersComment extends AbsEntityInteger{
 
@@ -32,6 +32,7 @@ public class PartnersComment extends AbsEntityInteger{
     @OneToOne
     private FileStorage photo;
 
+    @Builder
     public PartnersComment(Integer id, Timestamp createdAt, boolean deleted, String name, String surname, String company, String comment, FileStorage signature, FileStorage photo) {
         super(id, createdAt, deleted);
         this.name = name;
@@ -42,14 +43,14 @@ public class PartnersComment extends AbsEntityInteger{
         this.photo = photo;
     }
 
-    public PartnersComment(String name, String surname, String company, String comment, FileStorage signature, FileStorage photo) {
-        this.name = name;
-        this.surname = surname;
-        this.company = company;
-        this.comment = comment;
-        this.signature = signature;
-        this.photo = photo;
-    }
+//    public PartnersComment(String name, String surname, String company, String comment, FileStorage signature, FileStorage photo) {
+//        this.name = name;
+//        this.surname = surname;
+//        this.company = company;
+//        this.comment = comment;
+//        this.signature = signature;
+//        this.photo = photo;
+//    }
 
     @Getter
     @Setter
@@ -76,17 +77,17 @@ public class PartnersComment extends AbsEntityInteger{
             this.signature=partnersComment.getSignature();
 
         }
-        public PartnersComment toEntity(){
-            return PartnersComment
-                    .builder()
-                    .name(name)
-                    .surname(surname)
-                    .company(company)
-                    .comment(comment)
-                    .signature(signature)
-                    .photo(photo)
-                    .build();
-        }
+//        public PartnersComment toEntity(){
+//            return PartnersComment
+//                    .builder()
+//                    .name(name)
+//                    .surname(surname)
+//                    .company(company)
+//                    .comment(comment)
+//                    .signature(signature)
+//                    .photo(photo)
+//                    .build();
+//        }
     }
 }
 
