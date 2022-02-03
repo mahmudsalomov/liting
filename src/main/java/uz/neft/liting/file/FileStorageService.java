@@ -92,7 +92,7 @@ public class FileStorageService {
 
     public String getEx(String fileName){
         String ext=null;
-        if (fileName!=null&&!fileName.isEmpty()){
+        if (fileName!=null&& !fileName.equals("")){
             int dot=fileName.lastIndexOf(".");
             if (dot>0&&dot<=fileName.length()-2){
                 ext=fileName.substring(dot+1);

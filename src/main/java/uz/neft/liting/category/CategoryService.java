@@ -102,7 +102,7 @@ public class CategoryService {
 
         try {
             Optional<Category> categoryOptional = categoryRepository.findById(id);
-            if (categoryOptional.isEmpty()) return Payload.notFound();
+            if (!categoryOptional.isPresent()) return Payload.notFound();
 //            System.out.println(categoryOptional.get().getChildren()!=null?categoryOptional.get().getChildren():"Yo'q");
             return Payload.ok(categoryOptional.get());
         }catch (Exception e){
@@ -118,7 +118,7 @@ public class CategoryService {
         try {
             if (categoryDto.getId()==null) return Payload.badRequest("Id is null!");
             Optional<Category> category = categoryRepository.findById(categoryDto.getId());
-            if (category.isEmpty()) return Payload.notFound();
+            if (!category.isPresent()) return Payload.notFound();
             Category edit = category.get().edit(categoryDto);
 
             if (categoryDto.getParent()!=null){

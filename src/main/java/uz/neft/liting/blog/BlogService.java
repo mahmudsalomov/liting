@@ -32,7 +32,7 @@ public class BlogService {
 
             Optional<Category> category = categoryRepository.findById(blog.getCategory().getId());
 
-            if (category.isEmpty()) return Payload.badRequest("Category not found");
+            if (!category.isPresent()) return Payload.badRequest("Category not found");
             blog.setCategory(category.get());
             return Payload.ok(blogRepository.save(blog));
         }catch (Exception e){
@@ -51,7 +51,7 @@ public class BlogService {
 
     public ApiResponse one(Integer id) {
         Optional<Blog> categoryOptional = blogRepository.findById(id);
-        if (categoryOptional.isEmpty()) return Payload.notFound();
+        if (!categoryOptional.isPresent()) return Payload.notFound();
         return Payload.ok(categoryOptional.get());
     }
 
@@ -61,13 +61,13 @@ public class BlogService {
         try {
             if (dto.getId()==null) return Payload.badRequest("Id is null!");
             Optional<Blog> blog = blogRepository.findById(dto.getId());
-            if (blog.isEmpty()) return Payload.notFound();
+            if (!blog.isPresent()) return Payload.notFound();
             Blog edit = blog.get().edit(dto);
             if (dto.getCategory()!=null){
 
 
                 Optional<Category> category = categoryRepository.findById(dto.getCategory().getId());
-                if (category.isEmpty()) return Payload.badRequest("Category not found!");
+                if (!category.isPresent()) return Payload.badRequest("Category not found!");
 
 
                 blog.get().setCategory(category.get());
