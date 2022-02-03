@@ -3021,7 +3021,7 @@ background-position: center;
     display: flex;
     overflow: hidden;
     flex-wrap: wrap;
-    margin: 0px;
+    margin: 0;
 }
 .footer .footer-box .popular_post li,
 .footer .footer-box .newsletter .form-group{
@@ -3038,7 +3038,7 @@ background-position: center;
     justify-content:center;
     align-items:center;
     color:#fd5d14;
-    margin:0px 5px 0 0;
+    margin:0 5px 0 0;
     border:1px solid #fd5d14;
 }
 .footer .footer-box .social-media ul li a:hover{
@@ -3088,7 +3088,6 @@ background-position: center;
 .copyright{
     padding: 20px 0;
     background: #030e27;
-    border-top: 1px solid #f0f0ff7a;
 }
 .copyright .payment-logo {
     display: flex;
@@ -3105,7 +3104,7 @@ background-position: center;
 }
 #back-top a {
     display: block;
-    border-radius: 0px;
+    border-radius: 0;
     line-height: 25px;
     border: #fd5d14 solid 1px;
     color: #ffffff;
@@ -5118,6 +5117,7 @@ client .client-nav button:hover{
 .service .single{
     box-shadow: 0 0 92px rgba(0, 0, 0, 0.08);
     width: 100%;
+
 }
 .service .single .overlay{
     background: var(--white);
@@ -5185,6 +5185,7 @@ client .client-nav button:hover{
     opacity: 1;
     visibility: visible;
 }
+
 /*================================================
 8.1: menubar css Style
 ==================================================*/
