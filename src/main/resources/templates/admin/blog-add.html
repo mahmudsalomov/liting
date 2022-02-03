@@ -23,6 +23,68 @@
     <!-- Custom styles for this page -->
     <link href="../../static/admin/vendor/datatables/dataTables.bootstrap4.min.css" th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
 
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -121,7 +183,7 @@
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <form class="form-inline">
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn btn-link btn-lg d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
                 </form>
@@ -327,8 +389,19 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800">Blog</h1>
-                <!--                    <p class="mb-2">Пользователи в системе</p>-->
 
+
+<!--                <h4>wsfsdfs</h4>-->
+<!--                <label class="switch">-->
+<!--                  <input id="isPublish" type="checkbox" checked>-->
+<!--                  <span class="slider round">aaa</span>-->
+<!--                </label>-->
+
+<!--                <h4>wsfsdfs</h4>-->
+<!--                <label class="switch">-->
+<!--                    <input id="isMainSlider" type="checkbox" checked>-->
+<!--                    <span class="slider round">aaa</span>-->
+<!--                </label>-->
 
                 <ul class="nav nav-tabs mb-3 w-100 text-center" id="pills-tab" role="tablist">
                     <li class="nav-item w-25" role="presentation">
@@ -344,12 +417,211 @@
                         <a class="nav-link" id="pills-en-tab" data-toggle="pill" href="#pills-en" role="tab" aria-controls="pills-en" aria-selected="false">English <img src="../../static/custom-icons/en.png"></a>
                     </li>
                 </ul>
-                <div class="tab-content text-center" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-lotin" role="tabpanel" aria-labelledby="pills-lotin-tab">O'zbekcha</div>
-                    <div class="tab-pane fade" id="pills-krill" role="tabpanel" aria-labelledby="pills-krill-tab">O'zbekcha (krill)</div>
-                    <div class="tab-pane fade" id="pills-ru" role="tabpanel" aria-labelledby="pills-ru-tab">Ruscha</div>
-                    <div class="tab-pane fade" id="pills-en" role="tabpanel" aria-labelledby="pills-en-tab">English</div>
+
+
+                <div class="tab-content" id="pills-tabContent">
+
+
+                    <div class="tab-pane fade show active" id="pills-lotin" role="tabpanel" aria-labelledby="pills-lotin-tab">
+<!--                        <h3 class="text-center mb-4 " id="addOrEditUserH3">Blog</h3>-->
+                        <form class="login-form" name="addOrEditUserForm" id="oz">
+                            <div class="form-group">
+                                <input name="id" type="text" class="form-control rounded-left" hidden>
+                            </div>
+
+
+                            <div class="form-group flex-column">
+                                <label for="title_oz" class="mb-0 ">Sarlavha</label>
+                                <input name="title_oz" id="title_oz" type="text" class="form-control rounded-left"
+                                       placeholder="Sarlavha" required>
+                            </div>
+                            <div class="form-group flex-column">
+                                <label for="anons_oz" class="mb-0 ">Anons</label>
+                                <textarea name="anons_oz" id="anons_oz" type="text" class="form-control rounded-left"
+                                       placeholder="Anons" required></textarea>
+                            </div>
+
+                            <div class="form-group flex-column">
+                                <label for="mainImage" class="mb-0 ">Asosiy rasm</label>
+                                <input name="mainImage" id="mainImage" type="file" class="form-control rounded-left"
+                                       placeholder="Asosiy rasm" required>
+                            </div>
+
+
+                            <div class="form-group d-flex flex-column">
+                                <label for="blog_category_oz" class="mb-0">Kategoriya</label>
+                                <select name="roleId" class="custom-select form-control rounded-left"
+                                        id="blog_category_oz"
+                                        aria-label="Example select with button addon" required>
+                                    <option value="">Kategoriyani tanlang</option>
+                                    <option value="1">PARENT</option>
+                                    <option value="2">BLOGS</option>
+                                    <option value="3">SERVICES</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group flex-column">
+                                <label for="summernote_oz" class="mb-0 ">Text</label>
+                                <div id="summernote_oz" class="summernote_oz"></div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+
+                    <div class="tab-pane fade" id="pills-krill" role="tabpanel" aria-labelledby="pills-krill-tab">
+<!--                        <h3 class="text-center mb-4 "  >Kategoriya qo'shish</h3>-->
+                        <form class="login-form" name="addOrEditUserForm" id="uz">
+                            <div class="form-group">
+                                <input name="id" type="text" class="form-control rounded-left" hidden>
+                            </div>
+
+
+                            <div class="form-group flex-column">
+                                <label for="title_uz" class="mb-0 ">Сарлавҳа</label>
+                                <input name="title_uz" id="title_uz" type="text" class="form-control rounded-left"
+                                       placeholder="Сарлавҳа" required>
+                            </div>
+                            <div class="form-group flex-column">
+                                <label for="anons_uz" class="mb-0 ">Aнонс</label>
+                                <textarea name="anons_uz" id="anons_uz" type="text" class="form-control rounded-left"
+                                          placeholder="Aнонс" required></textarea>
+                            </div>
+
+                            <div class="form-group flex-column">
+                                <label for="mainImage_uz" class="mb-0 ">Aсосий расм</label>
+                                <input name="mainImage_uz" id="mainImage_uz" type="file" class="form-control rounded-left"
+                                       placeholder="Aсосий расм" required>
+                            </div>
+
+
+                            <div class="form-group d-flex flex-column">
+                                <label for="blog_category_uz" class="mb-0">Категория</label>
+                                <select name="roleId" class="custom-select form-control rounded-left"
+                                        id="blog_category_uz"
+                                        aria-label="Example select with button addon" required>
+                                    <option value="">Категорияни танланг</option>
+                                    <option value="1">PARENT</option>
+                                    <option value="2">BLOGS</option>
+                                    <option value="3">SERVICES</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group flex-column">
+                                <label for="summernote_uz" class="mb-0 ">Text</label>
+                                <div id="summernote_uz" class="summernote_uz"></div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+
+                    <div class="tab-pane fade" id="pills-ru" role="tabpanel" aria-labelledby="pills-ru-tab">
+                        <form class="login-form" name="addOrEditUserForm" id="ru">
+                            <div class="form-group">
+                                <input name="id" type="text" class="form-control rounded-left" hidden>
+                            </div>
+
+
+                            <div class="form-group flex-column">
+                                <label for="title_ru" class="mb-0 ">Заголовок</label>
+                                <input name="title_ru" id="title_ru" type="text" class="form-control rounded-left"
+                                       placeholder="Заголовок" required>
+                            </div>
+                            <div class="form-group flex-column">
+                                <label for="anons_ru" class="mb-0 ">Объявление</label>
+                                <textarea name="anons_ru" id="anons_ru" type="text" class="form-control rounded-left"
+                                          placeholder="Объявление" required></textarea>
+                            </div>
+
+                            <div class="form-group flex-column">
+                                <label for="mainImage_ru" class="mb-0 ">Главное фото</label>
+                                <input name="mainImage_ru" id="mainImage_ru" type="file" class="form-control rounded-left"
+                                       placeholder="Главное фото" required>
+                            </div>
+
+
+                            <div class="form-group d-flex flex-column">
+                                <label for="blog_category_ru" class="mb-0">Категория</label>
+                                <select name="roleId" class="custom-select form-control rounded-left"
+                                        id="blog_category_ru"
+                                        aria-label="Example select with button addon" required>
+                                    <option value="">Выбрать категорию</option>
+                                    <option value="1">PARENT</option>
+                                    <option value="2">BLOGS</option>
+                                    <option value="3">SERVICES</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group flex-column">
+                                <label for="summernote_ru" class="mb-0 ">Текст</label>
+                                <div id="summernote_ru" class="summernote_ru"></div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+
+                    <div class="tab-pane fade" id="pills-en" role="tabpanel" aria-labelledby="pills-en-tab">
+                        <form class="login-form" name="addOrEditUserForm" id="en">
+                            <div class="form-group">
+                                <input name="id" type="text" class="form-control rounded-left" hidden>
+                            </div>
+
+
+                            <div class="form-group flex-column">
+                                <label for="title_en" class="mb-0 ">Title</label>
+                                <input name="title_en" id="title_en" type="text" class="form-control rounded-left"
+                                       placeholder="Title" required>
+                            </div>
+                            <div class="form-group flex-column">
+                                <label for="anons_en" class="mb-0 ">Anons</label>
+                                <textarea name="anons_en" id="anons_en" type="text" class="form-control rounded-left"
+                                          placeholder="Anons" required></textarea>
+                            </div>
+
+                            <div class="form-group flex-column">
+                                <label for="mainImage_en" class="mb-0 ">Main image</label>
+                                <input name="mainImage_en" id="mainImage_en" type="file" class="form-control rounded-left"
+                                       placeholder="Main image" required>
+                            </div>
+
+
+                            <div class="form-group d-flex flex-column">
+                                <label for="blog_category_en" class="mb-0">Category</label>
+                                <select name="roleId" class="custom-select form-control rounded-left"
+                                        id="blog_category_en"
+                                        aria-label="Example select with button addon" required>
+                                    <option value="">Select a category</option>
+                                    <option value="1">PARENT</option>
+                                    <option value="2">BLOGS</option>
+                                    <option value="3">SERVICES</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group flex-column">
+                                <label for="summernote_en" class="mb-0 ">Text</label>
+                                <div id="summernote_en" class="summernote_en"></div>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+
+
                 </div>
+
+
+                <button class="btn-lg btn btn-success mt-5 mb-5">Saqlash</button>
 
 <!--                <div id="summernote">Hello Summernote</div>-->
 
@@ -361,7 +633,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
+        <footer class="sticky-footer bg-white mt-5">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
                     <span>Copyright &copy; Your Website 2020</span>
@@ -435,7 +707,35 @@
 <script src="../../static/summernote/summernote-bs5.js" th:src="@{/summernote/summernote-bs5.js}"></script>
 <script>
     $(document).ready(function() {
-        $('#summernote').summernote();
+        $('#summernote_oz').summernote();
+        $('#summernote_uz').summernote();
+        $('#summernote_ru').summernote();
+        $('#summernote_en').summernote();
+    });
+
+    $('#summernote_oz').summernote({
+        height: 500,                 // set editor height
+        minHeight: null,             // set minimum height of editor
+        maxHeight: null,             // set maximum height of editor
+        focus: true                  // set focus to editable area after initializing summernote
+    });
+    $('#summernote_uz').summernote({
+        height: 500,                 // set editor height
+        minHeight: null,             // set minimum height of editor
+        maxHeight: null,             // set maximum height of editor
+        focus: true                  // set focus to editable area after initializing summernote
+    });
+    $('#summernote_ru').summernote({
+        height: 500,                 // set editor height
+        minHeight: null,             // set minimum height of editor
+        maxHeight: null,             // set maximum height of editor
+        focus: true                  // set focus to editable area after initializing summernote
+    });
+    $('#summernote_en').summernote({
+        height: 500,                 // set editor height
+        minHeight: null,             // set minimum height of editor
+        maxHeight: null,             // set maximum height of editor
+        focus: true                  // set focus to editable area after initializing summernote
     });
 </script>
 <!--<script>-->
