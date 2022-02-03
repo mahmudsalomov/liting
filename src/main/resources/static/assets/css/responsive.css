@@ -444,92 +444,60 @@ Version: 1.0.0
 		margin-top: 10px;
 	}
 }
-@media (max-width:380px){
-	.listing-top-heading .sort-by>span,
-	.copyright .payment-logo span{
+@media (max-width:380px) {
+	.listing-top-heading .sort-by > span,
+	.copyright .payment-logo span {
 		display: none;
 	}
-	.listing-detail .description-box .content-box .listing-infor{
+
+	.listing-detail .description-box .content-box .listing-infor {
 		columns: 1;
 	}
+
 	/*coming soon*/
-	.coming-soon .content-wrapper .counter .counter-box .inner-box{
+	.coming-soon .content-wrapper .counter .counter-box .inner-box {
 		width: 60px;
 		height: 60px;
 	}
+
 	.full-services-sec .right-side {
-	    padding: 15px;
+		padding: 15px;
 	}
-	.product-detail .details .product-info-2 .quantity{
+
+	.product-detail .details .product-info-2 .quantity {
 		display: block;
 	}
-	.product-detail .details .product-info-2 .btn-submit{
+
+	.product-detail .details .product-info-2 .btn-submit {
 		margin-left: 0;
 		margin-top: 10px;
 	}
+
 	/* project */
 	.project .project-menu {
 		display: block !important;
 	}
+
 	.project .project-menu li {
 		padding: 0 15px;
 		text-align: center;
 	}
+
 	/* client */
-	.client .client-img-slider{
+	.client .client-img-slider {
 		margin-bottom: 30px;
 	}
+
 	.client .item .author {
 		display: block !important;
 	}
+
 	/* blog */
-	.blog{
+	.blog {
 		padding-bottom: 90px;
 	}
-	.blog .item{
+
+	.blog .item {
 		margin-bottom: 30px;
-	}
-	/* service */
-	.service .single .overlay {
-		padding: 35px;
-	}
-	/* service */
-	.service .single .overlay {
-		padding: 35px;
-	}
-	/* service */
-	.service .single .overlay {
-		padding: 35px;
-	}
-	/* service */
-	.service .single .overlay {
-		padding: 35px;
-	}
-	/* service */
-	.service .single .overlay {
-		padding: 35px;
-	}
-	/*--------------------- project detail page -------------------*/
-	.project-page.project-detail .info-area {
-		padding-left: 0;
-	}
-	.project-page.project-detail .list-part .row {
-		align-items: flex-start !important;
-	}
-	/*--------------------- project detail page -------------------*/
-	.project-page.project-detail .info-area {
-		padding-left: 0;
-		padding-top: 40px;
-	}
-	.project-page.project-detail .list-part .image {
-		padding-top: 40px;
-	}
-	/*--------------------- project detail page -------------------*/
-	.project-page.project-detail .info-area {
-		padding-left: 0;
-		padding-top: 40px;
-	}
-	.project-page.project-detail .list-part .image {
-		padding-top: 40px;
 	}
 }
