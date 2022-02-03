@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/category")
-public class CategoryController implements RestCrud<Category.CategoryDto> {
+public class CategoryController implements RestCrud<Category> {
 
 
     private final CategoryService categoryService;
@@ -26,13 +26,13 @@ public class CategoryController implements RestCrud<Category.CategoryDto> {
     }
 
     @Override
-    public HttpEntity<?> add(Category.CategoryDto categoryDto, User user) {
-        return categoryService.add(categoryDto).response();
+    public HttpEntity<?> add(Category category, User user) {
+        return categoryService.add(category).response();
     }
 
     @Override
-    public HttpEntity<?> edit(Category.CategoryDto categoryDto, User user) {
-        return categoryService.edit(categoryDto).response();
+    public HttpEntity<?> edit(Category category, User user) {
+        return categoryService.edit(category).response();
     }
 
     @Override

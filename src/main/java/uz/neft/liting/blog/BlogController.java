@@ -10,20 +10,27 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/blog")
-public class BlogController implements RestCrud<Blog.BlogDto> {
+public class BlogController implements RestCrud<Blog> {
+
+
+    private final BlogService blogService;
+
+    public BlogController(BlogService blogService) {
+        this.blogService = blogService;
+    }
 
     @Override
     public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
-        return null;
+        return blogService.all(page, pageSize, sortBy).response();
     }
 
     @Override
-    public HttpEntity<?> add(Blog.BlogDto blogDto, User user) {
-        return null;
+    public HttpEntity<?> add(Blog blog, User user) {
+        return blogService.add(blog).response();
     }
 
     @Override
-    public HttpEntity<?> edit(Blog.BlogDto blogDto, User user) {
+    public HttpEntity<?> edit(Blog blog, User user) {
         return null;
     }
 
@@ -34,6 +41,6 @@ public class BlogController implements RestCrud<Blog.BlogDto> {
 
     @Override
     public HttpEntity<?> one(Integer id) {
-        return null;
+        return blogService.one(id).response();
     }
 }
