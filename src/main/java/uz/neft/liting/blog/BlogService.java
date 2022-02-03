@@ -26,7 +26,20 @@ public class BlogService {
     }
 
     public ApiResponse add(Blog blog){
-        return Payload.ok(blogRepository.save(blog));
+        try {
+            if (blog.getStatus()==null) blog.setStatus(BlogStatus.DRAFT);
+            if (blog.getCategory()==null) return Payload.badRequest("Category is not null!");
+
+            Optional<Category> category = categoryRepository.findById(blog.getCategory().getId());
+
+            if (category.isEmpty()) return Payload.badRequest("Category not found");
+            blog.setCategory(category.get());
+            return Payload.ok(blogRepository.save(blog));
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+
     }
 
 
@@ -50,17 +63,15 @@ public class BlogService {
             Optional<Blog> blog = blogRepository.findById(dto.getId());
             if (blog.isEmpty()) return Payload.notFound();
             Blog edit = blog.get().edit(dto);
-            if (dto.getCategories()!=null){
-                Set<Category> categorySet=new HashSet<>();
+            if (dto.getCategory()!=null){
 
-                for (Category set: dto.getCategories()) {
-                    Optional<Category> category = categoryRepository.findById(set.getId());
-                    if (category.isEmpty()) return Payload.badRequest("Category not found!");
-                    categorySet.add(category.get());
-                }
 
-                blog.get().setCategories(categorySet);
-            }
+                Optional<Category> category = categoryRepository.findById(dto.getCategory().getId());
+                if (category.isEmpty()) return Payload.badRequest("Category not found!");
+
+
+                blog.get().setCategory(category.get());
+            } else return Payload.badRequest("Category is not null!");
             return Payload.ok(blogRepository.save(edit));
         }catch (Exception e){
             e.printStackTrace();

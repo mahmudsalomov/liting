@@ -670,8 +670,8 @@
 <script src="../../static/admin/js/demo/chart-area-demo.js" th:src="@{/admin/js/demo/chart-area-demo.js}"></script>
 <script src="../../static/admin/js/demo/chart-pie-demo.js" th:src="@{/admin/js/demo/chart-pie-demo.js}"></script>
 
-<link href="../../static/summernote/summernote-bs5.css" rel="stylesheet">
-<script src="../../static/summernote/summernote-bs5.js"></script>
+<link href="../../static/summernote/summernote-bs5.css" th:href="@{/summernote/summernote-bs5.css}" rel="stylesheet">
+<script src="../../static/summernote/summernote-bs5.js" th:src="@{/summernote/summernote-bs5.js}"></script>
 <script>
     $(document).ready(function() {
         $('#summernote').summernote();

@@ -1,6 +1,7 @@
 package uz.neft.liting.blog;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uz.neft.liting.template.RestCrud;

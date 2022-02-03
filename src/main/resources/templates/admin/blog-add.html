@@ -326,272 +326,33 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Kategoriya</h1>
+                <h1 class="h3 mb-2 text-gray-800">Blog</h1>
                 <!--                    <p class="mb-2">Пользователи в системе</p>-->
 
-                <div id="summernote">Hello Summernote</div>
 
-
-                <!--// Add User button and modal-->
-                <div>
-                    <section class="ftco-section pb-2">
-                        <div class="row">
-                            <div class="col-md-6 d-flex ">
-                                <div class="wrap w-100">
-                                    <button type="button" class="btn btn-primary py-2 px-4" data-toggle="modal"
-                                            data-target="#exampleModalCenter"
-                                            id="addUserBtn"
-                                    >
-                                        Kategoriya qo'shish
-                                    </button>
-
-                                    <!-- Modal -->
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header p-2">
-                                    <button type="button"
-                                            class="close d-flex align-items-center justify-content-center h-25 "
-                                            id="closeFormBtn"
-                                            data-dismiss="modal" aria-label="Close">
-                                        <!--                                        <span aria-hidden="true" class="ion-ios-close">x</span>-->
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0088BC"
-                                             class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="modal-body  pb-md-5 pl-md-5 pr-md-5 pt-md-2">
-                                    <h3 class="text-center mb-4 " id="addOrEditUserH3">Kategoriya qo'shish</h3>
-                                    <form action="#" class="login-form" name="addOrEditUserForm" id="addOrEditUserForm"
-                                          onsubmit="addOrEditCategory(event)">
-                                        <div class="form-group">
-                                            <input name="id" type="text" class="form-control rounded-left" hidden>
-                                        </div>
-
-
-                                        <div class="form-group flex-column">
-                                            <label for="name_oz" class="mb-0 ">Kategoriya nomi (O'zbekcha)</label>
-                                            <input name="name_oz" id="name_oz" type="text" class="form-control rounded-left"
-                                                   placeholder="O'zbekcha" required>
-                                        </div>
-                                        <div class="form-group flex-column">
-                                            <label for="name_uz" class="mb-0 ">Категория номи (Ўзбекча)</label>
-                                            <input name="name_uz" id="name_uz" type="text" class="form-control rounded-left"
-                                                   placeholder="Ўзбекча" required>
-                                        </div>
-                                        <div class="form-group flex-column">
-                                            <label for="name_ru" class="mb-0 ">Название категории (рус.)</label>
-                                            <input name="name_ru" id="name_ru" type="text" class="form-control rounded-left"
-                                                   placeholder="русский" required>
-                                        </div>
-                                        <div class="form-group flex-column">
-                                            <label for="name_en" class="mb-0 ">Category Name (English)</label>
-                                            <input name="name_en" id="name_en" type="text" class="form-control rounded-left"
-                                                   placeholder="English" required>
-                                        </div>
-
-
-                                        <!--                                            <div class="form-group d-flex flex-column">-->
-                                        <!--                                                <label for="email" class="mb-0">Эл. адрес</label>-->
-                                        <!--                                                <input name="email" type="email" id="email" class="form-control rounded-left"-->
-                                        <!--                                                       placeholder="Эл. адрес" required>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="form-group d-flex flex-column">-->
-                                        <!--                                                <label for="password" class="mb-0">Пароль</label>-->
-                                        <!--                                                <input name="password" type="password" id="password" class="form-control rounded-left"-->
-                                        <!--                                                       placeholder="Пароль" required>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="form-group d-flex flex-column">-->
-                                        <!--                                                <label for="phone" class="mb-0">Номер телефона</label>-->
-                                        <!--                                                <input name="phone" type="tel" id="phone" class="form-control rounded-left"-->
-                                        <!--                                                       placeholder="Номер телефона" required>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="form-group d-flex flex-column">-->
-                                        <!--                                                <label for="fio" class="mb-0">Полное имя</label>-->
-                                        <!--                                                <input name="fio" type="text" id="fio" class="form-control rounded-left"-->
-                                        <!--                                                       placeholder="Полное имя" required>-->
-                                        <!--                                            </div>-->
-                                        <div class="form-group d-flex flex-column">
-                                            <label for="inputGroupSelect03" class="mb-0">Kategoriya turi</label>
-                                            <select name="roleId" class="custom-select form-control rounded-left"
-                                                    id="inputGroupSelect03"
-                                                    aria-label="Example select with button addon" required>
-                                                <option value="">Turini tanlang</option>
-                                                <option value="1">PARENT</option>
-                                                <option value="2">BLOGS</option>
-                                                <option value="3">SERVICES</option>
-                                                <!--                                                    <option value="4">ENERGETIC</option>-->
-                                                <!--                                                    <option value="5">METROLOGIST</option>-->
-                                                <!--                                                    <option value="5">GEOLOGIST</option>-->
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <button type="submit"
-                                                    id="addOrEditUserBtn"
-                                                    class="form-control btn btn-primary rounded submit px-3">Добавить
-                                            </button>
-                                        </div>
-
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                <ul class="nav nav-tabs mb-3 w-100 text-center" id="pills-tab" role="tablist">
+                    <li class="nav-item w-25" role="presentation">
+                        <a class="nav-link active" id="pills-lotin-tab" data-toggle="pill" href="#pills-lotin" role="tab" aria-controls="pills-lotin" aria-selected="true">O'zbekcha <img src="../../static/custom-icons/uz.png"></a>
+                    </li>
+                    <li class="nav-item w-25" role="presentation">
+                        <a class="nav-link" id="pills-krill-tab" data-toggle="pill" href="#pills-krill" role="tab" aria-controls="pills-krill" aria-selected="false">Ўзбекча <img src="../../static/custom-icons/uz.png"></a>
+                    </li>
+                    <li class="nav-item w-25" role="presentation">
+                        <a class="nav-link" id="pills-ru-tab" data-toggle="pill" href="#pills-ru" role="tab" aria-controls="pills-ru" aria-selected="false">русский <img src="../../static/custom-icons/ru.png"></a>
+                    </li>
+                    <li class="nav-item w-25" role="presentation">
+                        <a class="nav-link" id="pills-en-tab" data-toggle="pill" href="#pills-en" role="tab" aria-controls="pills-en" aria-selected="false">English <img src="../../static/custom-icons/en.png"></a>
+                    </li>
+                </ul>
+                <div class="tab-content text-center" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-lotin" role="tabpanel" aria-labelledby="pills-lotin-tab">O'zbekcha</div>
+                    <div class="tab-pane fade" id="pills-krill" role="tabpanel" aria-labelledby="pills-krill-tab">O'zbekcha (krill)</div>
+                    <div class="tab-pane fade" id="pills-ru" role="tabpanel" aria-labelledby="pills-ru-tab">Ruscha</div>
+                    <div class="tab-pane fade" id="pills-en" role="tabpanel" aria-labelledby="pills-en-tab">English</div>
                 </div>
 
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="dataTables_length" id="dataTable_length"><label>Show <select
-                                                name="dataTable_length" aria-controls="dataTable"
-                                                class="custom-select custom-select-sm form-control form-control-sm">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select> entries</label></div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div id="dataTable_filter" class="dataTables_filter"><label>Search:<input
-                                                type="search" class="form-control form-control-sm" placeholder=""
-                                                aria-controls="dataTable"></label></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <table class="table table-bordered dataTable" id="dataTable" width="100%"
-                                               cellspacing="0" role="grid" aria-describedby="dataTable_info"
-                                               style="width: 100%;">
-                                            <thead>
-                                            <tr role="row">
-                                                <th class="sorting sorting_asc users-table-title" tabindex="0"
-                                                    aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    aria-sort="ascending"
-                                                    aria-label="Name: activate to sort column descending"
-                                                >ID
-                                                </th>
-                                                <th class="sorting users-table-title" tabindex="0"
-                                                    aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    aria-label="Position: activate to sort column ascending"
-                                                >Nomi (lotin)
-                                                </th>
-                                                <th class="sorting users-table-title" tabindex="0"
-                                                    aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    aria-label="Office: activate to sort column ascending"
-                                                >Nomi (krill)
-                                                </th>
-                                                <th class="sorting users-table-title" tabindex="0"
-                                                    aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    aria-label="Age: activate to sort column ascending"
-                                                >Nomi (ruscha)
-                                                </th>
-                                                <th class="sorting users-table-title" tabindex="0"
-                                                    aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    aria-label="Start date: activate to sort column ascending"
-                                                >Nomi (inglizcha)
-                                                </th>
-                                                <th class="sorting users-table-title" tabindex="0"
-                                                    aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    aria-label="Salary: activate to sort column ascending"
-                                                >Otasi
-                                                </th>
-                                                <th class="sorting users-table-title" tabindex="0"
-                                                    aria-controls="dataTable" rowspan="1" colspan="1"
-                                                    aria-label="Salary: activate to sort column ascending"
-                                                >Tahrirlash
-                                                </th>
+<!--                <div id="summernote">Hello Summernote</div>-->
 
-                                            </tr>
-                                            </thead>
-                                            <tfoot>
-                                            <tr>
-                                                <th class="users-table-title" rowspan="1" colspan="1">ID</th>
-                                                <th class="users-table-title" rowspan="1" colspan="1">Nomi (lotin)</th>
-                                                <th class="users-table-title" rowspan="1" colspan="1">Nomi (krill)
-                                                </th>
-                                                <th class="users-table-title" rowspan="1" colspan="1">Nomi (ruscha)</th>
-                                                <th class="users-table-title" rowspan="1" colspan="1">Nomi (inglizcha)</th>
-                                                <th class="users-table-title" rowspan="1" colspan="1">Otasi</th>
-                                                <th class="users-table-title" rowspan="1" colspan="1">Tahrirlash</th>
-                                            </tr>
-                                            </tfoot>
-                                            <tbody id="userTable">
-                                            <tr class="odd">
-                                                <td class="sorting_1">Loading. . .</td>
-                                                <td>Loading. . .</td>
-                                                <td>Loading. . .</td>
-                                                <td>Loading. . .</td>
-                                                <td>Loading. . .</td>
-                                                <td>Loading. . .</td>
-                                            </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-5">
-                                        <div class="dataTables_info" id="dataTable_info" role="status"
-                                             aria-live="polite">Showing 1 to 10 of 57 entries
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-7">
-                                        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                                            <ul class="pagination">
-                                                <li class="paginate_button page-item previous disabled"
-                                                    id="dataTable_previous"><a href="#" aria-controls="dataTable"
-                                                                               data-dt-idx="0" tabindex="0"
-                                                                               class="page-link">Previous</a></li>
-                                                <li class="paginate_button page-item active"><a href="#"
-                                                                                                aria-controls="dataTable"
-                                                                                                data-dt-idx="1"
-                                                                                                tabindex="0"
-                                                                                                class="page-link">1</a>
-                                                </li>
-                                                <li class="paginate_button page-item "><a href="#"
-                                                                                          aria-controls="dataTable"
-                                                                                          data-dt-idx="2" tabindex="0"
-                                                                                          class="page-link">2</a></li>
-                                                <li class="paginate_button page-item "><a href="#"
-                                                                                          aria-controls="dataTable"
-                                                                                          data-dt-idx="3" tabindex="0"
-                                                                                          class="page-link">3</a></li>
-                                                <li class="paginate_button page-item "><a href="#"
-                                                                                          aria-controls="dataTable"
-                                                                                          data-dt-idx="4" tabindex="0"
-                                                                                          class="page-link">4</a></li>
-                                                <li class="paginate_button page-item "><a href="#"
-                                                                                          aria-controls="dataTable"
-                                                                                          data-dt-idx="5" tabindex="0"
-                                                                                          class="page-link">5</a></li>
-                                                <li class="paginate_button page-item "><a href="#"
-                                                                                          aria-controls="dataTable"
-                                                                                          data-dt-idx="6" tabindex="0"
-                                                                                          class="page-link">6</a></li>
-                                                <li class="paginate_button page-item next" id="dataTable_next"><a
-                                                        href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-                                                        class="page-link">Next</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
             <!-- /.container-fluid -->
@@ -645,20 +406,20 @@
 <!-- axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<script src="/static/admin/js/category.js" th:src="@{/admin/js/category.js}"></script>
-<script>
-    getAllCategories();
-    // getAllRoles();
-</script>
+<!--<script src="/static/admin/js/category.js" th:src="@{/admin/js/category.js}"></script>-->
+
+
 
 
 <!-- Bootstrap core JavaScript-->
 <script src="../../static/assets/js/jquery.min.js" th:src="@{/assets/js/jquery.min.js}"></script>
-<script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-<!--    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>-->
 
 <!-- Core plugin JavaScript-->
 <script src="../../static/assets/js/easing/jquery.easing.min.js" th:src="@{/assets/js/easing/jquery.easing.min.js}"></script>
+
+<script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!--    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>-->
+
 
 <!-- Custom scripts for all pages-->
 <script src="../../static/admin/js/sb-admin-2.min.js" th:src="@{/admin/js/sb-admin-2.min.js}"></script>
@@ -677,15 +438,15 @@
         $('#summernote').summernote();
     });
 </script>
-<script>
-    $(document).ready(function () {
-        $("#exampleModalCenter").on('hide.bs.modal', function () {
-            document.getElementById('addOrEditUserForm').reset();
-        });
-    });
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+<!--        $("#exampleModalCenter").on('hide.bs.modal', function () {-->
+<!--            document.getElementById('addOrEditUserForm').reset();-->
+<!--        });-->
+<!--    });-->
 
 
-</script>
+<!--</script>-->
 </body>
 
 </html>

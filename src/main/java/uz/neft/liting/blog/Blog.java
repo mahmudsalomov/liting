@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class Blog extends AbsEntityInteger {
 
     @Builder
-    public Blog(Integer id, Timestamp createdAt, boolean deleted, @NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, FileStorage mainImage, Set<Category> categories, Set<FileStorage> files, BlogType type) {
+    public Blog(Integer id, Timestamp createdAt, boolean deleted, @NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, FileStorage mainImage, Category category, Set<FileStorage> files, BlogType type) {
         super(id, createdAt, deleted);
         this.title_oz = title_oz;
         this.title_uz = title_uz;
@@ -35,7 +35,7 @@ public class Blog extends AbsEntityInteger {
         this.text_en = text_en;
         this.text_ru = text_ru;
         this.mainImage=mainImage;
-        this.categories = categories;
+        this.category = category;
         this.files = files;
         this.type = type;
     }
@@ -88,8 +88,8 @@ public class Blog extends AbsEntityInteger {
     @ManyToOne
     private FileStorage mainImage;
 
-    @ManyToMany
-    private Set<Category> categories;
+    @ManyToOne
+    private Category category;
 
     @ManyToMany
     private Set<FileStorage> files;
