@@ -1,5 +1,6 @@
 package uz.neft.liting.partner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,9 +11,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/partner")
-public class PartnerController implements RestCrud<PartnersComment.PartnerDto> {
+public class PartnerController implements RestCrud<PartnersComment> {
 
     private final PartnerService partnerService;
+
+    public PartnerController(PartnerService partnerService) {
+        this.partnerService = partnerService;
+    }
 
     @Override
     public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
@@ -20,12 +25,12 @@ public class PartnerController implements RestCrud<PartnersComment.PartnerDto> {
     }
 
     @Override
-    public HttpEntity<?> add(PartnersComment.PartnerDto partnerDto, User user) {
+    public HttpEntity<?> add(PartnersComment partnersComment, User user) {
         return null;
     }
 
     @Override
-    public HttpEntity<?> edit(PartnersComment.PartnerDto partnerDto, User user) {
+    public HttpEntity<?> edit(PartnersComment partnersComment, User user) {
         return null;
     }
 
@@ -39,3 +44,4 @@ public class PartnerController implements RestCrud<PartnersComment.PartnerDto> {
         return null;
     }
 }
+

@@ -28,8 +28,6 @@
     <link href="../static/assets/css/slick.css" th:href="@{assets/css/slick.css}" rel="stylesheet">
     <!-- Range Slider -->
     <link href="../static/assets/css/jquery-ui.css" th:href="@{assets/css/jquery-ui.css}" rel="stylesheet">
-    <!-- magnific popup -->
-    <link href="../static/assets/css/magnific-popup.css" th:href="@{assets/css/magnific-popup.css}" rel="stylesheet">
     <!-- Nice Select -->
     <link href="../static/assets/css/nice-select.css" th:href="@{assets/css/nice-select.css}" rel="stylesheet">
     <!-- Animate -->
@@ -43,36 +41,8 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
     <!-- place -->
     <!-- font-awesome -->
-    <link rel="stylesheet" href="/static/assets/css/all.min.css">
+    <link rel="stylesheet" href="/static/assets/css/all.min.css" th:href="@{assets/css/all.min.css}">
 
-    <!-- flaticon -->
-    <link rel="stylesheet" href="/static/assets/fonts/flaticon.css">
-
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
-
-    <!-- menu -->
-    <link rel="stylesheet" href="/static/assets/css/menu.css">
-
-    <!-- venobox -->
-    <link rel="stylesheet" href="/static/assets/css/venobox.css">
-
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="/static/assets/css/magnific-popup.css">
-
-    <!-- swiper slider -->
-    <link rel="stylesheet" href="/static/assets/css/swiper-bundle.min.css">
-
-    <!-- scroll animation -->
-    <link rel="stylesheet" href="/static/assets/css/animate.css">
-
-    <!-- style -->
-    <link rel="stylesheet" href="/static/assets/css/style.css">
-
-    <!-- responsive -->
-    <link rel="stylesheet" href="/static/assets/css/responsive.css">
-    <!-- magnific popup -->
-    <link href="../static/assets/css/magnific-popup.css" rel="stylesheet">
 </head>
 <body class="loader">
 <!-- preloader -->
@@ -152,7 +122,7 @@
                             <nav>
                                 <ul class="custom main-menu" id="navbar-root">
                                     <li class="menu-item menu-item-has-children active">
-                                        <a href="#" class="text-theme fs-14">О Компании</a>
+                                        <a href="#" th:href="@{#}" class="text-theme fs-14">О Компании</a>
                                         <ul class="custom sub-menu" style="width: 320px">
                                             <li class="menu-item">
                                                 <a href="https://t.me/litinguz" th:href="@{//t.me/litinguz}" class="text-theme">Телеграм-канал!</a>
@@ -456,9 +426,9 @@
                     <h3 class="no-margin text-theme">РУКОВОДСТВО</h3>
                     <div class="social-media">
                         <ul class="custom social-media">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="#" th:href="@{#}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" th:href="@{#}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" th:href="@{#}"><i class="fab fa-pinterest-p"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -468,8 +438,8 @@
                             <div class="images-wrapper mb-md-80">
                                 <div class="detail-page-slider-for mb-xl-20 magnific-gallery">
                                     <div class="slide-item">
-                                        <a href="../static/assets/images/img_1.png" class="popup">
-                                            <img src="../static/assets/images/img_1.png" class="img-fluid image-fit" alt="property img">
+                                        <a href="../static/assets/images/img_1.png" th:src="@{assets/images/img_1.png}" class="popup">
+                                            <img src="../static/assets/images/img_1.png" th:src="@{assets/images/img_1.png}" class="img-fluid image-fit" alt="property img">
                                         </a>
                                     </div>
                                 </div>
@@ -490,21 +460,21 @@
                                                 <h6>
                                                     <label>Фамилия :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Назаров</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Имя :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Улугбек</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Отчество :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Султанович</a>
                                                     </span>
                                                 </h6>
@@ -514,14 +484,14 @@
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 280-67-00</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 256-74-18</a>
                                                     </span>
                                                 </h6>
@@ -543,7 +513,7 @@
                             <div class="images-wrapper mb-md-80">
                                 <div class="detail-page-slider-for mb-xl-20 magnific-gallery">
                                     <div class="slide-item">
-                                        <a href="../static/assets/images/IMG_411011111111111.jpg" class="popup">
+                                        <a href="../static/assets/images/IMG_411011111111111.jpg" th:src="@{assets/images/IMG_411011111111111.jpg}" class="popup">
                                             <img src="../static/assets/images/IMG_411011111111111.jpg" class="img-fluid image-fit" alt="property img">
                                         </a>
                                     </div>
@@ -565,21 +535,21 @@
                                                 <h6>
                                                     <label>Фамилия :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Исмаилов</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Имя :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Лазиз</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Отчество :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Азизович</a>
                                                     </span>
                                                 </h6>
@@ -589,14 +559,14 @@
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 280-67-00</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 280-67-01</a>
                                                     </span>
                                                 </h6>
@@ -618,8 +588,8 @@
                             <div class="images-wrapper mb-md-80">
                                 <div class="detail-page-slider-for mb-xl-20 magnific-gallery">
                                     <div class="slide-item">
-                                        <a href="../static/assets/images/threee.jpg" class="popup">
-                                            <img src="../static/assets/images/threee.jpg" class="img-fluid image-fit" alt="property img">
+                                        <a href="../static/assets/images/threee.jpg" th:href="@{assets/images/threee.jpg}" class="popup">
+                                            <img src="../static/assets/images/threee.jpg" th:href="@{assets/images/threee.jpg}" class="img-fluid image-fit" alt="property img">
                                         </a>
                                     </div>
                                 </div>
@@ -640,21 +610,21 @@
                                                 <h6>
                                                     <label>Фамилия :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                            Суннатов</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Имя :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                            Мухиддин</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Отчество :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Салохиддинович</a>
                                                     </span>
                                                 </h6>
@@ -664,7 +634,7 @@
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 280-67-35</a>
                                                     </span>
                                                 </h6>
@@ -686,8 +656,8 @@
                             <div class="images-wrapper mb-md-80">
                                 <div class="detail-page-slider-for mb-xl-20 magnific-gallery">
                                     <div class="slide-item">
-                                        <a href="../static/assets/images/foto%204.jpg" class="popup">
-                                            <img src="../static/assets/images/foto%204.jpg" class="img-fluid image-fit" alt="property img">
+                                        <a href="../static/assets/images/foto4.jpg" th:href="@{assets/images/foto4.jpg}" class="popup">
+                                            <img src="../static/assets/images/foto4.jpg" th:href="@{assets/images/foto4.jpg}" class="img-fluid image-fit" alt="property img">
                                         </a>
                                     </div>
                                 </div>
@@ -708,21 +678,21 @@
                                                 <h6>
                                                     <label>Фамилия :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Суннатов</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Имя :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Мухиддин</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Отчество :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Салохиддинович</a>
                                                     </span>
                                                 </h6>
@@ -732,7 +702,7 @@
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 280-67-35</a>
                                                     </span>
                                                 </h6>
@@ -754,8 +724,8 @@
                             <div class="images-wrapper mb-md-80">
                                 <div class="detail-page-slider-for mb-xl-20 magnific-gallery">
                                     <div class="slide-item">
-                                        <a href="../static/assets/images/fddf.jpg" class="popup">
-                                            <img src="../static/assets/images/fddf.jpg" class="img-fluid image-fit" alt="property img">
+                                        <a href="../static/assets/images/fddf.jpg" th:href="@{assets/images/fddf.jpg}" class="popup">
+                                            <img src="../static/assets/images/fddf.jpg" th:href="@{assets/images/fddf.jpg}" class="img-fluid image-fit" alt="property img">
                                         </a>
                                     </div>
                                 </div>
@@ -776,21 +746,21 @@
                                                 <h6>
                                                     <label>Фамилия :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#"  th:href="@{#}">
                                                             Нашвандов</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Имя :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Шохрух</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Отчество :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Муротович</a>
                                                     </span>
                                                 </h6>
@@ -800,7 +770,7 @@
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 280-67-03</a>
                                                     </span>
                                                 </h6>
@@ -822,8 +792,8 @@
                             <div class="images-wrapper mb-md-80">
                                 <div class="detail-page-slider-for mb-xl-20 magnific-gallery">
                                     <div class="slide-item">
-                                        <a href="../static/assets/images/dddd.jpg" class="popup">
-                                            <img src="../static/assets/images/dddd.jpg" class="img-fluid image-fit" alt="property img">
+                                        <a href="../static/assets/images/dddd.jpg" th:href="@{assets/images/dddd.jpg}" class="popup">
+                                            <img src="../static/assets/images/dddd.jpg" th:href="@{assets/images/dddd.jpg}" class="img-fluid image-fit" alt="property img">
                                         </a>
                                     </div>
                                 </div>
@@ -844,21 +814,21 @@
                                                 <h6>
                                                     <label>Фамилия :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Камалитдинов</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Имя :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Хамидулла</a>
                                                     </span>
                                                 </h6>
                                                 <h6>
                                                     <label>Отчество :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             Хайруллаевич</a>
                                                     </span>
                                                 </h6>
@@ -868,7 +838,7 @@
                                                 <h6>
                                                     <label>Тел :</label>
                                                     <span>
-                                                        <a href="#">
+                                                        <a href="#" th:href="@{#}">
                                                             (+99871) 280-67-04</a>
                                                     </span>
                                                 </h6>
@@ -977,22 +947,22 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="text" name="#" class="form-control form-control-custom" placeholder="User Name" required>
+                                            <input type="text" name="#" th:href="@{#}" class="form-control form-control-custom" placeholder="User Name" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="email" name="#" class="form-control form-control-custom" placeholder="Email" required>
+                                            <input type="email" name="#" th:href="@{#}" class="form-control form-control-custom" placeholder="Email" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="#" class="form-control form-control-custom" placeholder="Password" required>
+                                            <input type="password" name="#" th:href="@{#}" class="form-control form-control-custom" placeholder="Password" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="#" class="form-control form-control-custom" placeholder="Retype Password" required>
+                                            <input type="password" name="#" th:href="@{#}" class="form-control form-control-custom" placeholder="Retype Password" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
