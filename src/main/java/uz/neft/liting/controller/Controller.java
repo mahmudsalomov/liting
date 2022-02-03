@@ -24,6 +24,10 @@ public class Controller {
     public String nablyudatelniySovet(){
         return "nablyudatelniySovet";
     }
+    @GetMapping("/shortaboutus")
+    public String shortaboutus(){
+        return "shortaboutus";
+    }
     @GetMapping("/index2")
     public String index2(){
         return "index2";
