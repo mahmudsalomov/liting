@@ -25,7 +25,7 @@ function all() {
 
 function menuBuilder(categories) {
     let result="";
-    categories.map(c=>{
+    categories.forEach(c=>{
 
         let out="";
 
