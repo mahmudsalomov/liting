@@ -1,13 +1,18 @@
 package uz.neft.liting.partner;
 
-import com.sun.istack.NotNull;
 import lombok.*;
+import uz.neft.liting.blog.BlogStatus;
+import uz.neft.liting.category.Category;
 import uz.neft.liting.file.FileStorage;
 import uz.neft.liting.template.AbsEntityInteger;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
+import java.util.Optional;
 
 
 @Getter
@@ -25,12 +30,14 @@ public class PartnersComment extends AbsEntityInteger{
     private String company;
     @NotNull
     private String comment;
-    @NotNull
+
+
     @OneToOne
     private FileStorage signature;
-    @NotNull
+//    @NotNull
     @OneToOne
     private FileStorage photo;
+
 
     public PartnersComment(Integer id, Timestamp createdAt, boolean deleted, String name, String surname, String company, String comment, FileStorage signature, FileStorage photo) {
         super(id, createdAt, deleted);
@@ -50,43 +57,13 @@ public class PartnersComment extends AbsEntityInteger{
         this.signature = signature;
         this.photo = photo;
     }
-    public PartnersComment toDto(){
-        return PartnersComment
-                .builder()
-                .name(name)
-                .surname(surname)
-                .company(company)
-                .comment(comment)
-                .signature(signature)
-                .photo(photo)
-                .build();
-    }
-
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    @ToString
-    public static class PartnerDto{
-        private Integer id;
-        private String name;
-        private String surname;
-        private String company;
-        private String comment;
-        private FileStorage signature;
-        private FileStorage photo;
-
-        public PartnerDto(PartnersComment partnersComment){
-            this.id=partnersComment.getId();
-            this.name=partnersComment.getName();
-            this.surname=partnersComment.getSurname();
-            this.comment=partnersComment.getComment();
-            this.company=partnersComment.getCompany();
-            this.photo=partnersComment.getPhoto();
-            this.signature=partnersComment.getSignature();
-
-        }
+    public void edit(PartnersComment parCom){
+        name=parCom.name;
+        surname=parCom.surname;
+        company=parCom.company;
+        comment=parCom.comment;
+        signature=parCom.signature;
+        photo=parCom.photo;
     }
 }
 

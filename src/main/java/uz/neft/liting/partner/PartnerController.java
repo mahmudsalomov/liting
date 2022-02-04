@@ -1,6 +1,5 @@
 package uz.neft.liting.partner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,27 +20,27 @@ public class PartnerController implements RestCrud<PartnersComment> {
 
     @Override
     public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
-        return null;
+        return partnerService.all().response();
     }
 
     @Override
     public HttpEntity<?> add(PartnersComment partnersComment, User user) {
-        return null;
+        return partnerService.add(partnersComment).response();
     }
 
     @Override
     public HttpEntity<?> edit(PartnersComment partnersComment, User user) {
-        return null;
+        return partnerService.edit(partnersComment).response();
     }
 
     @Override
     public HttpEntity<?> delete(Integer id, User user) {
-        return null;
+        return partnerService.delete(id).response();
     }
 
     @Override
     public HttpEntity<?> one(Integer id) {
-        return null;
+        return partnerService.one(id).response();
     }
 }
 
