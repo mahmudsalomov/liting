@@ -22,9 +22,9 @@ public interface RestCrud<T> extends Serializable {
     @PutMapping("/edit")
     HttpEntity<?> edit(@Valid @RequestBody T t, @CurrentUser User user);
     @PostMapping("/delete/{id}")
-    HttpEntity<?> delete(@PathVariable Integer id, @CurrentUser User user);
+    HttpEntity<?> delete(@Valid @PathVariable Integer id, @CurrentUser User user);
 
     @GetMapping("/one/{id}")
-    HttpEntity<?> one(@PathVariable Integer id);
+    HttpEntity<?> one(@Valid @PathVariable Integer id);
 
 }
