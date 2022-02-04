@@ -12,6 +12,7 @@ public interface CategoryRepository extends JpaRepository<Category,Integer> {
 
     List<Category> findAllByDeletedFalseAndParent(Category parent);
     List<Category> findAllByDeletedFalseAndParentIsNull();
+    List<Category> findAllByDeletedFalseAndTypeNot(CategoryType type);
     List<Category> findAllByDeletedFalse();
     List<Category> findAllByDeletedFalseAndParentNotNull();
 

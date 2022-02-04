@@ -123,6 +123,24 @@ public class Blog extends AbsEntityInteger {
         return this;
     }
 
+    public void editVoid(Blog dto){
+        title_en=dto.title_en;
+        title_uz=dto.title_uz;
+        title_oz=dto.title_oz;
+        title_ru=dto.title_ru;
+        anons_en=dto.anons_en;
+        anons_oz=dto.anons_oz;
+        anons_uz=dto.anons_uz;
+        anons_ru=dto.anons_ru;
+        text_en=dto.text_en;
+        text_oz=dto.text_oz;
+        text_uz=dto.text_uz;
+        text_ru=dto.text_ru;
+        mainImage=dto.mainImage;
+        files=dto.files;
+        type=dto.type;
+    }
+
 
 
 

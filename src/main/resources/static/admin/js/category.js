@@ -4,23 +4,13 @@ let categoryList = []
 
 
 function getAllCategories() {
-    axios.get("/api/category/all")
+    Request.getAllCategories()
         .then(function (response) {
-            console.log(response)
-            // usersList = response.data.object
-            categoryList = response.data.object
-            localStorage.setItem("categoryList",response.data.object)
-            if (response.data.message === "OK") {
-                categoryList = response.data.object
-
-                // console.log(response)
-                // console.log(usersList)
-            }
-            console.log(categoryList)
+            // console.log("response")
+            // console.log(response)
+            categoryList=response;
             document.getElementById('parent').innerHTML=addOptionParent(categoryList);
-
-
-            document.getElementById("userTable").innerHTML = createViewCategoryTable(categoryList)
+            document.getElementById("userTable").innerHTML = createViewCategoryTable(categoryList);
         })
         .catch(function (error) {
             console.log(error)
@@ -33,10 +23,7 @@ function addCategoryBtn() {
     document.getElementById('addOrEditUserH3').innerText = 'Kategoriyani tahrirlash'
     document.getElementById('addOrEditUserBtn').innerText = 'Tahrirlash'
 }
-// function resetAndCloseForm() {
-//     document.getElementById('closeFormBtn').click();
-//     document.getElementById('addOrEditUserForm').reset();
-// }
+
 
 function addOrEditCategory(event) {
     event.preventDefault();
@@ -45,31 +32,12 @@ function addOrEditCategory(event) {
     const data = {}
     formData.forEach((value, key) => (data[key] = value));
 
-    let config = {
-        method: '',
-        url: '',
-        data
-    };
-
     formData.forEach((value, key) => {
         key=="parentId"?value?(data["parent"] = {id:value}):"":""
     });
 
-
-    if (data.id === "" || data.id == null) {
-
-        config.method = 'post';
-        config.url = '/api/category/add'
-        getAllCategories()
-        document.getElementById('parent').innerHTML=addOptionParent(categoryList);
-    } else {
-
-        config.method = 'put';
-        config.url = '/api/category/edit'
-    }
-
-    axios(config)
-        .then(function () {
+    Request.addOrEditCategory(data)
+        .then(function (response) {
             getAllCategories();
             resetAndCloseForm();
         })
@@ -77,9 +45,11 @@ function addOrEditCategory(event) {
             // console.log(error);
             // console.log(error.data);
             resetAndCloseForm();
-            alert(error.response.data.message)
+            alert(error.data.message)
         });
 }
+
+
 
 function editCategory(id) {
     getAllCategories()

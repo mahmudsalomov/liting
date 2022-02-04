@@ -1,7 +1,7 @@
 // stylelint-disable property-disallowed-list
 // Single side border-radius
 
-// Helper function to replace negative values with 0
+// Request function to replace negative values with 0
 @function valid-radius($radius) {
   $return: ();
   @each $value in $radius {

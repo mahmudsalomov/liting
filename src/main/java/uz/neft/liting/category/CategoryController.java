@@ -50,6 +50,11 @@ public class CategoryController implements RestCrud<Category> {
         return categoryService.allBySort().response();
     }
 
+    @GetMapping("/all/not/parent")
+    public HttpEntity<?> allNotParent(){
+        return categoryService.allNotParent().response();
+    }
+
 //    @GetMapping("/all/children")
 //    public HttpEntity<?> allByChildren(){
 //

@@ -147,21 +147,23 @@ public class CategoryService {
     }
 
     public ApiResponse allBySort(){
-
         try {
-
             List<Category> allParents = categoryRepository.findAllByDeletedFalseAndParentIsNull();
-
             return Payload.ok(allParents);
-
         }catch (Exception e){
             e.printStackTrace();
             return Payload.conflict();
         }
+    }
 
-
-
-
+    public ApiResponse allNotParent(){
+        try {
+            List<Category> allParents = categoryRepository.findAllByDeletedFalseAndTypeNot(CategoryType.PARENT);
+            return Payload.ok(allParents);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
     }
 
 }

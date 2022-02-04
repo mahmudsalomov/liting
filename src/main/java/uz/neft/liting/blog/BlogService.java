@@ -59,6 +59,7 @@ public class BlogService {
 
     public ApiResponse edit(Blog dto) {
         try {
+
             if (dto.getId()==null) return Payload.badRequest("Id is null!");
             Optional<Blog> blog = blogRepository.findById(dto.getId());
             if (!blog.isPresent()) return Payload.notFound();
@@ -77,7 +78,23 @@ public class BlogService {
             e.printStackTrace();
             return Payload.badRequest();
         }
+    }
 
+
+    public ApiResponse allByCategory(Integer id,Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy){
+        try {
+            Optional<Category> category = categoryRepository.findById(id);
+            if (category.isPresent()){
+                Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
+                Page<Blog> all = blogRepository.findAllByCategory(category.get(),pg);
+                return Payload.ok(all.getContent());
+            }
+            return Payload.notFound();
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
 
     }
+
 }

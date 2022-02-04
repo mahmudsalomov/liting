@@ -26,7 +26,17 @@ public class AdminController {
 
     @GetMapping("/blog")
     public String blog(){
-        return "admin/blog";
+        return "admin/blogs";
+    }
+
+    @GetMapping("/blog/add")
+    public String blogAdd(){
+        return "admin/blog-add";
+    }
+
+    @GetMapping("/blog/edit")
+    public String blogEdit(){
+        return "admin/blog-add";
     }
 
 }

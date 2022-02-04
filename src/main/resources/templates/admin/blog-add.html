@@ -12,7 +12,7 @@
     <title>SB Admin 2 - Tables</title>
 
     <!-- Custom fonts for this template -->
-    <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+<!--    <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">-->
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -21,7 +21,7 @@
     <link href="../../static/admin/css/sb-admin-2.min.css" th:href="@{/admin/css/sb-admin-2.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="../../static/admin/vendor/datatables/dataTables.bootstrap4.min.css" th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
+<!--    <link href="../../static/admin/vendor/datatables/dataTables.bootstrap4.min.css" th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">-->
 
     <style>
         .switch {
@@ -405,16 +405,16 @@
 
                 <ul class="nav nav-tabs mb-3 w-100 text-center" id="pills-tab" role="tablist">
                     <li class="nav-item w-25" role="presentation">
-                        <a class="nav-link active" id="pills-lotin-tab" data-toggle="pill" href="#pills-lotin" role="tab" aria-controls="pills-lotin" aria-selected="true">O'zbekcha <img src="../../static/custom-icons/uz.png"></a>
+                        <a class="nav-link active" id="pills-lotin-tab" data-toggle="pill" href="#pills-lotin" role="tab" aria-controls="pills-lotin" aria-selected="true">O'zbekcha <img src="../../static/custom-icons/uz.png" th:src="@{/custom-icons/uz.png}"></a>
                     </li>
                     <li class="nav-item w-25" role="presentation">
-                        <a class="nav-link" id="pills-krill-tab" data-toggle="pill" href="#pills-krill" role="tab" aria-controls="pills-krill" aria-selected="false">Ўзбекча <img src="../../static/custom-icons/uz.png"></a>
+                        <a class="nav-link" id="pills-krill-tab" data-toggle="pill" href="#pills-krill" role="tab" aria-controls="pills-krill" aria-selected="false">Ўзбекча <img src="../../static/custom-icons/uz.png" th:src="@{/custom-icons/uz.png}"></a>
                     </li>
                     <li class="nav-item w-25" role="presentation">
-                        <a class="nav-link" id="pills-ru-tab" data-toggle="pill" href="#pills-ru" role="tab" aria-controls="pills-ru" aria-selected="false">русский <img src="../../static/custom-icons/ru.png"></a>
+                        <a class="nav-link" id="pills-ru-tab" data-toggle="pill" href="#pills-ru" role="tab" aria-controls="pills-ru" aria-selected="false">русский <img src="../../static/custom-icons/ru.png" th:src="@{/custom-icons/ru.png}"></a>
                     </li>
                     <li class="nav-item w-25" role="presentation">
-                        <a class="nav-link" id="pills-en-tab" data-toggle="pill" href="#pills-en" role="tab" aria-controls="pills-en" aria-selected="false">English <img src="../../static/custom-icons/en.png"></a>
+                        <a class="nav-link" id="pills-en-tab" data-toggle="pill" href="#pills-en" role="tab" aria-controls="pills-en" aria-selected="false">English <img src="../../static/custom-icons/en.png" th:src="@{/custom-icons/en.png}"></a>
                     </li>
                 </ul>
 
@@ -622,7 +622,7 @@
                 </div>
 
 
-                <button class="btn-lg btn btn-success mt-5 mb-5">Saqlash</button>
+                <button onclick="saveBlog()" class="btn-lg btn btn-success mt-5 mb-5">Saqlash</button>
 
 <!--                <div id="summernote">Hello Summernote</div>-->
 
@@ -679,7 +679,13 @@
 <!-- axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<!--<script src="/static/admin/js/category.js" th:src="@{/admin/js/category.js}"></script>-->
+<script src="../../static/admin/js/Request.js" th:src="@{/admin/js/Request.js}"></script>
+<script src="../../static/admin/js/blog.js" th:src="@{/admin/js/blog.js}"></script>
+
+
+<script>
+    createSelectCategory()
+</script>
 
 
 
@@ -690,19 +696,19 @@
 <!-- Core plugin JavaScript-->
 <script src="../../static/assets/js/easing/jquery.easing.min.js" th:src="@{/assets/js/easing/jquery.easing.min.js}"></script>
 
-<script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-<!--    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>-->
+<!--<script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
+    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
 
 
 <!-- Custom scripts for all pages-->
 <script src="../../static/admin/js/sb-admin-2.min.js" th:src="@{/admin/js/sb-admin-2.min.js}"></script>
 
 <!-- Page level plugins -->
-<script src="../../static/assets/chart.js/Chart.min.js" th:src="@{/assets/chart.js/Chart.min.js}"></script>
+<!--<script src="../../static/assets/chart.js/Chart.min.js" th:src="@{/assets/chart.js/Chart.min.js}"></script>-->
 
 <!-- Page level custom scripts -->
-<script src="../../static/admin/js/demo/chart-area-demo.js" th:src="@{/admin/js/demo/chart-area-demo.js}"></script>
-<script src="../../static/admin/js/demo/chart-pie-demo.js" th:src="@{/admin/js/demo/chart-pie-demo.js}"></script>
+<!--<script src="../../static/admin/js/demo/chart-area-demo.js" th:src="@{/admin/js/demo/chart-area-demo.js}"></script>-->
+<!--<script src="../../static/admin/js/demo/chart-pie-demo.js" th:src="@{/admin/js/demo/chart-pie-demo.js}"></script>-->
 
 <link href="../../static/summernote/summernote-bs5.css" th:href="@{/summernote/summernote-bs5.css}" rel="stylesheet">
 <script src="../../static/summernote/summernote-bs5.js" th:src="@{/summernote/summernote-bs5.js}"></script>
