@@ -38,13 +38,15 @@ public class FileStorageService {
                             .fileStorageStatus(FileStorageStatus.ACTIVE)
                             .extension(getEx(multipartFile.getOriginalFilename()))
                             .build();
+                    fileStorage.setType(typeFinder(fileStorage.getExtension()));
+
             fileStorageRepository.save(fileStorage);
 
 
                     Date now = new Date();
                     //                this.uploadFolder+
                     File uploadFolder = new File(
-                            (1900 + now.getYear()) +
+                            ("photos/"+1900 + now.getYear()) +
                                     "/"
                                     + (1 + now.getMonth()) +
                                     "/"
@@ -90,6 +92,71 @@ public class FileStorageService {
 
 
 
+    public ApiResponse saveFile(MultipartFile[] files,String name){
+        List<FileStorage> fileStorages=new ArrayList<>();
+        try {
+            if (files!=null&&files.length>0){
+                for (MultipartFile multipartFile : files) {
+                    FileStorage fileStorage = FileStorage
+                            .builder()
+                            .name(name)
+                            .fileSize(multipartFile.getSize())
+                            .contentType(multipartFile.getContentType())
+                            .fileStorageStatus(FileStorageStatus.ACTIVE)
+                            .extension(getEx(multipartFile.getOriginalFilename()))
+
+                            .build();
+                    fileStorage.setType(typeFinder(fileStorage.getExtension()));
+                    fileStorageRepository.save(fileStorage);
+
+
+                    Date now = new Date();
+                    //                this.uploadFolder+
+                    File uploadFolder = new File(
+                            ("system_files/"+(1900 + now.getYear())) +
+                                    "/"
+                                    + (1 + now.getMonth()) +
+                                    "/"
+                                    + now.getDate()
+                    );
+
+                    if (!uploadFolder.exists() && uploadFolder.mkdirs()) {
+                        System.out.println("Papkalar yaratildi!");
+                    }
+                    fileStorage.setHashId(name);
+                    fileStorage.setUploadPath(
+//                        this.uploadFolder+
+                            ("system_files/"+(1900 + now.getYear())) +
+                                    "/"
+                                    + (1 + now.getMonth()) +
+                                    "/"
+                                    + now.getDate() +
+                                    "/"
+                                    + fileStorage.getHashId() +
+                                    "."
+                                    + fileStorage.getExtension()
+                    );
+
+                    uploadFolder = uploadFolder.getAbsoluteFile();
+                    File file = new File(uploadFolder, fileStorage.getHashId() + "." + fileStorage.getExtension());
+                    try {
+                        multipartFile.transferTo(file);
+                        fileStorages.add(fileStorageRepository.save(fileStorage));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return Payload.conflict();
+                    }
+                }
+                return Payload.ok(fileStorages);
+            } return Payload.conflict("Rasmlar bo'sh");
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+
+
+    }
+
     public String getEx(String fileName){
         String ext=null;
         if (fileName!=null&& !fileName.equals("")){
@@ -104,5 +171,26 @@ public class FileStorageService {
 
     public FileStorage findByHashId(String hashId) {
         return fileStorageRepository.findByHashId(hashId);
+    }
+
+    public FileType typeFinder(String extension){
+        extension=extension.toLowerCase();
+        switch (extension){
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "gif":
+            case "bmp": return FileType.PHOTO;
+            case "mp4":
+            case "mov":
+            case "wmv":
+            case "webm":
+            case "mpeg":
+            case "mpg":
+            case "3gp":
+            case "mkv":
+            case "avi": return FileType.VIDEO;
+            default:return FileType.FILE;
+        }
     }
 }

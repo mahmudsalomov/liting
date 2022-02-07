@@ -22,4 +22,6 @@ public class FileStorage  {
     private String uploadPath;
     @Enumerated(EnumType.STRING)
     private FileStorageStatus fileStorageStatus;
+    @Enumerated(EnumType.STRING)
+    private FileType type;
 }

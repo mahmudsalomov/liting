@@ -27,6 +27,7 @@ public class BlogService {
 
     public ApiResponse add(Blog blog){
         try {
+            System.out.println(blog.getMainImage());
             if (blog.getStatus()==null) blog.setStatus(BlogStatus.DRAFT);
             if (blog.getCategory()==null) return Payload.badRequest("Category is not null!");
 

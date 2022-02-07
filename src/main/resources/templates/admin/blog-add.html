@@ -12,7 +12,7 @@
     <title>SB Admin 2 - Tables</title>
 
     <!-- Custom fonts for this template -->
-<!--    <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">-->
+    <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -21,7 +21,7 @@
     <link href="../../static/admin/css/sb-admin-2.min.css" th:href="@{/admin/css/sb-admin-2.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-<!--    <link href="../../static/admin/vendor/datatables/dataTables.bootstrap4.min.css" th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">-->
+    <link href="../../static/admin/vendor/datatables/dataTables.bootstrap4.min.css" th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
 
     <style>
         .switch {
@@ -297,6 +297,7 @@
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
                                     <img class="rounded-circle" src="../../static/admin/img/undraw_profile_1.svg"
+                                         th:src="@{/admin/img/undraw_profile_1.svg}"
                                          alt="...">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
@@ -309,6 +310,7 @@
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
                                     <img class="rounded-circle" src="../../static/admin/img/undraw_profile_2.svg"
+                                         th:src="@{/admin/img/undraw_profile_2.svg}"
                                          alt="...">
                                     <div class="status-indicator"></div>
                                 </div>
@@ -321,6 +323,7 @@
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
                                     <img class="rounded-circle" src="../../static/admin/img/undraw_profile_3.svg"
+                                         th:src="@{/admin/img/undraw_profile_3.svg}"
                                          alt="...">
                                     <div class="status-indicator bg-warning"></div>
                                 </div>
@@ -354,7 +357,9 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                             <img class="img-profile rounded-circle"
-                                 src="../../static/admin/img/undraw_profile.svg">
+                                 src="../../static/admin/img/undraw_profile.svg"
+                                 th:src="@{/admin/img/undraw_profile.svg}"
+                            >
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -442,10 +447,11 @@
                                        placeholder="Anons" required></textarea>
                             </div>
 
-                            <div class="form-group flex-column">
-                                <label for="mainImage" class="mb-0 ">Asosiy rasm</label>
-                                <input name="mainImage" id="mainImage" type="file" class="form-control rounded-left"
-                                       placeholder="Asosiy rasm" required>
+                            <div class="form-group flex-column text-center">
+                                <label for="mainImage_oz" class="mb-0 ">Asosiy rasm</label>
+                                <input name="mainImage_oz" id="mainImage_oz" type="file" class="form-control rounded-left"
+                                       placeholder="Asosiy rasm" required onchange="changeImage(event)">
+                                <img class="main_image" id="image">
                             </div>
 
 
@@ -492,10 +498,11 @@
                                           placeholder="Aнонс" required></textarea>
                             </div>
 
-                            <div class="form-group flex-column">
+                            <div class="form-group flex-column text-center">
                                 <label for="mainImage_uz" class="mb-0 ">Aсосий расм</label>
                                 <input name="mainImage_uz" id="mainImage_uz" type="file" class="form-control rounded-left"
                                        placeholder="Aсосий расм" required>
+                                <img class="main_image">
                             </div>
 
 
@@ -540,10 +547,11 @@
                                           placeholder="Объявление" required></textarea>
                             </div>
 
-                            <div class="form-group flex-column">
+                            <div class="form-group flex-column text-center">
                                 <label for="mainImage_ru" class="mb-0 ">Главное фото</label>
                                 <input name="mainImage_ru" id="mainImage_ru" type="file" class="form-control rounded-left"
                                        placeholder="Главное фото" required>
+                                <img class="main_image">
                             </div>
 
 
@@ -588,10 +596,11 @@
                                           placeholder="Anons" required></textarea>
                             </div>
 
-                            <div class="form-group flex-column">
+                            <div class="form-group flex-column text-center">
                                 <label for="mainImage_en" class="mb-0 ">Main image</label>
                                 <input name="mainImage_en" id="mainImage_en" type="file" class="form-control rounded-left"
                                        placeholder="Main image" required>
+                                <img class="main_image">
                             </div>
 
 
@@ -622,7 +631,7 @@
                 </div>
 
 
-                <button onclick="saveBlog()" class="btn-lg btn btn-success mt-5 mb-5">Saqlash</button>
+                <button onclick="saveBlog()" id="save_button" class="btn-lg btn btn-success mt-5 mb-5">Saqlash</button>
 
 <!--                <div id="summernote">Hello Summernote</div>-->
 
@@ -696,8 +705,8 @@
 <!-- Core plugin JavaScript-->
 <script src="../../static/assets/js/easing/jquery.easing.min.js" th:src="@{/assets/js/easing/jquery.easing.min.js}"></script>
 
-<!--<script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
-    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+<script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!--    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>-->
 
 
 <!-- Custom scripts for all pages-->

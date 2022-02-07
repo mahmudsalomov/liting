@@ -129,6 +129,24 @@ class Request {
         return result
     }
 
+    static async saveFiles(files){
+        let result;
+        let param = new window.FormData();
+        param.append("files",files[0])
+
+        await axios.post("/api/file/upload",param,{headers: {
+                'Content-Type': 'multipart/form-data'
+            }})
+            .then(function (response) {
+                result=response.data.object;
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        return result;
+    }
+
 }
 
 
