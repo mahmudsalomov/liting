@@ -26,6 +26,7 @@ public class BlogController implements RestCrud<Blog> {
 
     @Override
     public HttpEntity<?> add(Blog blog, User user) {
+        System.out.println(blog);
         return blogService.add(blog).response();
     }
 

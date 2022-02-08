@@ -146,6 +146,9 @@ function saveBlog() {
             mainImage=res[0];
 
 
+            console.log($($("#summernote_oz").summernote("code")).text())
+            console.log($("#summernote_oz").summernote("code"))
+            // console.log($($("#summernote_oz").summernote("code")).html())
 
             let data={
                 title_oz:document.getElementById("title_oz").value,
@@ -157,10 +160,10 @@ function saveBlog() {
                 anons_ru:document.getElementById("anons_ru").value,
                 anons_en:document.getElementById("anons_en").value,
 
-                text_oz:$($("#summernote_oz").summernote("code")).html(),
-                text_uz:$($("#summernote_uz").summernote("code")).html(),
-                text_ru:$($("#summernote_ru").summernote("code")).html(),
-                text_en:$($("#summernote_en").summernote("code")).html(),
+                text_oz:$("#summernote_oz").summernote("code"),
+                text_uz:$("#summernote_uz").summernote("code"),
+                text_ru:$("#summernote_ru").summernote("code"),
+                text_en:$("#summernote_en").summernote("code"),
                 category:{
                     id:document.getElementById("blog_category_oz").value
                 },

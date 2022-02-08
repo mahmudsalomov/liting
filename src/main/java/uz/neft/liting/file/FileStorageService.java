@@ -46,7 +46,7 @@ public class FileStorageService {
                     Date now = new Date();
                     //                this.uploadFolder+
                     File uploadFolder = new File(
-                            ("photos/"+1900 + now.getYear()) +
+                            ("photos/"+(1900 + now.getYear())) +
                                     "/"
                                     + (1 + now.getMonth()) +
                                     "/"
@@ -59,7 +59,7 @@ public class FileStorageService {
                     fileStorage.setHashId(hashids.encode(fileStorage.getId()));
                     fileStorage.setUploadPath(
 //                        this.uploadFolder+
-                            (1900 + now.getYear()) +
+                            "photos/"+(1900 + now.getYear()) +
                                     "/"
                                     + (1 + now.getMonth()) +
                                     "/"

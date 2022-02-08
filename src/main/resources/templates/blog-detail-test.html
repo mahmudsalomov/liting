@@ -88,7 +88,7 @@
                     <div class="post-wrapper">
                         <div class="blog-img animate-img mb-xl-20">
                             <a href="blog-single.html">
-                                <img src="../static/assets/images/blog/news_full.jpg" th:src="@{/assets/images/blog/news_full.jpg}" class="img-fluid image-fit" alt="Blog">
+                                <img id="mainImage" src="../static/assets/images/blog/news_full.jpg" th:src="@{/assets/images/blog/news_full.jpg}" class="img-fluid image-fit" alt="Blog">
                             </a>
                             <div class="post-date">
                                 <a href="blog-single.html">12 Dec 2022</a>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="blog-meta">
                             <div class="blog-title">
-                                <h2><a href="#" class="text-theme fw-600">8 Tips to Help You Finding New Home</a></h2>
+                                <h2><a href="#" class="text-theme fw-600" id="title">8 Tips to Help You Finding New Home</a></h2>
                             </div>
                             <div class="post-meta">
                                 <div class="post-author mb-xl-20">
@@ -113,7 +113,7 @@
                                     <span class="text-custom-blue fs-14"><i class="fas fa-comments mr-1"></i> <a href="#" class="text-theme">20</a></span>
                                 </div>
                             </div>
-                            <div class="blog-content">
+                            <div class="blog-content" id="text">
                                 <p class="text-theme description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                                 <p class="text-theme description">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -394,7 +394,7 @@
 <!-- magnific popup -->
 <script src="../static/assets/js/jquery.magnific-popup.min.js" th:src="@{/assets/js/jquery.magnific-popup.min.js}"></script>
 <!-- Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>-->
 <!-- Wow js -->
 <script src="../static/assets/js/wow.min.js" th:src="@{/assets/js/wow.min.js}"></script>
 <!-- Custom Js -->
@@ -429,7 +429,7 @@
 <script src="../static/assets/plugins/wow.min.js" th:src="@{/assets/plugins/wow.min.js}"></script>
 
 <!-- Google map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>-->
 
 <!-- script -->
 <script src="../static/assets/js/script.js" th:src="@{/assets/js/script.js}"></script>
@@ -438,10 +438,17 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <!-- navbar script -->
-<script src="../static/assets/js/navbar.js" th:src="@{/assets/js/navbar.js}">
-    all()
-</script>
-<script src="../static/assets/js/index.js" th:src="@{/assets/js/index.js}">
+<script src="../static/assets/js/navbar.js" th:src="@{/assets/js/navbar.js}"></script>
+
+<script src="../static/assets/js/index.js" th:src="@{/assets/js/index.js}"></script>
+<script src="../static/assets/js/blog.js" th:src="@{/assets/js/blog.js}"></script>
+
+<script>
+    // console.log(window.location)
+    console.log(window.location.pathname)
+    console.log(window.location.pathname.slice(6))
+    getBlog(window.location.pathname.slice(6))
+    // console.log(window.location.search)
 </script>
 <!-- /Place all Scripts Here -->
 </body>
