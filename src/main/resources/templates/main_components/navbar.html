@@ -1,0 +1,369 @@
+<div th:fragment="navbar">
+    <!-- preloader -->
+    <!-- Start Header -->
+    <!-- topbar -->
+    <div class="topbar bg-custom-black">
+        <div class="container-fluid custom-container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="left-side ">
+                        <ul class="custom">
+                            <li>
+                                <a href="tel:+998712806705" th:href="@{tel:}" class="text-custom-white"><i class="fas fa-phone-alt text-custom-blue"></i>(+998 71) 280-67-05</a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@domain.com" class="text-custom-white"><i class="fas fa-envelope text-custom-blue"></i> liting@liting.uz</a>
+                            </li>
+                            <li>
+                                <a href="https://www.google.com/maps/place/2+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D0%B0+%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%BE,+%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82+100029,+%D0%A3%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD/@41.3070099,69.2718756,17z/data=!3m1!4b1!4m5!3m4!1s0x38ae8b27be08195b:0x22e39ddd8fab137e!8m2!3d41.3070059!4d69.2740643" class="text-custom-white"><i class="fas fa-map-marker-alt text-custom-blue"></i>Узбекистан, г.Ташкент, ул. Т.Шевченко, 2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="right-side">
+                        <ul class="custom">
+                            <li class="language">
+                                <select>
+                                    <option>English</option>
+                                    <option>Russian</option>
+                                    <option>Uzbek</option>
+                                </select>
+                            </li>
+                            <li>
+                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" th:href="@{#}" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- topbar -->
+    <!-- navigation -->
+    <header class="menu-style">
+        <div class="container-fluid custom-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header">
+                        <div class="logo">
+                            <a href="index.html" th:href="@{/}">
+                                <img src="../static/assets/images/logo.png" th:src="@{assets/images/logo.png}" class="logo" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="right-side">
+                            <div class="navigation">
+                                <div class="logo">
+                                    <a href="/">
+                                        <img src="../static/assets/images/logo.png" th:src="@{assets/images/logo.png}" class="img-fluid image-fit" alt="Logo">
+                                    </a>
+                                </div>
+                                <nav>
+                                    <ul class="custom main-menu" id="navbar-root">
+                                        <li class="menu-item menu-item-has-children active">
+                                            <a href="#" class="text-theme fs-14">О Компании</a>
+                                            <ul class="custom sub-menu" style="width: 320px">
+                                                <li class="menu-item">
+                                                    <a href="https://t.me/litinguz" th:href="@{//t.me/litinguz}" class="text-theme">Телеграм-канал!</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Исотрия института</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="structure.html" th:href="@{structure}" class="text-theme">Организационная структура</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="shortAboutUs.html" th:href="@{shortaboutus}" class="text-theme">Кратко о нас</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="managment.html" th:href="@{managment}" class="text-theme">Рукаводство</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="nablyudatelniySovet.html" th:href="@{nablyudatelniySovet}" class="text-theme">Наблюдателный совет</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="revezionnayaKomessiya.html" th:href="@{revezionnayaKomessiya}"  class="text-theme">Ревезионная комиссия</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Вакансии</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Информация по долям участия</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Служба внутреннего аудита</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Инвестицонная привлекательность</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">СМИ о нас</a>
+                                                </li><li class="menu-item">
+                                                <a href="homepage-2.html" th:href="@{homepage-2}" class="text-theme">Контакты</a>
+                                            </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="about.html" th:href="@{about}" class="text-theme fs-14">Наша Десятельность</a>
+                                            <ul class="custom sub-menu" style="width: 500px">
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Научно-технологическая десятелность</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Проектно-техическая десятельность</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Экспертная организация по промышленной безопасности</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Нормативный документы</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Патенты и свидетельства</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Фундаментальный и технический анализ</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Реализованный проекты</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Новые направления десятельности</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Акционерам и Инвестерам</a>
+                                            <ul class="custom sub-menu" style="width: 510px">
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Соблюдай или объясняй(COMPANY OR EXPLAIN) </a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Проспект емиссии</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Структура акционерного капитала</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Устав общества и свидетельство</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Положения Общества</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Существенные факты</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Бизнес-план</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Финансовые отчеты</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Итоги голосования акционеров</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Сведения о начисленных и выплаченных дивидендах</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Аффилированные лица общества</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Стратегия развития</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Заключения аудиторских организаций</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Благотворительность</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service}" class="text-theme">Принятие рекомендаций Кодекса Корпоративного Управления</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service.html" th:href="@{service.ml}" class="text-theme">Информация по вознаграждениям</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service-detail.html" th:href="@{service-detail}" class="text-theme">Распределение прибыли</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Наука</a>
+                                            <ul class="custom sub-menu">
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="#" th:href="@{#}" class="text-theme">Научный Совет</a>
+                                                    <ul class="custom sub-menu">
+                                                        <li class="menu-item">
+                                                            <a href="portfolio-grid.html" class="text-theme">Grid Style</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="portfolio-grid-left-sidebar.html" class="text-theme">Left Sidebar</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="portfolio-grid-right-sidebar.html" class="text-theme">Right Sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="#" th:href="@{#}" class="text-theme">Научно-технический совет</a>
+                                                    <ul class="custom sub-menu">
+                                                        <li class="menu-item">
+                                                            <a href="portfolio-detail.html" th:href="@{portfolio-detail.html}" class="text-theme">Full Width</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="portfolio-detail-left-sidebar.html" th:href="@{portfolio-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="portfolio-detail-right-sidebar.html" th:href="@{portfolio-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="service-detail.html" th:href="@{service-detail.html}" class="text-theme">Распределение прибыли</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Повышение Квалификации</a>
+                                            <ul class="custom sub-menu" style="width: 340px">
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="#" th:href="@{#}" class="text-theme">Учебные курсы "NEFTGAZ-MALAKA</a>
+                                                    <ul class="custom sub-menu">
+                                                        <li class="menu-item">
+                                                            <a href="shop-left.html" th:href="@{shop-left.html}" class="text-theme">Shop Left Sidebar</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="shop-right.html" th:href="@{shop-right.html}" class="text-theme">Shop Right Sidebar</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="shop-full-width.html" th:href="@{shop-full-width.html}" class="text-theme">Shop Full Width</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="shop-detail.html" th:href="@{shop-detail.html}" class="text-theme">Shop Detail</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="404.html" th:href="@{404.html}" class="text-theme">404</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="coming-soon.html" th:href="@{coming-soon.html}" class="text-theme">Coming Soon</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="gallery.html" th:href="@{gallery.html}" class="text-theme">Gallery</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="faqs.html" th:href="@{faqs.html}" class="text-theme">Faqs</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="contact-style-1.html" th:href="@{contact-style-1.html}" class="text-theme fs-14">Contact Style 1</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="contact-style-2.html" th:href="@{contact-style-2.html}" class="text-theme fs-14">Contact Style 2</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="heading-and-paragraphs.html" th:href="@{heading-and-paragraphs.html}" class="text-theme">Heading and Paragraphs</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children">
+                                            <a href="#" th:href="@{#}" class="text-theme fs-14">Новости</a>
+                                            <ul class="custom sub-menu">
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="#" th:href="@{#}" class="text-theme">Новости</a>
+                                                    <ul class="custom sub-menu">
+                                                        <li class="menu-item">
+                                                            <a href="blog.html" th:href="@{blog.html}" class="text-theme">Grid Style</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="blog-left-sidebar.html" th:href="@{blog-left-sidebar.html}" class="text-theme">Left Sidebar</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="blog-right-sidebar.html" th:href="@{blog-right-sidebar.html}" class="text-theme">Right Sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="#" th:href="@{#}" class="text-theme">Конкурсы</a>
+                                                    <ul class="custom sub-menu">
+                                                        <li class="menu-item">
+                                                            <a href="blog-single.html" th:href="@{blog-single.html}" class="text-theme">Single</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="blog-video.html" th:href="@{blog-video.html}" class="text-theme">Video</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="blog-gallery.html" th:href="@{blog-gallery.html}" class="text-theme">Gallery</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="blog-detail-left-sidebar.html" th:href="@{blog-detail-left-sidebar.html}" class="text-theme">Left Sidebar</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="blog-detail-right-sidebar.html" th:href="@{blog-detail-right-sidebar.html}" class="text-theme">Right Sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="logon-parent">
+                                    <div class="logon">
+                                        <img src="../static/assets/images/iqnet.png" th:src="@{assets/images/iqnet.png}" class="logon-img" alt="Logo">
+                                    </div>
+                                    <div class="logon">
+                                        <img src="../static/assets/images/russian.png" th:src="@{assets/images/russian.png}" class="logon-img" alt="Logo">
+                                    </div>
+                                </div>
+                                <!--                            <div class="social-media">-->
+                                <!--                                <ul class="custom">-->
+                                <!--                                    <li>-->
+                                <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-facebook-f"></i></a>-->
+                                <!--                                    </li>-->
+                                <!--                                    <li>-->
+                                <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-twitter"></i></a>-->
+                                <!--                                    </li>-->
+                                <!--                                    <li>-->
+                                <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-instagram"></i></a>-->
+                                <!--                                    </li>-->
+                                <!--                                    <li>-->
+                                <!--                                        <a href="#" class="text-custom-white"><i class="fab fa-pinterest-p"></i></a>-->
+                                <!--                                    </li>-->
+                                <!--                                </ul>-->
+                                <!--                            </div>-->
+                            </div>
+
+                            <div class="hamburger-menu">
+                                <div class="menu-btn">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-side-2">
+                            <div class="cta-btn">
+                                <div class="cta-text">
+                                    <a href="contact-style-1.html" class="addlisting-btn btn-first btn-border">Cовет</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- navigation -->
+    <!-- End Header -->
+    <!-- Start Banner -->
+</div>
