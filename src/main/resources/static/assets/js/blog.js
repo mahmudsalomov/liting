@@ -3,17 +3,25 @@
 function getBlogs(category_id) {
     let url="";
     if (category_id){
-        url="/api/blog/all"
-    } else {
         url="/api/blog/all/"+category_id
+    } else {
+        url="/api/blog/all"
     }
     axios.get(url)
         .then(function (response) {
             console.log(response)
+
+            axios.get("/api/category/name/"+category_id)
+                .then(function (res) {
+                    console.log(res)
+                    document.getElementById("category-name").innerText=res.data
+                })
+
             createViewBlogList(response.data.object)
         })
         .catch(function (error) {
             console.log(error)
+            createViewBlogList([])
         })
 }
 
@@ -98,7 +106,8 @@ function createViewBlogList(data) {
             "                </article>\n"
 
     })
-    if (out!=="")
+
+    // if (out!=="")
     document.getElementById("blog-list-root").innerHTML=out;
 }
 

@@ -1,12 +1,15 @@
 package uz.neft.liting.category;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uz.neft.liting.template.RestCrud;
 import uz.neft.liting.user.User;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -53,6 +56,11 @@ public class CategoryController implements RestCrud<Category> {
     @GetMapping("/all/not/parent")
     public HttpEntity<?> allNotParent(){
         return categoryService.allNotParent().response();
+    }
+
+    @GetMapping("/name/{id}")
+    public HttpEntity<?> name(@Valid @PathVariable Integer id){
+        return ResponseEntity.ok(categoryService.name(id));
     }
 
 //    @GetMapping("/all/children")

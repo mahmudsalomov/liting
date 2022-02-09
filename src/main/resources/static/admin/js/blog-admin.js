@@ -27,6 +27,13 @@ function createViewBlogTable(blogs) {
 
     blogs.forEach(blog=>{
 
+        let temp=""
+        if (blog.mainSlider){
+            temp="<input checked onchange='isMainSlider("+blog.id+",event)' type=\"checkbox\" id=\"s\">"
+        }else{
+            temp="<input onchange='isMainSlider("+blog.id+",event)' type=\"checkbox\" id=\"s\">"
+        }
+
         out+="<div class=\"card shadow row mb-4 p-1\">\n" +
             "                        <div class=\"row no-gutters\">\n" +
             "                            <div class=\"col-md-4\">\n" +
@@ -49,7 +56,15 @@ function createViewBlogTable(blogs) {
             "                                Kategoriya:\n" + blog.category.name_oz+
             "                            </div>\n" +
             "                            <div class=\"p-3 col-md-8 d-flex justify-content-end\">\n" +
-            "                                <button class=\"btn btn-info m-1\">Saytda ko'rish</button>\n" +
+            "    <!-- Default switch -->\n" +
+            "      <!-- Rounded switch -->\n" +
+            "                <p class=\"float-right m-2\">Main slider</p>\n" +
+            "                <label class=\"switch float-right\">\n" +
+            // "                    <input onchange='isMainSlider("+blog.id+",event)' type=\"checkbox\" id=\"s\">\n" +
+            temp+
+            "                    <span class=\"slider round\"></span>\n" +
+            "                </label>"+
+            "                                <a href='/blog/"+blog.id+"' class=\"btn btn-info m-1\">Saytda ko'rish</a>\n" +
             "                                <a href='/admin/blog/edit/"+blog.id+"' class=\"btn btn-success m-1\">Tahrirlash</a>\n" +
             "                                <button class=\"btn btn-danger m-1\">O'chirish</button>\n" +
             "                            </div>\n" +
@@ -268,4 +283,21 @@ function editBuilder(blog) {
     // mainImage:mainImage
 }
 
+function isMainSlider(id,event) {
+    console.log("CHCHCHCHCHCHC")
+    console.log(event)
+    console.log(event.target)
+    console.log(event.target.checked)
+    console.log(id)
+    Request.changeMainSlider(id,event.target.checked)
+        .then()
+        .catch()
+}
+
+function checkHelper(bool,checkbox) {
+    console.log("AAAAA")
+    console.log(bool)
+    console.log(checkbox)
+    checkbox.checked=bool;
+}
 //EDIT END

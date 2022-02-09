@@ -101,7 +101,7 @@ public class Blog extends AbsEntityInteger {
     private BlogStatus status;
 
     @Column(nullable = false)
-    private boolean isMainSlider=false;
+    private boolean mainSlider=false;
 
 
     public Blog edit(Blog dto){

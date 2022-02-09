@@ -111,6 +111,7 @@ class Request {
             })
             .catch(function (error) {
                 console.log(error)
+                alert(error.response.data.message)
             })
         return blog;
     }
@@ -158,9 +159,23 @@ class Request {
             })
             .catch(function (error) {
                 console.log(error)
+                alert(error.response.data)
             })
         return result;
     }
+
+    static async changeMainSlider(id,isMainSlider){
+
+        axios.post("/api/blog/main_slider_changer/"+id+"?isMainSlider="+isMainSlider)
+            .then(function (response) {
+                // return true;
+            })
+            .catch(function (error) {
+                console.log(error)
+                alert(error.response.data.message)
+            })
+    }
+
 
 }
 

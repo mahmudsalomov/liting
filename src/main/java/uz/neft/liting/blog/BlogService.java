@@ -36,6 +36,13 @@ public class BlogService {
             Optional<Category> category = categoryRepository.findById(blog.getCategory().getId());
 
             if (!category.isPresent()) return Payload.badRequest("Category not found");
+            if (category.get().getType()==CategoryType.PARENT) return Payload.badRequest("Bu "+category.get().getName_oz()+" kategoriyaga blog qo'shib bo'lmaydi");
+
+            if (category.get().getType()==CategoryType.PAGE){
+                List<Blog> all = blogRepository.findAllByCategory(category.get());
+                if (all.size()>=1) return Payload.badRequest("Bu kategoriyaga boshqa blog qo'shib bo'lmaydi");
+            }
+
             blog.setCategory(category.get());
             return Payload.ok(blogRepository.save(blog));
         }catch (Exception e){
@@ -53,9 +60,14 @@ public class BlogService {
     }
 
     public ApiResponse one(Integer id) {
-        Optional<Blog> categoryOptional = blogRepository.findById(id);
-        if (!categoryOptional.isPresent()) return Payload.notFound();
-        return Payload.ok(categoryOptional.get());
+        try {
+            Optional<Blog> blogOptional = blogRepository.findById(id);
+            return blogOptional.map(Payload::ok).orElseGet(Payload::notFound);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+
     }
 
 
@@ -111,5 +123,28 @@ public class BlogService {
     }
 
 
+    public ApiResponse mainSliderChanger(Integer blog_id, boolean isMainSlider) {
+        try {
+            Optional<Blog> blog = blogRepository.findById(blog_id);
+            if (blog.isPresent()){
+                blog.get().setMainSlider(isMainSlider);
+                blogRepository.save(blog.get());
+                return Payload.ok();
+            }
+            return Payload.notFound("Blog not found");
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+    }
 
+    public ApiResponse allByMainSliderTrue() {
+        try {
+            List<Blog> allByMainSliderTrue = blogRepository.findAllByMainSliderTrue();
+            return Payload.ok(allByMainSliderTrue);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+    }
 }

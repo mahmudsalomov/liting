@@ -62,7 +62,7 @@
                 <div class="col-lg-6">
                     <div class="breadcrumb-wrapper">
                         <div class="page-title">
-                            <h1 class="text-theme fw-500">Blog</h1>
+                            <h1 class="text-theme fw-500" id="category-name">Blog</h1>
                         </div>
                         <ul class="custom breadcrumb">
                             <li>
@@ -634,7 +634,7 @@
     <script>
         console.log(window.location.pathname)
         console.log(window.location.pathname.slice(6))
-        getBlogs(window.location.pathname.slice(6))
+        getBlogs(window.location.pathname.slice(10))
     </script>
 
 </body>

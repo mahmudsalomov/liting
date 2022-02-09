@@ -166,4 +166,10 @@ public class CategoryService {
         }
     }
 
+    public String name(Integer id){
+        Optional<Category> category = categoryRepository.findById(id);
+        if (category.isPresent()) return category.get().getName_oz();
+        return "";
+    }
+
 }

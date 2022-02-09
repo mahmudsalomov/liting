@@ -52,4 +52,17 @@ public class BlogController implements RestCrud<Blog> {
                                        @Valid @PathVariable("category_id") Integer category_id) {
         return blogService.allByCategory(category_id,page, pageSize, sortBy).response();
     }
+
+    @GetMapping("/all/main_slider")
+    public HttpEntity<?> allByMainSliderTrue(){
+        return blogService.allByMainSliderTrue().response();
+    }
+
+    @PostMapping("/main_slider_changer/{blog_id}")
+    public HttpEntity<?> mainSliderChanger(@PathVariable Integer blog_id,@RequestParam boolean isMainSlider){
+        return blogService.mainSliderChanger(blog_id,isMainSlider).response();
+    }
+
+
+
 }
