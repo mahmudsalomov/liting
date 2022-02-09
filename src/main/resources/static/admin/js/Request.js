@@ -101,6 +101,21 @@ class Request {
     }
 
 
+
+    static async getOne(id){
+        let blog={};
+        await axios.get("/api/blog/one/"+id)
+            .then(function (response) {
+                console.log(response)
+                blog=response.data.object
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        return blog;
+    }
+
+
     static async addOrEditBlog(data) {
         let result="";
         let config = {

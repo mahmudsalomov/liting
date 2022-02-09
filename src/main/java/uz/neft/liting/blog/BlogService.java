@@ -67,7 +67,8 @@ public class BlogService {
             Optional<Blog> blog = blogRepository.findById(dto.getId());
             if (!blog.isPresent()) return Payload.notFound();
             Blog edit = blog.get().edit(dto);
-            if (dto.getCategory()!=null){
+
+            if (dto.getCategory()!=null&&dto.getCategory().getId()!=null){
 
 
                 Optional<Category> category = categoryRepository.findById(dto.getCategory().getId());
@@ -75,7 +76,7 @@ public class BlogService {
 
 
                 blog.get().setCategory(category.get());
-            } else return Payload.badRequest("Category is not null!");
+            }
             return Payload.ok(blogRepository.save(edit));
         }catch (Exception e){
             e.printStackTrace();

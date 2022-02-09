@@ -117,7 +117,7 @@ public class Blog extends AbsEntityInteger {
         text_oz=dto.text_oz;
         text_uz=dto.text_uz;
         text_ru=dto.text_ru;
-        mainImage=dto.mainImage;
+        mainImage=dto.mainImage!=null?dto.getMainImage():mainImage;
         files=dto.files;
         type=dto.type;
         return this;

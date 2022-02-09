@@ -3,6 +3,7 @@ package uz.neft.liting.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -34,8 +35,9 @@ public class AdminController {
         return "admin/blog-add";
     }
 
-    @GetMapping("/blog/edit")
-    public String blogEdit(){
+    @GetMapping("/blog/edit/{id}")
+    public String blogEdit(@PathVariable Integer id){
+
         return "admin/blog-add";
     }
 

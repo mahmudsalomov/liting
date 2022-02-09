@@ -32,7 +32,7 @@ public class BlogController implements RestCrud<Blog> {
 
     @Override
     public HttpEntity<?> edit(Blog blog, User user) {
-        return null;
+        return blogService.edit(blog).response();
     }
 
     @Override

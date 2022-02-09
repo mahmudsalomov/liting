@@ -50,7 +50,7 @@ function createViewBlogTable(blogs) {
             "                            </div>\n" +
             "                            <div class=\"p-3 col-md-8 d-flex justify-content-end\">\n" +
             "                                <button class=\"btn btn-info m-1\">Saytda ko'rish</button>\n" +
-            "                                <button class=\"btn btn-success m-1\">Tahrirlash</button>\n" +
+            "                                <a href='/admin/blog/edit/"+blog.id+"' class=\"btn btn-success m-1\">Tahrirlash</a>\n" +
             "                                <button class=\"btn btn-danger m-1\">O'chirish</button>\n" +
             "                            </div>\n" +
             "\n" +
@@ -116,17 +116,6 @@ function changeImage(event) {
 function saveBlog() {
 
 
-
-
-    // console.log(document.getElementById("summernote_oz").textContent)
-    // console.log(document.getElementById("summernote_oz").code())
-    // console.log(document.getElementById("summernote_oz").innerHTML)
-    // console.log(document.getElementById("mainImage_oz"))
-
-
-    // console.log($($("#summernote_oz").summernote("code")).html())
-    // console.log($($("#summernote_oz").summernote("image")))
-
     console.log(document.getElementById("mainImage_oz").files)
     let im=document.getElementById("mainImage_oz").files;
     console.log(document.getElementById("mainImage_oz").value)
@@ -134,60 +123,93 @@ function saveBlog() {
     document.getElementById("save_button").disabled=true
 
     let mainImage;
-    Request.saveFiles(im)
-        .then(function (res) {
-            console.log(res)
-            let src=document.getElementsByClassName("main_image");
-            // document.getElementsByClassName("main_image").src="/api/file/photo/"+res[0].hashId;
-            // var elems = document.getElementsByClassName("incorrect-img");
-            for (let i = 0; i < src.length; i+= 1) {
-                src[i].src = "/api/file/photo/"+res[0].hashId;
-            }
-            mainImage=res[0];
+
+    console.log(document.getElementById("id").value)
+    if (im.length>0){
+        Request.saveFiles(im)
+            .then(function (res) {
+                console.log(res)
+                let src=document.getElementsByClassName("main_image");
+                // document.getElementsByClassName("main_image").src="/api/file/photo/"+res[0].hashId;
+                // var elems = document.getElementsByClassName("incorrect-img");
+                for (let i = 0; i < src.length; i+= 1) {
+                    src[i].src = "/api/file/photo/"+res[0].hashId;
+                }
+                mainImage=res[0];
 
 
-            console.log($($("#summernote_oz").summernote("code")).text())
-            console.log($("#summernote_oz").summernote("code"))
-            // console.log($($("#summernote_oz").summernote("code")).html())
+                console.log($($("#summernote_oz").summernote("code")).text())
+                console.log($("#summernote_oz").summernote("code"))
+                // console.log($($("#summernote_oz").summernote("code")).html())
 
-            let data={
-                title_oz:document.getElementById("title_oz").value,
-                title_uz:document.getElementById("title_uz").value,
-                title_ru:document.getElementById("title_ru").value,
-                title_en:document.getElementById("title_en").value,
-                anons_oz:document.getElementById("anons_oz").value,
-                anons_uz:document.getElementById("anons_uz").value,
-                anons_ru:document.getElementById("anons_ru").value,
-                anons_en:document.getElementById("anons_en").value,
+                let data={
+                    id:document.getElementById("id").value,
+                    title_oz:document.getElementById("title_oz").value,
+                    title_uz:document.getElementById("title_uz").value,
+                    title_ru:document.getElementById("title_ru").value,
+                    title_en:document.getElementById("title_en").value,
+                    anons_oz:document.getElementById("anons_oz").value,
+                    anons_uz:document.getElementById("anons_uz").value,
+                    anons_ru:document.getElementById("anons_ru").value,
+                    anons_en:document.getElementById("anons_en").value,
 
-                text_oz:$("#summernote_oz").summernote("code"),
-                text_uz:$("#summernote_uz").summernote("code"),
-                text_ru:$("#summernote_ru").summernote("code"),
-                text_en:$("#summernote_en").summernote("code"),
-                category:{
-                    id:document.getElementById("blog_category_oz").value
-                },
-                mainImage:mainImage
-            }
+                    text_oz:$("#summernote_oz").summernote("code"),
+                    text_uz:$("#summernote_uz").summernote("code"),
+                    text_ru:$("#summernote_ru").summernote("code"),
+                    text_en:$("#summernote_en").summernote("code"),
+                    category:{
+                        id:document.getElementById("blog_category_oz").value
+                    },
+                    mainImage:mainImage
+                }
 
-            Request.addOrEditBlog(data)
-                .then(function (response) {
+                Request.addOrEditBlog(data)
+                    .then(function (response) {
 
-                })
-                .catch(function (error) {
+                    })
+                    .catch(function (error) {
 
-                })
-
-
-            document.getElementById("save_button").disabled=false
+                    })
 
 
+                document.getElementById("save_button").disabled=false
 
 
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
+
+
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
+    else {
+        let data={
+            id:document.getElementById("id").value,
+            title_oz:document.getElementById("title_oz").value,
+            title_uz:document.getElementById("title_uz").value,
+            title_ru:document.getElementById("title_ru").value,
+            title_en:document.getElementById("title_en").value,
+            anons_oz:document.getElementById("anons_oz").value,
+            anons_uz:document.getElementById("anons_uz").value,
+            anons_ru:document.getElementById("anons_ru").value,
+            anons_en:document.getElementById("anons_en").value,
+            text_oz:$("#summernote_oz").summernote("code"),
+            text_uz:$("#summernote_uz").summernote("code"),
+            text_ru:$("#summernote_ru").summernote("code"),
+            text_en:$("#summernote_en").summernote("code"),
+            category:{
+                id:document.getElementById("blog_category_oz").value
+            },
+        }
+
+        Request.addOrEditBlog(data)
+            .then(function (response) {
+            })
+            .catch(function (error) {
+            })
+
+    }
+
     // console.log($($("#summernote_oz").summernote("code")).html())
 
     document.getElementById("save_button").disabled=false
@@ -196,4 +218,54 @@ function saveBlog() {
 }
 
 
+//EDIT START
+async function getBlogEdit(id) {
+    let blog;
+    await Request.getOne(id)
+        .then(function (res) {
+            console.log(res)
+            blog=res;
+            // editBuilder(res)
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+    editBuilder(blog)
+}
 
+function editBuilder(blog) {
+
+    if (blog){
+        document.getElementById("id").value=blog.id
+        document.getElementById("title_oz").value=blog.title_oz
+        document.getElementById("title_uz").value=blog.title_uz
+        document.getElementById("title_ru").value=blog.title_ru
+        document.getElementById("title_en").value=blog.title_en
+        document.getElementById("anons_oz").value=blog.anons_oz
+        document.getElementById("anons_uz").value=blog.anons_uz
+        document.getElementById("anons_ru").value=blog.anons_ru
+        document.getElementById("anons_en").value=blog.anons_en
+
+        // $("#summernote_oz").summernote("code").val(blog.text_oz)
+        // $("#summernote_uz").summernote("code").val(blog.text_uz)
+        // $("#summernote_ru").summernote("code").val(blog.text_ru)
+        // $("#summernote_en").summernote("code").val(blog.text_en)
+        $('#summernote_oz').summernote('code', blog.text_oz);
+        $('#summernote_uz').summernote('code', blog.text_uz);
+        $('#summernote_ru').summernote('code', blog.text_ru);
+        $('#summernote_en').summernote('code', blog.text_en);
+
+        let src=document.getElementsByClassName("main_image");
+        for (let i = 0; i < src.length; i+= 1) {
+            src[i].src = "/api/file/photo/"+blog.mainImage.hashId;
+        }
+
+    }
+
+    //     category:{
+    //     id:document.getElementById("blog_category_oz").value
+    // },
+    // mainImage:mainImage
+}
+
+//EDIT END
