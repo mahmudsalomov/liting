@@ -9,11 +9,31 @@ function partnerComment() {
             let data = response.data.object;
             console.log(data)
             data.forEach(d=>{
-                out+=" <div class=\"item swiper-slide\">\n" +
+                out+="  <div class=\"row align-items-center\" id=\"swiper-root\">\n"+
+                    "<div class=\"col-lg-6\">\n" +
+                    "                            <div class=\"client-img-slider swiper-container wow fadeInRight\" data-wow-delay=\"0.3s\" data-wow-duration=\"1s\">\n" +
+                    "                                <div class=\"swiper-wrapper\">\n" +
+                    "                                    <div class=\"swiper-slide\">\n" +
+                    "                                        <div class=\"image\">\n" +
+                    "                                            <img src='/api/file/photo/"+d.photo.hashId+"' alt=\"Client\">\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>\n" +
+                    "                                    <div class=\"swiper-slide\">\n" +
+                    "                                        <div class=\"image\">\n" +
+                    "                                           <img src='/api/file/photo/"+d.photo.hashId+"' alt=\"Client\">\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>\n" +
+                    "                                </div>\n" +
+                    "                            </div>\n" +
+                    "                        </div>\n" +
+                    "                        <div class=\"col-lg-6\">\n" +
+                    "                            <div class=\"client-slider swiper-container wow fadeInLeft\" data-wow-delay=\"0.3s\" data-wow-duration=\"1s\">\n" +
+                    "                                <div class=\"swiper-wrapper\" id=\"swiper-root\">\n" +
+                    "                                    <div class=\"item swiper-slide\">\n" +
                     "                                        <div class=\"content\">\n" +
                     "                                            <div class=\"author d-flex justify-content-between align-items-center\">\n" +
                     "                                                <div class=\"name\">\n" +
-                    "                                                    <h5>"+d.name+"</h5>\n" +
+                    "                                                    <h5>"+d.name+" "+d.surname+"</h5>\n" +
                     "                                                    <p class=\"designation\">"+d.company+"</p>\n" +
                     "                                                </div>\n" +
                     "                                                <ul class=\"rating d-flex\">\n" +
@@ -29,7 +49,32 @@ function partnerComment() {
                     "                                                 th:src=\"@{assets/images/signature.png}\"\n" +
                     "                                                 alt=\"Signature\">\n" +
                     "                                        </div>\n" +
-                    "                                    </div>"
+                    "                                    </div>\n" +
+                    "                                    <div class=\"item swiper-slide\">\n" +
+                    "                                        <div class=\"content\">\n" +
+                    "                                            <div class=\"author d-flex justify-content-between align-items-center\">\n" +
+                    "                                                <div class=\"name\">\n" +
+                    "                                                    <h5>dolor dale</h5>\n" +
+                    "                                                    <p class=\"designation\">developer</p>\n" +
+                    "                                                </div>\n" +
+                    "                                                <ul class=\"rating d-flex\">\n" +
+                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
+                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
+                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
+                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
+                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
+                    "                                                </ul>\n" +
+                    "                                            </div>\n" +
+                    "                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud exercitation ullamco laboris</p>\n" +
+                    "                                            <img src=\"../static/assets/images/signature.png\"\n" +
+                    "                                                 th:src=\"@{assets/images/signature.png}\"\n" +
+                    "                                                 alt=\"Signature\">\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>\n" +
+                    "                                </div>\n" +
+                    "                                </div>\n" +
+                    "                            </div>\n" +
+                    "                        </div>";
             })
             document.getElementById("swiper-root").innerHTML=out;
         })
@@ -38,19 +83,17 @@ function partnerComment() {
         })
 }
 function employee() {
-    axios.get("/api/partner/all")
+    axios.get("/api/employee/all")
         .then(function (response){
             let out="";
             let data = response.data.object;
             console.log(data)
-            data.forEach(m=>{
+            data.forEach(d=>{
                 out+=" <div class=\"col-lg-3 col-sm-6\">\n" +
                 "                <div class=\"team-block p-relative mb-md-40 wow fadeInUp\" data-wow-duration=\"1s\" data-wow-delay=\"0.3s\">\n" +
                 "                    <div class=\"inner-box bx-wrapper\">\n" +
                 "                        <div class=\"image animate-img\">\n" +
-                "                            <img src=\"../images/homepage-1/agent-1.jpg\"\n" +
-                "                                 th:src=\"@images/homepage-1/agent-1.jpg}\"\n" +
-                "                                 alt=\"img\" class=\"full-width\">\n" +
+                "                            <img src='/api/file/photo/"+d.photo.hashId+"' alt=\"img\" class=\"full-width\">\n" +
                 "                            <div class=\"overlay-box\">\n" +
                 "                                <div class=\"overlay-inner p-relative full-height\">\n" +
                 "                                    <ul class=\"team-social-box custom\">\n" +
@@ -66,20 +109,20 @@ function employee() {
                 "                            <div class=\"icon-box fs-18 text-custom-white\">\n" +
                 "                                <span class=\"fas fa-cogs\"></span>\n" +
                 "                            </div>\n" +
-                "                            <h4><a href=\"#\" class=\"fw-600 fs-20\" tabindex=\"0\">"+m.full_name+"</a></h4>\n" +
-                "                            <p class=\"designation text-custom-white mb-xl-20\">"+m.position+"</p>\n" +
+                "                            <h4><a href=\"#\" class=\"fw-600 fs-20\" tabindex=\"0\">"+d.full_name+"</a></h4>\n" +
+                "                            <p class=\"designation text-custom-white mb-xl-20\">"+d.position+"</p>\n" +
                 "                        </div>\n" +
                 "                    </div>\n" +
                 "                </div>\n" +
                 "            </div>"
             })
-            document.getElementById("employee").innerHTML=out;
+            document.getElementById("row").innerHTML=out;
         })
         .catch(function (error){
 
         })
 }
 
-
-
 partnerComment()
+employee()
+
