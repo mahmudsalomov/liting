@@ -57,7 +57,7 @@
 <!-- Start Banner -->
 <div class="simple-banner">
     <div class="main-banner swiper-container p-relative">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" id="swiper-main-slider">
             <div class="swiper-slide slide-item">
                 <img src="../static/assets/images/birinchi.jpg" th:src="@{assets/images/birinchi.jpg}" class="image-fit" alt="img">
                 <div class="transform-center">
@@ -1780,9 +1780,10 @@
 <script src="../static/assets/js/navbar.js" th:src="@{assets/js/navbar.js}">
     all()
 </script>
-<script src="../static/assets/js/index.js" th:src="@{assets/js/index.js}">
+<script src="../static/assets/js/index.js" th:src="@{assets/js/index.js}"></script>
+<script>
+    mainSlider()
 </script>
-
 </body>
 
 <!-- Mirrored from slidesigma.com/themes/html/cali-constructions/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jan 2022 11:25:36 GMT -->

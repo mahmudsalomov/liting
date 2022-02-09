@@ -83,4 +83,46 @@ function menuContentBuilder(value) {
 
 
 }
+
+
+function mainSlider() {
+    axios.get("/api/blog/all/main_slider")
+        .then(function (response) {
+            console.log(response)
+            let data=response.data.object
+
+            let out=""
+            data.forEach(d=>{
+
+                out+="<div class=\"swiper-slide slide-item\">\n" +
+                    "                <img src='/api/file/photo/"+d.mainImage.hashId+"' class=\"image-fit\" alt=\"img\">\n" +
+                    "                <div class=\"transform-center\">\n" +
+                    "                    <div class=\"container\">\n" +
+                    "                        <div class=\"row\">\n" +
+                    "                            <div class=\"col-lg-7\">\n" +
+                    "                                <div class=\"content-wrapper\">\n" +
+                    // "                                    <h1 class=\"text-custom-white\" style=\"font-size: 80px\">Проектирование <span class=\"text-custom-blue\">обьектов в</span> области нефти и газа</h1>\n" +
+                    "                                    <h1 class=\"text-custom-white\" style=\"font-size: 80px\">"+d.title_oz+"</h1>\n" +
+                    "                                    <p class=\"text-custom-white mb-xl-40\">"+d.anons_oz+"</p>\n" +
+                    "                                    <a href='/blog/"+d.id+"' class=\"btn-first btn-submit text-custom-white mr-2\">ЧИТАТЬ ДАЛЕЕ</a>\n" +
+                    "                                    <a href=\"#\" class=\"btn-first btn-border\">ЗАПИСАТЬСЯ НА ПРИЕМ</a>\n" +
+                    "                                </div>\n" +
+                    "                            </div>\n" +
+                    "                        </div>\n" +
+                    "                    </div>\n" +
+                    "                </div>\n" +
+                    "            </div>\n"
+
+            })
+            if (out!="") document.getElementById("swiper-main-slider").innerHTML=out;
+
+        })
+        .catch(function (error) {
+            console.log(error)
+            alert(error.response.data.message)
+        })
+}
+
+
+
 all()
