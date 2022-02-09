@@ -89,12 +89,14 @@ function mainSlider() {
     axios.get("/api/blog/all/main_slider")
         .then(function (response) {
             console.log(response)
+            let first=""
+            let last=""
             let data=response.data.object
 
             let out=""
-            data.forEach(d=>{
+            data.forEach((d,index)=>{
 
-                out+="<div class=\"swiper-slide slide-item\">\n" +
+                let temp="<div class=\"swiper-slide slide-item\">\n" +
                     "                <img src='/api/file/photo/"+d.mainImage.hashId+"' class=\"image-fit\" alt=\"img\">\n" +
                     "                <div class=\"transform-center\">\n" +
                     "                    <div class=\"container\">\n" +
@@ -113,8 +115,20 @@ function mainSlider() {
                     "                </div>\n" +
                     "            </div>\n"
 
+                if (index==0){
+                    first=temp
+                }
+                if (index==(data.length-1)){
+                    last=temp
+                }
+
+                out+=temp;
+
             })
-            if (out!="") document.getElementById("swiper-main-slider").innerHTML=out;
+            if (out!=""){
+                out=last+out+first;
+                document.getElementById("swiper-main-slider").innerHTML=out;
+            }
 
         })
         .catch(function (error) {

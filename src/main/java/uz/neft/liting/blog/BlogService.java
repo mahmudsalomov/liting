@@ -140,7 +140,7 @@ public class BlogService {
 
     public ApiResponse allByMainSliderTrue() {
         try {
-            List<Blog> allByMainSliderTrue = blogRepository.findAllByMainSliderTrue();
+            List<Blog> allByMainSliderTrue = blogRepository.findAllByMainSliderTrueOrderByIdDesc();
             return Payload.ok(allByMainSliderTrue);
         }catch (Exception e){
             e.printStackTrace();
