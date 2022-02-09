@@ -4,5 +4,6 @@ public enum BlogType {
     BLOG,
     NEWS,
     GALLERY,
-    PROJECT
+    PROJECT,
+    DEPARTMENT
 }

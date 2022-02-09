@@ -114,6 +114,7 @@ function getBlog(id) {
             document.getElementById("mainImage").src="/api/file/photo/"+data.mainImage.hashId;
             document.getElementById("title").innerText=data.title_oz;
             document.getElementById("text").innerHTML=data.text_oz;
+            document.getElementById("date").innerText=data.createdAt;
         })
         .catch(function (error) {
             console.log(error)

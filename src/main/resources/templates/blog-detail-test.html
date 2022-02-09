@@ -91,7 +91,7 @@
                                 <img id="mainImage" src="../static/assets/images/blog/news_full.jpg" th:src="@{/assets/images/blog/news_full.jpg}" class="img-fluid image-fit" alt="Blog">
                             </a>
                             <div class="post-date">
-                                <a href="blog-single.html">12 Dec 2022</a>
+                                <a href="blog-single.html" id="date">12 Dec 2022</a>
                             </div>
                         </div>
                         <div class="blog-meta">
@@ -204,107 +204,107 @@
                 </div>
                 <!-- post pagination -->
                 <!-- comments -->
-                <div class="comment-box section-padding-top p-relative">
-                    <div id="comment-box">
-                        <h4 class="text-theme fw-600">Reviews [4]</h4>
-                        <ul class="comments">
-                            <li class="comment">
-                                <article>
-                                    <div class="comment-avatar">
-                                        <img src="../static/assets/images/homepage-1/admin-1-40x40.jpg" th:src="@{/assets/images/homepage-1/admin-1-40x40.jpg}" class="rounded-circle" alt="comment">
-                                    </div>
-                                    <div class="comment-content">
-                                        <div class="comment-meta">
-                                            <div class="comment-meta-header">
-                                                <h5 class="text-dark-grey fw-600 author mb-3">Rosalina Pong</h5>
-                                                <div class="post-date">
-                                                    <a href="blog-single.html" class="date bg-custom-blue text-custom-white">25 Dec 2022</a>
-                                                </div>
-                                            </div>
-                                            <div class="comment-meta-reply">
-                                                <a href="#" class="comment-reply-link btn-first btn-submit"><i class="fas fa-reply"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="comment">
-                                            <p class="text-theme">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li class="comment">
-                                <article>
-                                    <div class="comment-avatar">
-                                        <img src="../static/assets/images/homepage-1/admin-2-40x40.jpg" th:src="@{/assets/images/homepage-1/admin-2-40x40.jpg}" class="rounded-circle" alt="comment">
-                                    </div>
-                                    <div class="comment-content">
-                                        <div class="comment-meta">
-                                            <div class="comment-meta-header">
-                                                <h5 class="text-dark-grey fw-600 author mb-3">Brian Wright</h5>
-                                                <div class="post-date">
-                                                    <a href="blog-single.html" class="date bg-custom-blue text-custom-white">30 Nov 2022</a>
-                                                </div>
-                                            </div>
-                                            <div class="comment-meta-reply">
-                                                <a href="#" class="comment-reply-link btn-first btn-submit"><i class="fas fa-reply"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="comment">
-                                            <p class="text-theme">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        </div>
-                                    </div>
-                                </article>
-                                <ul class="children">
-                                    <li class="comment">
-                                        <article>
-                                            <div class="comment-avatar">
-                                                <img src="../static/assets/images/homepage-1/admin-3-40x40.jpg" th:src="@{/assets/images/homepage-1/admin-3-40x40.jpg}" class="rounded-circle" alt="comment">
-                                            </div>
-                                            <div class="comment-content">
-                                                <div class="comment-meta">
-                                                    <div class="comment-meta-header">
-                                                        <h5 class="text-dark-grey fw-600 author mb-3">Sarah Wright</h5>
-                                                        <div class="post-date">
-                                                            <a href="blog-single.html" class="date bg-custom-blue text-custom-white">30 Nov 2022</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment-meta-reply">
-                                                        <a href="#" class="comment-reply-link btn-first btn-submit"><i class="fas fa-reply"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="comment">
-                                                    <p class="text-theme">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                </ul>
-                            </li>
+<!--                <div class="comment-box section-padding-top p-relative">-->
+<!--                    <div id="comment-box">-->
+<!--                        <h4 class="text-theme fw-600">Reviews [4]</h4>-->
+<!--                        <ul class="comments">-->
+<!--                            <li class="comment">-->
+<!--                                <article>-->
+<!--                                    <div class="comment-avatar">-->
+<!--                                        <img src="../static/assets/images/homepage-1/admin-1-40x40.jpg" th:src="@{/assets/images/homepage-1/admin-1-40x40.jpg}" class="rounded-circle" alt="comment">-->
+<!--                                    </div>-->
+<!--                                    <div class="comment-content">-->
+<!--                                        <div class="comment-meta">-->
+<!--                                            <div class="comment-meta-header">-->
+<!--                                                <h5 class="text-dark-grey fw-600 author mb-3">Rosalina Pong</h5>-->
+<!--                                                <div class="post-date">-->
+<!--                                                    <a href="blog-single.html" class="date bg-custom-blue text-custom-white">25 Dec 2022</a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="comment-meta-reply">-->
+<!--                                                <a href="#" class="comment-reply-link btn-first btn-submit"><i class="fas fa-reply"></i></a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="comment">-->
+<!--                                            <p class="text-theme">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </article>-->
+<!--                            </li>-->
+<!--                            <li class="comment">-->
+<!--                                <article>-->
+<!--                                    <div class="comment-avatar">-->
+<!--                                        <img src="../static/assets/images/homepage-1/admin-2-40x40.jpg" th:src="@{/assets/images/homepage-1/admin-2-40x40.jpg}" class="rounded-circle" alt="comment">-->
+<!--                                    </div>-->
+<!--                                    <div class="comment-content">-->
+<!--                                        <div class="comment-meta">-->
+<!--                                            <div class="comment-meta-header">-->
+<!--                                                <h5 class="text-dark-grey fw-600 author mb-3">Brian Wright</h5>-->
+<!--                                                <div class="post-date">-->
+<!--                                                    <a href="blog-single.html" class="date bg-custom-blue text-custom-white">30 Nov 2022</a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="comment-meta-reply">-->
+<!--                                                <a href="#" class="comment-reply-link btn-first btn-submit"><i class="fas fa-reply"></i></a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="comment">-->
+<!--                                            <p class="text-theme">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </article>-->
+<!--                                <ul class="children">-->
+<!--                                    <li class="comment">-->
+<!--                                        <article>-->
+<!--                                            <div class="comment-avatar">-->
+<!--                                                <img src="../static/assets/images/homepage-1/admin-3-40x40.jpg" th:src="@{/assets/images/homepage-1/admin-3-40x40.jpg}" class="rounded-circle" alt="comment">-->
+<!--                                            </div>-->
+<!--                                            <div class="comment-content">-->
+<!--                                                <div class="comment-meta">-->
+<!--                                                    <div class="comment-meta-header">-->
+<!--                                                        <h5 class="text-dark-grey fw-600 author mb-3">Sarah Wright</h5>-->
+<!--                                                        <div class="post-date">-->
+<!--                                                            <a href="blog-single.html" class="date bg-custom-blue text-custom-white">30 Nov 2022</a>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="comment-meta-reply">-->
+<!--                                                        <a href="#" class="comment-reply-link btn-first btn-submit"><i class="fas fa-reply"></i></a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="comment">-->
+<!--                                                    <p class="text-theme">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </article>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
 
-                        </ul>
-                        <div class="comment-respond" id="respond">
-                            <h4 class="text-theme fw-600">Leave Comment</h4>
-                            <form>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label class="text-theme fw-600 fs-14">Full Name</label>
-                                            <input type="text" name="#" class="form-control form-control-custom" placeholder="Full Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="text-theme fw-600 fs-14">Email I'd</label>
-                                            <input type="email" name="#" class="form-control form-control-custom" placeholder="Email I'd">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="text-theme fw-600 fs-14">Comment</label>
-                                            <textarea rows="4" name="#" class="form-control form-control-custom" placeholder="Comment"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn-first btn-submit">Leave Comment</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+<!--                        </ul>-->
+<!--                        <div class="comment-respond" id="respond">-->
+<!--                            <h4 class="text-theme fw-600">Leave Comment</h4>-->
+<!--                            <form>-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label class="text-theme fw-600 fs-14">Full Name</label>-->
+<!--                                            <input type="text" name="#" class="form-control form-control-custom" placeholder="Full Name">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label class="text-theme fw-600 fs-14">Email I'd</label>-->
+<!--                                            <input type="email" name="#" class="form-control form-control-custom" placeholder="Email I'd">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label class="text-theme fw-600 fs-14">Comment</label>-->
+<!--                                            <textarea rows="4" name="#" class="form-control form-control-custom" placeholder="Comment"></textarea>-->
+<!--                                        </div>-->
+<!--                                        <button type="submit" class="btn-first btn-submit">Leave Comment</button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- comments -->
             </div>
         </div>

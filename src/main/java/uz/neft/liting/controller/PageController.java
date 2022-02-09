@@ -1,23 +1,24 @@
 package uz.neft.liting.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import uz.neft.liting.blog.BlogController;
+import uz.neft.liting.blog.BlogService;
+
+import javax.validation.Valid;
 
 @Controller
 public class PageController {
 
-    private final BlogController blogController;
+    private final BlogService blogService;
 
-    public PageController(BlogController blogController) {
-        this.blogController = blogController;
+    public PageController(BlogService blogService) {
+        this.blogService = blogService;
     }
 
 
     @GetMapping("/blog/{id}")
-    public String blog(@PathVariable Integer id, Model model){
+    public String blog(@PathVariable Integer id){
 
 
         return "blog-detail-test";
@@ -30,7 +31,9 @@ public class PageController {
     }
 
     @GetMapping("/category/{id}")
-    public String category(@PathVariable Integer id){
+    public String category(@Valid @PathVariable Integer id){
+        Integer integer = blogService.checkPage(id);
+        if (integer!=null) return "redirect:/blog/"+integer;
         return "blog-list-test";
     }
 

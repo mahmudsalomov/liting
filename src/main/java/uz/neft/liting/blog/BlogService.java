@@ -7,10 +7,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import uz.neft.liting.category.Category;
 import uz.neft.liting.category.CategoryRepository;
+import uz.neft.liting.category.CategoryType;
 import uz.neft.liting.payload.ApiResponse;
 import uz.neft.liting.payload.Payload;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -97,5 +99,16 @@ public class BlogService {
         }
 
     }
+
+    public Integer checkPage(Integer category_id){
+        Optional<Category> category = categoryRepository.findById(category_id);
+        if (category.isPresent()&&category.get().getType()==CategoryType.PAGE){
+            List<Blog> blogs = blogRepository.findAllByCategory(category.get());
+            if (blogs.size()==1) return blogs.get(0).getId();
+        }
+        return null;
+    }
+
+
 
 }
