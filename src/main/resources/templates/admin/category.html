@@ -20,6 +20,118 @@
     <!-- Custom styles for this template -->
     <link href="../../static/admin/css/sb-admin-2.min.css" th:href="@{/admin/css/sb-admin-2.min.css}" rel="stylesheet">
 
+    <style>
+        /*===== GOOGLE FONTS =====*/
+        @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
+
+        /*===== VARIABLES CSS =====*/
+        :root {
+            /*===== Colors =====*/
+            --first-color: #272A3A;
+            --first-color-light: #8A8EAA;
+            --first-color-lighten: #F8F8FC;
+
+            /*===== Font and typography =====*/
+            --body-font: 'Ubuntu', sans-serif;
+            --normal-font-size: 1rem;
+            --smaller-font-size: .813rem;
+        }
+
+        /*===== BASE =====*/
+        *,::before,::after{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: var(--body-font);
+            background-color: var(--first-color-lighten);
+        }
+
+        h1{
+            margin: 0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+
+        /*===== DRAG and DROP =====*/
+        .drop, .drop__container{
+            display: grid;
+        }
+
+        .drop{
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .drop__container{
+            row-gap: 1rem;
+            padding: 2rem;
+            box-shadow: 4px 4px 16px #E1E1E1;
+        }
+
+        .drop__card, .drop__data{
+            display: flex;
+            align-items: center;
+        }
+
+        .drop__card{
+            width: 360px;
+            justify-content: space-between;
+            padding: .75rem 1.25rem .75rem .75rem;
+            background-color: var(--first-color-lighten);
+            box-shadow: 4px 4px 16px #E1E1E1, -2px -2px 16px #FFF;
+            border-radius: 2.5rem;
+        }
+
+        .drop__img{
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .drop__name{
+            font-size: var(--normal-font-size);
+            color: var(--first-color);
+            font-weight: 500;
+        }
+
+        .drop__profession{
+            font-size: var(--smaller-font-size);
+            color: var(--first-color-light);
+        }
+
+        .drop__social{
+            margin: 0 .375rem;
+            color: var(--first-color-light);
+            transition: .4s;
+        }
+
+        .drop__social:hover{
+            color: var(--first-color);
+        }
+
+        /* Class name for the chosen item */
+        .sortable-chosen{
+            box-shadow: 8px 8px 32px #E1E1E1;
+        }
+
+        /* Class name for the dragging item */
+        .sortable-drag{
+            opacity: 0;
+        }
+
+    </style>
     <!-- Custom styles for this page -->
 <!--    <link href="../../static/admin/vendor/datatables/dataTables.bootstrap4.min.css" th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">-->
 
@@ -346,6 +458,18 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
+                            <ul class="nav nav-tabs mb-3 w-100 text-center" id="pills-tab" role="tablist">
+                                <li class="nav-item w-25" role="presentation">
+                                    <a class="nav-link active" id="category-list-tab" data-toggle="pill" href="#category-list" role="tab" aria-controls="pills-lotin" aria-selected="true">Ro'yhat</a>
+                                </li>
+                                <li class="nav-item w-25" role="presentation">
+                                    <a class="nav-link" id="category-list-change-tab" data-toggle="pill" href="#category-list-change" role="tab" aria-controls="pills-krill" aria-selected="false">Tartiblash</a>
+                                </li>
+                            </ul>
+
                         </section>
 
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -462,149 +586,229 @@
                     </div>
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="dataTables_length" id="dataTable_length"><label>Show <select
-                                                    name="dataTable_length" aria-controls="dataTable"
-                                                    class="custom-select custom-select-sm form-control form-control-sm">
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select> entries</label></div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <div id="dataTable_filter" class="dataTables_filter"><label>Search:<input
-                                                    type="search" class="form-control form-control-sm" placeholder=""
-                                                    aria-controls="dataTable"></label></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <table class="table table-bordered dataTable" id="dataTable" width="100%"
-                                                   cellspacing="0" role="grid" aria-describedby="dataTable_info"
-                                                   style="width: 100%;">
-                                                <thead>
-                                                <tr role="row">
-                                                    <th class="sorting sorting_asc users-table-title" tabindex="0"
-                                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="Name: activate to sort column descending"
-                                                    >ID
-                                                    </th>
-                                                    <th class="sorting users-table-title" tabindex="0"
-                                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                                        aria-label="Position: activate to sort column ascending"
-                                                    >Nomi (lotin)
-                                                    </th>
-                                                    <th class="sorting users-table-title" tabindex="0"
-                                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                                        aria-label="Office: activate to sort column ascending"
-                                                    >Nomi (krill)
-                                                    </th>
-                                                    <th class="sorting users-table-title" tabindex="0"
-                                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                                        aria-label="Age: activate to sort column ascending"
-                                                    >Nomi (ruscha)
-                                                    </th>
-                                                    <th class="sorting users-table-title" tabindex="0"
-                                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                                        aria-label="Start date: activate to sort column ascending"
-                                                    >Nomi (inglizcha)
-                                                    </th>
-                                                    <th class="sorting users-table-title" tabindex="0"
-                                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                                        aria-label="Salary: activate to sort column ascending"
-                                                    >Otasi
-                                                    </th>
-                                                    <th class="sorting users-table-title" tabindex="0"
-                                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                                        aria-label="Salary: activate to sort column ascending"
-                                                    >Tahrirlash
-                                                    </th>
 
-                                                </tr>
-                                                </thead>
-                                                <tfoot>
-                                                <tr>
-                                                    <th class="users-table-title" rowspan="1" colspan="1">ID</th>
-                                                    <th class="users-table-title" rowspan="1" colspan="1">Nomi (lotin)</th>
-                                                    <th class="users-table-title" rowspan="1" colspan="1">Nomi (krill)
-                                                    </th>
-                                                    <th class="users-table-title" rowspan="1" colspan="1">Nomi (ruscha)</th>
-                                                    <th class="users-table-title" rowspan="1" colspan="1">Nomi (inglizcha)</th>
-                                                    <th class="users-table-title" rowspan="1" colspan="1">Otasi</th>
-                                                    <th class="users-table-title" rowspan="1" colspan="1">Tahrirlash</th>
-                                                </tr>
-                                                </tfoot>
-                                                <tbody id="userTable">
-                                                <tr class="odd">
-                                                    <td class="sorting_1">Loading. . .</td>
-                                                    <td>Loading. . .</td>
-                                                    <td>Loading. . .</td>
-                                                    <td>Loading. . .</td>
-                                                    <td>Loading. . .</td>
-                                                    <td>Loading. . .</td>
-                                                </tr>
+                    <div class="tab-content" id="pills-tabContent">
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-5">
-                                            <div class="dataTables_info" id="dataTable_info" role="status"
-                                                 aria-live="polite">Showing 1 to 10 of 57 entries
+                        <div class="card shadow mb-4 tab-pane show active" id="category-list" role="tabpanel" aria-labelledby="category-list">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="dataTables_length" id="dataTable_length"><label>Show <select
+                                                        name="dataTable_length" aria-controls="dataTable"
+                                                        class="custom-select custom-select-sm form-control form-control-sm">
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select> entries</label></div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <div id="dataTable_filter" class="dataTables_filter"><label>Search:<input
+                                                        type="search" class="form-control form-control-sm" placeholder=""
+                                                        aria-controls="dataTable"></label></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-md-7">
-                                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                                                <ul class="pagination">
-                                                    <li class="paginate_button page-item previous disabled"
-                                                        id="dataTable_previous"><a href="#" aria-controls="dataTable"
-                                                                                   data-dt-idx="0" tabindex="0"
-                                                                                   class="page-link">Previous</a></li>
-                                                    <li class="paginate_button page-item active"><a href="#"
-                                                                                                    aria-controls="dataTable"
-                                                                                                    data-dt-idx="1"
-                                                                                                    tabindex="0"
-                                                                                                    class="page-link">1</a>
-                                                    </li>
-                                                    <li class="paginate_button page-item "><a href="#"
-                                                                                              aria-controls="dataTable"
-                                                                                              data-dt-idx="2" tabindex="0"
-                                                                                              class="page-link">2</a></li>
-                                                    <li class="paginate_button page-item "><a href="#"
-                                                                                              aria-controls="dataTable"
-                                                                                              data-dt-idx="3" tabindex="0"
-                                                                                              class="page-link">3</a></li>
-                                                    <li class="paginate_button page-item "><a href="#"
-                                                                                              aria-controls="dataTable"
-                                                                                              data-dt-idx="4" tabindex="0"
-                                                                                              class="page-link">4</a></li>
-                                                    <li class="paginate_button page-item "><a href="#"
-                                                                                              aria-controls="dataTable"
-                                                                                              data-dt-idx="5" tabindex="0"
-                                                                                              class="page-link">5</a></li>
-                                                    <li class="paginate_button page-item "><a href="#"
-                                                                                              aria-controls="dataTable"
-                                                                                              data-dt-idx="6" tabindex="0"
-                                                                                              class="page-link">6</a></li>
-                                                    <li class="paginate_button page-item next" id="dataTable_next"><a
-                                                            href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-                                                            class="page-link">Next</a></li>
-                                                </ul>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table table-bordered dataTable" id="dataTable" width="100%"
+                                                       cellspacing="0" role="grid" aria-describedby="dataTable_info"
+                                                       style="width: 100%;">
+                                                    <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting sorting_asc users-table-title" tabindex="0"
+                                                            aria-controls="dataTable" rowspan="1" colspan="1"
+                                                            aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending"
+                                                        >ID
+                                                        </th>
+                                                        <th class="sorting users-table-title" tabindex="0"
+                                                            aria-controls="dataTable" rowspan="1" colspan="1"
+                                                            aria-label="Position: activate to sort column ascending"
+                                                        >Nomi (lotin)
+                                                        </th>
+                                                        <th class="sorting users-table-title" tabindex="0"
+                                                            aria-controls="dataTable" rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending"
+                                                        >Nomi (krill)
+                                                        </th>
+                                                        <th class="sorting users-table-title" tabindex="0"
+                                                            aria-controls="dataTable" rowspan="1" colspan="1"
+                                                            aria-label="Age: activate to sort column ascending"
+                                                        >Nomi (ruscha)
+                                                        </th>
+                                                        <th class="sorting users-table-title" tabindex="0"
+                                                            aria-controls="dataTable" rowspan="1" colspan="1"
+                                                            aria-label="Start date: activate to sort column ascending"
+                                                        >Nomi (inglizcha)
+                                                        </th>
+                                                        <th class="sorting users-table-title" tabindex="0"
+                                                            aria-controls="dataTable" rowspan="1" colspan="1"
+                                                            aria-label="Salary: activate to sort column ascending"
+                                                        >Otasi
+                                                        </th>
+                                                        <th class="sorting users-table-title" tabindex="0"
+                                                            aria-controls="dataTable" rowspan="1" colspan="1"
+                                                            aria-label="Salary: activate to sort column ascending"
+                                                        >Tahrirlash
+                                                        </th>
+
+                                                    </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <th class="users-table-title" rowspan="1" colspan="1">ID</th>
+                                                        <th class="users-table-title" rowspan="1" colspan="1">Nomi (lotin)</th>
+                                                        <th class="users-table-title" rowspan="1" colspan="1">Nomi (krill)
+                                                        </th>
+                                                        <th class="users-table-title" rowspan="1" colspan="1">Nomi (ruscha)</th>
+                                                        <th class="users-table-title" rowspan="1" colspan="1">Nomi (inglizcha)</th>
+                                                        <th class="users-table-title" rowspan="1" colspan="1">Otasi</th>
+                                                        <th class="users-table-title" rowspan="1" colspan="1">Tahrirlash</th>
+                                                    </tr>
+                                                    </tfoot>
+                                                    <tbody id="userTable">
+                                                    <tr class="odd">
+                                                        <td class="sorting_1">Loading. . .</td>
+                                                        <td>Loading. . .</td>
+                                                        <td>Loading. . .</td>
+                                                        <td>Loading. . .</td>
+                                                        <td>Loading. . .</td>
+                                                        <td>Loading. . .</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-5">
+                                                <div class="dataTables_info" id="dataTable_info" role="status"
+                                                     aria-live="polite">Showing 1 to 10 of 57 entries
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7">
+                                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                                    <ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled"
+                                                            id="dataTable_previous"><a href="#" aria-controls="dataTable"
+                                                                                       data-dt-idx="0" tabindex="0"
+                                                                                       class="page-link">Previous</a></li>
+                                                        <li class="paginate_button page-item active"><a href="#"
+                                                                                                        aria-controls="dataTable"
+                                                                                                        data-dt-idx="1"
+                                                                                                        tabindex="0"
+                                                                                                        class="page-link">1</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="2" tabindex="0"
+                                                                                                  class="page-link">2</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="3" tabindex="0"
+                                                                                                  class="page-link">3</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="4" tabindex="0"
+                                                                                                  class="page-link">4</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="5" tabindex="0"
+                                                                                                  class="page-link">5</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="6" tabindex="0"
+                                                                                                  class="page-link">6</a></li>
+                                                        <li class="paginate_button page-item next" id="dataTable_next"><a
+                                                                href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                                                class="page-link">Next</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="card shadow mb-4 tab-pane"  role="tabpanel" id="category-list-change" aria-labelledby="category-list-change">
+                            <div class="card-body">
+                                <div class="drop">
+                                    <div class="drop__container" id="drop-items">
+                                        <div class="drop__card">
+                                            <div class="drop__data">
+                                                <img src="assets/img/img1.jpg" alt="" class="drop__img">
+                                                <div>
+                                                    <h1 class="drop__name">Clay</h1>
+                                                    <span class="drop__profession">Web developer</span>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <a href="#" class="drop__social"><i class='bx bxl-instagram'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-facebook'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-twitter'></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="drop__card">
+                                            <div class="drop__data">
+                                                <img src="assets/img/img2.jpg" alt="" class="drop__img">
+                                                <div>
+                                                    <h1 class="drop__name">Sara Mill</h1>
+                                                    <span class="drop__profession">Graphic design</span>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <a href="#" class="drop__social"><i class='bx bxl-instagram'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-facebook'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-twitter'></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="drop__card">
+                                            <div class="drop__data">
+                                                <img src="assets/img/img3.jpg" alt="" class="drop__img">
+                                                <div>
+                                                    <h1 class="drop__name">Robbie Ford</h1>
+                                                    <span class="drop__profession">Ui/Ux design</span>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <a href="#" class="drop__social"><i class='bx bxl-instagram'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-facebook'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-twitter'></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="drop__card">
+                                            <div class="drop__data">
+                                                <img src="assets/img/img4.jpg" alt="" class="drop__img">
+                                                <div>
+                                                    <h1 class="drop__name">Jenny Lit</h1>
+                                                    <span class="drop__profession">Digital marketing</span>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <a href="#" class="drop__social"><i class='bx bxl-instagram'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-facebook'></i></a>
+                                                <a href="#" class="drop__social"><i class='bx bxl-twitter'></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
                     </div>
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -662,6 +866,9 @@
         getAllCategories();
     </script>
 
+    <!--===== SORTABLE JS =====-->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../static/assets/js/jquery.min.js" th:src="@{/assets/js/jquery.min.js}"></script>
@@ -688,9 +895,33 @@
                 document.getElementById('addOrEditUserForm').reset();
             });
         });
-
-
     </script>
+<script>
+
+    /*===== DRAG and DROP =====*/
+    const dropItems = document.getElementById('drop-items')
+
+    new Sortable(dropItems, {
+        animation: 350,
+        chosenClass: "sortable-chosen",
+        dragClass: "sortable-drag",
+        store: {
+            // We keep the order of the list
+            set: (sortable) =>{
+                const order = sortable.toArray()
+                localStorage.setItem(sortable.options.group.name, order.join('|'))
+            },
+
+            // We get the order of the list
+            get: (sortable) =>{
+                const order = localStorage.getItem(sortable.options.group.name)
+                return order ? order.split('|') : []
+            }
+        }
+    });
+
+
+</script>
 </body>
 
 </html>
