@@ -2,10 +2,7 @@ package uz.neft.liting.category;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uz.neft.liting.template.RestCrud;
 import uz.neft.liting.user.User;
 
@@ -53,13 +50,23 @@ public class CategoryController implements RestCrud<Category> {
         return categoryService.allBySort().response();
     }
 
+    @GetMapping("/all/children")
+    public HttpEntity<?> allChildren(@RequestParam Integer id){
+        return categoryService.allChildren(id).response();
+    }
+
+    @GetMapping("/parent")
+    public HttpEntity<?> getParent(@RequestParam Integer id){
+        return categoryService.getParent(id).response();
+    }
+
     @GetMapping("/all/not/parent")
     public HttpEntity<?> allNotParent(){
         return categoryService.allNotParent().response();
     }
 
     @GetMapping("/name/{id}")
-    public HttpEntity<?> name(@Valid @PathVariable Integer id){
+    public HttpEntity<?> name(@PathVariable Integer id){
         return ResponseEntity.ok(categoryService.name(id));
     }
 

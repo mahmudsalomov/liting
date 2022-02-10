@@ -1,7 +1,7 @@
 // let usersList = []
 let categoryList = []
 
-
+let categoryListSorted=[]
 
 function getAllCategories() {
     Request.getAllCategories()
@@ -15,6 +15,22 @@ function getAllCategories() {
         .catch(function (error) {
             console.log(error)
         })
+
+    Request.getAllCategoriesSorted()
+        .then(function (response) {
+            // console.log("response")
+            console.log(response)
+            categoryListSorted=response;
+            // document.getElementById('parent').innerHTML=addOptionParent(categoryList);
+            // document.getElementById("userTable").innerHTML = createViewCategoryTable(categoryList);
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+
+   createViewCategoryOrderTable(0)
+
+
 }
 
 document.getElementById('addUserBtn').addEventListener('click',addUserBtn)
@@ -118,6 +134,86 @@ function createViewCategoryTable(categories) {
             "                                    <button class='btn btn-danger ml-2 mt-1' id='btn-edit-user' value='" + category.id + "' onclick='deleteCategory(this.value)'>O'chirish</button></td>\n" +
             "                                </tr>"
     })
+    return out;
+}
+
+function createViewCategoryOrderTable(id) {
+    let out = "";
+        Request.getChildren(id)
+            .then(function (response) {
+                console.log(response)
+                response.map(category => {
+                    out+="<tr draggable=\"true\"  ondragstart=\"dragit(event)\"  ondragover=\"dragover(event)\">\n" +
+                        "                                    <td>" + category.id + "</td>\n" +
+                        "                                    <td>" + category.name_oz + "</td>\n" +
+                        "                                    <td>" + category.name_uz + "</td>\n" +
+                        "                                    <td>" + category.name_ru + "</td>\n" +
+                        "                                    <td>" + category.name_ru + "</td>\n" +
+                        "                                    <td>" + check(category) + "</td>\n" +
+                        "                                    <td><button onclick='createViewCategoryOrderTable("+category.id+")' class=\"btn btn-info\">Bolalar</button></td>\n" +
+                        "</tr>"
+                    document.getElementById("order-table").innerHTML="                                <tr role=\"row\">\n" +
+                        "                                    <th class=\"sorting sorting_asc users-table-title\" tabindex=\"0\"\n" +
+                        "                                        aria-controls=\"dataTable\" rowspan=\"1\" colspan=\"1\"\n" +
+                        "                                        aria-sort=\"ascending\"\n" +
+                        "                                        aria-label=\"Name: activate to sort column descending\"\n" +
+                        "                                    >ID\n" +
+                        "                                    </th>\n" +
+                        "                                    <th class=\"sorting users-table-title\" tabindex=\"0\"\n" +
+                        "                                        aria-controls=\"dataTable\" rowspan=\"1\" colspan=\"1\"\n" +
+                        "                                        aria-label=\"Position: activate to sort column ascending\"\n" +
+                        "                                    >Nomi (lotin)\n" +
+                        "                                    </th>\n" +
+                        "                                    <th class=\"sorting users-table-title\" tabindex=\"0\"\n" +
+                        "                                        aria-controls=\"dataTable\" rowspan=\"1\" colspan=\"1\"\n" +
+                        "                                        aria-label=\"Office: activate to sort column ascending\"\n" +
+                        "                                    >Nomi (krill)\n" +
+                        "                                    </th>\n" +
+                        "                                    <th class=\"sorting users-table-title\" tabindex=\"0\"\n" +
+                        "                                        aria-controls=\"dataTable\" rowspan=\"1\" colspan=\"1\"\n" +
+                        "                                        aria-label=\"Age: activate to sort column ascending\"\n" +
+                        "                                    >Nomi (ruscha)\n" +
+                        "                                    </th>\n" +
+                        "                                    <th class=\"sorting users-table-title\" tabindex=\"0\"\n" +
+                        "                                        aria-controls=\"dataTable\" rowspan=\"1\" colspan=\"1\"\n" +
+                        "                                        aria-label=\"Start date: activate to sort column ascending\"\n" +
+                        "                                    >Nomi (inglizcha)\n" +
+                        "                                    </th>\n" +
+                        "                                    <th class=\"sorting users-table-title\" tabindex=\"0\"\n" +
+                        "                                        aria-controls=\"dataTable\" rowspan=\"1\" colspan=\"1\"\n" +
+                        "                                        aria-label=\"Salary: activate to sort column ascending\"\n" +
+                        "                                    >Otasi\n" +
+                        "                                    </th>\n" +
+                        "                                    <th class=\"sorting users-table-title\" tabindex=\"0\"\n" +
+                        "                                        aria-controls=\"dataTable\" rowspan=\"1\" colspan=\"1\"\n" +
+                        "                                        aria-label=\"Salary: activate to sort column ascending\"\n" +
+                        "                                    >Bola tablega kirish\n" +
+                        "                                    </th>\n" +
+                        "\n" +
+                        "                                </tr>\n"+out
+                })
+
+                Request.getParent(id)
+                    .then(function (res) {
+                        if (res!=null){
+                            console.log("Ishladi")
+                            document.getElementById("back_order_button").style.display = "block";
+                            document.getElementById("back_order_button").value=res.id;
+
+                        }
+                        else {
+                            document.getElementById("back_order_button").style.display = "none";
+                            document.getElementById("back_order_button").value=0;
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+            })
+            .catch(function (error) {
+                console.log(error)
+                alert(error.response.data.message)
+            })
     return out;
 }
 

@@ -172,4 +172,23 @@ public class CategoryService {
         return "";
     }
 
+    public ApiResponse allChildren(Integer id) {
+        try {
+            if (id==null||id==0) return Payload.ok(categoryRepository.findAllByDeletedFalseAndParentIsNull());
+            return categoryRepository.findById(id).map(category -> Payload.ok(category.getChildren())).orElseGet(() -> Payload.notFound("Category not found"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+    }
+
+    public ApiResponse getParent(Integer id) {
+        try {
+            if (id==null||id==0) return Payload.ok(null);
+            return categoryRepository.findById(id).map(category -> Payload.ok(category.getParent())).orElseGet(() -> Payload.notFound("Category not found!"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+    }
 }

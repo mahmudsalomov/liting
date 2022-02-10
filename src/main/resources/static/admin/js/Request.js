@@ -15,6 +15,47 @@ class Request {
         return cat
     }
 
+    static async getAllCategoriesSorted() {
+        let cat=[]
+        await axios.get("/api/category/all/sort")
+            .then(function (response) {
+                console.log(response)
+                cat = response.data.object;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return []
+            })
+        return cat
+    }
+
+    static async getChildren(id) {
+        let cat=[]
+        await axios.get("/api/category/all/children?id="+id)
+            .then(function (response) {
+                console.log(response)
+                cat = response.data.object;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return []
+            })
+        return cat
+    }
+    static async getParent(id) {
+        let cat={};
+        await axios.get("/api/category/parent?id="+id)
+            .then(function (response) {
+                console.log(response)
+                cat = response.data.object;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return {}
+            })
+        return cat
+    }
+
     static async getAllCategoriesNotParent() {
         let cat=[]
         await axios.get("/api/category/all/not/parent")
