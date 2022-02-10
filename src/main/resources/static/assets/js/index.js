@@ -50,31 +50,10 @@ function partnerComment() {
                     "                                                 alt=\"Signature\">\n" +
                     "                                        </div>\n" +
                     "                                    </div>\n" +
-                    "                                    <div class=\"item swiper-slide\">\n" +
-                    "                                        <div class=\"content\">\n" +
-                    "                                            <div class=\"author d-flex justify-content-between align-items-center\">\n" +
-                    "                                                <div class=\"name\">\n" +
-                    "                                                    <h5>dolor dale</h5>\n" +
-                    "                                                    <p class=\"designation\">developer</p>\n" +
-                    "                                                </div>\n" +
-                    "                                                <ul class=\"rating d-flex\">\n" +
-                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
-                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
-                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
-                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
-                    "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
-                    "                                                </ul>\n" +
-                    "                                            </div>\n" +
-                    "                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud exercitation ullamco laboris</p>\n" +
-                    "                                            <img src=\"../static/assets/images/signature.png\"\n" +
-                    "                                                 th:src=\"@{assets/images/signature.png}\"\n" +
-                    "                                                 alt=\"Signature\">\n" +
-                    "                                        </div>\n" +
-                    "                                    </div>\n" +
-                    "                                </div>\n" +
                     "                                </div>\n" +
                     "                            </div>\n" +
-                    "                        </div>";
+                    "                        </div>" +
+                    "<script src=\"../static/assets/plugins/wow.min.js\" th:src=\"@{assets/plugins/wow.min.js}\"></script>";
             })
             if (out !== ""){
                 document.getElementById("swiper-root").innerHTML=out;
