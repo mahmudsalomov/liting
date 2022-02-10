@@ -9,7 +9,6 @@ import uz.neft.liting.user.User;
 
 
 @RestController
-@Controller
 @RequestMapping("/api/auth")
 @CrossOrigin
 public class AuthController {
@@ -26,9 +25,11 @@ public class AuthController {
 
     @GetMapping("/me")
     public HttpEntity<?> me(@CurrentUser User user){
+        System.out.println(user);
         if (user!=null){
             return ResponseEntity.ok(user.getFio());
         }else return null;
+//        return ResponseEntity.ok(true);
     }
 
 }
