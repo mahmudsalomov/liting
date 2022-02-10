@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../../static/assets/css/font-awesome.css" th:href="@{/assets/css/font-awesome.css}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../static/admin/css/sb-admin-2.min.css" th:href="@{/admin/css/sb-admin-2.min.css}" rel="stylesheet">
+
+</head>
+<style>
+    .login-bg-image{
+        background: url(https://www.crystolenergy.com/wp-content/uploads/2018/09/Digitalisation.jpg) center;
+        background-size: cover;
+    }
+    .main-form-card{
+        top:45%;
+    }
+</style>
+<body >
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg main-form-card" >
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block login-bg-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Login !</h1>
+                                    </div>
+                                    <hr>
+                                    <form class="user" onsubmit="loginForm(event)">
+                                        <div class="form-group">
+                                            <input type="text" name="username" class="form-control form-control-user"
+                                                id="exampleInputUserName" aria-describedby="userNameHelp"
+                                                placeholder="Enter Username">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+<!--                                            <div class="custom-control custom-checkbox small">-->
+<!--                                                <input type="checkbox" class="custom-control-input" id="customCheck">-->
+<!--                                                <label class="custom-control-label" for="customCheck">Remember-->
+<!--                                                    Me</label>-->
+<!--                                            </div>-->
+                                        </div>
+                                        <button type="submit"
+                                                id="logInBtn"
+                                                class="form-control btn btn-primary rounded submit btn-user btn-block py-2">Login
+                                        </button>
+
+                                        <hr>
+                                    </form>
+
+                                    <div class="text-center">
+                                        <a class="small" href="#" disabled="true">Forgot Password?</a>
+                                    </div>
+<!--                                    <div class="text-center">-->
+<!--                                        <a class="small" href="register.html">Create an Account!</a>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../static/assets/js/jquery.min.js" th:src="@{/assets/js/jquery.min.js}"></script>
+    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../static/assets/js/easing/jquery.easing.min.js" th:src="@{/assets/js/easing/jquery.easing.min.js}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../static/admin/js/sb-admin-2.min.js" th:src="@{/admin/js/sb-admin-2.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+
+</body>
+<script src="/static/admin/js/login.js" th:src="@{/admin/js/login.js}"></script>
+<script>
+    // getAllUsers();
+    // getAllRoles();
+</script>
+</html>
