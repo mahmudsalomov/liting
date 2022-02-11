@@ -100,6 +100,8 @@ public class Blog extends AbsEntityInteger {
     @Enumerated(EnumType.STRING)
     private BlogStatus status;
 
+    private Timestamp publishDate;
+
     @Column(nullable = false)
     private boolean mainSlider=false;
 

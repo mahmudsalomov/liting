@@ -138,12 +138,23 @@ public class BlogService {
         }
     }
 
+
+
+
     public ApiResponse allByMainSliderTrue() {
         try {
             List<Blog> allByMainSliderTrue = blogRepository.findAllByMainSliderTrueOrderByIdDesc();
             return Payload.ok(allByMainSliderTrue);
         }catch (Exception e){
             e.printStackTrace();
+            return Payload.conflict();
+        }
+    }
+
+    public ApiResponse allBlogByType(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy,BlogType type) {
+        try {
+            return Payload.ok(blogRepository.findAllByDeletedFalseAndType(type));
+        }catch (Exception e){
             return Payload.conflict();
         }
     }

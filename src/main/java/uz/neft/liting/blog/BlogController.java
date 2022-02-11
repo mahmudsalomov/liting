@@ -45,6 +45,15 @@ public class BlogController implements RestCrud<Blog> {
         return blogService.one(id).response();
     }
 
+
+    @GetMapping("/all/type")
+    public HttpEntity<?> allBlogByType(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
+                                            @RequestParam(value = "pageSize", required = false, defaultValue = "10") Optional<Integer> pageSize,
+                                            @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy,
+                                         @RequestParam BlogType type){
+        return blogService.allBlogByType(page,pageSize,sortBy,type).response();
+    }
+
     @GetMapping("/all/{category_id}")
     public HttpEntity<?> allByCategory(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
                                        @RequestParam(value = "pageSize", required = false, defaultValue = "10") Optional<Integer> pageSize,

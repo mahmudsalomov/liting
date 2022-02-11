@@ -38,8 +38,8 @@
     <!-- Custom Responsive -->
     <link href="../static/assets/css/responsive.css" th:href="@{assets/css/responsive.css}" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" rel="stylesheet">-->
     <!-- place -->
 </head>
 <body class="loader">
@@ -1219,7 +1219,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="swiper-container blog-slider">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" id="swiper-blog-main-page">
                         <div class="swiper-slide">
                             <!-- article -->
                             <article class="post">
@@ -1298,9 +1298,7 @@
                                         <div class="post-author">
                                             <div class="author-img">
                                                 <a href="blog-single.html">
-                                                    <img src="../static/assets/images/homepage-1/admin-2-40x40.jpg"
-                                                         th:src="@{assets/images/homepage-1/admin-2-40x40.jpg}"
-                                                         class="rounded-circle" alt="#">
+                                                    <img src="../static/assets/images/homepage-1/admin-2-40x40.jpg" th:src="@{/assets/images/homepage-1/admin-2-40x40.jpg}" class="rounded-circle" alt="#">
                                                 </a>
                                             </div>
                                             <span class="text-theme fs-14">By <a href="blog-single.html" class="text-theme fw-500">Администратор</a></span>
@@ -1538,12 +1536,16 @@
 <!-- Start Footer -->
 <div th:insert="main_components/footer::footer"></div>
 
+<!-- axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <!-- jQuery -->
 <script src="../static/assets/js/jquery.min.js" th:src="@{assets/js/jquery.min.js}"></script>
 <!-- Popper -->
 <script src="../static/assets/js/popper.min.js" th:src="@{assets/js/popper.min.js}"></script>
 <!-- Bootstrap -->
 <script src="../static/assets/js/bootstrap.min.js" th:src="@{assets/js/bootstrap.min.js}"></script>
+
 <!-- Range Slider -->
 <script src="../static/assets/js/jquery-ui.js" th:src="@{assets/js/jquery-ui.js}"></script>
 <!-- Swiper Slider -->
@@ -1551,15 +1553,18 @@
 <!-- Slick Slider -->
 <script src="../static/assets/js/slick.min.js" th:src="@{assets/js/slick.min.js}"></script>
 <!-- Nice Select -->
-<script src="../static/assets/js/jquery.nice-select.js" th:href="@{assets/js/jquery.nice-select.js}"></script>
+<script src="../static/assets/js/jquery.nice-select.js" th:src="@{/assets/js/jquery.nice-select.js}"></script>
 <!-- Isotope Gallery -->
 <script src="../static/assets/js/isotope.pkgd.min.js" th:src="@{assets/js/isotope.pkgd.min.js}"></script>
 <!-- magnific popup -->
 <script src="../static/assets/js/jquery.magnific-popup.min.js" th:src="@{assets/js/jquery.magnific-popup.min.js}"></script>
 <!-- Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>-->
 <!-- Wow js -->
 <script src="../static/assets/js/wow.min.js" th:src="@{assets/js/wow.min.js}"></script>
+
+<!-- script -->
+<script src="../static/assets/js/script.js" th:src="@{/assets/js/script.js}"></script>
 <!-- Custom Js -->
 <script src="../static/assets/js/custom.js" th:src="@{assets/js/custom.js}"></script>
 <!-- /Place all Scripts Here -->
@@ -1592,25 +1597,26 @@
 <script src="../static/assets/plugins/wow.min.js" th:src="@{assets/plugins/wow.min.js}"></script>
 
 <!-- Google map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>-->
 
-<!-- script -->
-<script src="../static/assets/js/script.js" th:src="@{assets/js/script.js}"></script>
 
-<!-- axios -->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 <!-- navbar script -->
 <script src="../static/assets/js/navbar.js" th:src="@{assets/js/navbar.js}">
     all()
 </script>
 <script src="../static/assets/js/index.js" th:src="@{assets/js/index.js}"></script>
+
 <script>
     employee()
     mainSlider()
     partnerComment()
 </script>
+
 </body>
 
 <!-- Mirrored from slidesigma.com/themes/html/cali-constructions/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jan 2022 11:25:36 GMT -->
 </html>
+
+

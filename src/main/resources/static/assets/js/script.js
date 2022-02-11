@@ -2,9 +2,9 @@
 
 Template name: Rimk Construction HTML Template
 Version: 1.0.0
-Author: Design Expert    
-Author url: 
-Developer: Najmul Huda Eimon 
+Author: Design Expert
+Author url:
+Developer: Najmul Huda Eimon
 
 [Table of Content]
 
@@ -20,12 +20,12 @@ Developer: Najmul Huda Eimon
 10: footer time slider
 11: counterup
 12: scroll animation
- 
+
 ====================================================================*/
 
 $(function(){
     "use strict";
-    
+
     /*=====================================================================
         01: Background image
     ======================================================================*/
@@ -62,7 +62,7 @@ $(function(){
         },1000);
     });
 
-    
+
     $(window).on('scroll',function(){
         var $scroll = $(this).scrollTop();
 
@@ -158,7 +158,7 @@ $(function(){
         // navigation: {
         //     nextEl: ".client-button-next",
         //     prevEl: ".client-button-prev",
-            
+
         //   },
     });
     var clientImgSwiper = new Swiper('.client-img-slider', {
@@ -191,9 +191,9 @@ $(function(){
         navigation: {
             nextEl: ".client-button-next",
             prevEl: ".client-button-prev",
-            
+
           },
-        
+
     });
 
     /*=====================================================================
@@ -227,7 +227,7 @@ $(function(){
             el: '.swiper-pagination',
             clickable: true,
         },
-        
+
     });
 
     /*=====================================================================
@@ -241,7 +241,7 @@ $(function(){
     /*=====================================================================
         12: scroll animation
     ======================================================================*/
-    
+
     var wow = new WOW({
         boxClass: 'wow',
         animateClass: 'animated',
@@ -251,7 +251,94 @@ $(function(){
         scrollContainer: null
     });
     wow.init();
-    
-    
+
+
 
 });
+
+
+
+function mainPageBlogsSlider() {
+
+
+
+    axios.get("/api/blog/all/type?type=BLOG")
+        .then(function (response) {
+            console.log(response.data)
+            console.log(response.data.object)
+            let data=response.data.object
+            let out=""
+            let temp=""
+            let first=""
+            let last=""
+            data.forEach((blog,index)=>{
+                temp="                        <div class=\"swiper-slide\">\n" +
+                    "                            <!-- article -->\n" +
+                    "                            <article class=\"post\">\n" +
+                    "                                <div class=\"post-wrapper\">\n" +
+                    "                                    <div class=\"blog-img animate-img\">\n" +
+                    "                                        <a href=\"blog-single.html\">\n" +
+                    "                                            <img src='/api/file/photo/"+blog.mainImage.hashId+"'" +
+                "                                                 class=\"img-fluid full-width\" alt=\"blog\">\n" +
+                "                                        </a>\n" +
+                "                                    </div>\n" +
+                "                                    <div class=\"post-date\">\n" +
+                "                                        <a href=\"blog-single.html\">"+blog.createdAt+"</a>\n" +
+                "                                    </div>\n" +
+                "                                    <div class=\"blog-meta bg-custom-white padding-20\">\n" +
+                "                                        <div class=\"cat-box\">\n" +
+                "                                            <div class=\"cats\">\n" +
+                "                                                <a href=\"#\">"+blog.category.name_oz+"</a>\n" +
+                "                                            </div>\n" +
+                "                                        </div>\n" +
+                "                                        <h2 class=\"post-title\"><a href=\"blog-single.html\" class=\"text-theme\">"+blog.title_oz+"</a></h2>\n" +
+                "                                        <p class=\"text-light-white no-margin\">"+blog.anons_oz+"</p>\n" +
+                "                                    </div>\n" +
+                "                                    <div class=\"blog-footer-meta bg-custom-white padding-20\">\n" +
+                "                                        <div class=\"post-author\">\n" +
+                "                                            <div class=\"author-img\">\n" +
+                "                                                <a href=\"blog-single.html\">\n" +
+                "                                                    <img src=\"/assets/images/homepage-1/admin-2-40x40.jpg\"\n" +
+                // "                                                         th:src=\"@{assets/images/homepage-1/admin-2-40x40.jpg}\"\n" +
+                "                                                         class=\"rounded-circle\" alt=\"#\">\n" +
+                "                                                </a>\n" +
+                "                                            </div>\n" +
+                "                                            <span class=\"text-theme fs-14\">By <a href=\"blog-single.html\" class=\"text-theme fw-500\">Администратор</a></span>\n" +
+                "                                        </div>\n" +
+                "                                        <div class=\"post-link\">\n" +
+                "                                            <a href='/blog/"+blog.id+"' class=\"link-btn text-custom-blue fw-600 fs-14\">Читать далее</a>\n" +
+                "                                        </div>\n" +
+                "                                    </div>\n" +
+                "                                </div>\n" +
+                "                            </article>\n" +
+                "                            <!-- article -->\n" +
+                "                        </div>\n"
+
+
+                if (index==0){
+                    first=temp
+                }
+                if (index==(data.length-1)){
+                    last=temp
+                }
+
+                out+=temp;
+            })
+
+            if (out!=""){
+                out=last+out+first;
+                document.getElementById("swiper-blog-main-page").innerHTML=out
+            }
+
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+
+
+
+
+
+}
+
+mainPageBlogsSlider()
