@@ -2,7 +2,7 @@ package uz.neft.liting.blog;
 
 public enum BlogType {
     BLOG,
-    NEWS,
+    PAGE,
     GALLERY,
     PROJECT,
     DEPARTMENT
