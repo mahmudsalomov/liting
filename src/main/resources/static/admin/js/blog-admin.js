@@ -34,7 +34,7 @@ function createViewBlogTable(blogs) {
             temp="<input onchange='isMainSlider("+blog.id+",event)' type=\"checkbox\" id=\"s\">"
         }
 
-        out+="<div class=\"card shadow row mb-4 p-1\">\n" +
+        out+="<div class=\"card shadow mb-4 p-1\">\n" +
             "                        <div class=\"row no-gutters\">\n" +
             "                            <div class=\"col-md-4\">\n" +
             "                                <img src='/api/file/photo/"+blog.mainImage.hashId+"' class=\"card-img\" alt=\"...\">\n" +
@@ -55,7 +55,7 @@ function createViewBlogTable(blogs) {
             "                            <div class=\"p-3 col-md-4 d-flex justify-content-start\">\n" +
             "                                Kategoriya:\n" + blog.category.name_oz+
             "                            </div>\n" +
-            "                            <div class=\"p-3 col-md-8 d-flex justify-content-end\">\n" +
+            "                            <div class=\"p-3 col-md-8 d-flex justify-content-end position-relative\">\n" +
             "    <!-- Default switch -->\n" +
             "      <!-- Rounded switch -->\n" +
             "                <p class=\"float-right m-2\">Main slider</p>\n" +
@@ -175,6 +175,7 @@ function saveBlog() {
                     category:{
                         id:document.getElementById("blog_category_oz").value
                     },
+                    type:"BLOG",
                     mainImage:mainImage
                 }
 

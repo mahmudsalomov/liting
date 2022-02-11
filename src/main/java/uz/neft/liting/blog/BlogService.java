@@ -153,7 +153,10 @@ public class BlogService {
 
     public ApiResponse allBlogByType(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy,BlogType type) {
         try {
-            return Payload.ok(blogRepository.findAllByDeletedFalseAndType(type));
+            List<Blog> all = blogRepository.findAllByDeletedFalseAndType(type);
+            System.out.println(all);
+            System.out.println(all.size());
+            return Payload.ok(all);
         }catch (Exception e){
             return Payload.conflict();
         }
