@@ -4,6 +4,21 @@
 
 <!-- Mirrored from slidesigma.com/themes/html/cali-constructions/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jan 2022 11:27:27 GMT -->
 <head>
+    <style>
+        /*#list-container {*/
+        /*    display: table; !* Make the container element behave like a table *!*/
+        /*    width: 100%; !* Set full-width to expand the whole page *!*/
+        /*}*/
+
+
+        /*.article {*/
+        /*    display: table-cell;!important;*/
+        /*    !* Make elements inside the container behave like table cells *!*/
+        /*}*/
+        /*.flex-1 {*/
+        /*    flex: 1;!important;*/
+        /*}*/
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -80,7 +95,7 @@
     <!-- End Subheader -->
     <!-- Start our Blog -->
     <section class="section-padding bg-light-white our_articles">
-        <div class="container">
+        <div class="container" id="list-container">
             <div class="row" id="blog-list-root">
                 <!-- article -->
                 <article class="post col-lg-4 col-md-6 mb-xl-20">
@@ -561,7 +576,8 @@
     <!-- End Newsletter -->
     <!-- Start Footer -->
     <div th:insert="main_components/footer::footer"></div>
-
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- jQuery -->
     <script src="../static/assets/js/jquery.min.js" th:src="@{/assets/js/jquery.min.js}"></script>
     <!-- Popper -->
@@ -622,8 +638,7 @@
     <!-- script -->
     <script src="../static/assets/js/script.js" th:src="@{/assets/js/script.js}"></script>
 
-    <!-- axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
     <!-- navbar script -->
     <script src="../static/assets/js/navbar.js" th:src="@{/assets/js/navbar.js}"></script>

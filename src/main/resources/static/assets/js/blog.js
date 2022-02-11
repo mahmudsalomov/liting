@@ -68,7 +68,7 @@ function createViewBlogList(data) {
 
     data.forEach(d=>{
 
-        out+="          <article class=\"post col-lg-4 col-md-6 mb-xl-20\">\n" +
+        out+="          <article class=\"post col-lg-4 col-md-6 mb-xl-20 flex-1\">\n" +
             "                    <div class=\"post-wrapper\">\n" +
             "                        <div class=\"blog-img animate-img\">\n" +
             "                            <a href='/blog/"+d.id+"'>\n" +
