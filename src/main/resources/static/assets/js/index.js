@@ -45,8 +45,7 @@ function partnerComment() {
                     "                                                </ul>\n" +
                     "                                            </div>\n" +
                     "                                            <p>"+d.comment+"</p>\n" +
-                    "                                            <img src=\"../static/assets/images/signature.png\"\n" +
-                    "                                                 th:src=\"@{assets/images/signature.png}\"\n" +
+                    "                                            <img src='/api/file/photo/"+d.signature.hashId+"'\n" +
                     "                                                 alt=\"Signature\">\n" +
                     "                                        </div>\n" +
                     "                                    </div>\n" +

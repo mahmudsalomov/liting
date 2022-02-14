@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html  xmlns:th="http://www.thymeleaf.org">
 
 <!-- Mirrored from slidesigma.com/themes/html/cali-constructions/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Jan 2022 11:23:02 GMT -->
 <head>
@@ -10,6 +9,13 @@
     <meta name="keywords" content="#">
     <meta name="description" content="#">
     <title>O'ZLITINEFTGAZ</title>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/logoTitle-removebg-preview.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/logoTitle-removebg-preview.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="assets/images/logoTitle-removebg-preview.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logoTitle-removebg-preview.png">
+    <link rel="shortcut icon" href="assets/images/logoTitle-removebg-preview.png">
+
     <!-- Bootstrap -->
     <link href="../static/assets/css/bootstrap.min.css" th:href="@{assets/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Fontawesome -->
@@ -38,8 +44,10 @@
 <body class="loader">
 <!-- preloader -->
 <div class="preloader">
-    <img src="../static/assets/images/pre-loader-1.svg" th:href="@{/assets/images/pre-loader-1.svg}" alt="img">
+    <img src="../static/assets/images/pre-loader-1.svg" th:src="@{/assets/images/pre-loader-1.svg}" alt="img">
 </div>
+<div th:insert="main_components/navbar::navbar"></div>
+
 <!-- preloader -->
 <!-- Start Header -->
 <!-- topbar -->
@@ -407,9 +415,6 @@
 </header>
 <!-- navigation -->
 <!-- End Header -->
-
-
-
 <!-- Start Newsletter -->
 <section class="section-padding bg-call-to-action">
     <div class="overlay overlay-bg"></div>

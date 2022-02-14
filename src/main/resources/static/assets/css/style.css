@@ -508,7 +508,7 @@ label.error{
 .arrow-shape-1:after{
     content: '';
     border-width: 40px;
-    border-color: #fff #D46240 #D46240 #fff;
+    border-color: #fff #00a5e0 #00a5e0 #fff;
     border-style: solid;
     position: absolute;
     left: 0px;
@@ -836,7 +836,7 @@ label.custom-checkbox .checkmark:after {
 .btn-submit{
     background-color: transparent;
     color: #111111;
-    border-color: #fd5d14;
+    border-color: #00a5e0;
     transition: 0.5s all;
 }
 .btn-submit:before{
@@ -847,7 +847,7 @@ label.custom-checkbox .checkmark:after {
     width: 10%;
     height: 100%;
     z-index: -1;
-    background-color: #fd5d14;
+    background-color: #00a5e0;
     transition: 0.5s all;
 }
 .btn-submit:focus:before,
@@ -923,6 +923,9 @@ label.custom-checkbox .checkmark:after {
 }
 .bg-custom-blue {
     background-color: #fd5d14;
+}
+.bg-custom-blue1 {
+    background-color: #00a5e0;
 }
 /*Colors*/
 .text-custom-black {
@@ -1844,7 +1847,7 @@ label.custom-checkbox .checkmark:after {
 }
 .about-right-side:before{
     content: '';
-    background: #fd5d14;
+    background: #00a5e0;
     display: block;
     height: 50%;
     z-index: -1;
@@ -1863,7 +1866,7 @@ label.custom-checkbox .checkmark:after {
     bottom: 59px;
     right: -26px;
     max-width: 380px;
-    background-image:-webkit-linear-gradient(top,#fd5d14,#fd7537);
+    background-image:-webkit-linear-gradient(top,#00a5e0,#fd7537);
     padding: 30px 25px;
     display: flex;
     flex-wrap: nowrap;
@@ -2211,7 +2214,7 @@ label.custom-checkbox .checkmark:after {
     z-index: 10;
     text-align: center;
     background-color: transparent;
-    border: 1px solid #fd5d14;
+    border: 1px solid #00a5e0;
     transition: 0.5s all;
     margin: 0 5px 10px;
     border-radius: 0px;
@@ -2225,7 +2228,7 @@ label.custom-checkbox .checkmark:after {
     width: 10%;
     height: 100%;
     z-index: -1;
-    background-color: #fd5d14;
+    background-color: #00a5e0;
     transition: 0.5s all;
 }
 .custom-tabs>.nav>.nav-item:hover>.nav-link,
@@ -2233,7 +2236,7 @@ label.custom-checkbox .checkmark:after {
 .our-services .filter-gallery>ul>li.active>a,
 .our-services .filter-gallery>ul>li:hover>a {
     color: #fff;
-    background: #fd5d14;
+    background: #00a5e0;
     transition: 0.5s all;
 }
 .custom-tabs>.nav>.nav-item:hover>.nav-link:before,
@@ -2725,7 +2728,7 @@ background-position: center;
 .our_articles .post .post-wrapper .blog-meta .cat-box{
     position: relative;
     margin-top: -37px;
-    background: #fd5d14;
+    background: #00a5e0;
     margin-bottom: 15px;
     padding: 5px 10px;
     width: fit-content;
