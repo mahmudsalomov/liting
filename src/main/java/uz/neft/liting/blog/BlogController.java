@@ -1,5 +1,6 @@
 package uz.neft.liting.blog;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.neft.liting.template.RestCrud;
@@ -46,20 +47,20 @@ public class BlogController implements RestCrud<Blog> {
     }
 
 
-    @GetMapping("/all/type")
-    public HttpEntity<?> allBlogByType(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
-                                            @RequestParam(value = "pageSize", required = false, defaultValue = "10") Optional<Integer> pageSize,
-                                            @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy,
-                                         @RequestParam BlogType type){
-        return blogService.allBlogByType(page,pageSize,sortBy,type).response();
-    }
-
     @GetMapping("/all/{category_id}")
     public HttpEntity<?> allByCategory(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
-                                       @RequestParam(value = "pageSize", required = false, defaultValue = "10") Optional<Integer> pageSize,
+                                       @RequestParam(value = "pageSize", required = false, defaultValue = "9") Optional<Integer> pageSize,
                                        @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy,
                                        @Valid @PathVariable("category_id") Integer category_id) {
         return blogService.allByCategory(category_id,page, pageSize, sortBy).response();
+    }
+
+    @GetMapping("/all/type")
+    public HttpEntity<?> allBlogByType(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
+                                            @RequestParam(value = "pageSize", required = false, defaultValue = "9") Optional<Integer> pageSize,
+                                            @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy,
+                                         @RequestParam BlogType type){
+        return blogService.allBlogByType(page,pageSize,sortBy,type).response();
     }
 
     @GetMapping("/all/main_slider")

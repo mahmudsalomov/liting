@@ -31,7 +31,7 @@ function menuBuilder(categories) {
         let out="";
 
         let url="#";
-        if (c.type=="BLOGS"||c.type=="PAGE") url="/category/"+c.id;
+        if (c.type=="BLOGS"||c.type=="PAGE") url="/category?category_id="+c.id;
 
 
 
@@ -40,11 +40,11 @@ function menuBuilder(categories) {
 
 
             out="<li class=\"menu-item menu-item-has-children\">" +
-                "<a href='"+url+"' class=\"text-theme fs-14\">"+c.name_oz+
+                "<a href='"+url+"' class=\"text-theme font-weight-bold fs-14\">"+c.name_oz+
                 "<span class=\"arrow\"></span>"+"</a>"+menuContentBuilder(c.children);
         }else {
             out="<li class=\"menu-item menu-item-has-children\">" +
-                "<a href='"+url+"' class=\"text-theme fs-14\">"+c.name_oz+
+                "<a href='"+url+"' class=\"text-theme font-weight-bold fs-14\">"+c.name_oz+
                 "</a>"+menuContentBuilder(c.children);
         }
 
@@ -63,16 +63,16 @@ function menuContentBuilder(value) {
         let out="";
 
         let url="#";
-        if (v.type=="BLOGS"||v.type=="PAGE") url="/category/"+v.id;
+        if (v.type=="BLOGS"||v.type=="PAGE") url="/category?category_id="+v.id;
 
         if (v.children.length>0){
             out+="<li class=\"menu-item menu-item-has-children\">\n" +
-                "        <a href='"+url+"' class=\"text-theme\">"+v.name_oz+"" +
+                "        <a href='"+url+"' class=\"text-theme font-weight-bold\">"+v.name_oz+"" +
                 "<span class=\"arrow\"></span>"+
                 "</a>\n"+menuContentBuilder(v.children)
         }else {
             out+="<li class=\"menu-item\">\n" +
-                "        <a href='"+url+"' class=\"text-theme\">"+v.name_oz+"</a>\n";
+                "        <a href='"+url+"' class=\"text-theme font-weight-bold\">"+v.name_oz+"</a>\n";
         }
         out+="</li>";
         result+=out;

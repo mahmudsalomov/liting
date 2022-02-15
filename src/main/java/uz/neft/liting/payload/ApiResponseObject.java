@@ -27,6 +27,15 @@ public class ApiResponseObject extends ApiResponse {
         this.object = object;
     }
 
+    public ApiResponseObject(String message, boolean success, HttpStatus status, long totalElements, long totalPages, long page, Object object) {
+        super(message, success, status, totalElements, totalPages, page);
+        this.object = object;
+    }
+
+    public ApiResponseObject(Object object) {
+        this.object = object;
+    }
+
     public Object getObject() {
         return object;
     }
@@ -38,5 +47,10 @@ public class ApiResponseObject extends ApiResponse {
     @Override
     public HttpEntity<?> response() {
         return ResponseEntity.status(org.springframework.http.HttpStatus.valueOf(getStatus().getCode())).body(this);
+    }
+
+    @Override
+    public ApiResponseObject get() {
+        return this;
     }
 }

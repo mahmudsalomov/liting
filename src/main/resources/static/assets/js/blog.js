@@ -1,29 +1,65 @@
+sessionStorage.removeItem('page')
 
+function getBlogs() {
+    const urlParams = getQueryParams();
 
-function getBlogs(category_id) {
     let url="";
-    if (category_id){
-        url="/api/blog/all/"+category_id
+    if (urlParams.get('category_id')&&urlParams.get('category_id')!=0){
+        url="/api/blog/all/"+urlParams.get('category_id')
     } else {
         url="/api/blog/all"
     }
-    axios.get(url)
+    let page=0;
+    if (urlParams.get('page')) page=urlParams.get('page');
+
+    axios.get(url+"?page="+page)
         .then(function (response) {
             console.log(response)
 
-            axios.get("/api/category/name/"+category_id)
+            axios.get("/api/category/name/"+urlParams.get('category_id'))
                 .then(function (res) {
                     console.log(res)
                     document.getElementById("category-name").innerText=res.data
                 })
 
             createViewBlogList(response.data.object)
+            blogPaginationBuilder(response.data)
         })
         .catch(function (error) {
             console.log(error)
             createViewBlogList([])
         })
+
+    console.log("ISHLADI")
+    // let url="";
+    // if (category_id&&category_id!=0){
+    //     url="/api/blog/all/"+category_id
+    // } else {
+    //     url="/api/blog/all"
+    // }
+    // if (!page) page=0;
+    // sessionStorage.setItem("page",page);
+    // axios.get(url+"?page="+page)
+    //     .then(function (response) {
+    //         console.log(response)
+    //
+    //         axios.get("/api/category/name/"+category_id)
+    //             .then(function (res) {
+    //                 console.log(res)
+    //                 document.getElementById("category-name").innerText=res.data
+    //             })
+    //
+    //         createViewBlogList(response.data.object)
+    //         blogPaginationBuilder(response.data)
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error)
+    //         createViewBlogList([])
+    //     })
 }
+
+
+
 
 
 function createViewBlogList(data) {
@@ -82,8 +118,7 @@ function createViewBlogList(data) {
             "                        <div class=\"blog-meta bg-custom-white padding-20\">\n" +
             "                            <div class=\"cat-box\">\n" +
             "                                <div class=\"cats\">\n" +
-            "                                    <a href=\"#\">Office</a>\n" +
-            "                                    <a href=\"#\">Rent</a>\n" +
+            "                                    <a href='/category?category_id="+d.category.id+"'>"+d.category.name_oz+"</a>\n" +
             "                                </div>\n" +
             "                            </div>\n" +
             "                            <h2 class=\"post-title\"><a href=\"blog-single.html\" class=\"text-theme\">"+d.title_oz+"</a></h2>\n" +
@@ -92,11 +127,11 @@ function createViewBlogList(data) {
             "                        <div class=\"blog-footer-meta bg-custom-white padding-20\">\n" +
             "                            <div class=\"post-author\">\n" +
             "                                <div class=\"author-img\">\n" +
-            "                                    <a href=\"blog-single.html\">\n" +
+            "                                    <a href=\"#\">\n" +
             "                                        <img src=\"../static/assets/images/homepage-1/admin-1-40x40.jpg\" class=\"rounded-circle\" alt=\"#\">\n" +
             "                                    </a>\n" +
             "                                </div>\n" +
-            "                                <span class=\"text-theme fs-14\">By <a href=\"blog-single.html\" class=\"text-theme fw-500\">Admin</a></span>\n" +
+            "                                <span class=\"text-theme fs-14\">By <a href=\"#\" class=\"text-theme fw-500\">Admin</a></span>\n" +
             "                            </div>\n" +
             "                            <div class=\"post-link\">\n" +
             "                                <a href='/blog/"+d.id+"' class=\"link-btn text-custom-blue fw-600 fs-14\">Read More</a>\n" +
@@ -112,6 +147,59 @@ function createViewBlogList(data) {
 }
 
 
+function blogPaginationBuilder(data) {
+    let temp=" <li class=\"page-item\"><a class=\"page-link\" href=\"#\">Previous</a></li>\n" +
+        "                            <li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li>\n" +
+        "                            <li class=\"page-item active\"><a class=\"page-link\" href=\"#\">2</a></li>\n" +
+        "                            <li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li>\n" +
+        "                            <li class=\"page-item\"><a class=\"page-link\" href=\"#\">Next</a></li>"
+
+
+
+    let first=0;
+    let last=data.totalPages;
+    if (data.page<5){
+        first=0;
+    }
+    else {
+        first=data.page-1;
+    }
+
+
+    let array=getQueryParams();
+    let catId=array.get('category_id')?array.get('category_id'):0;
+
+    let page=array.get('page')?array.get('page'):0;
+
+    // out+="<li class='page-item "+check+"'><a href='/category?category_id="+catId+"&page="+(data.page+1)+"' class=\"page-link\">"+(data.page+1)+"</a></li>"
+
+    let out=""
+    if (data.page!=0)
+        out="<li class=\"page-item\"><a href='/category?category_id="+catId+"&page="+(data.page-1)+"' class=\"page-link\">Previous</a></li>"
+    else
+        out="<li class=\"page-item\"><a style=' pointer-events: none;!important;  cursor: default!important;' href='#' class=\"page-link\">Previous</a></li>"
+
+
+
+    if (data.totalPages<=5){
+        for (let i = first; i <last; i++) {
+            let check="";
+            if (data.page==i)
+                check="active"
+            out+="<li class='page-item "+check+"'><a href='/category?category_id="+catId+"&page="+i+"' class=\"page-link\">"+(i+1)+"</a></li>"
+        }
+        if (data.page!=last-1)
+            out+="<li class=\"page-item\"><a href='/category?category_id="+catId+"&page="+(data.page+1)+"' class=\"page-link\">Next</a></li>";
+        else
+            out+="<li class=\"page-item\"><a style=' pointer-events: none;!important;  cursor: default;!important;' href='#' class=\"page-link\">Next</a></li>"
+    }
+
+    document.getElementById("pagination-blog-list").innerHTML=out;
+
+
+}
+
+
 
 
 function getBlog(id) {
@@ -124,6 +212,8 @@ function getBlog(id) {
             document.getElementById("title").innerText=data.title_oz;
             document.getElementById("text").innerHTML=data.text_oz;
             document.getElementById("date").innerText=data.createdAt;
+            document.getElementById("facebook-share").href="https://www.facebook.com/sharer/sharer.php?u="+window.location.href
+            document.getElementById("linkedin-share").href="https://www.linkedin.com/shareArticle?url="+window.location.href+"&title="+data.title_oz+"&summary="+data.anons_oz+"&source="+window.location.href;
         })
         .catch(function (error) {
             console.log(error)
@@ -131,6 +221,13 @@ function getBlog(id) {
 
 }
 
+function getQueryParams() {
 
+    return  new URLSearchParams(window.location.search);
+
+}
+
+// getBlogs(window.location.pathname.slice(10),sessionStorage.getItem("page"))
+getBlogs()
 
 

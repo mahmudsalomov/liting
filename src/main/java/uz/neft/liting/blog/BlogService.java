@@ -9,6 +9,7 @@ import uz.neft.liting.category.Category;
 import uz.neft.liting.category.CategoryRepository;
 import uz.neft.liting.category.CategoryType;
 import uz.neft.liting.payload.ApiResponse;
+import uz.neft.liting.payload.ApiResponseObject;
 import uz.neft.liting.payload.Payload;
 
 import java.util.HashSet;
@@ -54,9 +55,13 @@ public class BlogService {
 
 
     public ApiResponse all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy){
-        Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
+        Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(9), Sort.Direction.DESC, sortBy.orElse("createdAt"));
         Page<Blog> all = blogRepository.findAllByDeletedFalse(pg);
-        return Payload.ok(all.getContent());
+        ApiResponseObject response = (ApiResponseObject) Payload.ok(all.getContent());
+        response.setPage(all.getNumber());
+        response.setTotalPages(all.getTotalPages());
+        response.setTotalElements(all.getTotalElements());
+        return response;
     }
 
     public ApiResponse one(Integer id) {
@@ -101,9 +106,14 @@ public class BlogService {
         try {
             Optional<Category> category = categoryRepository.findById(id);
             if (category.isPresent()){
-                Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
+                Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(9), Sort.Direction.DESC, sortBy.orElse("createdAt"));
                 Page<Blog> all = blogRepository.findAllByCategory(category.get(),pg);
-                return Payload.ok(all.getContent());
+
+                ApiResponseObject response = (ApiResponseObject) Payload.ok(all.getContent());
+                response.setPage(all.getNumber());
+                response.setTotalPages(all.getTotalPages());
+                response.setTotalElements(all.getTotalElements());
+                return response;
             }
             return Payload.notFound();
         }catch (Exception e){

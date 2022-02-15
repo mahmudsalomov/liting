@@ -167,6 +167,7 @@ public class CategoryService {
     }
 
     public String name(Integer id){
+        if (id==null) return "Bloglar";
         Optional<Category> category = categoryRepository.findById(id);
         if (category.isPresent()) return category.get().getName_oz();
         return "";

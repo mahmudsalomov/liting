@@ -1,6 +1,6 @@
 let blogList = []
 
-
+let EDIT_BLOG={};
 
 function createBlogList() {
 
@@ -218,6 +218,8 @@ function saveBlog() {
             },
         }
 
+
+
         Request.addOrEditBlog(data)
             .then(function (response) {
             })
@@ -233,6 +235,13 @@ function saveBlog() {
     // console.log(data)
 }
 
+function setBlog(event) {
+    // if (event.type!=)
+    // EDIT_BLOG[event.target.name]=event.target.value;
+
+}
+
+
 
 //EDIT START
 async function getBlogEdit(id) {
@@ -240,6 +249,8 @@ async function getBlogEdit(id) {
     await Request.getOne(id)
         .then(function (res) {
             console.log(res)
+            // editedBlog["asdss"]="asd"
+            // console.log(editedBlog)
             blog=res;
             // editBuilder(res)
         })
@@ -248,6 +259,7 @@ async function getBlogEdit(id) {
         })
     editBuilder(blog)
 }
+
 
 function editBuilder(blog) {
 

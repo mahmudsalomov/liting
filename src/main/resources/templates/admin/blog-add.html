@@ -376,26 +376,26 @@
 
                             <div class="form-group flex-column">
                                 <label for="title_oz" class="mb-0 ">Sarlavha</label>
-                                <input name="title_oz" id="title_oz" type="text" class="form-control rounded-left"
+                                <input onchange="setBlog(event)" name="title_oz" id="title_oz" type="text" class="form-control rounded-left"
                                        placeholder="Sarlavha" required>
                             </div>
                             <div class="form-group flex-column">
                                 <label for="anons_oz" class="mb-0 ">Anons</label>
-                                <textarea name="anons_oz" id="anons_oz" type="text" class="form-control rounded-left"
+                                <textarea onchange="setBlog(event)" name="anons_oz" id="anons_oz" type="text" class="form-control rounded-left"
                                        placeholder="Anons" required></textarea>
                             </div>
 
                             <div class="form-group flex-column text-center">
                                 <label for="mainImage_oz" class="mb-0 ">Asosiy rasm</label>
                                 <input name="mainImage_oz" id="mainImage_oz" type="file" class="form-control rounded-left"
-                                       placeholder="Asosiy rasm" required onchange="changeImage(event)">
+                                       placeholder="Asosiy rasm" required onchange="changeImage(event); setBlog(event)">
                                 <img class="main_image" id="image">
                             </div>
 
 
                             <div class="form-group d-flex flex-column">
                                 <label for="blog_category_oz" class="mb-0">Kategoriya</label>
-                                <select name="roleId" class="custom-select form-control rounded-left"
+                                <select onchange="setBlog(event)" name="roleId" class="custom-select form-control rounded-left"
                                         id="blog_category_oz"
                                         aria-label="Example select with button addon" required>
                                     <option value="">Kategoriyani tanlang</option>
@@ -407,7 +407,7 @@
 
 
                             <div class="form-group flex-column">
-                                <label for="summernote_oz" class="mb-0 ">Text</label>
+                                <label for="summernote_oz" class="mb-0">Text</label>
                                 <div id="summernote_oz" class="summernote_oz"></div>
                             </div>
 
@@ -427,18 +427,18 @@
 
                             <div class="form-group flex-column">
                                 <label for="title_uz" class="mb-0 ">Сарлавҳа</label>
-                                <input name="title_uz" id="title_uz" type="text" class="form-control rounded-left"
+                                <input onchange="setBlog(event)" name="title_uz" id="title_uz" type="text" class="form-control rounded-left"
                                        placeholder="Сарлавҳа" required>
                             </div>
                             <div class="form-group flex-column">
                                 <label for="anons_uz" class="mb-0 ">Aнонс</label>
-                                <textarea name="anons_uz" id="anons_uz" type="text" class="form-control rounded-left"
+                                <textarea onchange="setBlog(event)" name="anons_uz" id="anons_uz" type="text" class="form-control rounded-left"
                                           placeholder="Aнонс" required></textarea>
                             </div>
 
                             <div class="form-group flex-column text-center">
                                 <label for="mainImage_uz" class="mb-0 ">Aсосий расм</label>
-                                <input name="mainImage_uz" id="mainImage_uz" type="file" class="form-control rounded-left"
+                                <input onchange="setBlog(event)" name="mainImage_uz" id="mainImage_uz" type="file" class="form-control rounded-left"
                                        placeholder="Aсосий расм" required>
                                 <img class="main_image">
                             </div>
@@ -446,7 +446,7 @@
 
                             <div class="form-group d-flex flex-column">
                                 <label for="blog_category_uz" class="mb-0">Категория</label>
-                                <select name="roleId" class="custom-select form-control rounded-left"
+                                <select onchange="setBlog(event)" name="roleId" class="custom-select form-control rounded-left"
                                         id="blog_category_uz"
                                         aria-label="Example select with button addon" required>
                                     <option value="">Категорияни танланг</option>
@@ -477,18 +477,18 @@
 
                             <div class="form-group flex-column">
                                 <label for="title_ru" class="mb-0 ">Заголовок</label>
-                                <input name="title_ru" id="title_ru" type="text" class="form-control rounded-left"
+                                <input onchange="setBlog(event)" name="title_ru" id="title_ru" type="text" class="form-control rounded-left"
                                        placeholder="Заголовок" required>
                             </div>
                             <div class="form-group flex-column">
                                 <label for="anons_ru" class="mb-0 ">Объявление</label>
-                                <textarea name="anons_ru" id="anons_ru" type="text" class="form-control rounded-left"
+                                <textarea onchange="setBlog(event)" name="anons_ru" id="anons_ru" type="text" class="form-control rounded-left"
                                           placeholder="Объявление" required></textarea>
                             </div>
 
                             <div class="form-group flex-column text-center">
                                 <label for="mainImage_ru" class="mb-0 ">Главное фото</label>
-                                <input name="mainImage_ru" id="mainImage_ru" type="file" class="form-control rounded-left"
+                                <input onchange="setBlog(event)" name="mainImage_ru" id="mainImage_ru" type="file" class="form-control rounded-left"
                                        placeholder="Главное фото" required>
                                 <img class="main_image">
                             </div>
@@ -496,7 +496,7 @@
 
                             <div class="form-group d-flex flex-column">
                                 <label for="blog_category_ru" class="mb-0">Категория</label>
-                                <select name="roleId" class="custom-select form-control rounded-left"
+                                <select onchange="setBlog(event)" name="roleId" class="custom-select form-control rounded-left"
                                         id="blog_category_ru"
                                         aria-label="Example select with button addon" required>
                                     <option value="">Выбрать категорию</option>
@@ -526,18 +526,18 @@
 
                             <div class="form-group flex-column">
                                 <label for="title_en" class="mb-0 ">Title</label>
-                                <input name="title_en" id="title_en" type="text" class="form-control rounded-left"
+                                <input onchange="setBlog(event)" name="title_en" id="title_en" type="text" class="form-control rounded-left"
                                        placeholder="Title" required>
                             </div>
                             <div class="form-group flex-column">
                                 <label for="anons_en" class="mb-0 ">Anons</label>
-                                <textarea name="anons_en" id="anons_en" type="text" class="form-control rounded-left"
+                                <textarea onchange="setBlog(event)" name="anons_en" id="anons_en" type="text" class="form-control rounded-left"
                                           placeholder="Anons" required></textarea>
                             </div>
 
                             <div class="form-group flex-column text-center">
                                 <label for="mainImage_en" class="mb-0 ">Main image</label>
-                                <input name="mainImage_en" id="mainImage_en" type="file" class="form-control rounded-left"
+                                <input onchange="setBlog(event)" name="mainImage_en" id="mainImage_en" type="file" class="form-control rounded-left"
                                        placeholder="Main image" required>
                                 <img class="main_image">
                             </div>
@@ -545,7 +545,7 @@
 
                             <div class="form-group d-flex flex-column">
                                 <label for="blog_category_en" class="mb-0">Category</label>
-                                <select name="roleId" class="custom-select form-control rounded-left"
+                                <select onchange="setBlog(event)" name="roleId" class="custom-select form-control rounded-left"
                                         id="blog_category_en"
                                         aria-label="Example select with button addon" required>
                                     <option value="">Select a category</option>

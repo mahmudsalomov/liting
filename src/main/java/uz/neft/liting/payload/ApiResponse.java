@@ -8,6 +8,10 @@ public class ApiResponse {
     private String message;
     private boolean success;
     private HttpStatus status;
+    private long totalElements;
+    private long totalPages;
+    private long page;
+
 //    private static final AppAuthor author=new AppAuthor();
 
     public ApiResponse() {
@@ -41,7 +45,15 @@ public class ApiResponse {
         this.status = status;
     }
 
-//    public static AppAuthor getAuthor() {
+    public ApiResponse(String message, boolean success, HttpStatus status, long totalElements, long totalPages, long page) {
+        this.message = message;
+        this.success = success;
+        this.status = status;
+        this.totalElements = totalElements;
+        this.totalPages = totalPages;
+        this.page = page;
+    }
+    //    public static AppAuthor getAuthor() {
 //        return author;
 //    }
 
@@ -71,5 +83,33 @@ public class ApiResponse {
 
     public HttpEntity<?> response(){
         return ResponseEntity.status(org.springframework.http.HttpStatus.valueOf(this.status.getCode())).body(this);
+    }
+
+    public long getTotalElements() {
+        return totalElements;
+    }
+
+    public void setTotalElements(long totalElements) {
+        this.totalElements = totalElements;
+    }
+
+    public long getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(long totalPages) {
+        this.totalPages = totalPages;
+    }
+
+    public long getPage() {
+        return page;
+    }
+
+    public void setPage(long page) {
+        this.page = page;
+    }
+
+    public ApiResponse get(){
+        return this;
     }
 }
