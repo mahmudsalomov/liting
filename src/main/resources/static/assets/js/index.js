@@ -1,39 +1,17 @@
 
-
-// let temp=
-
-function partnerComment() {
+function partnerComment1() {
     axios.get("/api/partner/all")
         .then(function (response) {
             let out="";
             let data = response.data.object;
             console.log(data)
             data.forEach(d=>{
-                out+="  <div class=\"row align-items-center\" id=\"swiper-root\">\n"+
-                    "<div class=\"col-lg-6\">\n" +
-                    "                            <div class=\"client-img-slider swiper-container wow fadeInRight\" data-wow-delay=\"0.3s\" data-wow-duration=\"1s\">\n" +
-                    "                                <div class=\"swiper-wrapper\">\n" +
-                    "                                    <div class=\"swiper-slide\">\n" +
-                    "                                        <div class=\"image\">\n" +
-                    "                                            <img src='/api/file/photo/"+d.photo.hashId+"' alt=\"Client\">\n" +
-                    "                                        </div>\n" +
-                    "                                    </div>\n" +
-                    "                                    <div class=\"swiper-slide\">\n" +
-                    "                                        <div class=\"image\">\n" +
-                    "                                           <img src='/api/file/photo/"+d.photo.hashId+"' alt=\"Client\">\n" +
-                    "                                        </div>\n" +
-                    "                                    </div>\n" +
-                    "                                </div>\n" +
-                    "                            </div>\n" +
-                    "                        </div>\n" +
-                    "                        <div class=\"col-lg-6\">\n" +
-                    "                            <div class=\"client-slider swiper-container wow fadeInLeft\" data-wow-delay=\"0.3s\" data-wow-duration=\"1s\">\n" +
-                    "                                <div class=\"swiper-wrapper\" id=\"swiper-root\">\n" +
-                    "                                    <div class=\"item swiper-slide\">\n" +
+                out+="                                   <div class=\"item swiper-slide\">\n" +
                     "                                        <div class=\"content\">\n" +
                     "                                            <div class=\"author d-flex justify-content-between align-items-center\">\n" +
                     "                                                <div class=\"name\">\n" +
-                    "                                                    <h5>"+d.name+" "+d.surname+"</h5>\n" +
+                    "                                                    <h5>"+d.name+"</h5>\n" +
+                    "                                                    <h5>"+d.surname+"</h5>\n" +
                     "                                                    <p class=\"designation\">"+d.company+"</p>\n" +
                     "                                                </div>\n" +
                     "                                                <ul class=\"rating d-flex\">\n" +
@@ -44,15 +22,33 @@ function partnerComment() {
                     "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
                     "                                                </ul>\n" +
                     "                                            </div>\n" +
-                    "                                            <p>"+d.comment+"</p>\n" +
-                    "                                            <img src='/api/file/photo/"+d.signature.hashId+"'\n" +
-                    "                                                 alt=\"Signature\">\n" +
+                    "                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud exercitation ullamco laboris</p>\n" +
+                    "                                            <img src='/api/file/photo/"+d.signature.hashId+"' alt=\"Signature\">\n" +
                     "                                        </div>\n" +
-                    "                                    </div>\n" +
-                    "                                </div>\n" +
-                    "                            </div>\n" +
-                    "                        </div>" +
-                    "<script src=\"../static/assets/plugins/wow.min.js\" th:src=\"@{assets/plugins/wow.min.js}\"></script>";
+                    "                                    </div>";
+            })
+            if (out !== ""){
+                document.getElementById("swiper-root1").innerHTML=out;
+            }
+        })
+        .catch(function (error) {
+
+        })
+}
+// let temp=
+
+function partnerComment() {
+    axios.get("/api/partner/all")
+        .then(function (response) {
+            let out="";
+            let data = response.data.object;
+            console.log(data)
+            data.forEach(d=>{
+                out+="                                   <div class=\"swiper-slide\">\n" +
+                    "                                        <div class=\"image\">\n" +
+                    "                                            <img src='/api/file/photo/"+d.photo.hashId+"' alt=\"Client\">\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>";
             })
             if (out !== ""){
                 document.getElementById("swiper-root").innerHTML=out;
@@ -105,7 +101,7 @@ function employee() {
         })
 
 }
-
+partnerComment1()
 partnerComment()
 employee()
 

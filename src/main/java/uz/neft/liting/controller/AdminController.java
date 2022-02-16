@@ -41,4 +41,15 @@ public class AdminController {
         return "admin/blog-add";
     }
 
+
+    @GetMapping("/employee")
+    public String employee(){
+        return "admin/employee";
+    }
+
+    @GetMapping("/partner")
+    public String partner(){
+        return "admin/partner";
+    }
+
 }

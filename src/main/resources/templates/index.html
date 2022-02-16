@@ -1655,14 +1655,21 @@
             </div>
             <div class="col-lg-12">
                 <div class="slider-area position-relative">
-                    <div class="row align-items-center" id="swiper-root">
+                    <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="client-img-slider swiper-container wow fadeInRight" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <div class="swiper-wrapper">
+                                <div class="swiper-wrapper" id="swiper-root">
                                     <div class="swiper-slide">
                                         <div class="image">
                                             <img src="../static/assets/images/client1.png"
                                                  th:src="@{assets/images/client1.png}"
+                                                 alt="Client">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="image">
+                                            <img src="../static/assets/images/client2.png"
+                                                 th:src="@{assets/images/client2.png}"
                                                  alt="Client">
                                         </div>
                                     </div>
@@ -1678,12 +1685,33 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="client-slider swiper-container wow fadeInLeft" data-wow-delay="0.3s" data-wow-duration="1s">
-                                <div class="swiper-wrapper">
+                                <div class="swiper-wrapper" id="swiper-root1">
                                     <div class="item swiper-slide">
                                         <div class="content">
                                             <div class="author d-flex justify-content-between align-items-center">
                                                 <div class="name">
                                                     <h5>Zachary Farmer</h5>
+                                                    <p class="designation">developer</p>
+                                                </div>
+                                                <ul class="rating d-flex">
+                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
+                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
+                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
+                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
+                                                    <li style="list-style: none"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud exercitation ullamco laboris</p>
+                                            <img src="../static/assets/images/signature.png"
+                                                 th:src="@{assets/images/signature.png}"
+                                                 alt="Signature">
+                                        </div>
+                                    </div>
+                                    <div class="item swiper-slide">
+                                        <div class="content">
+                                            <div class="author d-flex justify-content-between align-items-center">
+                                                <div class="name">
+                                                    <h5>dolor dale</h5>
                                                     <p class="designation">developer</p>
                                                 </div>
                                                 <ul class="rating d-flex">
@@ -1884,6 +1912,7 @@
     mainSlider()
     partnerComment()
     mainPageBlogsSlider()
+    partnerComment1()
 </script>
 
 </body>
