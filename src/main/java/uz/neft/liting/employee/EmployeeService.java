@@ -52,6 +52,7 @@ public class EmployeeService {
     public ApiResponse all(){
         try {
             List<EmployeeEntity> all = employeeRepository.findAll();
+            System.out.println(all);
             return Payload.ok(all);
         }catch (Exception e){
             e.printStackTrace();

@@ -22,7 +22,7 @@ function partnerComment1() {
                     "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
                     "                                                </ul>\n" +
                     "                                            </div>\n" +
-                    "                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud exercitation ullamco laboris</p>\n" +
+                    "                                            <p>"+ d.comment+"</p>\n" +
                     "                                            <img src='/api/file/photo/"+d.signature.hashId+"' alt=\"Signature\">\n" +
                     "                                        </div>\n" +
                     "                                    </div>";
@@ -62,8 +62,9 @@ function employee() {
     axios.get("/api/employee/all")
         .then(function (response){
             let out="";
+            console.log(response)
             let data = response.data.object;
-                console.log(data)
+                // console.log(data)
             data.forEach(d => {
                     out += " <div class=\"col-lg-3 col-sm-6\">\n" +
                         "                <div class=\"team-block p-relative mb-md-40 wow fadeInUp\" data-wow-duration=\"1s\" data-wow-delay=\"0.3s\">\n" +
@@ -101,7 +102,8 @@ function employee() {
         })
 
 }
+
 partnerComment1()
 partnerComment()
-employee()
+// employee()
 
