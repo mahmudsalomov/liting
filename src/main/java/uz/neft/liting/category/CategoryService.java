@@ -192,4 +192,12 @@ public class CategoryService {
             return Payload.conflict();
         }
     }
+
+    public ApiResponse types() {
+        List<CategoryType> types=new ArrayList<>();
+        types.add(CategoryType.PAGE);
+        types.add(CategoryType.PARENT);
+        types.add(CategoryType.BLOGS);
+        return Payload.ok(types);
+    }
 }

@@ -29,6 +29,20 @@ class Request {
         return cat
     }
 
+    static async getCategoryTypes(){
+        let types=[]
+        await axios.get("/api/category/all/types")
+            .then(function (response) {
+                console.log(response)
+                types = response.data.object;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return []
+            })
+        return types
+    }
+
     static async getChildren(id) {
         let cat=[]
         await axios.get("/api/category/all/children?id="+id)

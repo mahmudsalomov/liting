@@ -3,6 +3,8 @@ let categoryList = []
 
 let categoryListSorted=[]
 
+let types=[]
+
 function getAllCategories() {
     Request.getAllCategories()
         .then(function (response) {
@@ -23,6 +25,21 @@ function getAllCategories() {
             categoryListSorted=response;
             // document.getElementById('parent').innerHTML=addOptionParent(categoryList);
             // document.getElementById("userTable").innerHTML = createViewCategoryTable(categoryList);
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+
+
+    Request.getCategoryTypes()
+        .then(function (response) {
+            types=response
+            typer()
+            // let out="<option value=\"\">Turini tanlang</option>"
+            // types.forEach(t=>{
+            //     out+="<option id='"+t+"_TYPE' value=\""+t+"\">"+t+"</option>"
+            // })
+            // document.getElementById("category_type").innerHTML=out;
         })
         .catch(function (error) {
             console.log(error)
@@ -68,7 +85,7 @@ function addOrEditCategory(event) {
 
 
 function editCategory(id) {
-    getAllCategories()
+    // getAllCategories()
     document.getElementById('parent').innerHTML=addOptionParent(categoryList);
     document.getElementById('addOrEditUserH3').innerText = 'Kategoriyani tahrirlash'
     document.getElementById('addOrEditUserBtn').innerText = 'Tahrirlash'
@@ -83,6 +100,29 @@ function editCategory(id) {
     formField['name_uz'].value = editUser.name_uz;
     formField['name_ru'].value = editUser.name_ru;
     formField['name_en'].value = editUser.name_en;
+    // console.log("QOYILDI")
+    // document.getElementById("category_type").value=editUser.type
+    // console.log(editUser)
+    typer(editUser.type)
+
+}
+
+
+function typer(select) {
+
+        // let out="<option value=\"\">Turini tanlang</option>"
+        let out=""
+    if (!select) out+="<option value=\"\">Turini tanlang</option>"
+        types.forEach(t=>{
+            console.log(select+" "+t)
+            if (select==t) {
+                console.log("KIRDI")
+                out+="<option selected id='"+t+"_TYPE' value=\""+t+"\">"+t+"</option>"
+            }else {
+                out+="<option id='"+t+"_TYPE' value=\""+t+"\">"+t+"</option>"
+            }
+        })
+        document.getElementById("category_type").innerHTML=out;
 
 }
 

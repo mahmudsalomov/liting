@@ -142,7 +142,7 @@ function createViewBlogList(data) {
 
     })
 
-    // if (out!=="")
+    if (out!=="")
     document.getElementById("blog-list-root").innerHTML=out;
 }
 

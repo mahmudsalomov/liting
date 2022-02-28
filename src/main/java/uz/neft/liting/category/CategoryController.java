@@ -55,6 +55,11 @@ public class CategoryController implements RestCrud<Category> {
         return categoryService.allChildren(id).response();
     }
 
+    @GetMapping("/all/types")
+    public HttpEntity<?> types(){
+        return categoryService.types().response();
+    }
+
     @GetMapping("/parent")
     public HttpEntity<?> getParent(@RequestParam Integer id){
         return categoryService.getParent(id).response();
@@ -69,6 +74,7 @@ public class CategoryController implements RestCrud<Category> {
     public HttpEntity<?> name(@PathVariable Integer id){
         return ResponseEntity.ok(categoryService.name(id));
     }
+
 
 //    @GetMapping("/all/children")
 //    public HttpEntity<?> allByChildren(){
