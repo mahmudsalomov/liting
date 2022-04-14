@@ -34,10 +34,13 @@ function createViewBlogTable(blogs) {
             temp="<input onchange='isMainSlider("+blog.id+",event)' type=\"checkbox\" id=\"s\">"
         }
 
+        let h="https://static.wikia.nocookie.net/otonari-no-tenshi/images/c/c9/No_images_available.jpg/revision/latest?cb=20220104141308";
+        if (blog.mainImage) h="/api/file/photo/"+blog.mainImage.hashId;
+
         out+="<div class=\"card shadow mb-4 p-1\">\n" +
             "                        <div class=\"row no-gutters\">\n" +
             "                            <div class=\"col-md-4\">\n" +
-            "                                <img src='/api/file/photo/"+blog.mainImage.hashId+"' class=\"card-img\" alt=\"...\">\n" +
+            "                                <img src='"+h+"' class=\"card-img\" alt=\"...\">\n" +
             "                            </div>\n" +
             "                            <div class=\"col-md-8\">\n" +
             "                                <div class=\"card-body\">\n" +
@@ -66,7 +69,7 @@ function createViewBlogTable(blogs) {
             "                </label>"+
             "                                <a href='/blog/"+blog.id+"' class=\"btn btn-info m-1\">Saytda ko'rish</a>\n" +
             "                                <a href='/admin/blog/edit/"+blog.id+"' class=\"btn btn-success m-1\">Tahrirlash</a>\n" +
-            "                                <button class=\"btn btn-danger m-1\">O'chirish</button>\n" +
+            "                                <button onclick='deleteBlog(this.value)' value='"+blog.id+"' class=\"btn btn-danger m-1\">O'chirish</button>\n" +
             "                            </div>\n" +
             "\n" +
             "\n" +
@@ -241,6 +244,17 @@ function setBlog(event) {
 
 }
 
+function deleteBlog(id) {
+    Request.deleteBlog(id)
+        .then(function (res) {
+            alert(res.message)
+            createBlogList();
+        })
+        .catch(function (error) {
+            alert(error);
+            createBlogList();
+        })
+}
 
 
 //EDIT START

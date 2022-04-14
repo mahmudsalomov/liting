@@ -38,7 +38,7 @@ public class BlogController implements RestCrud<Blog> {
 
     @Override
     public HttpEntity<?> delete(Integer id, User user) {
-        return null;
+        return blogService.delete(id).response();
     }
 
     @Override

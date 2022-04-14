@@ -247,6 +247,23 @@ class Request {
     }
 
 
+
+    static async deleteBlog(id){
+        let result;
+
+        await axios.post("/api/blog/delete/"+id)
+            .then(function (response) {
+                result=response.data;
+            })
+            .catch(function (error) {
+                console.log(error)
+                result=error.response.data
+            })
+
+        return result;
+    }
+
+
 }
 
 

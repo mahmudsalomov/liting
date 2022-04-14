@@ -171,4 +171,14 @@ public class BlogService {
             return Payload.conflict();
         }
     }
+
+    public ApiResponse delete(Integer id){
+        try {
+            blogRepository.deleteById(id);
+            return Payload.ok("Successfully deleted!");
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+    }
 }
