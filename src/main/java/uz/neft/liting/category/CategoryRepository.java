@@ -19,4 +19,5 @@ public interface CategoryRepository extends JpaRepository<Category,Integer> {
     @Query(value = "select * from category where parent_id=:parent_id",nativeQuery = true)
     List<Category> findAllByParentId(@Param(value = "parent_id") Integer parent_id);
 
+    boolean existsByParent(Category parent);
 }

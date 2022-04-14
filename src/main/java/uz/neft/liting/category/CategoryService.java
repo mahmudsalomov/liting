@@ -5,20 +5,22 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import uz.neft.liting.blog.BlogRepository;
 import uz.neft.liting.payload.ApiResponse;
 import uz.neft.liting.payload.Payload;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
+    private final BlogRepository blogRepository;
 
-    public CategoryService(CategoryRepository categoryRepository) {
+    public CategoryService(CategoryRepository categoryRepository, BlogRepository blogRepository) {
         this.categoryRepository = categoryRepository;
+        this.blogRepository = blogRepository;
     }
 
     public ApiResponse add(Category category){
@@ -189,6 +191,22 @@ public class CategoryService {
             return categoryRepository.findById(id).map(category -> Payload.ok(category.getParent())).orElseGet(() -> Payload.notFound("Category not found!"));
         }catch (Exception e){
             e.printStackTrace();
+            return Payload.conflict();
+        }
+    }
+
+
+    public ApiResponse delete(Integer id){
+        if (id==null) return Payload.badRequest();
+        try {
+            Optional<Category> category = categoryRepository.findById(id);
+            if (!category.isPresent()) return Payload.notFound("Category not found");
+            if (blogRepository.existsByCategory(category.get())) return Payload.conflict("Exists blog in this category!");
+            if (categoryRepository.existsByParent(category.get())) return Payload.conflict("Exists children in this category");
+
+            categoryRepository.delete(category.get());
+            return Payload.ok("Successfully deleted");
+        }catch (Exception e){
             return Payload.conflict();
         }
     }

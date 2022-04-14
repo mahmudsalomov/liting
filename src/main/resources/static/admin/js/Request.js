@@ -109,6 +109,21 @@ class Request {
         return result
     }
 
+    static async deleteCategory(id){
+        let result;
+
+        await axios.post("/api/category/delete/"+id)
+            .then(function (response) {
+                result=response.data;
+            })
+            .catch(function (error) {
+                console.log(error)
+                result=error.response.data
+            })
+
+        return result;
+    }
+
 
 
 

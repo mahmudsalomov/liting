@@ -37,7 +37,7 @@ public class CategoryController implements RestCrud<Category> {
 
     @Override
     public HttpEntity<?> delete(Integer id, User user) {
-        return null;
+        return categoryService.delete(id).response();
     }
 
     @Override

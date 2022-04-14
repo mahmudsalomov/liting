@@ -102,7 +102,7 @@ public class Category extends AbsEntityInteger {
     @ManyToOne
     private Category parent;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "parent",cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "parent",cascade = CascadeType.DETACH)
     @ToString.Exclude
     private List<Category> children;
 

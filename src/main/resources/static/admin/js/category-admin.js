@@ -127,14 +127,13 @@ function typer(select) {
 }
 
 function deleteCategory(id) {
-    axios.delete("/api/admin/user/delete/" + id)
-        .then(function (response) {
-            // console.log(response.data)
-            getAllCategories()
+    Request.deleteCategory(id)
+        .then(function (res) {
+            alert(res.message)
+            getAllCategories();
         })
         .catch(function (error) {
-            console.log(error.response.data)
-            alert(error.response.data.message)
+            alert(error)
         })
 }
 
