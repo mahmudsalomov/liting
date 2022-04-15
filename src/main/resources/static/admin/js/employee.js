@@ -14,7 +14,7 @@ function addEmployee(event) {
                 console.log(response)
                 let src=document.getElementsByClassName("EmpPhoto")
                 for (let i = 0; i < src.length; i+= 1) {
-                    src[i].src = "/api/file/photo"+response[0].hashId;
+                    src[i].src = "/api/file/photo/"+response[0].hashId;
                 }
                 empImage=response[0];
 
@@ -25,10 +25,13 @@ function addEmployee(event) {
                 }
 
                 axios.post("/api/employee/add", data)
-                if (data !== "" || data != null) {
-                    data = response;
-                    employee()
-                }else console.log("bumadiyuuu")
+                    .then(function (res) {
+                        if (data !== "" || data != null) {
+                            data = res;
+                            employee()
+                        }else console.log("bumadiyuuu")
+                    })
+
             })
 
         // document.getElementById("addEmployee").innerHTML=data;
@@ -66,18 +69,74 @@ function getOne(id){
         })
 }
 
-// function editEmployee(event){
-//     event.preventDefault()
-//     console.log(event)
-//     let data = event.target.object
-//     console.log(event.target)
-//     console.log("iojouijiuojiu")
-//     console.log(data)
-//     if (data !== "" || data != null) {
-//         axios.put("/api/employee/edit", data)
-//         employee()
-//     }else console.log("bumadiyuuu")
-// }
+function editEmployee(event){
+    event.preventDefault()
+    // console.log(event)
+    // let data = event.target.object
+    // console.log(event.target)
+    // console.log("iojouijiuojiu")
+    // console.log(data)
+    // if (data !== "" || data != null) {
+    //     axios.put("/api/employee/edit", data)
+    //     employee()
+    // }else console.log("bumadiyuuu")
+
+
+    let ph = document.getElementById("photo_edit").files;
+    // let src=document.getElementById("editPhoto")
+    // for (let i = 0; i < src.length; i+= 1) {
+    //     src[i].src = "/api/file/photo"+response[0].hashId;
+    // }
+
+    let data = {}
+    console.log(ph)
+    let empImage;
+    if (ph.length>0) {
+        Request.saveFiles(ph)
+            .then(function (response) {
+                console.log(response)
+                empImage=response[0];
+
+                data={
+                    id:document.getElementById("id").value,
+                    full_name:document.getElementById("full_name_edit").value,
+                    position:document.getElementById("position_edit").value,
+                    photo: empImage
+                }
+
+                console.log(data)
+                axios.put("/api/employee/edit", data)
+                if (data !== "" || data != null) {
+                    data = response;
+                    employee()
+                }else console.log("bumadiyuuu")
+            })
+
+        // document.getElementById("addEmployee").innerHTML=data;
+    }else {
+        // let src=document.getElementsByClassName("EmpPhoto")
+
+        data={
+            id:document.getElementById("id").value,
+            full_name:document.getElementById("full_name_edit").value,
+            position:document.getElementById("position_edit").value,
+            photo: empImage
+        }
+
+        console.log(data)
+
+        axios.put("/api/employee/edit", data)
+            .then(function (response) {
+                if (data !== "" || data != null) {
+                    data = response;
+                    employee()
+                }else console.log("bumadiyuuu")
+            })
+
+
+    }
+
+}
 
 function employee() {
     axios.get("/api/employee/all")

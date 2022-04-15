@@ -336,8 +336,8 @@
                                         </div>
                                         <div class="form-group flex-column">
                                             <label for="photo" class="mb-0 ">photo</label>
-                                            <input name="photo" id="photo" onsubmit="changePhoto" type="file" class="form-control rounded-left"
-                                                   placeholder="Aсосий расм" required>
+                                            <input name="photo" id="photo" onsubmit="changePhoto()" type="file" class="form-control rounded-left"
+                                                   placeholder="Aсосий расм">
                                             <img class="EmpPhoto">
                                         </div>
                                         <div class="form-group">
@@ -375,7 +375,7 @@
                                     <form action="#" class="login-form" name="EditEmployeeForm" id="EditEmployeeForm"
                                           onsubmit="editEmployee(event)">
                                         <div class="form-group">
-                                            <input name="id" type="text" class="form-control rounded-left" hidden>
+                                            <input name="id" id="id" type="text" class="form-control rounded-left" hidden>
                                         </div>
 
                                         <div class="form-group flex-column">
@@ -390,8 +390,8 @@
                                         </div>
                                         <div class="form-group flex-column">
                                             <label for="photo_edit" class="mb-0 ">photo</label>
-                                            <input name="photo_edit" id="photo_edit" onsubmit="changePhoto" type="file" class="form-control rounded-left"
-                                                   placeholder="Aсосий расм" required>
+                                            <input name="photo_edit" id="photo_edit" onsubmit="changePhoto()" type="file" class="form-control rounded-left"
+                                                   placeholder="Aсосий расм">
                                             <img class="EmpPhoto" id="editPhoto" height="60" width="80">
                                         </div>
                                         <div class="form-group">

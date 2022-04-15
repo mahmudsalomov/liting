@@ -45,6 +45,7 @@ public class EmployeeEntity extends AbsEntityInteger {
     public void edited(EmployeeEntity employeeEn){
         fullName = employeeEn.fullName;
         position = employeeEn.position;
+        if (employeeEn.photo!=null)
         photo = employeeEn.photo;
     }
 }
