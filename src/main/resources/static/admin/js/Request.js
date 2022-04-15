@@ -264,6 +264,81 @@ class Request {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Statistics
+    static async getAllStatistics() {
+        let cat=[]
+        await axios.get("/api/statistics/all")
+            .then(function (response) {
+                console.log(response)
+                cat = response.data.object;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return []
+            })
+        return cat
+    }
+
+    static async addOrEditStatistics(data) {
+        let result;
+        let config = {
+            method: '',
+            url: '',
+            data
+        };
+        if (data.id === "" || data.id == null) {
+            config.method = 'post';
+            config.url = '/api/statistics/add'
+        } else {
+            config.method = 'put';
+            config.url = '/api/statistics/edit'
+        }
+        await axios(config)
+            .then(function (res) {
+                result=res;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        return result
+    }
+
+    static async deleteStatistics(id){
+        let result;
+
+        await axios.post("/api/statistics/delete/"+id)
+            .then(function (response) {
+                result=response.data;
+            })
+            .catch(function (error) {
+                console.log(error)
+                result=error.response.data
+            })
+
+        return result;
+    }
+
+
 }
 
 

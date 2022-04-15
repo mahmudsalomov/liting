@@ -52,4 +52,10 @@ public class AdminController {
         return "admin/partner";
     }
 
+
+    @GetMapping("/statistics")
+    public String statistics(){
+        return "admin/statistics";
+    }
+
 }

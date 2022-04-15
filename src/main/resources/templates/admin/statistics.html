@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Liting - Category</title>
+    <title>Liting - Statistics</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -275,7 +275,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Kategoriya</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Statistika</h1>
 <!--                    <p class="mb-2">Пользователи в системе</p>-->
 
                     <!--// Add User button and modal-->
@@ -289,7 +289,7 @@
                                                 id="addUserBtn"
                                                 onclick="typer()"
                                         >
-                                            Kategoriya qo'shish
+                                            Statistika qo'shish
                                         </button>
 
                                         <!-- Modal -->
@@ -327,7 +327,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body  pb-md-5 pl-md-5 pr-md-5 pt-md-2">
-                                        <h3 class="text-center mb-4 " id="addOrEditUserH3">Kategoriya qo'shish</h3>
+                                        <h3 class="text-center mb-4 " id="addOrEditUserH3">Statistika qo'shish</h3>
                                         <form action="#" class="login-form" name="addOrEditUserForm" id="addOrEditUserForm"
                                               onsubmit="addOrEditCategory(event)">
                                             <div class="form-group">
@@ -572,121 +572,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <div class="card shadow mb-4 tab-pane"  role="tabpanel" id="category-list-change" aria-labelledby="category-list-change">
-
-                            <button id="back_order_button" value="0" onclick="createViewCategoryOrderTable(this.value)" class="btn-info btn float-left m-3"><< Qaytish</button>
-
-
-                            <table class="table" id="order-table">
-                                <tr role="row">
-                                    <th class="sorting sorting_asc users-table-title" tabindex="0"
-                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending"
-                                    >ID
-                                    </th>
-                                    <th class="sorting users-table-title" tabindex="0"
-                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Position: activate to sort column ascending"
-                                    >Nomi (lotin)
-                                    </th>
-                                    <th class="sorting users-table-title" tabindex="0"
-                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Office: activate to sort column ascending"
-                                    >Nomi (krill)
-                                    </th>
-                                    <th class="sorting users-table-title" tabindex="0"
-                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending"
-                                    >Nomi (ruscha)
-                                    </th>
-                                    <th class="sorting users-table-title" tabindex="0"
-                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Start date: activate to sort column ascending"
-                                    >Nomi (inglizcha)
-                                    </th>
-                                    <th class="sorting users-table-title" tabindex="0"
-                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Salary: activate to sort column ascending"
-                                    >Otasi
-                                    </th>
-                                    <th class="sorting users-table-title" tabindex="0"
-                                        aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Salary: activate to sort column ascending"
-                                    >Bola tablega kirish
-                                    </th>
-
-                                </tr>
-
-                                <tr class="" draggable="true" ondragstart="dragit(event)" ondragover="dragover(event)">
-                                    <td>1</td>
-                                    <td>nabil</td>
-                                    <td>droid</td>
-                                    <td>droid</td>
-                                    <td>droid</td>
-                                    <td>droid</td>
-                                    <td><a class="btn btn-info">Bolalar</a></td>
-                                </tr>
-                                <tr draggable="true"  ondragstart="dragit(event)"  ondragover="dragover(event)">
-                                    <td>2</td>
-                                    <td>test</td>
-                                    <td>testing</td>
-                                    <td>testing</td>
-                                    <td>testing</td>
-                                    <td>testing</td>
-                                    <td><a class="btn btn-info">Bolalar</a></td>
-
-                                </tr>
-                                <tr draggable="true"  ondragstart="dragit(event)"  ondragover="dragover(event)">
-                                    <td>3</td>
-                                    <td>hello</td>
-                                    <td>world</td>
-                                    <td>world</td>
-                                    <td>world</td>
-                                    <td>world</td>
-                                    <td><a class="btn btn-info">Bolalar</a></td>
-
-                                </tr>
-                                <tr draggable="true"  ondragstart="dragit(event)"  ondragover="dragover(event)">
-                                    <td>4</td>
-                                    <td>programming</td>
-                                    <td>javascript</td>
-                                    <td>javascript</td>
-                                    <td>javascript</td>
-                                    <td>javascript</td>
-                                    <td><a class="btn btn-info">Bolalar</a></td>
-
-                                </tr>
-                            </table>
-
-                            <button class="btn-success btn float-right m-3">Saqlash</button>
-
-
-
-                        </div>
-
-
-
-
-
                     </div>
 
 
@@ -742,7 +627,7 @@
 
     <script src="../../static/admin/js/Request.js" th:src="@{/admin/js/Request.js}"></script>
 
-    <script src="/static/admin/js/category-admin.js" th:src="@{/admin/js/category-admin.js}"></script>
+    <script src="/static/admin/js/statistics-admin.js" th:src="@{/admin/js/statistics-admin.js}"></script>
     <script>
         getAllCategories();
     </script>
