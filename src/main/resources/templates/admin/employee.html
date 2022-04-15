@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Liting - Employee</title>
+    <title>SB Admin 2 - Tables</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -341,8 +341,62 @@
                                             <img class="EmpPhoto">
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" onclick="remove()"
+                                            <button type="submit"
                                                     class="form-control btn btn-primary rounded submit px-3">Добавить
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal fade" id="exampleModalCenterEdit" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header p-2">
+                                    <button type="button"
+                                            class="close d-flex align-items-center justify-content-center h-25 "
+                                            id="closeFormBtnEdit"
+                                            data-dismiss="modal" aria-label="Close">
+                                        <!--                                        <span aria-hidden="true" class="ion-ios-close">x</span>-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0088BC"
+                                             class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body  pb-md-5 pl-md-5 pr-md-5 pt-md-2">
+                                    <h3 class="text-center mb-4 ">Employee tahrirlash</h3>
+                                    <form action="#" class="login-form" name="EditEmployeeForm" id="EditEmployeeForm"
+                                          onsubmit="editEmployee(event)">
+                                        <div class="form-group">
+                                            <input name="id" type="text" class="form-control rounded-left" hidden>
+                                        </div>
+
+                                        <div class="form-group flex-column">
+                                            <label for="full_name_edit" class="mb-0 ">Full name</label>
+                                            <input name="full_name_edit" id="full_name_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="O'zbekcha" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_edit" class="mb-0 ">Position</label>
+                                            <input name="position_edit" id="position_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="Ўзбекча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="photo_edit" class="mb-0 ">photo</label>
+                                            <input name="photo_edit" id="photo_edit" onsubmit="changePhoto" type="file" class="form-control rounded-left"
+                                                   placeholder="Aсосий расм" required>
+                                            <img class="EmpPhoto" id="editPhoto" height="60" width="80">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit"
+                                                    class="form-control btn btn-primary rounded submit px-3">Edit Employee
                                             </button>
                                         </div>
 
@@ -529,14 +583,13 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-<!--        <footer class="sticky-footer bg-white">-->
-<!--            <div class="container my-auto">-->
-<!--                <div class="copyright text-center my-auto">-->
-<!--                    <span>Copyright &copy; Your Website 2020</span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </footer>-->
-        <div th:insert="admin/components/footer::footer"></div>
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
         <!-- End of Footer -->
 
     </div>
