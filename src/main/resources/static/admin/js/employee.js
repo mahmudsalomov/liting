@@ -1,19 +1,13 @@
 
+let one = {}
 let employeeList = []
+
 function addEmployee(event) {
     event.preventDefault();
     let ph = document.getElementById("photo").files;
     let data = {}
-    // data=new FormData(event);
-    // console.log(data)
-    // console.log(data.get("full_name"))
-    // console.log(data.ge("position"))
-    // console.log(data.get("photo"))
-    // document.getElementById("addEmployee").innerHTML=data;
     console.log(ph)
-
     let empImage;
-
     if (ph.length>0) {
         Request.saveFiles(ph)
             .then(function (response) {
@@ -40,6 +34,7 @@ function addEmployee(event) {
         // document.getElementById("addEmployee").innerHTML=data;
     }
 }
+
 function changePhoto(event) {
     console.log(event)
     let src = document.getElementsByClassName("EmpPhoto");
@@ -48,77 +43,76 @@ function changePhoto(event) {
     }
 }
 
+function getOne(id){
+    axios.get("/api/employee/one/"+id)
+        .then(function (response) {
+            console.log(response)
+            console.log(id)
+            one=response.data.object
+            let formField = document.getElementById('EditEmployeeForm')
+            formField['id'].value = one.id;
+            formField['full_name_edit'].value = one.full_name;
+            formField['position_edit'].value = one.position;
+
+
+            document.getElementById('editPhoto').src = '/api/file/photo/' + one.photo.hashId;
+
+            one.full_name = formField['full_name_edit']
+            one.full_name = formField['full_name_edit']
+            one.full_name = document.getElementsByClassName('EmpPhoto')
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+}
+
+// function editEmployee(event){
+//     event.preventDefault()
+//     console.log(event)
+//     let data = event.target.object
+//     console.log(event.target)
+//     console.log("iojouijiuojiu")
+//     console.log(data)
+//     if (data !== "" || data != null) {
+//         axios.put("/api/employee/edit", data)
+//         employee()
+//     }else console.log("bumadiyuuu")
+// }
+
 function employee() {
     axios.get("/api/employee/all")
         .then(function (response){
             let out="";
             console.log(response)
             let data = response.data.object;
-                console.log(data)
+            console.log(data)
             data.forEach(d => {
-                    out += " <tr class=\"odd\">" +
-                        "<td>"+d.id+"</td>\n" +
-                        "   <td>"+d.full_name+"</td>\n" +
-                        "   <td>"+d.position+"</td>\n" +
-                        "   <td><img height='60' width='60' src='/api/file/photo/"+d.photo.hashId+"'></td>\n" +
-                        "   <td><button onclick='deleteEmployee("+ d.id+")' class='btn btn-danger mt-1'>DELETE </button>" +
-                        "   <button class='btn btn-success' onclick='editEmployee("+ d+")'>EDIT</button></td>\n" +
-                        "</tr>";
-                })
+                out += " <tr class=\"odd\">" +
+                    "<td>"+d.id+"</td>\n" +
+                    "   <td>"+d.full_name+"</td>\n" +
+                    "   <td>"+d.position+"</td>\n" +
+                    "   <td><img height='60' width='60' src='/api/file/photo/"+d.photo.hashId+"'></td>\n" +
+                    "   <td><button onclick='deleteEmployee("+ d.id+")' class='btn btn-danger mt-1'>DELETE </button>" +
+                    "   <button class='btn btn-success' data-target='#exampleModalCenterEdit' data-toggle='modal' onclick='getOne("+ d.id+")'>EDIT</button></td>\n" +
+                    "</tr>";
+            })
             if (out !== ""){
                 document.getElementById("employee_list").innerHTML=out;
             }
         })
         .catch(function (error){
-
+            console.log("rasvo")
         })
 }
 
 
-remove().onclick = function () {
-    const full_name = document.getElementById('full_name');
-    const position = document.getElementById('position');
-    const photo = document.getElementById('photo');
-    const button = document.getElementById('remove');
-
-    full_name.value = '';
-    position.value = '';
-    photo.value = '';
-    employee()
-}
-//
-// function Delete(){
-//     id = event.id
-//     axios.delete("/api/admin/employee"+ id)
-//         .then(function (response) {
-//
-//         })
-// }
-
 function deleteEmployee(id) {
     axios.post("/api/employee/delete/" + id)
-      .then(function (response){
-          employee()
-          console.log(response.data)
-      })
+        .then(function (response){
+            employee()
+            console.log(response.data)
+        })
     // console.log("dsfdsfdsbfkjdhsfgdsf")
-}
-
-function editEmployee(id) {
-    employee()
-    document.getElementById('addOrEditEmployeeH3').innerText = 'Employee tahrirlash'
-    document.getElementById('addOrEditEmployeeBtn').innerText = 'Tahrirlash'
-    // console.log(usersList)
-    console.log(employeeList)
-    console.log(id)
-    let editEmployee = employeeList.find(employee => employee.id === id)
-    let formField = document.getElementById('addOrEditEmployeeForm')
-
-    formField['id'].value = editEmployee.id;
-    formField['full_name'].value = editEmployee.full_name;
-    formField['position'].value = editEmployee.position;
-    formField['photo'].value = editEmployee.photo;
-
 }
 
 
