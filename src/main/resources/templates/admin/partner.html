@@ -9,17 +9,44 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Liting - Partner</title>
+    <title>SB Admin 2 - Tables</title>
 
-    <!-- Custom fonts for this template-->
-    <!--    <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">-->
-    <link href="../../static/assets/css/font-awesome.css" th:href="@{/assets/css/font-awesome.css}" rel="stylesheet" type="text/css">
-    <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="../../static/admin/vendor/fontawesome-free/css/all.min.css" th:href="@{/admin/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <!--    <link-->
+    <!--        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"-->
+    <!--        rel="stylesheet">-->
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles for this template -->
     <link href="../../static/admin/css/sb-admin-2.min.css" th:href="@{/admin/css/sb-admin-2.min.css}" rel="stylesheet">
+
+    <style>
+        /**{*/
+        /*    margin:0;*/
+        /*    padding:0;*/
+        /*    font-family:monospace;*/
+        /*    color:#333;*/
+        /*    text-align:center;*/
+        /*}*/
+        /*table{*/
+        /*    font-size:24px;*/
+        /*    width:200px;*/
+        /*    margin:20px auto;*/
+        /*}*/
+        /*td{*/
+        /*    padding:5px 10px;*/
+        /*    cursor:pointer;*/
+        /*}*/
+        /*tr:nth-child(odd){*/
+        /*    background:#ddd;*/
+        /*}*/
+        /*tr:nth-child(even){*/
+        /*    background:#bbb;*/
+        /*}*/
+
+    </style>
+    <!-- Custom styles for this page -->
+    <!--    <link href="../../static/admin/vendor/datatables/dataTables.bootstrap4.min.css" th:href="@{/admin/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">-->
 
 </head>
 
@@ -42,9 +69,11 @@
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                 <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
+                <form class="form-inline">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </form>
 
                 <!-- Topbar Search -->
                 <form
@@ -246,329 +275,355 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                </div>
+                <h1 class="h3 mb-2 text-gray-800">Partner</h1>
+                <!--                    <p class="mb-2">Пользователи в системе</p>-->
 
-                <!-- Content Row -->
-                <div class="row">
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Earnings (Monthly)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Earnings (Annual)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                        </div>
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="progress progress-sm mr-2">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                         style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                         aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pending Requests</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Row -->
-
-                <div class="row">
-
-                    <!-- Area Chart -->
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pie Chart -->
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
-                                <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                    <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                    <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Row -->
-                <div class="row">
-
-                    <!-- Content Column -->
-                    <div class="col-lg-6 mb-4">
-
-                        <!-- Project Card Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="small font-weight-bold">Server Migration <span
-                                        class="float-right">20%</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Sales Tracking <span
-                                        class="float-right">40%</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Customer Database <span
-                                        class="float-right">60%</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar" role="progressbar" style="width: 60%"
-                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Payout Details <span
-                                        class="float-right">80%</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Account Setup <span
-                                        class="float-right">Complete!</span></h4>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Color System -->
+                <!--// Add User button and modal-->
+                <div>
+                    <section class="ftco-section pb-2">
                         <div class="row">
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-primary text-white shadow">
-                                    <div class="card-body">
-                                        Primary
-                                        <div class="text-white-50 small">#4e73df</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-success text-white shadow">
-                                    <div class="card-body">
-                                        Success
-                                        <div class="text-white-50 small">#1cc88a</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-info text-white shadow">
-                                    <div class="card-body">
-                                        Info
-                                        <div class="text-white-50 small">#36b9cc</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-warning text-white shadow">
-                                    <div class="card-body">
-                                        Warning
-                                        <div class="text-white-50 small">#f6c23e</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-danger text-white shadow">
-                                    <div class="card-body">
-                                        Danger
-                                        <div class="text-white-50 small">#e74a3b</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-secondary text-white shadow">
-                                    <div class="card-body">
-                                        Secondary
-                                        <div class="text-white-50 small">#858796</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-light text-black shadow">
-                                    <div class="card-body">
-                                        Light
-                                        <div class="text-black-50 small">#f8f9fc</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-4">
-                                <div class="card bg-dark text-white shadow">
-                                    <div class="card-body">
-                                        Dark
-                                        <div class="text-white-50 small">#5a5c69</div>
-                                    </div>
+                            <div class="col-md-6 d-flex ">
+                                <div class="wrap w-100">
+                                    <button type="button" class="btn btn-primary py-2 px-4" data-toggle="modal"
+                                            data-target="#exampleModalCenter"
+                                            id="addUserBtn">
+                                        Partner qo'shish
+                                    </button>
+
+                                    <!-- Modal -->
                                 </div>
                             </div>
                         </div>
 
+
+
+
+                    </section>
+
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header p-2">
+                                    <button type="button"
+                                            class="close d-flex align-items-center justify-content-center h-25 "
+                                            id="closeFormBtn"
+                                            data-dismiss="modal" aria-label="Close">
+                                        <!--                                        <span aria-hidden="true" class="ion-ios-close">x</span>-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0088BC"
+                                             class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body  pb-md-5 pl-md-5 pr-md-5 pt-md-2">
+                                    <h3 class="text-center mb-4 " id="">Partner qo'shish</h3>
+                                    <form action="#" class="login-form" name="addOrEditUserForm" id="addOrEditUserForm"
+                                          onsubmit="addPartner(event)">
+                                        <div class="form-group">
+                                            <input name="id" type="text" class="form-control rounded-left" hidden>
+                                        </div>
+
+                                        <div class="form-group flex-column">
+                                            <label for="name" class="mb-0 ">name</label>
+                                            <input name="name" id="name" type="text" class="form-control rounded-left"
+                                                   placeholder="O'zbekcha" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="surname" class="mb-0 ">surname</label>
+                                            <input name="surname" id="surname" type="text" class="form-control rounded-left"
+                                                   placeholder="Ўзбекча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="company" class="mb-0 ">company</label>
+                                            <input name="company" id="company" type="text" class="form-control rounded-left"
+                                                   placeholder="Ўзбекча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="comment" class="mb-0 ">comment</label>
+                                            <input name="comment" id="comment" type="text" class="form-control rounded-left"
+                                                   placeholder="Ўзбекча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="photo" class="mb-0 ">photo</label>
+                                            <input name="photo" id="photo" onsubmit="changePhotos()" type="file" class="form-control rounded-left"
+                                                   placeholder="Aсосий расм">
+                                            <img class="PartPhoto">
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="signature" class="mb-0 ">signature</label>
+                                            <input name="signature" id="signature" onsubmit="changeSignature()" type="file" class="form-control rounded-left"
+                                                   placeholder="Aсосий расм">
+                                            <img class="PartSignature">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit"
+                                                    class="form-control btn btn-primary rounded submit px-3">Добавить
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-lg-6 mb-4">
 
-                        <!-- Illustrations -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                         src="../../static/admin/img/undraw_posting_photo.svg" alt="...">
+                    <div class="modal fade" id="exampleModalCenterEdit" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header p-2">
+                                    <button type="button"
+                                            class="close d-flex align-items-center justify-content-center h-25 "
+                                            id="closeFormBtnEdit"
+                                            data-dismiss="modal" aria-label="Close">
+                                        <!--                                        <span aria-hidden="true" class="ion-ios-close">x</span>-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#0088BC"
+                                             class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                                        </svg>
+                                    </button>
                                 </div>
-                                <p>Add some quality, svg illustrations to your project courtesy of <a
-                                        target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                    constantly updated collection of beautiful svg images that you can use
-                                    completely free and without attribution!</p>
-                                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                    unDraw &rarr;</a>
+                                <div class="modal-body  pb-md-5 pl-md-5 pr-md-5 pt-md-2">
+                                    <h3 class="text-center mb-4 ">Partner tahrirlash</h3>
+                                    <form action="#" class="login-form" name="EditPartnerForm" id="EditPartnerForm"
+                                          onsubmit="editPartner(event)">
+                                        <div class="form-group">
+                                            <input name="id" id="id" type="text" class="form-control rounded-left" hidden>
+                                        </div>
+
+                                        <div class="form-group flex-column">
+                                            <label for="name_edit" class="mb-0 ">Full name</label>
+                                            <input name="name_edit" id="name_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="name" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="surname_edit" class="mb-0 ">surname</label>
+                                            <input name="surname_edit" id="surname_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="name" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="company_edit" class="mb-0 ">Position</label>
+                                            <input name="company_edit" id="company_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="Ўзбекча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="comment_edit" class="mb-0 ">Position</label>
+                                            <input name="comment_edit" id="comment_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="Ўзбекча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="photo_edit" class="mb-0 ">photo</label>
+                                            <input name="photo_edit" id="photo_edit" onsubmit="changePhotos()" type="file" class="form-control rounded-left"
+                                                   placeholder="Aсосий расм">
+                                            <img class="PartPhoto" id="editPhoto" height="60" width="80">
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="signature_edit" class="mb-0 ">signature</label>
+                                            <input name="signature_edit" id="signature_edit" onsubmit="changeSignature()" type="file" class="form-control rounded-left"
+                                                   placeholder="Signature">
+                                            <img class="PartSignature" id="editSignature" height="60" width="80">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit"
+                                                    class="form-control btn btn-primary rounded submit px-3">Edit Partner
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
                             </div>
                         </div>
-
-                        <!-- Approach -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                            </div>
-                            <div class="card-body">
-                                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                    CSS bloat and poor page performance. Custom CSS classes are used to create
-                                    custom components and custom utility classes.</p>
-                                <p class="mb-0">Before working with this theme, you should become familiar with the
-                                    Bootstrap framework, especially the utility classes.</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
+
+                <!-- DataTales Example -->
+
+                <div class="tab-content" id="pills-tabContent">
+
+                    <div class="card shadow mb-4 tab-pane show active" id="partner-list" role="tabpanel" aria-labelledby="partner-list">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="dataTables_length" id="dataTable_length"><label>Show <select
+                                                    name="dataTable_length" aria-controls="dataTable"
+                                                    class="custom-select custom-select-sm form-control form-control-sm">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries</label></div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div id="dataTable_filter" class="dataTables_filter"><label>Search:<input
+                                                    type="search" class="form-control form-control-sm" placeholder=""
+                                                    aria-controls="dataTable"></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-bordered dataTable" id="dataTable" width="100%"
+                                                   cellspacing="0" role="grid" aria-describedby="dataTable_info"
+                                                   style="width: 100%;">
+                                                <thead>
+                                                <tr role="row">
+                                                    <th class="sorting sorting_asc users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-sort="ascending"
+                                                        aria-label="Name: activate to sort column descending"
+                                                    >ID
+                                                    </th>
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Surname: activate to sort column ascending"
+                                                    >Surname
+                                                    </th>
+
+
+
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Company: activate to sort column ascending"
+                                                    >Company
+
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Comment: activate to sort column ascending"
+                                                    >Comment
+
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Image
+                                                    </th>
+
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Signature
+                                                    </th>
+
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Tahrirlash
+                                                    </th>
+
+                                                </tr>
+                                                </thead>
+                                                <tfoot>
+                                                <tr>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">ID</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">name</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">surname</th>
+
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Company</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Comment</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Image</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Signature</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Tahrirlash</th>
+                                                </tr>
+                                                </tfoot>
+                                                <tbody id="partner_list">
+                                                <tr class="odd">
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5">
+                                            <div class="dataTables_info" id="dataTable_info" role="status"
+                                                 aria-live="polite">Showing 1 to 10 of 57 entries
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-7">
+                                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                                <ul class="pagination">
+                                                    <li class="paginate_button page-item previous disabled"
+                                                        id="dataTable_previous"><a href="#" aria-controls="dataTable"
+                                                                                   data-dt-idx="0" tabindex="0"
+                                                                                   class="page-link">Previous</a></li>
+                                                    <li class="paginate_button page-item active"><a href="#"
+                                                                                                    aria-controls="dataTable"
+                                                                                                    data-dt-idx="1"
+                                                                                                    tabindex="0"
+                                                                                                    class="page-link">1</a>
+                                                    </li>
+                                                    <li class="paginate_button page-item "><a href="#"
+                                                                                              aria-controls="dataTable"
+                                                                                              data-dt-idx="2" tabindex="0"
+                                                                                              class="page-link">2</a></li>
+                                                    <li class="paginate_button page-item "><a href="#"
+                                                                                              aria-controls="dataTable"
+                                                                                              data-dt-idx="3" tabindex="0"
+                                                                                              class="page-link">3</a></li>
+                                                    <li class="paginate_button page-item "><a href="#"
+                                                                                              aria-controls="dataTable"
+                                                                                              data-dt-idx="4" tabindex="0"
+                                                                                              class="page-link">4</a></li>
+                                                    <li class="paginate_button page-item "><a href="#"
+                                                                                              aria-controls="dataTable"
+                                                                                              data-dt-idx="5" tabindex="0"
+                                                                                              class="page-link">5</a></li>
+                                                    <li class="paginate_button page-item "><a href="#"
+                                                                                              aria-controls="dataTable"
+                                                                                              data-dt-idx="6" tabindex="0"
+                                                                                              class="page-link">6</a></li>
+                                                    <li class="paginate_button page-item next" id="dataTable_next"><a
+                                                            href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                                            class="page-link">Next</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
 
             </div>
             <!-- /.container-fluid -->
@@ -577,14 +632,13 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-<!--        <footer class="sticky-footer bg-white">-->
-<!--            <div class="container my-auto">-->
-<!--                <div class="copyright text-center my-auto">-->
-<!--                    <span>Copyright &copy; Your Website 2021</span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </footer>-->
-        <div th:insert="admin/components/footer::footer"></div>
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
         <!-- End of Footer -->
 
     </div>
@@ -619,15 +673,24 @@
 </div>
 <!-- axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="/static/admin/js/login.js" th:src="@{/admin/js/login.js}"></script>
+
+<script src="../../static/admin/js/Request.js" th:src="@{/admin/js/Request.js}"></script>
+
+<!--<script src="/static/admin/js/category-admin.js" th:src="@{/admin/js/category-admin.js}"></script>-->
+<!--<script>-->
+<!--    getAllCategories();-->
+<!--</script>-->
+
+<!--===== SORTABLE JS =====-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>-->
+
 
 <!-- Bootstrap core JavaScript-->
 <script src="../../static/assets/js/jquery.min.js" th:src="@{/assets/js/jquery.min.js}"></script>
-<!--    <script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
-<script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+<script src="../../static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!--    <script src="../../static/assets/js/bootstrap.bundle.min.js" th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>-->
 
 <!-- Core plugin JavaScript-->
-<!--    <script src="../../static/admin/vendor/jquery-easing/jquery.easing.min.js" th:src="@{/admin/vendor/jquery-easing/jquery.easing.min.js}"></script>-->
 <script src="../../static/assets/js/easing/jquery.easing.min.js" th:src="@{/assets/js/easing/jquery.easing.min.js}"></script>
 
 <!-- Custom scripts for all pages-->
@@ -641,7 +704,9 @@
 <script src="../../static/admin/js/demo/chart-pie-demo.js" th:src="@{/admin/js/demo/chart-pie-demo.js}"></script>
 
 
-
+<script src="/static/admin/js/login.js" th:src="@{/admin/js/login.js}"></script>
+<script src="/static/admin/js/partner.js" th:src="@{/admin/js/partner.js}"></script>
+<script> partner()</script>
 </body>
 
 </html>
