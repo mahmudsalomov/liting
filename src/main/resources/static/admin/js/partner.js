@@ -10,15 +10,18 @@ function addPartner(event) {
     console.log(ph)
     let partImage;
     let partSignature;
-    if (ph.length>0) {
+    if (ph.length>0 && sg.length>0) {
         Request.saveFiles(ph)
             .then(function (response) {
                 console.log(response)
-                let src=document.getElementsByClassName("PartPhoto")
-                for (let i = 0; i < src.length; i+= 1) {
-                    src[i].src = "/api/file/photo/"+response[0].hashId;
-                }
-                partImage=response[0];
+                let sg=document.getElementsByClassName("PartPhoto")
+                // for (let i = 0; i < ph.length; i+= 1) {
+                ph[0].src = "/api/file/photo/"+response[0].hashId;
+                console.log(ph)
+                partImage=response[0]
+                // }
+                console.log(ph)
+                console.log(sg)
 
                 data={
                     name:document.getElementById("name").value,
@@ -26,36 +29,6 @@ function addPartner(event) {
                     company:document.getElementById("company").value,
                     comment:document.getElementById("comment").value,
                     photo: partImage,
-                    signature: partImage
-                }
-
-                axios.post("/api/partner/add", data)
-                    .then(function (res) {
-                        if (data !== "" || data != null) {
-                            data = res;
-                            partner()
-                        }else console.log("bumadiyuuu")
-                    })
-
-            })
-
-        // document.getElementById("addEmployee").innerHTML=data;
-    }if (sg.length>0) {
-        Request.saveFiles(sg)
-            .then(function (response) {
-                console.log(response)
-                let src=document.getElementsByClassName("PartSignature")
-                for (let i = 0; i < src.length; i+= 1) {
-                    src[i].src = "/api/file/photo/"+response[0].hashId;
-                }
-                partSignature=response[0];
-
-                data={
-                    name:document.getElementById("name").value,
-                    surname:document.getElementById("surname").value,
-                    company:document.getElementById("company").value,
-                    comment:document.getElementById("comment").value,
-                    photo: partSignature,
                     signature: partSignature
                 }
 
@@ -68,6 +41,15 @@ function addPartner(event) {
                     })
 
             })
+        Request.saveFiles(sg)
+            .then(function (response1){
+                let sg=document.getElementsByClassName("PartSignature")
+                // for (let i = 0; i < sg.length; i+= 1) {
+                sg[0].src = "/api/file/photo/" + response1[0].hashId;
+                console.log(sg)
+                partSignature=response1[0]
+                // }
+            })
 
         // document.getElementById("addEmployee").innerHTML=data;
     }
@@ -75,25 +57,28 @@ function addPartner(event) {
 
 function changePhotos(event) {
     console.log(event)
-    let src = document.getElementsByClassName("PartPhoto");
-    for (let i = 0; i < src.length; i += 1){
-        src[i].src = URL.createObjectURL(event.target.files[0]);
-    }
-
-}function changeSignature(event) {
-    console.log(event)
-    let src = document.getElementsByClassName("PartSignature");
-    for (let i = 0; i < src.length; i += 1){
-        src[i].src = URL.createObjectURL(event.target.files[0]);
+    let ph = document.getElementsByClassName("PartPhoto");
+    for (let i = 0; i < ph.length; i += 1) {
+        ph[i].ph = URL.createObjectURL(event.target.files[0]);
     }
 }
+
+function changePhotoses(event) {
+    console.log(event)
+    let sg = document.getElementsByClassName("PartSignature");
+    for (let i = 0; i < sg.length; i += 1) {
+        sg[i].sg = URL.createObjectURL(event.target.files[0]);
+    }
+}
+
+
 
 function getOne(id){
     axios.get("/api/partner/one/"+id)
         .then(function (response) {
             console.log(response)
             console.log(id)
-            one=response.data.objectEditSignatureForm
+            one=response.data.object
             let formField = document.getElementById('EditPartnerForm')
             formField['id'].value = one.id;
             formField['name'].value = one.name;

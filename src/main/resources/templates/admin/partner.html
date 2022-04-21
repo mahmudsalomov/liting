@@ -352,8 +352,8 @@
                                         </div>
                                         <div class="form-group flex-column">
                                             <label for="signature" class="mb-0 ">signature</label>
-                                            <input name="signature" id="signature" onsubmit="changeSignature()" type="file" class="form-control rounded-left"
-                                                   placeholder="Aсосий расм">
+                                            <input name="signature" id="signature" onsubmit="changePhotoses()" type="file" class="form-control rounded-left"
+                                                   placeholder="Signature">
                                             <img class="PartSignature">
                                         </div>
                                         <div class="form-group">
@@ -407,12 +407,12 @@
                                         <div class="form-group flex-column">
                                             <label for="company_edit" class="mb-0 ">Position</label>
                                             <input name="company_edit" id="company_edit" type="text" class="form-control rounded-left"
-                                                   placeholder="Ўзбекча" required>
+                                                   placeholder="company" required>
                                         </div>
                                         <div class="form-group flex-column">
                                             <label for="comment_edit" class="mb-0 ">Position</label>
                                             <input name="comment_edit" id="comment_edit" type="text" class="form-control rounded-left"
-                                                   placeholder="Ўзбекча" required>
+                                                   placeholder="Ў" required>
                                         </div>
                                         <div class="form-group flex-column">
                                             <label for="photo_edit" class="mb-0 ">photo</label>
@@ -422,7 +422,7 @@
                                         </div>
                                         <div class="form-group flex-column">
                                             <label for="signature_edit" class="mb-0 ">signature</label>
-                                            <input name="signature_edit" id="signature_edit" onsubmit="changeSignature()" type="file" class="form-control rounded-left"
+                                            <input name="signature_edit" id="signature_edit" onsubmit="changePhotoses()" type="file" class="form-control rounded-left"
                                                    placeholder="Signature">
                                             <img class="PartSignature" id="editSignature" height="60" width="80">
                                         </div>
@@ -478,6 +478,12 @@
                                                         aria-label="Name: activate to sort column descending"
                                                     >ID
                                                     </th>
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Surname: activate to sort column ascending"
+                                                    >Name
+                                                    </th>
+
                                                     <th class="sorting users-table-title" tabindex="0"
                                                         aria-controls="dataTable" rowspan="1" colspan="1"
                                                         aria-label="Surname: activate to sort column ascending"
