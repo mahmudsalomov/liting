@@ -10,64 +10,65 @@ function addPartner(event) {
     console.log(ph)
     let partImage;
     let partSignature;
-    if (ph.length>0 && sg.length>0) {
+    if (ph.length!==0 && sg.length!==0) {
         Request.saveFiles(ph)
             .then(function (response) {
                 console.log(response)
-                let sg=document.getElementsByClassName("PartPhoto")
                 // for (let i = 0; i < ph.length; i+= 1) {
                 ph[0].src = "/api/file/photo/"+response[0].hashId;
                 console.log(ph)
                 partImage=response[0]
                 // }
-                console.log(ph)
-                console.log(sg)
+                Request.saveFiles(sg)
+                    .then(function (response1){
+                        // for (let i = 0; i < sg.length; i+= 1) {
+                        sg[0].src = "/api/file/photo/" + response1[0].hashId;
+                        console.log(sg)
+                        partSignature=response1[0]
 
-                data={
-                    name:document.getElementById("name").value,
-                    surname:document.getElementById("surname").value,
-                    company:document.getElementById("company").value,
-                    comment:document.getElementById("comment").value,
-                    photo: partImage,
-                    signature: partSignature
-                }
 
-                axios.post("/api/partner/add", data)
-                    .then(function (res) {
-                        if (data !== "" || data != null) {
-                            data = res;
-                            partner()
-                        }else console.log("bumadiyuuu")
+                        console.log(ph)
+                        console.log(sg)
+
+                        data={
+                            name:document.getElementById("name").value,
+                            surname:document.getElementById("surname").value,
+                            company:document.getElementById("company").value,
+                            comment:document.getElementById("comment").value,
+                            photo: partImage,
+                            signature: partSignature
+                        }
+
+
+                        axios.post("/api/partner/add", data)
+                            .then(function (res) {
+                                if (data !== "" || data != null) {
+                                    data = res;
+                                    partner()
+                                }else console.log("bumadiyuuu")
+                            })
+                        // }
                     })
 
-            })
-        Request.saveFiles(sg)
-            .then(function (response1){
-                let sg=document.getElementsByClassName("PartSignature")
-                // for (let i = 0; i < sg.length; i+= 1) {
-                sg[0].src = "/api/file/photo/" + response1[0].hashId;
-                console.log(sg)
-                partSignature=response1[0]
-                // }
-            })
 
+
+
+
+            })
         // document.getElementById("addEmployee").innerHTML=data;
     }
 }
 
 function changePhotos(event) {
     console.log(event)
-    let ph = document.getElementsByClassName("PartPhoto");
-    for (let i = 0; i < ph.length; i += 1) {
-        ph[i].ph = URL.createObjectURL(event.target.files[0]);
-    }
-}
-
-function changePhotoses(event) {
-    console.log(event)
     let sg = document.getElementsByClassName("PartSignature");
     for (let i = 0; i < sg.length; i += 1) {
         sg[i].sg = URL.createObjectURL(event.target.files[0]);
+    }
+    console.log(event)
+    let ph = document.getElementsByClassName("PartPhoto");
+    for (let i = 0; i < ph.length; i += 1) {
+        ph[i].ph = URL.createObjectURL(event.target.files[0]);
     }
 }
 
@@ -81,20 +82,22 @@ function getOne(id){
             one=response.data.object
             let formField = document.getElementById('EditPartnerForm')
             formField['id'].value = one.id;
-            formField['name'].value = one.name;
-            formField['surname'].value = one.surname;
-            formField['company'].value = one.company;
-            formField['comment'].value = one.comment;
+            formField['name_edit'].value = one.name;
+            formField['surname_edit'].value = one.surname;
+            formField['company_edit'].value = one.company;
+            formField['comment_edit'].value = one.comment;
+
 
             document.getElementById('editPhoto').src = '/api/file/photo/' + one.photo.hashId;
-            document.getElementById('editSignature').src = '/api/file/signature/' + one.signature.hashId;
+            document.getElementById('editSignature').src = '/api/file/photo/' + one.signature.hashId;
 
-            one.name = formField['name']
-            one.surname = formField['surname']
-            one.company = document.getElementsByClassName('company')
-            one.comment = document.getElementById("comment")
-            one.photo = document.getElementById("photo")
-            one.signature = document.getElementById("signature")
+            one.name = formField["name_edit"]
+            one.surname = formField['surname_edit']
+            one.company = formField['company_edit']
+            one.comment = formField['comment_edit']
+            one.photo = formField['photo_edit']
+            one.signature = formField['signature_edit']
+
         })
         .catch(function (error) {
             console.log(error)
@@ -102,89 +105,74 @@ function getOne(id){
 }
 
 function editPartner(event){
-    event.preventDefault()
-    let ph = document.getElementById("photo_edit").files;
-    let sg = document.getElementById("signature_edit").files;
-
+    event.preventDefault();
+    let ph = document.getElementById('photo_edit').files;
+    let sg = document.getElementById('signature_edit').files;
     let data = {}
     console.log(ph)
-    console.log(sg)
-    let partnerImage;
-    let partnerSignature;
-    if (ph.length>0) {
+    let partImage;
+    let partSignature;
+    if (ph.length!==0 && sg.length!==0) {
         Request.saveFiles(ph)
             .then(function (response) {
                 console.log(response)
-                partnerImage=response[0];
+                // for (let i = 0; i < ph.length; i+= 1) {
+                ph[0].src = "/api/file/photo/"+response[0].hashId;
+                console.log(ph)
+                partImage=response[0]
+                // }
+                Request.saveFiles(sg)
+                    .then(function (response1){
+                        // for (let i = 0; i < sg.length; i+= 1) {
+                        sg[0].src = "/api/file/photo/" + response1[0].hashId;
+                        console.log(sg)
+                        partSignature=response1[0]
 
-                data={
-                    id:document.getElementById("id").value,
-                    name:document.getElementById("name_edit").value,
-                    surname:document.getElementById("surname_edit").value,
-                    company:document.getElementById("company_edit").value,
-                    comment:document.getElementById("comment_edit").value,
-                    photo: partnerImage,
-                    signature: partnerSignature
-                }
 
-                console.log(data)
-                axios.put("/api/partner/edit", data)
-                if (data !== "" || data != null) {
-                    data = response;
-                    partner()
-                }else console.log("bumadiyuuu")
+                        console.log(ph)
+                        console.log(sg)
+
+                        data={
+                            id:document.getElementById('id').value,
+                            name:document.getElementById('name_edit').value,
+                            surname:document.getElementById('surname_edit').value,
+                            company:document.getElementById('company_edit').value,
+                            comment:document.getElementById('comment_edit').value,
+                            photo: partImage,
+                            signature: partSignature
+                        }
+
+
+                        axios.put("/api/partner/edit", data)
+                            .then(function (res) {
+                                if (data !== "" || data != null) {
+                                    data = res;
+                                    partner()
+                                }else console.log("bumadiyuuu")
+                            })
+                        // }
+                    })
             })
-
         // document.getElementById("addEmployee").innerHTML=data;
-    }if (sg.length>0) {
-        Request.saveFiles(sg)
-            .then(function (response) {
-                console.log(response)
-                partnerSignature=response[0];
-
-                data={
-                    id:document.getElementById("id").value,
-                    name:document.getElementById("name_edit").value,
-                    surname:document.getElementById("surname_edit").value,
-                    company:document.getElementById("company_edit").value,
-                    comment:document.getElementById("comment_edit").value,
-                    photo: partnerImage,
-                    signature: partnerSignature
-                }
-
-                console.log(data)
-                axios.put("/api/partner/edit", data)
-                if (data !== "" || data != null) {
-                    data = response;
-                    partner()
-                }else console.log("bumadiyuuu")
-            })
-
-        // document.getElementById("addEmployee").innerHTML=data;
-    }else {
-        // let src=document.getElementsByClassName("partnerImage")
-
+    }else{
         data={
-            id:document.getElementById("id").value,
-            name:document.getElementById("name_edit").value,
-            surname:document.getElementById("surname_edit").value,
-            company:document.getElementById("company_edit").value,
-            comment:document.getElementById("comment_edit").value,
-            photo: partnerImage,
-            photo: partnerImage
+            id:document.getElementById('id').value,
+            name:document.getElementById('name_edit').value,
+            surname:document.getElementById('surname_edit').value,
+            company:document.getElementById('company_edit').value,
+            comment:document.getElementById('comment_edit').value,
+            photo: one.photo.hashId,
+            signature: one.signature.hashId
         }
 
-        console.log(data)
 
         axios.put("/api/partner/edit", data)
-            .then(function (response) {
+            .then(function (res) {
                 if (data !== "" || data != null) {
-                    data = response;
+                    data = res;
                     partner()
                 }else console.log("bumadiyuuu")
             })
-
-
     }
 
 }
@@ -214,7 +202,7 @@ function partner() {
             }
         })
         .catch(function (error){
-            console.log("rasvo")
+            console.log(error)
         })
 }
 

@@ -12,7 +12,7 @@ function partnerComment1() {
                     "                                                <div class=\"name\">\n" +
                     "                                                    <h5>"+d.name+"</h5>\n" +
                     "                                                    <h5>"+d.surname+"</h5>\n" +
-                    "                                                    <p class=\"designation\">"+d.company+"</p>\n" +
+                    "                                                    <h5 class=\"designation\">"+d.company+"</h5>\n" +
                     "                                                </div>\n" +
                     "                                                <ul class=\"rating d-flex\">\n" +
                     "                                                    <li style=\"list-style: none\"><i class=\"fas fa-star\"></i></li>\n" +
