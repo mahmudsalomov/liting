@@ -181,4 +181,20 @@ public class BlogService {
             return Payload.conflict();
         }
     }
+
+
+    public long count(Integer id){
+        try {
+            if (id==null||id==0){
+                return blogRepository.count();
+            }else {
+                Optional<Category> category = categoryRepository.findById(id);
+                return blogRepository.countByCategory(category.get());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+
+    }
 }

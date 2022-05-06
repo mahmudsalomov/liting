@@ -3,10 +3,14 @@ let blogList = []
 let EDIT_BLOG={};
 
 function createBlogList(id) {
+    createPagination();
+    const params = new URLSearchParams(window.location.search);
+    let page=params.get('page')
+    let category=params.get('category')
 
 
     if (id&&id!='0'){
-        Request.getAllBlogByCategory(id)
+        Request.getAllBlog(page,id)
             .then(function (response) {
                 blogList=response;
                 document.getElementById("blogList").innerHTML = createViewBlogTable(blogList);
@@ -15,7 +19,7 @@ function createBlogList(id) {
                 console.log(error)
             })
     }else {
-        Request.getAllBlog()
+        Request.getAllBlog(page,category)
             .then(function (response) {
                 blogList=response;
                 document.getElementById("blogList").innerHTML = createViewBlogTable(blogList);
@@ -344,11 +348,21 @@ function checkHelper(bool,checkbox) {
 
 //FILTER
 function createFilterSelect() {
+
+
+
     Request.getAllCategoriesNotParent()
         .then(response=>{
-            let result=`<option value="0" selected>All</option>`
+            let result=`<option selected value="0">All</option>`
+
+            const params = new URLSearchParams(window.location.search);
+            let category=params.get('category')
             for (let i = 0; i <response.length ; i++) {
-                result+=`<option value="${response[i].id}">${response[i].name_oz}</option>`
+                if (response[i].id==category){
+                    result+=`<option selected value="${response[i].id}">${response[i].name_oz}</option>`
+                }else {
+                    result+=`<option value="${response[i].id}">${response[i].name_oz}</option>`
+                }
             }
             document.getElementById('filterByCategory').innerHTML=result;
         })
@@ -358,6 +372,106 @@ function createFilterSelect() {
 function filterByCategoryOnSelect(value) {
     console.log("value = ")
     console.log(value)
+    const nextURL = '/admin/blog?category='+value;
+    const nextTitle = '';
+    const nextState = { additionalInformation: '' };
+
+// This will create a new entry in the browser's history, without reloading
+    window.history.pushState(nextState, nextTitle, nextURL);
     createBlogList(value)
 }
 
+
+function createPagination(){
+
+    const params = new URLSearchParams(window.location.search);
+    let page=params.get('page')
+    let category=params.get('category')
+
+    let result=`<ul class="pagination">`;
+    let count=0;
+
+    if (category){
+        Request.count(category)
+            .then(function (c) {
+                console.log("COUNT")
+                count=c;
+
+                for (let i = 1; i <=(count/9)+1 ; i++) {
+                    if (page==i){
+                        result+=` <li class="paginate_button page-item active"><a href="/admin/blog?category=${category}&&page=${i}"
+                                                                                aria-controls="dataTable"
+                                                                                data-dt-idx="${i}"
+                                                                                tabindex="${i-1}"
+                                                                                class="page-link">${i}</a>`
+                    }
+                    else {
+                        result+=` <li class="paginate_button page-item"><a href="/admin/blog?category=${category}&&page=${i}"
+                                                                                aria-controls="dataTable"
+                                                                                data-dt-idx="${i}"
+                                                                                tabindex="${i-1}"
+                                                                                class="page-link">${i}</a>`
+                    }
+
+                }
+                result+=`</ul>`
+
+                document.getElementById("dataTable_paginate").innerHTML=result;
+                console.log(c)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }else {
+        Request.count()
+            .then(function (c) {
+                console.log("COUNT")
+                console.log(c)
+
+
+                count=c;
+
+                for (let i = 1; i <=(count/9)+1 ; i++) {
+
+                    if (page==i){
+                        result+=` <li class="paginate_button page-item active"><a href="/admin/blog?page=${i}"
+                                                                                aria-controls="dataTable"
+                                                                                data-dt-idx="${i}"
+                                                                                tabindex="${i-1}"
+                                                                                class="page-link">${i}</a>`
+                    }else {
+                        result+=` <li class="paginate_button page-item"><a href="/admin/blog?page=${i}"
+                                                                                aria-controls="dataTable"
+                                                                                data-dt-idx="${i}"
+                                                                                tabindex="${i-1}"
+                                                                                class="page-link">${i}</a>`
+                    }
+
+                }
+                result+=`</ul>`
+
+                document.getElementById("dataTable_paginate").innerHTML=result;
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+
+    }
+
+
+    let temp=`<ul class="pagination">
+                                <li class="paginate_button page-item previous disabled"
+                                    id="dataTable_previous"><a href="#" aria-controls="dataTable"
+                                                               data-dt-idx="0" tabindex="0"
+                                                               class="page-link">Previous</a></li>
+                                <li class="paginate_button page-item active"><a href="#"
+                                                                                aria-controls="dataTable"
+                                                                                data-dt-idx="1"
+                                                                                tabindex="0"
+                                                                                class="page-link">1</a>
+                                </li>
+                                <li class="paginate_button page-item next" id="dataTable_next"><a
+                                        href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                        class="page-link">Next</a></li>
+                            </ul>`
+}

@@ -142,9 +142,38 @@ class Request {
 
 
     //Blog
-    static async getAllBlog() {
+    static async count(id) {
+        let count=0;
+        let url='/api/blog/count';
+        if (id){
+            url+="?category="+id;
+        }
+        await axios.get(url)
+            .then(function (response) {
+                console.log(response)
+                count = response.data;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return 0;
+            })
+        return count
+    }
+
+    static async getAllBlog(page,category) {
         let blogs=[]
-        await axios.get("/api/blog/all")
+
+        let url="/api/blog/all"
+
+        if (category&&category!='0'){
+            url+="/"+category
+        }
+        if (page){
+            url+="?page="+(page-1)
+        }
+
+
+        await axios.get(url)
             .then(function (response) {
                 console.log(response)
                 blogs = response.data.object;

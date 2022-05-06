@@ -2,6 +2,7 @@ package uz.neft.liting.blog;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 import uz.neft.liting.template.RestCrud;
 import uz.neft.liting.user.User;
@@ -73,6 +74,11 @@ public class BlogController implements RestCrud<Blog> {
         return blogService.mainSliderChanger(blog_id,isMainSlider).response();
     }
 
+
+    @GetMapping("/count")
+    public long count(@Nullable @RequestParam(required = false) Integer category){
+        return blogService.count(category);
+    }
 
 
 }

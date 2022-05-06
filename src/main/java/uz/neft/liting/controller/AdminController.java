@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("admin")
@@ -26,9 +27,15 @@ public class AdminController {
     }
 
     @GetMapping("/blog")
-    public String blog(){
+    public String blog(@RequestParam(required=false) Integer page, @RequestParam(required=false) Integer category){
         return "admin/blogs";
     }
+
+
+//    @GetMapping("/blog")
+//    public String blog(@RequestParam Integer page){
+//        return "admin/blogs";
+//    }
 
     @GetMapping("/blog/add")
     public String blogAdd(){
