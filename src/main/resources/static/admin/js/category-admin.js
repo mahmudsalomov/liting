@@ -165,7 +165,7 @@ function createViewCategoryTable(categories) {
             "                                    <td>" + category.name_oz + "</td>\n" +
             "                                    <td>" + category.name_uz + "</td>\n" +
             "                                    <td>" + category.name_ru + "</td>\n" +
-            "                                    <td>" + category.name_ru + "</td>\n" +
+            "                                    <td>" + category.name_en + "</td>\n" +
             "                                    <td>" + check(category) + "</td>\n" +
             // "                                    <td>" + check(category.parent) + "</td>\n" +
             // "                                    <td>" + "Parent name" + "</td>\n" +
@@ -187,7 +187,7 @@ function createViewCategoryOrderTable(id) {
                         "                                    <td>" + category.name_oz + "</td>\n" +
                         "                                    <td>" + category.name_uz + "</td>\n" +
                         "                                    <td>" + category.name_ru + "</td>\n" +
-                        "                                    <td>" + category.name_ru + "</td>\n" +
+                        "                                    <td>" + category.name_en + "</td>\n" +
                         "                                    <td>" + check(category) + "</td>\n" +
                         "                                    <td><button onclick='createViewCategoryOrderTable("+category.id+")' class=\"btn btn-info\">Bolalar</button></td>\n" +
                         "</tr>"
