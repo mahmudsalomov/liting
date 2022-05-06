@@ -2,23 +2,34 @@ let blogList = []
 
 let EDIT_BLOG={};
 
-function createBlogList() {
+function createBlogList(id) {
 
-    Request.getAllBlog()
-        .then(function (response) {
-            blogList=response;
-            document.getElementById("blogList").innerHTML = createViewBlogTable(blogList);
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
+
+    if (id&&id!='0'){
+        Request.getAllBlogByCategory(id)
+            .then(function (response) {
+                blogList=response;
+                document.getElementById("blogList").innerHTML = createViewBlogTable(blogList);
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }else {
+        Request.getAllBlog()
+            .then(function (response) {
+                blogList=response;
+                document.getElementById("blogList").innerHTML = createViewBlogTable(blogList);
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
+
 
 }
 
 
 function createViewBlogTable(blogs) {
-
-
 
 
 
@@ -328,3 +339,25 @@ function checkHelper(bool,checkbox) {
     checkbox.checked=bool;
 }
 //EDIT END
+
+
+
+//FILTER
+function createFilterSelect() {
+    Request.getAllCategoriesNotParent()
+        .then(response=>{
+            let result=`<option value="0" selected>All</option>`
+            for (let i = 0; i <response.length ; i++) {
+                result+=`<option value="${response[i].id}">${response[i].name_oz}</option>`
+            }
+            document.getElementById('filterByCategory').innerHTML=result;
+        })
+        .catch(error=>console.log(error))
+}
+
+function filterByCategoryOnSelect(value) {
+    console.log("value = ")
+    console.log(value)
+    createBlogList(value)
+}
+

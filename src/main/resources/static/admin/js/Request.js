@@ -156,9 +156,9 @@ class Request {
         return blogs
     }
 
-    static async getAllBlogByCategory() {
+    static async getAllBlogByCategory(id) {
         let blogs=[]
-        await axios.get("/api/category/all/not/parent")
+        await axios.get("/api/blog/all/"+id)
             .then(function (response) {
                 console.log(response)
                 blogs = response.data.object;

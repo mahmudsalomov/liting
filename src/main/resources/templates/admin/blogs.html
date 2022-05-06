@@ -318,7 +318,7 @@
                 <div>
                     <section class="ftco-section pb-2">
                         <div class="row">
-                            <div class="col-md-6 d-flex ">
+                            <div class="col-md-2 d-flex ">
                                 <div class="wrap w-100">
                                     <a href="/admin/blog/add" class="btn btn-primary py-2 px-4"
                                             id="addBlogBtn"
@@ -329,7 +329,16 @@
                                     <!-- Modal -->
                                 </div>
                             </div>
+
+                            <div class="col-md-4 float-left">
+                                <label for="filterByCategory"> Saralash
+                                    <select onchange="filterByCategoryOnSelect(this.value)" id="filterByCategory" class="custom-select">
+<!--                                        <option selected>All</option>-->
+                                    </select>
+                                </label>
+                            </div>
                         </div>
+
                     </section>
 
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -650,6 +659,7 @@
 <script src="/static/admin/js/blog-admin.js" th:src="@{/admin/js/blog-admin.js}"></script>
 <script>
     createBlogList()
+    createFilterSelect()
     // getAllCategories();
     // getAllRoles();
 </script>
