@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import uz.neft.liting.user.User;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 @RequestMapping("/api/auth")
@@ -14,6 +16,9 @@ import uz.neft.liting.user.User;
 public class AuthController {
     @Autowired
     private AuthService authService;
+
+    @Autowired
+    JwtTokenProvider jwtTokenProvider;
 
     @PostMapping("/login")
     public HttpEntity<?> login(@RequestBody SignIn signIn){
@@ -30,6 +35,21 @@ public class AuthController {
             return ResponseEntity.ok(user.getFio());
         }else return null;
 //        return ResponseEntity.ok(true);
+    }
+
+    @GetMapping("/check")
+    public boolean check(HttpServletRequest request){
+//        System.out.println("Authorization = "+request.getHeader("Authorization"));
+        try {
+            String tokenClient = request.getHeader("Authorization").substring(7);
+//            System.out.println(tokenClient);
+            System.out.println(jwtTokenProvider.validateToken(tokenClient));
+//            System.out.println(user);
+            return jwtTokenProvider.validateToken(tokenClient);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }

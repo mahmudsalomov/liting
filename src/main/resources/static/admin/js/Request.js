@@ -368,6 +368,23 @@ class Request {
     }
 
 
+
+
+
+
+
+
+
+    static async check(header){
+        let check=false;
+        await axios.get("/api/auth/check",header)
+            .then(function (res) {
+                check=res.data
+            })
+        return check;
+    }
+
+
 }
 
 

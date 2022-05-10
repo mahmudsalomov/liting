@@ -40,6 +40,7 @@ public class JwtTokenProvider {
         } catch (ExpiredJwtException e) {
             System.err.println("Muddati o'tgan");
         } catch (MalformedJwtException malformedJwtException) {
+            System.out.println(token);
             System.err.println("Buzilgan token");
         } catch (SignatureException s) {
             System.err.println("Kalit so'z xato");
