@@ -12,11 +12,8 @@ import uz.neft.liting.payload.ApiResponse;
 import uz.neft.liting.payload.ApiResponseObject;
 import uz.neft.liting.payload.Payload;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class BlogService {
@@ -67,7 +64,10 @@ public class BlogService {
     public ApiResponse one(Integer id) {
         try {
             Optional<Blog> blogOptional = blogRepository.findById(id);
-            return blogOptional.map(Payload::ok).orElseGet(Payload::notFound);
+            if (blogOptional.isPresent()){
+                blogOptional.get().setView_count(blogOptional.get().getView_count()+1);
+                return Payload.ok(blogRepository.save(blogOptional.get()));
+            } return Payload.notFound("bunaqa id li blog topilmadi");
         }catch (Exception e){
             e.printStackTrace();
             return Payload.conflict();

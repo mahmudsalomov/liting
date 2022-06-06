@@ -54,6 +54,7 @@ public class PartnerService{
         return Payload.ok(one.get());
     }
 
+
     public ApiResponse delete(Integer id) {
         try {
             partnerRepository.deleteById(id);

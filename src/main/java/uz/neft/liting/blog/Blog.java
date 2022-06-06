@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class Blog extends AbsEntityInteger {
 
     @Builder
-    public Blog(Integer id, Timestamp createdAt, boolean deleted, @NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, FileStorage mainImage, Category category, Set<FileStorage> files, BlogType type) {
+    public Blog(Integer id, Timestamp createdAt, boolean deleted, @NonNull String title_oz, String title_uz, Long view_count, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, FileStorage mainImage, Category category, Set<FileStorage> files, BlogType type) {
         super(id, createdAt, deleted);
         this.title_oz = title_oz;
         this.title_uz = title_uz;
@@ -38,6 +38,7 @@ public class Blog extends AbsEntityInteger {
         this.category = category;
         this.files = files;
         this.type = type;
+        this.view_count = view_count;
     }
 
 //    public Blog(@NonNull String title_oz, String title_uz, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, Set<Category> categories, Set<FileStorage> files, BlogType type) {
@@ -63,6 +64,8 @@ public class Blog extends AbsEntityInteger {
     private String title_uz;
     private String title_en;
     private String title_ru;
+
+    private long view_count;
 
     @NonNull
     @Column(columnDefinition = "text")

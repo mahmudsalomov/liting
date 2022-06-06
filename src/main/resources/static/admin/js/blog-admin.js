@@ -62,6 +62,8 @@ function createViewBlogTable(blogs) {
             "                                    <h5 class=\"card-title\">"+blog.title_oz+"</h5>\n" +
             "                                    <p class=\"card-text\">" + blog.anons_oz+
             "                                    </p>\n" +
+            "                                    <p class=\"card-text\">" + blog.view_count+ "<i class=\"fas fa-street-view fa-fw ml-1\"></i>"+
+            "                                    </p>\n" +
             "\n" +
             "                                    <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\n" +
             "                                </div>\n" +
