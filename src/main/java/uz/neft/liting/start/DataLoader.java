@@ -29,27 +29,29 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 //        if (mode.equals("always")) {
-        try {
+
+        if (!userRepository.existsByUsername("admin")){
+            try {
 //            Role admin = roleRepository.save(new Role(RoleName.ADMIN));
 //            Role moderator = roleRepository.save(new Role(RoleName.MODERATOR));
 //            Role user = roleRepository.save(new Role(RoleName.USER));
-            if (!roleRepository.existsByRoleName(RoleName.ADMIN)){
-                Role admin = roleRepository.save(new Role(RoleName.ADMIN));
-                if (!userRepository.findByUsername("admin").isPresent()){
-                    userRepository.save(
-                            User
-                                    .builder()
-                                    .active(true)
-                                    .email("admin")
-                                    .password(passwordEncoder.encode("admin"))
-                                    .fio("admin")
-                                    .phone("+998993793877")
-                                    .roles(Collections.singleton(admin))
-                                    .username("admin")
-                                    .build()
-                    );
+                if (!roleRepository.existsByRoleName(RoleName.ADMIN)){
+                    Role admin = roleRepository.save(new Role(RoleName.ADMIN));
+                    if (!userRepository.findByUsername("admin").isPresent()){
+                        userRepository.save(
+                                User
+                                        .builder()
+                                        .active(true)
+                                        .email("admin")
+                                        .password(passwordEncoder.encode("admin"))
+                                        .fio("admin")
+                                        .phone("+998993793877")
+                                        .roles(Collections.singleton(admin))
+                                        .username("admin")
+                                        .build()
+                        );
+                    }
                 }
-            }
 
 
 //            userRepository.save(
@@ -93,9 +95,11 @@ public class DataLoader implements CommandLineRunner {
 
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
 
 
 

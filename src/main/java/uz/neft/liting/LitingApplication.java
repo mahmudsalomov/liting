@@ -2,9 +2,10 @@ package uz.neft.liting;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class LitingApplication {
+public class LitingApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(LitingApplication.class, args);
