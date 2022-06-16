@@ -124,6 +124,19 @@ class Request {
         return result;
     }
 
+    static async checkParent(id) {
+        let cat=false
+        await axios.get("/api/category/check_parent?id="+id)
+            .then(function (response) {
+                console.log(response)
+                cat = response.data;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return false
+            })
+        return cat
+    }
 
 
 

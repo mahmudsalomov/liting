@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import uz.neft.liting.category.Category;
+import uz.neft.liting.category.CategoryRepository;
 import uz.neft.liting.user.*;
 
 
 import java.util.Collections;
+import java.util.List;
 
 @Component
 @NoArgsConstructor
@@ -23,12 +26,20 @@ public class DataLoader implements CommandLineRunner {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
 //        if (mode.equals("always")) {
+
+        List<Category> categories = categoryRepository.findAll();
+        for (Category category : categories) {
+            if (category.getOrderNumber()==null){
+                category.setOrderNumber(0);
+                categoryRepository.save(category);
+            }
+        }
 
         if (!userRepository.existsByUsername("admin")){
             try {

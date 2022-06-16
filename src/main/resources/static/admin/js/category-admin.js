@@ -183,7 +183,7 @@ function createViewCategoryOrderTable(id) {
                 console.log(response)
                 response.map(category => {
                     out+="<tr draggable=\"true\"  ondragstart=\"dragit(event)\"  ondragover=\"dragover(event)\">\n" +
-                        "                                    <td>" + category.id + "</td>\n" +
+                        "                                    <td class='idd'>" + category.id + "</td>\n" +
                         "                                    <td>" + category.name_oz + "</td>\n" +
                         "                                    <td>" + category.name_uz + "</td>\n" +
                         "                                    <td>" + category.name_ru + "</td>\n" +
@@ -406,4 +406,22 @@ function addOptionRoles(roles) {
         out += "<option value='"+role.id+"'>"+role.roleName+"</option>"
     })
     return out;
+}
+
+
+function saqlash(){
+    let temp=[];
+    for (let i = 0; i < $(".idd").get().length; i++) {
+        temp.push({
+            orderNumber:i,
+            categoryId:$(".idd").get()[i].innerText
+        })
+    }
+    axios.post("/api/category/order", temp)
+        .then(function (res) {
+            console.log(res)
+        })
+        .catch(function (err) {
+            console.log(err)
+        })
 }

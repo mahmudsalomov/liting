@@ -7,6 +7,7 @@ import uz.neft.liting.template.RestCrud;
 import uz.neft.liting.user.User;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -75,7 +76,15 @@ public class CategoryController implements RestCrud<Category> {
         return ResponseEntity.ok(categoryService.name(id));
     }
 
+    @PostMapping("/order")
+    public HttpEntity<?> orderNumber(@RequestBody List<OrderDto> orderDto){
+        return categoryService.orderNumber(orderDto).response();
+    }
 
+    @GetMapping("/check_parent")
+    public boolean checkParent(@RequestParam int id){
+        return categoryService.checkParent(id);
+    }
 //    @GetMapping("/all/children")
 //    public HttpEntity<?> allByChildren(){
 //

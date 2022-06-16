@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class Category extends AbsEntityInteger {
 
     @Builder
-    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, List<Category> children, CategoryType type, Integer orderNumber
+    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, List<Category> children, CategoryType type, int orderNumber
     ) {
         super(id, createdAt, deleted);
         this.name_oz = name_oz;
@@ -41,7 +41,7 @@ public class Category extends AbsEntityInteger {
         this.orderNumber=orderNumber;
     }
 
-    public Category(String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, CategoryType type
+    public Category(String name_oz, String name_uz,String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, CategoryType type
     ) {
         this.name_oz = name_oz;
         this.name_uz = name_uz;
@@ -109,6 +109,8 @@ public class Category extends AbsEntityInteger {
     @Enumerated(EnumType.STRING)
     private CategoryType type;
 
+
+    @JsonProperty("order_number")
     private Integer orderNumber;
 
 
