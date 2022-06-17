@@ -150,7 +150,7 @@ public class CategoryService {
                 System.out.println(category.getOrderNumber()+" "+category.getName_oz());
             }
             if (id==null||id==0) return Payload.ok(categoryRepository.findAllByDeletedFalseAndParentIsNullOrderByOrderNumberAsc());
-            return categoryRepository.findById(id).map(category -> Payload.ok(sorter(category.getChildren()))).orElseGet(() -> Payload.notFound("Category not found"));
+            return categoryRepository.findById(id).map(category -> Payload.ok(category.getChildren())).orElseGet(() -> Payload.notFound("Category not found"));
         }catch (Exception e){
             e.printStackTrace();
             return Payload.conflict();
@@ -251,20 +251,5 @@ public class CategoryService {
             e.printStackTrace();
             return false;
         }
-    }
-
-
-    public List<Category> sorter(List<Category> children){
-        Category temp;
-        for (int i = 0; i < children.size(); i++) {
-            for (int j = i; j <children.size() ; j++) {
-                if (children.get(i).getOrderNumber()>children.get(j).getOrderNumber()){
-                    temp=children.get(i);
-                    children.set(i,children.get(j));
-                    children.set(j,temp);
-                }
-            }
-        }
-        return children;
     }
 }

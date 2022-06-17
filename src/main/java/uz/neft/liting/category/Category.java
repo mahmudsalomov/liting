@@ -104,6 +104,7 @@ public class Category extends AbsEntityInteger {
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "parent",cascade = CascadeType.DETACH)
     @ToString.Exclude
+    @OrderBy("orderNumber")
     private List<Category> children;
 
     @Enumerated(EnumType.STRING)
