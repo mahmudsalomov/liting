@@ -2,6 +2,7 @@ package uz.neft.liting.file;
 
 import org.hashids.Hashids;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import uz.neft.liting.payload.ApiResponse;
@@ -17,6 +18,8 @@ import java.util.List;
 @Service
 public class FileStorageService {
 
+    @Value("${file.save.path}")
+    private String path;
 
     private final Hashids hashids;
     public FileStorageService() {
@@ -46,7 +49,7 @@ public class FileStorageService {
                     Date now = new Date();
                     //                this.uploadFolder+
                     File uploadFolder = new File(
-                            ("photos/"+(1900 + now.getYear())) +
+                            (path+(1900 + now.getYear())) +
                                     "/"
                                     + (1 + now.getMonth()) +
                                     "/"
@@ -59,7 +62,7 @@ public class FileStorageService {
                     fileStorage.setHashId(hashids.encode(fileStorage.getId()));
                     fileStorage.setUploadPath(
 //                        this.uploadFolder+
-                            "photos/"+(1900 + now.getYear()) +
+                            path+(1900 + now.getYear()) +
                                     "/"
                                     + (1 + now.getMonth()) +
                                     "/"
