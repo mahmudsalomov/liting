@@ -2,7 +2,7 @@
 let one = {}
 let employeeList = []
 
-function addEmployees(event) {
+function addEmployee(event) {
     event.preventDefault();
     let ph = document.getElementById("photo").files;
     let data = {}
