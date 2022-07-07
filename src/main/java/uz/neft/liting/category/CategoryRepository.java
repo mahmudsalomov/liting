@@ -28,4 +28,6 @@ public interface CategoryRepository extends JpaRepository<Category,Integer> {
     List<Category> findAllByParentId(@Param(value = "parent_id") Integer parent_id);
 
     boolean existsByParent(Category parent);
+
+    List<Category> findAllByDeletedFalseAndParentIsNullOrderByOrderNumberAsc(int i, Pageable secondPageWithFiveElements);
 }

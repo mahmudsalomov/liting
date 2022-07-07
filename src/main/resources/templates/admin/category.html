@@ -323,7 +323,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-7">
-                                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                                <div class="dataTables_paginate paging_simple_numbers" id="category_paginate">
                                                     <ul class="pagination">
                                                         <li class="paginate_button page-item previous disabled"
                                                             id="dataTable_previous"><a href="#" aria-controls="dataTable"
@@ -366,15 +366,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -540,6 +531,7 @@
             </div>
         </div>
     </div>
+
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -597,6 +589,74 @@
 </script>
     <script src="/static/admin/js/login.js" th:src="@{/admin/js/login.js}"></script>
 
+    <script>
+
+        var pageNumber = 0, defaultSortingField = 'id', defaultSortingDirection = 'Desc';
+        var previousPage, nextPage, sortingDirection = 'DESC', sortingField = 'id', currentPage;
+
+        function displayPageable(pageable, totalElement, totalPages){
+            previousPage = pageable.pageNumber -1;
+            if (previousPage < 0){
+                previousPage = 0;
+            }
+
+            nextPage = pageable.pageNumber + 1;
+            if (nextPage > totalPages){
+                nextPage = totalPages;
+            }
+
+
+
+            var html = '<button onclick="getUsers(\''+previousPage + '\',\''+ defaultSortingField +'\',\''+ defaultSortingDirection + '\'x`x`)"> Previous</button>' +
+                '<button onclick="getUsers(\''+nextPage + '\',\''+ defaultSortingField +'\',\''+ defaultSortingDirection + '\'x`x`)>Next</button>' +
+                '<br><span>'+pageable.offset+' of '+totalElement+'</span></<br>'
+            document.getElementById("page_div_id").innerHTML = html;
+        }
+
+        function sort(field) {
+            if (sortingDirection === 'ASC'){
+                sortingDirection = 'DESC';
+            }else {
+                sortingDirection = 'ASC';
+            }
+            getUsers(currentPage, field, sortingDirection)
+        }
+
+        function getUsers(page, sortingField, sortingDirection){
+            var pageSize = document.getElementById("page_size_id").value;
+            if (page == null){
+                page = pageNumber;
+            }
+            if (sortingField == null){
+                sortingField = defaultSortingField;
+            }
+            if (sortingDirection == null){
+                sortingDirection = defaultSortingDirection;
+            }
+            $.get("http://localhost:8080/getUsers?page="+page+"&size="+pageSize+"&sortingField="+sortingField+"&sortingDirection=" + sortingDirection, function(data, status){
+                console.log(data);
+                var html = '<tr>\n' +
+                    '        <th onclick="sort(\''+ 'id' + '\')">Id</th>\n' +
+                    '        <th onclick="sort(\''+ 'login' + '\')>Login</th>\n' +
+                    '        <th onclick="sort(\''+ 'age' + '\')>Age</th>\n' +
+                    '        <th onclick="sort(\''+ 'email' + '\')>Email</th>\n' +
+                    '    </tr>';
+
+                for (var i = 0; i<data.content.length; i++){
+                    html = html = '<tr>\n' +
+                        '        <td>'+data.content[i].id+'</td>\n' +
+                        '        <td>'+data.content[i].login+'</td>\n' +
+                        '        <td>'+data.content[i].age+'</td>\n' +
+                        '        <td>'+data.content[i].email+'</td>\n' +
+                        '    </tr>'
+                }
+                document.getElementById("users_table_id").innerHTML = html;
+                displayPageable(data.pageable, data.totalElements, data.totalPages);
+                currentPage = data.number;
+            });
+        }
+
+    </script>
 </body>
 
 </html>

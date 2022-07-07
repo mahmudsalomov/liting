@@ -24,27 +24,115 @@ public class EmployeeEntity extends AbsEntityInteger {
     @JsonProperty("full_name")
     private String fullName;
 
-    @Enumerated(EnumType.STRING)
-    private Position position;
+    @NotNull
+    @JsonProperty("full_name_ru")
+    private String fullNameRu;
+
+    @NotNull
+    @JsonProperty("position_oz")
+    private String positionOz;
+
+    @NotNull
+    @JsonProperty("position_uz")
+    private String positionUz;
+
+    @NotNull
+    @JsonProperty("position_en")
+    private String positionEn;
+
+    @NotNull
+    @JsonProperty("position_ru")
+    private String positionRu;
 
     @OneToOne
     private FileStorage photo;
 
-    public EmployeeEntity(Integer id, Timestamp createdAt, boolean deleted, String fullName, Position position, FileStorage photo) {
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    public EmployeeEntity(Integer id, Timestamp createdAt, boolean deleted, String fullName, String fullNameRu, String positionOz, String positionUz, String positionEn, String positionRu, FileStorage photo, Status status) {
         super(id, createdAt, deleted);
         this.fullName = fullName;
-        this.position = position;
+        this.fullNameRu = fullNameRu;
+        this.positionOz = positionOz;
+        this.positionUz = positionUz;
+        this.positionEn = positionEn;
+        this.positionRu = positionRu;
+        this.photo = photo;
+        this.status = status;
+    }
+
+    public EmployeeEntity(String fullName, String fullNameRu, String positionOz, String positionUz, String positionEn, String positionRu, FileStorage photo, Status status) {
+        this.fullName = fullName;
+        this.fullNameRu = fullNameRu;
+        this.positionOz = positionOz;
+        this.positionUz = positionUz;
+        this.positionEn = positionEn;
+        this.positionRu = positionRu;
+        this.photo = photo;
+        this.status = status;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getFullNameRu() {
+        return fullNameRu;
+    }
+
+    public void setFullNameRu(String fullNameRu) {
+        this.fullNameRu = fullNameRu;
+    }
+
+    public String getPositionOz() {
+        return positionOz;
+    }
+
+    public void setPositionOz(String positionOz) {
+        this.positionOz = positionOz;
+    }
+
+    public String getPositionUz() {
+        return positionUz;
+    }
+
+    public void setPositionUz(String positionUz) {
+        this.positionUz = positionUz;
+    }
+
+    public String getPositionEn() {
+        return positionEn;
+    }
+
+    public void setPositionEn(String positionEn) {
+        this.positionEn = positionEn;
+    }
+
+    public String getPositionRu() {
+        return positionRu;
+    }
+
+    public void setPositionRu(String positionRu) {
+        this.positionRu = positionRu;
+    }
+
+    public FileStorage getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(FileStorage photo) {
         this.photo = photo;
     }
 
-    public EmployeeEntity(String fullName, Position position, FileStorage photo) {
-        this.fullName = fullName;
-        this.position = position;
-        this.photo = photo;
-    }
+
     public void edited(EmployeeEntity employeeEn){
         fullName = employeeEn.fullName;
-        position = employeeEn.position;
+        positionOz = employeeEn.positionOz;
         if (employeeEn.photo!=null)
         photo = employeeEn.photo;
     }

@@ -89,4 +89,10 @@ public class CategoryController implements RestCrud<Category> {
 //    public HttpEntity<?> allByChildren(){
 //
 //    }
+
+//    @GetMapping("/get_parents")
+//    public HttpEntity<?> getParents(){
+//        return categoryService.getParents().response();
+//    }
+
 }

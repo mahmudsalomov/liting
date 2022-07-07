@@ -13,6 +13,8 @@ function getAllCategories() {
             categoryList=response;
             document.getElementById('parent').innerHTML=addOptionParent(categoryList);
             document.getElementById("userTable").innerHTML = createViewCategoryTable(categoryList);
+            let data=[1,2,3,4]
+            pagination(data)
         })
         .catch(function (error) {
             console.log(error)
@@ -424,4 +426,62 @@ function saqlash(){
         .catch(function (err) {
             console.log(err)
         })
+}
+
+
+
+function pagination(data) {
+    let temp=` <ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled"
+                                                            id="dataTable_previous"><a href="#" aria-controls="dataTable"
+                                                                                       data-dt-idx="0" tabindex="0"
+                                                                                       class="page-link">Previous</a></li>
+                                                        <li class="paginate_button page-item active"><a href="#"
+                                                                                                        aria-controls="dataTable"
+                                                                                                        data-dt-idx="1"
+                                                                                                        tabindex="0"
+                                                                                                        class="page-link">1</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="2" tabindex="0"
+                                                                                                  class="page-link">2</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="3" tabindex="0"
+                                                                                                  class="page-link">3</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="4" tabindex="0"
+                                                                                                  class="page-link">4</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="5" tabindex="0"
+                                                                                                  class="page-link">5</a></li>
+                                                        <li class="paginate_button page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="6" tabindex="0"
+                                                                                                  class="page-link">6</a></li>
+                                                        <li class="paginate_button page-item next" id="dataTable_next"><a
+                                                                href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                                                class="page-link">Next</a></li>
+                                                    </ul>`;
+
+    let out=`<ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled"
+                                                            id="dataTable_previous"><a href="#" aria-controls="dataTable"
+                                                                                       data-dt-idx="0" tabindex="0"
+                                                                                       class="page-link">Previous</a></li>`;
+
+    for (let i = 0; i < data.length; i++) {
+        out+=`<li class="paginate_button active page-item "><a href="#"
+                                                                                                  aria-controls="dataTable"
+                                                                                                  data-dt-idx="6" tabindex="0"
+                                                                                                  class="page-link">${i}</a></li>`
+    }
+    out+=` <li class="paginate_button page-item next" id="dataTable_next"><a
+                                                                href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                                                class="page-link">Next</a></li>
+                                                    </ul>`
+    document.getElementById("category_paginate").innerHTML=out
 }

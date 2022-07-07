@@ -20,7 +20,12 @@ function addEmployee(event) {
 
                 data={
                     full_name:document.getElementById("full_name").value,
-                    position:document.getElementById("position").value,
+                    full_name_ru:document.getElementById("full_name_ru").value,
+                    position_oz:document.getElementById("position_oz").value,
+                    position_uz:document.getElementById("position_uz").value,
+                    position_ru:document.getElementById("position_ru").value,
+                    position_en:document.getElementById("position_en").value,
+                    status:document.getElementById("status").value,
                     photo: empImage
                 }
 
@@ -55,13 +60,18 @@ function getOne(id){
             let formField = document.getElementById('EditEmployeeForm')
             formField['id'].value = one.id;
             formField['full_name_edit'].value = one.full_name;
-            formField['position_edit'].value = one.position;
+            formField['full_name_ru_edit'].value = one.full_name_ru;
+            formField['position_oz_edit'].value = one.position_oz;
+            formField['position_uz_edit'].value = one.position_uz;
+            formField['position_ru_edit'].value = one.position_ru;
+            formField['position_en_edit'].value = one.position_en;
+            formField['status_edit'].value = one.status;
 
 
             document.getElementById('editPhoto').src = '/api/file/photo/' + one.photo.hashId;
 
             one.full_name = formField['full_name_edit']
-            one.full_name = formField['full_name_edit']
+            one.full_name = formField['full_name_ru_edit']
             one.full_name = document.getElementsByClassName('EmpPhoto')
         })
         .catch(function (error) {
@@ -96,11 +106,19 @@ function editEmployee(event){
             .then(function (response) {
                 console.log(response)
                 empImage=response[0];
+                var select = document.getElementById('status_edit');
+                var value = select.options[select.selectedIndex].value;
+                console.log(value)
 
                 data={
                     id:document.getElementById("id").value,
                     full_name:document.getElementById("full_name_edit").value,
-                    position:document.getElementById("position_edit").value,
+                    full_name_ru:document.getElementById("full_name_ru_edit").value,
+                    position_oz:document.getElementById("position_edit_oz").value,
+                    position_uz:document.getElementById("position_edit_uz").value,
+                    position_ru:document.getElementById("position_edit_ru").value,
+                    position_en:document.getElementById("position_edit_en").value,
+                    status_edit:value,
                     photo: empImage
                 }
 
@@ -119,7 +137,12 @@ function editEmployee(event){
         data={
             id:document.getElementById("id").value,
             full_name:document.getElementById("full_name_edit").value,
-            position:document.getElementById("position_edit").value,
+            full_name_ru:document.getElementById("full_name_ru_edit").value,
+            position_oz:document.getElementById("position_oz_edit").value,
+            position_uz:document.getElementById("position_uz_edit").value,
+            position_ru:document.getElementById("position_ru_edit").value,
+            position_en:document.getElementById("position_en_edit").value,
+            status_edit:document.getElementById("status_edit").value,
             photo: empImage
         }
 
@@ -138,6 +161,10 @@ function editEmployee(event){
 
 }
 
+function selecting(selectOS) {
+    console.log(selectOS.value)
+}
+
 function employee() {
     axios.get("/api/employee/all")
         .then(function (response){
@@ -149,7 +176,12 @@ function employee() {
                 out += " <tr class=\"odd\">" +
                     "<td>"+d.id+"</td>\n" +
                     "   <td>"+d.full_name+"</td>\n" +
-                    "   <td>"+d.position+"</td>\n" +
+                    "   <td>"+d.full_name_ru+"</td>\n" +
+                    "   <td>"+d.position_oz+"</td>\n" +
+                    "   <td>"+d.position_uz+"</td>\n" +
+                    "   <td>"+d.position_ru+"</td>\n" +
+                    "   <td>"+d.position_en+"</td>\n" +
+                    "   <td>"+d.status+"</td>\n" +
                     "   <td><img height='60' width='60' src='/api/file/photo/"+d.photo.hashId+"'></td>\n" +
                     "   <td><button onclick='deleteEmployee("+ d.id+")' class='btn btn-danger mt-1'>DELETE </button>" +
                     "   <button class='btn btn-success' data-target='#exampleModalCenterEdit' data-toggle='modal' onclick='getOne("+ d.id+")'>EDIT</button></td>\n" +

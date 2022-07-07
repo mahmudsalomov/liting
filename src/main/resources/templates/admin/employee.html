@@ -127,10 +127,36 @@
                                             <input name="full_name" id="full_name" type="text" class="form-control rounded-left"
                                                    placeholder="O'zbekcha" required>
                                         </div>
+
                                         <div class="form-group flex-column">
-                                            <label for="position" class="mb-0 ">Position</label>
-                                            <input name="position" id="position" type="text" class="form-control rounded-left"
-                                                   placeholder="Ўзбекча" required>
+                                            <label for="full_name_ru" class="mb-0 ">Full name ru</label>
+                                            <input name="full_name_ru" id="full_name_ru" type="text" class="form-control rounded-left"
+                                                   placeholder="русский" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_oz" class="mb-0 ">Position Oz</label>
+                                            <input name="position_oz" id="position_oz" type="text" class="form-control rounded-left"
+                                                   placeholder="O'zbekcha" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_uz" class="mb-0 ">Position Уз</label>
+                                            <input name="position_uz" id="position_uz" type="text" class="form-control rounded-left"
+                                                   placeholder="керилча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_ru" class="mb-0 ">Position Ru</label>
+                                            <input name="position_ru" id="position_ru" type="text" class="form-control rounded-left"
+                                                   placeholder="русский" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_en" class="mb-0 ">Position En</label>
+                                            <input name="position_en" id="position_en" type="text" class="form-control rounded-left"
+                                                   placeholder="english" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="status" class="mb-0 ">status</label>
+                                            <input name="status" id="status" type="text" class="form-control rounded-left"
+                                                   placeholder="status" required>
                                         </div>
                                         <div class="form-group flex-column">
                                             <label for="photo" class="mb-0 ">photo</label>
@@ -177,15 +203,43 @@
                                         </div>
 
                                         <div class="form-group flex-column">
-                                            <label for="full_name_edit" class="mb-0 ">Full name</label>
+                                            <label for="full_name_edit" class="mb-0 ">Full name O'z</label>
                                             <input name="full_name_edit" id="full_name_edit" type="text" class="form-control rounded-left"
                                                    placeholder="O'zbekcha" required>
                                         </div>
                                         <div class="form-group flex-column">
-                                            <label for="position_edit" class="mb-0 ">Position</label>
-                                            <input name="position_edit" id="position_edit" type="text" class="form-control rounded-left"
+                                            <label for="full_name_ru_edit" class="mb-0 ">Full name ru</label>
+                                            <input name="full_name_ru_edit" id="full_name_ru_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="русский" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_oz_edit" class="mb-0 ">Position O'z</label>
+                                            <input name="position_oz_edit" id="position_oz_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="O'zbekcha" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_uz_edit" class="mb-0 ">Position Уз</label>
+                                            <input name="position_uz_edit" id="position_uz_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="керилча" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_ru_edit" class="mb-0 ">Position Ru</label>
+                                            <input name="position_ru_edit" id="position_ru_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="русский" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="position_en_edit" class="mb-0 ">Position En</label>
+                                            <input name="position_en_edit" id="position_en_edit" type="text" class="form-control rounded-left"
                                                    placeholder="Ўзбекча" required>
                                         </div>
+                                        <div class="form-group flex-column">
+                                            <select id="status_edit" for="status_edit" name="status_edit" class="form-control rounded-left">
+                                                    <option value="OLD">OLD</option>
+                                                    <option value="GIP">GIP</option>
+                                                </select>
+                                            </select>
+                                        </div>
+
                                         <div class="form-group flex-column">
                                             <label for="photo_edit" class="mb-0 ">photo</label>
                                             <input name="photo_edit" id="photo_edit" onsubmit="changePhoto()" type="file" class="form-control rounded-left"
@@ -220,6 +274,11 @@
                                                     name="dataTable_length" aria-controls="dataTable"
                                                     class="custom-select custom-select-sm form-control form-control-sm">
                                                 <option value="10">10</option>
+                                                <option value="10">10</option>
+                                                <option value="10">10</option>
+                                                <option value="10">10</option>
+                                                <option value="10">10</option>
+                                                <option value="10">10</option>
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
@@ -250,12 +309,33 @@
                                                     >Fullname
                                                     </th>
 
-
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Position: activate to sort column ascending"
+                                                    >Fullname ru
+                                                    </th>
 
                                                     <th class="sorting users-table-title" tabindex="0"
                                                         aria-controls="dataTable" rowspan="1" colspan="1"
                                                         aria-label="Salary: activate to sort column ascending"
-                                                    >Position
+                                                    >Position oz
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Position uz
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Position ru
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Position en
+
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Status
 
                                                     <th class="sorting users-table-title" tabindex="0"
                                                         aria-controls="dataTable" rowspan="1" colspan="1"
@@ -275,14 +355,24 @@
                                                 <tr>
                                                     <th class="users-table-title" rowspan="1" colspan="1">ID</th>
                                                     <th class="users-table-title" rowspan="1" colspan="1">Fullname</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Fullname ru</th>
 
-                                                    <th class="users-table-title" rowspan="1" colspan="1">Position</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Position oz</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Position uz</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Position ru</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Position en</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">status</th>
                                                     <th class="users-table-title" rowspan="1" colspan="1">Image</th>
                                                     <th class="users-table-title" rowspan="1" colspan="1">Tahrirlash</th>
                                                 </tr>
                                                 </tfoot>
                                                 <tbody id="employee_list">
                                                 <tr class="odd">
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
                                                     <td>Loading. . .</td>
                                                     <td>Loading. . .</td>
                                                     <td>Loading. . .</td>

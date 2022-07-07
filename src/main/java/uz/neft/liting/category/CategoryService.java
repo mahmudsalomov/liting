@@ -90,9 +90,15 @@ public class CategoryService {
 
     public ApiResponse all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy){
         try {
+//            Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
+//
+//            Pageable secondPageWithFiveElements = PageRequest.of(1, 5);
 //            Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(10), Sort.Direction.DESC, sortBy.orElse("createdAt"));
             Pageable pg = PageRequest.of(page.orElse(0), 1000, Sort.Direction.DESC, sortBy.orElse("createdAt"));
             Page<Category> all = categoryRepository.findAllByDeletedFalseOrderByOrderNumberAsc(pg);
+            System.out.println(pg);
+//            List<Category> allTenDollarProducts =
+//                    categoryRepository.findAllByDeletedFalseAndParentIsNullOrderByOrderNumberAsc(10, secondPageWithFiveElements);
             return Payload.ok(all.getContent());
         }catch (Exception e){
             e.printStackTrace();
@@ -252,4 +258,19 @@ public class CategoryService {
             return false;
         }
     }
+
+//    public ApiResponse getParents(){
+//        try {
+//            List<Category> parents = categoryRepository.findAll();
+//            for (Category category: parents) {
+//                if (category.getParent() == null){
+//                    return Payload.ok(category);
+//                }
+//            }
+//        }catch (Exception e){
+//            return Payload.notFound(e);
+//        }
+//        return null;
+//    }
+
 }
