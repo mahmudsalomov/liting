@@ -99,19 +99,23 @@ public class EmployeeEntity extends AbsEntityInteger {
         this.textUz = textUz;
         this.textEn = textEn;
     }
-
     public String getFullName() {
         return fullName;
     }
-
     public void setPhoto(FileStorage photo) {
         this.photo = photo;
     }
-
-
     public void edited(EmployeeEntity employeeEn){
         fullName = employeeEn.fullName;
+        fullNameRu = employeeEn.fullNameRu;
         positionOz = employeeEn.positionOz;
+        positionUz = employeeEn.positionUz;
+        positionEn = employeeEn.positionEn;
+        positionRu = employeeEn.positionRu;
+        textRu = employeeEn.textRu;
+        textOz = employeeEn.textOz;
+        textUz = employeeEn.textUz;
+        textEn = employeeEn.textEn;
         if (employeeEn.photo!=null) {
             photo = employeeEn.photo;
         }else System.out.println(photo);

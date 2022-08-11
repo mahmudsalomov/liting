@@ -26,6 +26,10 @@ function addEmployee(event) {
                     position_ru:document.getElementById("position_ru").value,
                     position_en:document.getElementById("position_en").value,
                     status:document.getElementById("status").value,
+                    text_ru:document.getElementById("text_ru").value,
+                    text_oz:document.getElementById("text_oz").value,
+                    text_uz:document.getElementById("text_uz").value,
+                    text_en:document.getElementById("text_en").value,
                     photo: empImage
                 }
 
@@ -66,6 +70,10 @@ function getOne(id){
             formField['position_ru_edit'].value = one.position_ru;
             formField['position_en_edit'].value = one.position_en;
             formField['status_edit'].value = one.status;
+            formField['text_ru_edit'].value = one.text_ru;
+            formField['text_oz_edit'].value = one.text_oz;
+            formField['text_uz_edit'].value = one.text_uz;
+            formField['text_en_edit'].value = one.text_en;
 
 
             document.getElementById('editPhoto').src = '/api/file/photo/' + one.photo.hashId;
@@ -116,6 +124,10 @@ function editEmployee(event){
                     position_ru:document.getElementById("position_edit_ru").value,
                     position_en:document.getElementById("position_edit_en").value,
                     status_edit:document.getElementById("status_edit").value,
+                    text_ru:document.getElementById("text_ru_edit").value,
+                    text_oz:document.getElementById("text_oz_edit").value,
+                    text_uz:document.getElementById("text_uz_edit").value,
+                    text_en:document.getElementById("text_en_edit").value,
                     photo: empImage
                 }
 
@@ -140,6 +152,10 @@ function editEmployee(event){
             position_ru:document.getElementById("position_ru_edit").value,
             position_en:document.getElementById("position_en_edit").value,
             status_edit:document.getElementById("status_edit").value,
+            text_ru:document.getElementById("text_ru_edit").value,
+            text_oz:document.getElementById("text_oz_edit").value,
+            text_uz:document.getElementById("text_uz_edit").value,
+            text_en:document.getElementById("text_en_edit").value,
             photo: empImage
         }
 
@@ -179,6 +195,10 @@ function employee() {
                     "   <td>"+d.position_ru+"</td>\n" +
                     "   <td>"+d.position_en+"</td>\n" +
                     "   <td>"+d.status+"</td>\n" +
+                    "   <td>"+d.text_ru+"</td>\n" +
+                    "   <td>"+d.text_oz+"</td>\n" +
+                    "   <td>"+d.text_uz+"</td>\n" +
+                    "   <td>"+d.text_en+"</td>\n" +
                     "   <td><img height='60' width='60' src='/api/file/photo/"+d.photo.hashId+"'></td>\n" +
                     "   <td><button onclick='deleteEmployee("+ d.id+")' class='btn btn-danger mt-1'>DELETE </button>" +
                     "   <button class='btn btn-success' data-target='#exampleModalCenterEdit' data-toggle='modal' onclick='getOne("+ d.id+")'>EDIT</button></td>\n" +

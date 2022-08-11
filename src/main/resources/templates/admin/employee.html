@@ -158,12 +158,37 @@
                                             <input name="status" id="status" type="text" class="form-control rounded-left"
                                                    placeholder="status" required>
                                         </div>
+
+                                        <div class="form-group flex-column">
+                                            <label for="text_ru" class="mb-0 ">text_ru</label>
+                                            <input name="text_ru" id="text_ru" type="text" class="form-control rounded-left"
+                                                   placeholder="text_ru" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="text_oz" class="mb-0 ">text_oz</label>
+                                            <input name="text_oz" id="text_oz" type="text" class="form-control rounded-left"
+                                                   placeholder="text_oz" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="text_uz" class="mb-0 ">text_uz</label>
+                                            <input name="text_uz" id="text_uz" type="text" class="form-control rounded-left"
+                                                   placeholder="text_uz" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="text_en" class="mb-0 ">text_en</label>
+                                            <input name="text_en" id="text_en" type="text" class="form-control rounded-left"
+                                                   placeholder="text_en" required>
+                                        </div>
                                         <div class="form-group flex-column">
                                             <label for="photo" class="mb-0 ">photo</label>
                                             <input name="photo" id="photo" onsubmit="changePhoto()" type="file" class="form-control rounded-left"
-                                                   placeholder="Aсосий расм">
+                                            placeholder="Aсосий расм">
                                             <img class="EmpPhoto">
                                         </div>
+
+
+
+
                                         <div class="form-group">
                                             <button type="submit"
                                                     class="form-control btn btn-primary rounded submit px-3">Добавить
@@ -242,9 +267,30 @@
                                         </div>
 
                                         <div class="form-group flex-column">
+                                            <label for="text_ru_edit" class="mb-0 ">text_ru</label>
+                                            <input name="text_ru_edit" id="text_ru_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="text_ru_edit" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="text_oz_edit" class="mb-0 ">text_oz</label>
+                                            <input name="text_oz_edit" id="text_oz_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="text_oz_edit" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="text_uz_edit" class="mb-0 ">text_uz</label>
+                                            <input name="text_uz_edit" id="text_uz_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="text_uz_edit" required>
+                                        </div>
+                                        <div class="form-group flex-column">
+                                            <label for="text_en_edit" class="mb-0 ">text_en</label>
+                                            <input name="text_en_edit" id="text_en_edit" type="text" class="form-control rounded-left"
+                                                   placeholder="text_en" required>
+                                        </div>
+
+                                        <div class="form-group flex-column">
                                             <label for="photo_edit" class="mb-0 ">photo</label>
                                             <input name="photo_edit" id="photo_edit" onsubmit="changePhoto()" type="file" class="form-control rounded-left"
-                                                   placeholder="Aсосий расм">
+                                            placeholder="Aсосий расм">
                                             <img class="EmpPhoto" id="editPhoto" height="60" width="80">
                                         </div>
                                         <div class="form-group">
@@ -332,12 +378,29 @@
                                                         aria-controls="dataTable" rowspan="1" colspan="1"
                                                         aria-label="Salary: activate to sort column ascending"
                                                     >Status
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Text ru
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Text oz
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Text uz
+                                                    <th class="sorting users-table-title" tabindex="0"
+                                                        aria-controls="dataTable" rowspan="1" colspan="1"
+                                                        aria-label="Salary: activate to sort column ascending"
+                                                    >Text en
 
                                                     <th class="sorting users-table-title" tabindex="0"
                                                         aria-controls="dataTable" rowspan="1" colspan="1"
                                                         aria-label="Salary: activate to sort column ascending"
-                                                    >Image
+                                                        >Image
                                                     </th>
+
 
                                                     <th class="sorting users-table-title" tabindex="0"
                                                         aria-controls="dataTable" rowspan="1" colspan="1"
@@ -358,12 +421,20 @@
                                                     <th class="users-table-title" rowspan="1" colspan="1">Position ru</th>
                                                     <th class="users-table-title" rowspan="1" colspan="1">Position en</th>
                                                     <th class="users-table-title" rowspan="1" colspan="1">status</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Text ru</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Text oz</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Text uz</th>
+                                                    <th class="users-table-title" rowspan="1" colspan="1">Text en</th>
                                                     <th class="users-table-title" rowspan="1" colspan="1">Image</th>
                                                     <th class="users-table-title" rowspan="1" colspan="1">Tahrirlash</th>
                                                 </tr>
                                                 </tfoot>
                                                 <tbody id="employee_list">
                                                 <tr class="odd">
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
+                                                    <td>Loading. . .</td>
                                                     <td>Loading. . .</td>
                                                     <td>Loading. . .</td>
                                                     <td>Loading. . .</td>
