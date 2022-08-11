@@ -93,10 +93,10 @@ function editEmployee(event){
 
 
     let ph = document.getElementById("photo_edit").files;
-    // let src=document.getElementById("editPhoto")
-    // for (let i = 0; i < src.length; i+= 1) {
-    //     src[i].src = "/api/file/photo"+response[0].hashId;
-    // }
+    let src=document.getElementById("editPhoto")
+    for (let i = 0; i < src.length; i+= 1) {
+        src[i].src = "/api/file/photo"+response[0].hashId;
+    }
 
     let data = {}
     console.log(ph)
@@ -106,9 +106,6 @@ function editEmployee(event){
             .then(function (response) {
                 console.log(response)
                 empImage=response[0];
-                var select = document.getElementById('status_edit');
-                var value = select.options[select.selectedIndex].value;
-                console.log(value)
 
                 data={
                     id:document.getElementById("id").value,
@@ -118,7 +115,7 @@ function editEmployee(event){
                     position_uz:document.getElementById("position_edit_uz").value,
                     position_ru:document.getElementById("position_edit_ru").value,
                     position_en:document.getElementById("position_edit_en").value,
-                    status_edit:value,
+                    status_edit:document.getElementById("status_edit").value,
                     photo: empImage
                 }
 

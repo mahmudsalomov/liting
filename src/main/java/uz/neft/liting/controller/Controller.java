@@ -2,10 +2,14 @@ package uz.neft.liting.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @org.springframework.stereotype.Controller
 public class Controller {
     @GetMapping("/")
-    public String main(){
+    public String main(HttpServletRequest request){
+        System.out.println(request.getRemoteAddr());
+        System.out.println(request.getHeaderNames());
         return "redirect:admin";
     }
 //    @GetMapping("/404")

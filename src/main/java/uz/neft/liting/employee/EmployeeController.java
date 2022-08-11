@@ -1,6 +1,8 @@
 package uz.neft.liting.employee;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uz.neft.liting.template.RestCrud;
@@ -41,5 +43,10 @@ public class EmployeeController implements RestCrud<EmployeeEntity> {
     @Override
     public HttpEntity<?> one(Integer id) {
         return employeeService.one(id).response();
+    }
+
+    @GetMapping("/byStatus/{status}")
+    public HttpEntity<?> findByStatus(@PathVariable("status") Status status){
+        return employeeService.byStatus(status).response();
     }
 }

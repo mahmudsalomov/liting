@@ -68,4 +68,16 @@ public class EmployeeService {
             return Payload.badRequest("xatolik yuz berdi");
         }
     }
+
+    public ApiResponse byStatus(Status status) {
+        try {
+            List<EmployeeEntity> empStatus = employeeRepository.findByStatus(status);
+            System.out.println(empStatus);
+            return Payload.ok(empStatus);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.badRequest("bu turdagi statusle employeelar mavjud emas");
+        }
+
+    }
 }

@@ -50,7 +50,23 @@ public class EmployeeEntity extends AbsEntityInteger {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    public EmployeeEntity(Integer id, Timestamp createdAt, boolean deleted, String fullName, String fullNameRu, String positionOz, String positionUz, String positionEn, String positionRu, FileStorage photo, Status status) {
+    @JsonProperty("text_ru")
+    private String textRu;
+
+    @JsonProperty("text_oz")
+    private String textOz;
+
+    @JsonProperty("text_uz")
+    private String textUz;
+
+    @JsonProperty("text_en")
+    private String textEn;
+
+    public EmployeeEntity(Integer id, Timestamp createdAt, boolean deleted,
+                          String fullName, String fullNameRu, String positionOz,
+                          String positionUz, String positionEn, String positionRu,
+                          FileStorage photo, Status status, String textRu,
+                          String textOz, String textUz, String textEn) {
         super(id, createdAt, deleted);
         this.fullName = fullName;
         this.fullNameRu = fullNameRu;
@@ -60,9 +76,16 @@ public class EmployeeEntity extends AbsEntityInteger {
         this.positionRu = positionRu;
         this.photo = photo;
         this.status = status;
+        this.textRu = textRu;
+        this.textOz = textOz;
+        this.textUz = textUz;
+        this.textEn = textEn;
     }
 
-    public EmployeeEntity(String fullName, String fullNameRu, String positionOz, String positionUz, String positionEn, String positionRu, FileStorage photo, Status status) {
+    public EmployeeEntity(String fullName, String fullNameRu, String positionOz,
+                          String positionUz, String positionEn, String positionRu,
+                          FileStorage photo, Status status, String textRu,
+                          String textOz, String textUz, String textEn) {
         this.fullName = fullName;
         this.fullNameRu = fullNameRu;
         this.positionOz = positionOz;
@@ -71,58 +94,14 @@ public class EmployeeEntity extends AbsEntityInteger {
         this.positionRu = positionRu;
         this.photo = photo;
         this.status = status;
+        this.textRu = textRu;
+        this.textOz = textOz;
+        this.textUz = textUz;
+        this.textEn = textEn;
     }
 
     public String getFullName() {
         return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getFullNameRu() {
-        return fullNameRu;
-    }
-
-    public void setFullNameRu(String fullNameRu) {
-        this.fullNameRu = fullNameRu;
-    }
-
-    public String getPositionOz() {
-        return positionOz;
-    }
-
-    public void setPositionOz(String positionOz) {
-        this.positionOz = positionOz;
-    }
-
-    public String getPositionUz() {
-        return positionUz;
-    }
-
-    public void setPositionUz(String positionUz) {
-        this.positionUz = positionUz;
-    }
-
-    public String getPositionEn() {
-        return positionEn;
-    }
-
-    public void setPositionEn(String positionEn) {
-        this.positionEn = positionEn;
-    }
-
-    public String getPositionRu() {
-        return positionRu;
-    }
-
-    public void setPositionRu(String positionRu) {
-        this.positionRu = positionRu;
-    }
-
-    public FileStorage getPhoto() {
-        return photo;
     }
 
     public void setPhoto(FileStorage photo) {
@@ -133,7 +112,8 @@ public class EmployeeEntity extends AbsEntityInteger {
     public void edited(EmployeeEntity employeeEn){
         fullName = employeeEn.fullName;
         positionOz = employeeEn.positionOz;
-        if (employeeEn.photo!=null)
-        photo = employeeEn.photo;
+        if (employeeEn.photo!=null) {
+            photo = employeeEn.photo;
+        }else System.out.println(photo);
     }
 }
