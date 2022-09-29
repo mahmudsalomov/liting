@@ -187,7 +187,7 @@ function saveBlog() {
                     anons_uz:document.getElementById("anons_uz").value,
                     anons_ru:document.getElementById("anons_ru").value,
                     anons_en:document.getElementById("anons_en").value,
-
+                    publishDate:document.getElementById("publishDate").value,
                     text_oz:$("#summernote_oz").summernote("code"),
                     text_uz:$("#summernote_uz").summernote("code"),
                     text_ru:$("#summernote_ru").summernote("code"),
@@ -304,7 +304,17 @@ function editBuilder(blog) {
         document.getElementById("anons_uz").value=blog.anons_uz
         document.getElementById("anons_ru").value=blog.anons_ru
         document.getElementById("anons_en").value=blog.anons_en
+        console.log("DATEEEEEEE")
 
+        const createdAtDate = new Date(blog.publishDate);
+        const createdAtDayOfMonth = createdAtDate.getDate();
+        const createdAtMonth = createdAtDate.getMonth(); // Be careful! January is 0, not 1
+        const createdAtYear = createdAtDate.getFullYear();
+        const createdAtHours = createdAtDate.getHours();
+        const createdAtMins = createdAtDate.getMinutes()
+        const createdAtDateString = createdAtDayOfMonth + "-" + (createdAtMonth + 1) + "-" + createdAtYear + " " + createdAtHours + ":" + createdAtMins;
+
+        document.getElementById("publishDate").value=createdAtDateString
         // $("#summernote_oz").summernote("code").val(blog.text_oz)
         // $("#summernote_uz").summernote("code").val(blog.text_uz)
         // $("#summernote_ru").summernote("code").val(blog.text_ru)
