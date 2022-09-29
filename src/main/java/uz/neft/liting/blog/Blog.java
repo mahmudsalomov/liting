@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 //@Builder
 @Entity
+@ToString
 public class Blog extends AbsEntityInteger {
 
     @Builder
@@ -118,6 +119,7 @@ public class Blog extends AbsEntityInteger {
         anons_oz=dto.anons_oz;
         anons_uz=dto.anons_uz;
         anons_ru=dto.anons_ru;
+        publishDate=dto.publishDate;
         text_en=dto.text_en;
         text_oz=dto.text_oz;
         text_uz=dto.text_uz;

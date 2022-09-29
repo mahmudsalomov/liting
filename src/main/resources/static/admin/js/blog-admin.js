@@ -229,6 +229,7 @@ function saveBlog() {
             anons_uz:document.getElementById("anons_uz").value,
             anons_ru:document.getElementById("anons_ru").value,
             anons_en:document.getElementById("anons_en").value,
+            publishDate:document.getElementById("publishDate").value,
             text_oz:$("#summernote_oz").summernote("code"),
             text_uz:$("#summernote_uz").summernote("code"),
             text_ru:$("#summernote_ru").summernote("code"),
@@ -239,6 +240,8 @@ function saveBlog() {
         }
 
 
+        console.log("Ko'tanak Dataaaaa")
+        console.log(data)
 
         Request.addOrEditBlog(data)
             .then(function (response) {
@@ -311,10 +314,10 @@ function editBuilder(blog) {
         const createdAtMonth = createdAtDate.getMonth(); // Be careful! January is 0, not 1
         const createdAtYear = createdAtDate.getFullYear();
         const createdAtHours = createdAtDate.getHours();
-        const createdAtMins = createdAtDate.getMinutes()
-        const createdAtDateString = createdAtDayOfMonth + "-" + (createdAtMonth + 1) + "-" + createdAtYear + " " + createdAtHours + ":" + createdAtMins;
-
-        document.getElementById("publishDate").value=createdAtDateString
+        const createdAtMins = createdAtDate.getMinutes();
+        const temp=blog.publishDate.replace("T"," ")
+        console.log("temp = "+temp)
+        document.getElementById("publishDate").value=moment.utc(blog.publishDate).format("YYYY-MM-DDTkk:mm")
         // $("#summernote_oz").summernote("code").val(blog.text_oz)
         // $("#summernote_uz").summernote("code").val(blog.text_uz)
         // $("#summernote_ru").summernote("code").val(blog.text_ru)
