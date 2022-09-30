@@ -5,10 +5,7 @@ import lombok.*;
 import uz.neft.liting.file.FileStorage;
 import uz.neft.liting.template.AbsEntityInteger;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
@@ -50,15 +47,19 @@ public class EmployeeEntity extends AbsEntityInteger {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(columnDefinition = "text")
     @JsonProperty("text_ru")
     private String textRu;
 
+    @Column(columnDefinition = "text")
     @JsonProperty("text_oz")
     private String textOz;
 
+    @Column(columnDefinition = "text")
     @JsonProperty("text_uz")
     private String textUz;
 
+    @Column(columnDefinition = "text")
     @JsonProperty("text_en")
     private String textEn;
 
