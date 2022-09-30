@@ -63,12 +63,12 @@ public class EmployeeEntity extends AbsEntityInteger {
     @JsonProperty("text_en")
     private String textEn;
 
-    public EmployeeEntity(Integer id, Timestamp createdAt, boolean deleted,
+    public EmployeeEntity(Integer id, Timestamp createdAt, Timestamp updatedAt, boolean deleted,
                           String fullName, String fullNameRu, String positionOz,
                           String positionUz, String positionEn, String positionRu,
                           FileStorage photo, Status status, String textRu,
                           String textOz, String textUz, String textEn) {
-        super(id, createdAt, deleted);
+        super(id, createdAt, updatedAt, deleted);
         this.fullName = fullName;
         this.fullNameRu = fullNameRu;
         this.positionOz = positionOz;

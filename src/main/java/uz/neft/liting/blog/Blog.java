@@ -21,8 +21,8 @@ import java.util.stream.Collectors;
 public class Blog extends AbsEntityInteger {
 
     @Builder
-    public Blog(Integer id, Timestamp createdAt, boolean deleted, @NonNull String title_oz, String title_uz, Long view_count, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, FileStorage mainImage, Category category, Set<FileStorage> files, BlogType type) {
-        super(id, createdAt, deleted);
+    public Blog(Integer id, Timestamp createdAt, Timestamp updatedAt, boolean deleted, @NonNull String title_oz, String title_uz, Long view_count, String title_en, String title_ru, @NonNull String anons_oz, String anons_uz, String anons_en, String anons_ru, @NonNull String text_oz, String text_uz, String text_en, String text_ru, FileStorage mainImage, Category category, Set<FileStorage> files, BlogType type) {
+        super(id, createdAt, updatedAt, deleted);
         this.title_oz = title_oz;
         this.title_uz = title_uz;
         this.title_en = title_en;
@@ -119,7 +119,7 @@ public class Blog extends AbsEntityInteger {
         anons_oz=dto.anons_oz;
         anons_uz=dto.anons_uz;
         anons_ru=dto.anons_ru;
-        publishDate=dto.publishDate;
+        publishDate=dto.publishDate!=null?dto.publishDate:getCreatedAt();
         text_en=dto.text_en;
         text_oz=dto.text_oz;
         text_uz=dto.text_uz;

@@ -52,6 +52,11 @@ function createViewBlogTable(blogs) {
         let h="https://static.wikia.nocookie.net/otonari-no-tenshi/images/c/c9/No_images_available.jpg/revision/latest?cb=20220104141308";
         if (blog.mainImage) h="/api/file/photo/"+blog.mainImage.hashId;
 
+        let link="https://old2.liting.uz/";
+        if (blog.category.type=="PAGE") link+="page"
+        if (blog.category.type=="BLOGS") link+="blogs"
+        link+="/"+blog.category.id+"/"+blog.id;
+        let updated=blog.updatedAt!=null?blog.updatedAt:blog.createdAt;
         out+="<div class=\"card shadow mb-4 p-1\">\n" +
             "                        <div class=\"row no-gutters\">\n" +
             "                            <div class=\"col-md-4\">\n" +
@@ -65,7 +70,8 @@ function createViewBlogTable(blogs) {
             "                                    <p class=\"card-text\">" + blog.view_count+ "<i class=\"fas fa-street-view fa-fw ml-1\"></i>"+
             "                                    </p>\n" +
             "\n" +
-            "                                    <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\n" +
+            // "                                    <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\n" +
+            "                                    <p class=\"card-text\"><small class=\"text-muted\">Last updated "+dateModifier(updated)+"</small></p>\n" +
             "                                </div>\n" +
             "\n" +
             "\n" +
@@ -84,7 +90,8 @@ function createViewBlogTable(blogs) {
             temp+
             "                    <span class=\"slider round\"></span>\n" +
             "                </label>"+
-            "                                <a href='/blog/"+blog.id+"' class=\"btn btn-info m-1\">Saytda ko'rish</a>\n" +
+            // "                                <a href='/blog/"+blog.id+"' class=\"btn btn-info m-1\">Saytda ko'rish</a>\n" +
+            "                                <a href='"+link+"' class=\"btn btn-info m-1\">Saytda ko'rish</a>\n" +
             "                                <a href='/admin/blog/edit/"+blog.id+"' class=\"btn btn-success m-1\">Tahrirlash</a>\n" +
             "                                <button onclick='deleteBlog(this.value)' value='"+blog.id+"' class=\"btn btn-danger m-1\">O'chirish</button>\n" +
             "                            </div>\n" +
@@ -489,4 +496,15 @@ function createPagination(){
                                         href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0"
                                         class="page-link">Next</a></li>
                             </ul>`
+}
+
+
+function dateModifier(date) {
+    const createdAtDate = new Date('' + date + '');
+    const createdAtDayOfMonth = createdAtDate.getDate();
+    const createdAtMonth = createdAtDate.getMonth(); // Be careful! January is 0, not 1
+    const createdAtYear = createdAtDate.getFullYear();
+    const createdAtHours = createdAtDate.getHours();
+    const createdAtMins = createdAtDate.getMinutes()
+    return createdAtDayOfMonth + "-" + (createdAtMonth + 1) + "-" + createdAtYear + " " + createdAtHours + ":" + createdAtMins;
 }

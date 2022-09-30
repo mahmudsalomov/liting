@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import uz.neft.liting.blog.Blog;
+import uz.neft.liting.blog.BlogRepository;
 import uz.neft.liting.category.Category;
 import uz.neft.liting.category.CategoryRepository;
 import uz.neft.liting.user.*;
@@ -28,10 +30,20 @@ public class DataLoader implements CommandLineRunner {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private BlogRepository blogRepository;
+
 
     @Override
     public void run(String... args) throws Exception {
 //        if (mode.equals("always")) {
+
+
+        List<Blog> blogList = blogRepository.findAllByPublishDateIsNull();
+        for (Blog blog : blogList) {
+            blog.setPublishDate(blog.getCreatedAt());
+            blogRepository.save(blog);
+        }
 
         List<Category> categories = categoryRepository.findAll();
         for (Category category : categories) {

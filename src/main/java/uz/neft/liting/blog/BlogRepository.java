@@ -19,6 +19,7 @@ public interface BlogRepository extends JpaRepository<Blog,Integer> {
     Page<Blog> findAllByDeletedFalseAndType(BlogType type,Pageable pageable);
     boolean existsByCategory(Category category);
 
+    List<Blog> findAllByPublishDateIsNull();
     long countByCategory(Category category);
 //    List<Blog> findAllByCategoriesAndDeletedFalse(Set<Category> categorySet);
 //    Page<Blog> findAllByCategoriesAndDeletedFalse(Set<Category> categorySet,Pageable pageable);

@@ -26,8 +26,8 @@ public class Statistic extends AbsEntityInteger {
     private int count;
 
     @Builder
-    public Statistic(Integer id, Timestamp createdAt, boolean deleted, String name, FileStorage icon, int count) {
-        super(id, createdAt, deleted);
+    public Statistic(Integer id, Timestamp createdAt, Timestamp updatedAt, boolean deleted, String name, FileStorage icon, int count) {
+        super(id, createdAt, updatedAt, deleted);
         this.name = name;
         this.icon = icon;
         this.count = count;

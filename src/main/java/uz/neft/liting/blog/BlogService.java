@@ -12,6 +12,8 @@ import uz.neft.liting.payload.ApiResponse;
 import uz.neft.liting.payload.ApiResponseObject;
 import uz.neft.liting.payload.Payload;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +44,7 @@ public class BlogService {
             }
 
             blog.setCategory(category.get());
+            if (blog.getPublishDate()==null) blog.setPublishDate(new Timestamp(new Date().getTime()));
             return Payload.ok(blogRepository.save(blog));
         }catch (Exception e){
             e.printStackTrace();

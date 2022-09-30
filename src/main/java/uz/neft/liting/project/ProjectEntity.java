@@ -21,8 +21,8 @@ public class ProjectEntity extends AbsEntityInteger{
     @OneToOne
     private FileStorage photo;
 
-    public ProjectEntity(Integer id, Timestamp createdAt, boolean deleted, String title, String text, FileStorage photo) {
-        super(id, createdAt, deleted);
+    public ProjectEntity(Integer id, Timestamp createdAt, Timestamp updatedAt, boolean deleted, String title, String text, FileStorage photo) {
+        super(id, createdAt, updatedAt, deleted);
         this.title = title;
         this.text = text;
         this.photo = photo;

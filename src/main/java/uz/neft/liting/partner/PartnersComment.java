@@ -39,8 +39,8 @@ public class PartnersComment extends AbsEntityInteger{
     private FileStorage photo;
 
 
-    public PartnersComment(Integer id, Timestamp createdAt, boolean deleted, String name, String surname, String company, String comment, FileStorage signature, FileStorage photo) {
-        super(id, createdAt, deleted);
+    public PartnersComment(Integer id, Timestamp createdAt, Timestamp updateAt, boolean deleted, String name, String surname, String company, String comment, FileStorage signature, FileStorage photo) {
+        super(id, createdAt, updateAt, deleted);
         this.name = name;
         this.surname = surname;
         this.company = company;

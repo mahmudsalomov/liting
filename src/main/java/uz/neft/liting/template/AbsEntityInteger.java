@@ -3,10 +3,12 @@ package uz.neft.liting.template;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 // Integer entity template
@@ -24,7 +26,9 @@ public abstract class AbsEntityInteger implements Serializable {
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
-
+    @LastModifiedDate
+//    @Column(name = "updated_at")
+    private Timestamp updatedAt;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -35,6 +39,10 @@ public abstract class AbsEntityInteger implements Serializable {
 
     private boolean deleted=false;
 
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Timestamp(new Date().getTime());
+    }
     @Override
     public int hashCode() {
         return 0;

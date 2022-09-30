@@ -24,9 +24,9 @@ import java.util.stream.Collectors;
 public class Category extends AbsEntityInteger {
 
     @Builder
-    public Category(Integer id, Timestamp createdAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, List<Category> children, CategoryType type, int orderNumber
+    public Category(Integer id, Timestamp createdAt, Timestamp updatedAt, boolean deleted, String name_oz, String name_uz, String name_en, String name_ru, String description_oz, String description_uz, String description_en, String description_ru, Category parent, List<Category> children, CategoryType type, int orderNumber
     ) {
-        super(id, createdAt, deleted);
+        super(id, createdAt, updatedAt, deleted);
         this.name_oz = name_oz;
         this.name_uz = name_uz;
         this.name_en = name_en;
