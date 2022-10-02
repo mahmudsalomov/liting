@@ -15,7 +15,7 @@ public class ProjectController implements RestCrud<ProjectEntity> {
 
 
     @Override
-    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
+    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
         return service.all().response();
     }
 
@@ -35,7 +35,7 @@ public class ProjectController implements RestCrud<ProjectEntity> {
     }
 
     @Override
-    public HttpEntity<?> one(Integer id) {
+    public HttpEntity<?> one(Integer id, User user) {
         return service.one(id).response();
     }
 }

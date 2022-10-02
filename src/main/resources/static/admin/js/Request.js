@@ -1,9 +1,16 @@
 class Request {
 
+    static config(){
+        return ({
+            headers: {
+                'Authorization': "Bearer " + localStorage.getItem("token")
+            }
+        });
+    }
     //Category
     static async getAllCategories() {
         let cat=[]
-        await axios.get("/api/category/all")
+        await axios.get("/api/category/all",this.config())
             .then(function (response) {
                 console.log(response)
                 cat = response.data.object;
@@ -17,7 +24,7 @@ class Request {
 
     static async getAllCategoriesSorted() {
         let cat=[]
-        await axios.get("/api/category/all/sort")
+        await axios.get("/api/category/all/sort",this.config())
             .then(function (response) {
                 console.log(response)
                 cat = response.data.object;
@@ -31,7 +38,7 @@ class Request {
 
     static async getCategoryTypes(){
         let types=[]
-        await axios.get("/api/category/all/types")
+        await axios.get("/api/category/all/types",this.config())
             .then(function (response) {
                 console.log(response)
                 types = response.data.object;
@@ -45,7 +52,7 @@ class Request {
 
     static async getChildren(id) {
         let cat=[]
-        await axios.get("/api/category/all/children?id="+id)
+        await axios.get("/api/category/all/children?id="+id,this.config())
             .then(function (response) {
                 console.log(response)
                 cat = response.data.object;
@@ -58,7 +65,7 @@ class Request {
     }
     static async getParent(id) {
         let cat={};
-        await axios.get("/api/category/parent?id="+id)
+        await axios.get("/api/category/parent?id="+id,this.config())
             .then(function (response) {
                 console.log(response)
                 cat = response.data.object;
@@ -72,7 +79,7 @@ class Request {
 
     static async getAllCategoriesNotParent() {
         let cat=[]
-        await axios.get("/api/category/all/not/parent")
+        await axios.get("/api/category/all/not/parent",this.config())
             .then(function (response) {
                 console.log(response)
                 cat = response.data.object;
@@ -112,7 +119,7 @@ class Request {
     static async deleteCategory(id){
         let result;
 
-        await axios.post("/api/category/delete/"+id)
+        await axios.post("/api/category/delete/"+id,this.config())
             .then(function (response) {
                 result=response.data;
             })
@@ -126,7 +133,7 @@ class Request {
 
     static async checkParent(id) {
         let cat=false
-        await axios.get("/api/category/check_parent?id="+id)
+        await axios.get("/api/category/check_parent?id="+id,this.config())
             .then(function (response) {
                 console.log(response)
                 cat = response.data;
@@ -161,7 +168,7 @@ class Request {
         if (id){
             url+="?category="+id;
         }
-        await axios.get(url)
+        await axios.get(url,this.config())
             .then(function (response) {
                 console.log(response)
                 count = response.data;
@@ -186,7 +193,7 @@ class Request {
         }
 
 
-        await axios.get(url)
+        await axios.get(url,this.config())
             .then(function (response) {
                 console.log(response)
                 blogs = response.data.object;
@@ -200,7 +207,7 @@ class Request {
 
     static async getAllBlogByCategory(id) {
         let blogs=[]
-        await axios.get("/api/blog/all/"+id)
+        await axios.get("/api/blog/all/"+id,this.config())
             .then(function (response) {
                 console.log(response)
                 blogs = response.data.object;
@@ -216,7 +223,7 @@ class Request {
 
     static async getOne(id){
         let blog={};
-        await axios.get("/api/blog/one/"+id)
+        await axios.get("/api/blog/one/"+id,this.config())
             .then(function (response) {
                 console.log(response)
                 blog=response.data.object
@@ -278,7 +285,7 @@ class Request {
 
     static async changeMainSlider(id,isMainSlider){
 
-        axios.post("/api/blog/main_slider_changer/"+id+"?isMainSlider="+isMainSlider)
+        axios.post("/api/blog/main_slider_changer/"+id+"?isMainSlider="+isMainSlider,this.config())
             .then(function (response) {
                 // return true;
             })
@@ -293,7 +300,7 @@ class Request {
     static async deleteBlog(id){
         let result;
 
-        await axios.post("/api/blog/delete/"+id)
+        await axios.post("/api/blog/delete/"+id,this.config())
             .then(function (response) {
                 result=response.data;
             })
@@ -329,7 +336,7 @@ class Request {
     // Statistics
     static async getAllStatistics() {
         let cat=[]
-        await axios.get("/api/statistics/all")
+        await axios.get("/api/statistics/all",this.config())
             .then(function (response) {
                 console.log(response)
                 cat = response.data.object;
@@ -368,7 +375,7 @@ class Request {
     static async deleteStatistics(id){
         let result;
 
-        await axios.post("/api/statistics/delete/"+id)
+        await axios.post("/api/statistics/delete/"+id,this.config())
             .then(function (response) {
                 result=response.data;
             })

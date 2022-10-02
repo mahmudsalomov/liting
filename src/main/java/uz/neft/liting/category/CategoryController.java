@@ -22,7 +22,7 @@ public class CategoryController implements RestCrud<Category> {
     }
 
     @Override
-    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
+    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
         return categoryService.all(page, pageSize, sortBy).response();
     }
 
@@ -42,7 +42,7 @@ public class CategoryController implements RestCrud<Category> {
     }
 
     @Override
-    public HttpEntity<?> one(Integer id) {
+    public HttpEntity<?> one(Integer id, User user) {
         return categoryService.one(id).response();
     }
 

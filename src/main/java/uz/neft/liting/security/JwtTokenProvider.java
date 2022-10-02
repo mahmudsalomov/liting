@@ -22,6 +22,7 @@ public class JwtTokenProvider {
         return Jwts
                 .builder()
                 .setSubject(user.getId().toString())
+                .setSubject(user.getFio())
                 .setIssuedAt(date)
                 .claim("roles", user.getRoles())
                 .setExpiration(expireDate)

@@ -18,7 +18,7 @@ public class StatisticController implements RestCrud<Statistic> {
     }
 
     @Override
-    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
+    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
         return statisticService.all().response();
     }
 
@@ -38,7 +38,7 @@ public class StatisticController implements RestCrud<Statistic> {
     }
 
     @Override
-    public HttpEntity<?> one(Integer id) {
+    public HttpEntity<?> one(Integer id, User user) {
         return statisticService.one(id).response();
     }
 }

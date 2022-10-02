@@ -21,7 +21,7 @@ public class EmployeeController implements RestCrud<EmployeeEntity> {
     }
 
     @Override
-    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
+    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
         return employeeService.all().response();
     }
 
@@ -41,7 +41,7 @@ public class EmployeeController implements RestCrud<EmployeeEntity> {
     }
 
     @Override
-    public HttpEntity<?> one(Integer id) {
+    public HttpEntity<?> one(Integer id, User user) {
         return employeeService.one(id).response();
     }
 

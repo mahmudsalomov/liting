@@ -19,7 +19,7 @@ public class PartnerController implements RestCrud<PartnersComment> {
     }
 
     @Override
-    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
+    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
         return partnerService.all().response();
     }
 
@@ -39,7 +39,7 @@ public class PartnerController implements RestCrud<PartnersComment> {
     }
 
     @Override
-    public HttpEntity<?> one(Integer id) {
+    public HttpEntity<?> one(Integer id, User user) {
         return partnerService.one(id).response();
     }
 }

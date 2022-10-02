@@ -472,6 +472,7 @@ function createPagination(){
                 }
                 result+=`</ul>`
 
+                document.getElementById("dataTable_paginate1").innerHTML=result;
                 document.getElementById("dataTable_paginate").innerHTML=result;
             })
             .catch(function (error) {

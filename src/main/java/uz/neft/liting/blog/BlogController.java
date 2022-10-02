@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
+import uz.neft.liting.security.CurrentUser;
 import uz.neft.liting.template.RestCrud;
 import uz.neft.liting.user.User;
 
@@ -22,7 +23,8 @@ public class BlogController implements RestCrud<Blog> {
     }
 
     @Override
-    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy) {
+    public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
+        System.out.println(user);
         return blogService.all(page, pageSize, sortBy).response();
     }
 
@@ -43,7 +45,7 @@ public class BlogController implements RestCrud<Blog> {
     }
 
     @Override
-    public HttpEntity<?> one(Integer id) {
+    public HttpEntity<?> one(Integer id, User user) {
         return blogService.one(id).response();
     }
 

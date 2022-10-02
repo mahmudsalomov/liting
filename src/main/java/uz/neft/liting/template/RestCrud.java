@@ -15,7 +15,8 @@ public interface RestCrud<T> extends Serializable {
     @GetMapping("/all")
     HttpEntity<?> all( @RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
                        @RequestParam(value = "pageSize", required = false, defaultValue = "9") Optional<Integer> pageSize,
-                       @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy);
+                       @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy,
+                       @CurrentUser User user);
 
     @PostMapping("/add")
     HttpEntity<?> add(@RequestBody T t, @CurrentUser User user);
@@ -25,6 +26,6 @@ public interface RestCrud<T> extends Serializable {
     HttpEntity<?> delete(@Valid @PathVariable Integer id, @CurrentUser User user);
 
     @GetMapping("/one/{id}")
-    HttpEntity<?> one(@Valid @PathVariable Integer id);
+    HttpEntity<?> one(@Valid @PathVariable Integer id, @CurrentUser User user);
 
 }
