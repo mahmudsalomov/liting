@@ -417,6 +417,22 @@ class Request {
         return check;
     }
 
+
+
+    //Metric
+    static async getAllMetrics(year) {
+        let metrics;
+        await axios.get("/api/metric/all/"+year,this.config())
+            .then(function (response) {
+                console.log(response)
+                metrics = response.data;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return []
+            })
+        return metrics
+    }
 }
 
 

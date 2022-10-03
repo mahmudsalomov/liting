@@ -116,3 +116,12 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+
+function allMetric() {
+  Request.getAllMetrics(new Date().getFullYear()).then(function (response) {
+    console.log("Metrics")
+    console.log(response)
+  })
+}
+allMetric()

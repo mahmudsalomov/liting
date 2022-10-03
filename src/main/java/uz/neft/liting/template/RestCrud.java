@@ -1,6 +1,7 @@
 package uz.neft.liting.template;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 import uz.neft.liting.security.CurrentUser;
 import uz.neft.liting.user.User;
@@ -16,16 +17,16 @@ public interface RestCrud<T> extends Serializable {
     HttpEntity<?> all( @RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
                        @RequestParam(value = "pageSize", required = false, defaultValue = "9") Optional<Integer> pageSize,
                        @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy,
-                       @CurrentUser User user);
+                       @Nullable @CurrentUser User user);
 
     @PostMapping("/add")
-    HttpEntity<?> add(@RequestBody T t, @CurrentUser User user);
+    HttpEntity<?> add(@RequestBody T t, @Nullable @CurrentUser User user);
     @PutMapping("/edit")
-    HttpEntity<?> edit(@Valid @RequestBody T t, @CurrentUser User user);
+    HttpEntity<?> edit(@Valid @RequestBody T t, @Nullable @CurrentUser User user);
     @PostMapping("/delete/{id}")
-    HttpEntity<?> delete(@Valid @PathVariable Integer id, @CurrentUser User user);
+    HttpEntity<?> delete(@Valid @PathVariable Integer id, @Nullable @CurrentUser User user);
 
     @GetMapping("/one/{id}")
-    HttpEntity<?> one(@Valid @PathVariable Integer id, @CurrentUser User user);
+    HttpEntity<?> one(@Valid @PathVariable Integer id, @Nullable @CurrentUser User user);
 
 }

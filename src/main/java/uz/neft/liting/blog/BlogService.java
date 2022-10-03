@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import uz.neft.liting.category.Category;
 import uz.neft.liting.category.CategoryRepository;
 import uz.neft.liting.category.CategoryType;
+import uz.neft.liting.metrics.MetricService;
 import uz.neft.liting.payload.ApiResponse;
 import uz.neft.liting.payload.ApiResponseObject;
 import uz.neft.liting.payload.Payload;
@@ -22,10 +23,12 @@ import java.util.Optional;
 public class BlogService {
     private final BlogRepository blogRepository;
     private final CategoryRepository categoryRepository;
+    private final MetricService metricService;
 
-    public BlogService(BlogRepository blogRepository, CategoryRepository categoryRepository) {
+    public BlogService(BlogRepository blogRepository, CategoryRepository categoryRepository, MetricService metricService) {
         this.blogRepository = blogRepository;
         this.categoryRepository = categoryRepository;
+        this.metricService = metricService;
     }
 
     public ApiResponse add(Blog blog){
@@ -55,13 +58,14 @@ public class BlogService {
     }
 
 
-    public ApiResponse all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy){
+    public ApiResponse all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user){
         Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(9), Sort.Direction.DESC, sortBy.orElse("createdAt"));
         Page<Blog> all = blogRepository.findAllByDeletedFalse(pg);
         ApiResponseObject response = (ApiResponseObject) Payload.ok(all.getContent());
         response.setPage(all.getNumber());
         response.setTotalPages(all.getTotalPages());
         response.setTotalElements(all.getTotalElements());
+        metricService.count(user);
         return response;
     }
 
@@ -69,7 +73,10 @@ public class BlogService {
         try {
             Optional<Blog> blogOptional = blogRepository.findById(id);
             if (blogOptional.isPresent()){
-                if (user==null) blogOptional.get().setView_count(blogOptional.get().getView_count()+1);
+                if (user==null) {
+                    blogOptional.get().setView_count(blogOptional.get().getView_count()+1);
+                    metricService.count();
+                }
                 return Payload.ok(blogRepository.save(blogOptional.get()));
             } return Payload.notFound("Bunaqa id li blog topilmadi");
         }catch (Exception e){
@@ -106,10 +113,11 @@ public class BlogService {
     }
 
 
-    public ApiResponse allByCategory(Integer id,Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy){
+    public ApiResponse allByCategory(Integer id,Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user){
         try {
             Optional<Category> category = categoryRepository.findById(id);
             if (category.isPresent()){
+                metricService.count(user);
                 Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(9), Sort.Direction.DESC, sortBy.orElse("createdAt"));
                 Page<Blog> all = blogRepository.findAllByCategory(category.get(),pg);
 
