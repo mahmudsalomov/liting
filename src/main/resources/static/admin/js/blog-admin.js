@@ -247,7 +247,6 @@ function saveBlog() {
         }
 
 
-        console.log("Ko'tanak Dataaaaa")
         console.log(data)
 
         Request.addOrEditBlog(data)
@@ -509,3 +508,5 @@ function dateModifier(date) {
     const createdAtMins = createdAtDate.getMinutes()
     return createdAtDayOfMonth + "-" + (createdAtMonth + 1) + "-" + createdAtYear + " " + createdAtHours + ":" + createdAtMins;
 }
+
+

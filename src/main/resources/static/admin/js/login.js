@@ -1,35 +1,40 @@
 const configHeader=({headers:{
-        'Authorization':"Bearer "+localStorage.getItem("token")
+        "Authorization":"Bearer "+localStorage.getItem("token")
     }})
 let localStorageToken = localStorage.getItem("token");
 
 const pathname = window.location.pathname; // Returns path only (/path/example.html)
 
-if (pathname.startsWith("/admin")) {
-
-    let check=false;
-    axios.get("/api/auth/check",configHeader)
-        .then(function (res) {
-            check=res.data;
-            console.log('AXIOS = '+check)
-            if (!check) window.location.replace("/login");
-        })
-    console.log(check)
-    // if (!check) window.location.replace("/login");
-
-    //
-    // Request.check(configHeader)
-    //     .then(function (e) {
-    //     if (!e){
-    //         window.location.replace("/login");
-    //     }
-    //     })
-    //     .catch(e=>{window.location.replace("/login")})
+if (pathname !== "/" && (localStorageToken === null || localStorageToken === "")) {
+    window.location.replace("/");
 }
+
+// if (pathname==="/") {
+//
+//     let check=false;
+//     axios.get("/api/auth/check",configHeader)
+//         .then(function (res) {
+//             check=res.data;
+//             console.log('AXIOS = '+check)
+//             if (!check) window.location.replace("/login");
+//             else window.location.replace("/admin");
+//         })
+//     console.log(check)
+//     // if (!check) window.location.replace("/login");
+//
+//     //
+//     // Request.check(configHeader)
+//     //     .then(function (e) {
+//     //     if (!e){
+//     //         window.location.replace("/login");
+//     //     }
+//     //     })
+//     //     .catch(e=>{window.location.replace("/login")})
+// }
 
 
 function logOutBtn() {
-    window.location.replace("/login");
+    window.location.replace("/");
     localStorage.removeItem("token");
 }
 
@@ -77,6 +82,13 @@ function loginForm(event) {
         });
 }
 
+function men() {
+    Request.me().then(function (res) {
+        document.getElementById("fio").innerText=res;
+    })
+}
+
+men()
 
 
 

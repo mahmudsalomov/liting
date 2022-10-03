@@ -24,13 +24,11 @@ public class BlogController implements RestCrud<Blog> {
 
     @Override
     public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
-        System.out.println(user);
         return blogService.all(page, pageSize, sortBy).response();
     }
 
     @Override
     public HttpEntity<?> add(Blog blog, User user) {
-        System.out.println(blog);
         return blogService.add(blog).response();
     }
 
@@ -46,7 +44,7 @@ public class BlogController implements RestCrud<Blog> {
 
     @Override
     public HttpEntity<?> one(Integer id, User user) {
-        return blogService.one(id).response();
+        return blogService.one(id,user).response();
     }
 
 

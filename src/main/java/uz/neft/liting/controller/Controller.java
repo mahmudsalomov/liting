@@ -8,9 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 public class Controller {
     @GetMapping("/")
     public String main(HttpServletRequest request){
-        System.out.println(request.getRemoteAddr());
-        System.out.println(request.getHeaderNames());
-        return "redirect:admin";
+//        System.out.println(request.getRemoteAddr());
+//        System.out.println(request.getHeaderNames());
+//        return "redirect:login";
+        return "admin/login";
     }
 //    @GetMapping("/404")
 //    public String main404(){

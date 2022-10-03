@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.Enumeration;
 
 
 public class JwtFilter extends OncePerRequestFilter {
@@ -60,6 +61,7 @@ public class JwtFilter extends OncePerRequestFilter {
     public UserDetails getUserDetails(HttpServletRequest httpServletRequest) {
         try {
             //REQUESTNI HEADER DAN "AUTHORIZATION" KALIT SO'Z ORQALI TOKENNI OLISH
+            Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
             String tokenClient = httpServletRequest.getHeader("Authorization");
             //TOKENNI NULL GA TEKSHIRISH
             if (tokenClient != null) {
@@ -72,7 +74,7 @@ public class JwtFilter extends OncePerRequestFilter {
                         //USERID ni oldik tokendan
                         String userIdFromToken = jwtTokenProvider.getUserIdFromToken(tokenClient);
 
-                        return authService.loadByUserId(Long.parseLong(userIdFromToken));
+                        return authService.loadByUserId(Integer.parseInt(userIdFromToken));
                     }
                 } else if (tokenClient.startsWith("Basic ")) {
                     String[] userNameAndPassword = getUserNameAndPassword(tokenClient);

@@ -29,7 +29,12 @@ public class AuthController {
 
 
     @GetMapping("/me")
-    public HttpEntity<?> me(@CurrentUser User user){
+    public HttpEntity<?> me(@CurrentUser User user,HttpServletRequest request){
+        System.out.println("Meeeeeeeeeeeee");
+        String tokenClient = request.getHeader("Authorization").substring(7);
+//            System.out.println(tokenClient);
+        boolean b = jwtTokenProvider.validateToken(tokenClient);
+        System.out.println(b);
         System.out.println(user);
         if (user!=null){
             return ResponseEntity.ok(user.getFio());

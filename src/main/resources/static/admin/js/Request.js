@@ -3,7 +3,7 @@ class Request {
     static config(){
         return ({
             headers: {
-                'Authorization': "Bearer " + localStorage.getItem("token")
+                "Authorization": "Bearer " + localStorage.getItem("token")
             }
         });
     }
@@ -182,7 +182,7 @@ class Request {
 
     static async getAllBlog(page,category) {
         let blogs=[]
-
+        // await this.me()
         let url="/api/blog/all"
 
         if (category&&category!='0'){
@@ -404,6 +404,18 @@ class Request {
         return check;
     }
 
+
+
+    static async me(){
+        let check="";
+        console.log("AAAAAAAA config")
+        console.log(this.config())
+        await axios.get("/api/auth/me",this.config())
+            .then(function (res) {
+                check=res.data
+            })
+        return check;
+    }
 
 }
 

@@ -16,6 +16,8 @@ import uz.neft.liting.security.SignIn;
 import uz.neft.liting.user.User;
 import uz.neft.liting.user.UserRepository;
 
+import java.util.Optional;
+
 
 @Service
 @NoArgsConstructor
@@ -37,8 +39,18 @@ public class AuthService implements UserDetailsService {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username + " not found"));
     }
 
-    public User loadByUserId(Long userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("user not found"));
+    public User loadByUserId(Integer userId) {
+        try {
+            Optional<User> optionalUser = userRepository.findById(userId);
+//        return userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("user not found"));
+            return optionalUser.orElse(null);
+            //            else throw new IllegalStateException("User not found");
+//        return userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("user not found"));
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
 
     }
 

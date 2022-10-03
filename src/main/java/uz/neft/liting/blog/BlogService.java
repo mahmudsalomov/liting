@@ -11,6 +11,7 @@ import uz.neft.liting.category.CategoryType;
 import uz.neft.liting.payload.ApiResponse;
 import uz.neft.liting.payload.ApiResponseObject;
 import uz.neft.liting.payload.Payload;
+import uz.neft.liting.user.User;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -64,13 +65,13 @@ public class BlogService {
         return response;
     }
 
-    public ApiResponse one(Integer id) {
+    public ApiResponse one(Integer id, User user) {
         try {
             Optional<Blog> blogOptional = blogRepository.findById(id);
             if (blogOptional.isPresent()){
-                blogOptional.get().setView_count(blogOptional.get().getView_count()+1);
+                if (user==null) blogOptional.get().setView_count(blogOptional.get().getView_count()+1);
                 return Payload.ok(blogRepository.save(blogOptional.get()));
-            } return Payload.notFound("bunaqa id li blog topilmadi");
+            } return Payload.notFound("Bunaqa id li blog topilmadi");
         }catch (Exception e){
             e.printStackTrace();
             return Payload.conflict();
