@@ -53,9 +53,14 @@ function createViewBlogTable(blogs) {
         if (blog.mainImage) h="/api/file/photo/"+blog.mainImage.hashId;
 
         let link="https://old2.liting.uz/";
-        if (blog.category.type=="PAGE") link+="page"
-        if (blog.category.type=="BLOGS") link+="blogs"
-        link+="/"+blog.category.id+"/"+blog.id;
+        if (blog.category.type=="PAGE") {
+            link+="page"
+            link+="/"+blog.id;
+        }
+        if (blog.category.type=="BLOGS") {
+            link+="blogs"
+            link+="/"+blog.category.id+"/"+blog.id;
+        }
         let updated=blog.updatedAt!=null?blog.updatedAt:blog.createdAt;
         let publishDate=blog.publishDate!=null?blog.publishDate:blog.createdAt;
         out+="<div class=\"card shadow mb-4 p-1\">\n" +
