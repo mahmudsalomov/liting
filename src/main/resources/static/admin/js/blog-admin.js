@@ -445,6 +445,7 @@ function createPagination(){
                 result+=`</ul>`
 
                 document.getElementById("dataTable_paginate").innerHTML=result;
+                document.getElementById("dataTable_paginate1").innerHTML=result;
                 // console.log(c)
             })
             .catch(function (error) {
