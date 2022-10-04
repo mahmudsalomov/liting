@@ -12,7 +12,7 @@ class Request {
         let cat=[]
         await axios.get("/api/category/all",this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 cat = response.data.object;
             })
             .catch(function (error) {
@@ -26,7 +26,7 @@ class Request {
         let cat=[]
         await axios.get("/api/category/all/sort",this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 cat = response.data.object;
             })
             .catch(function (error) {
@@ -40,7 +40,7 @@ class Request {
         let types=[]
         await axios.get("/api/category/all/types",this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 types = response.data.object;
             })
             .catch(function (error) {
@@ -54,7 +54,7 @@ class Request {
         let cat=[]
         await axios.get("/api/category/all/children?id="+id,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 cat = response.data.object;
             })
             .catch(function (error) {
@@ -67,7 +67,7 @@ class Request {
         let cat={};
         await axios.get("/api/category/parent?id="+id,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 cat = response.data.object;
             })
             .catch(function (error) {
@@ -81,7 +81,7 @@ class Request {
         let cat=[]
         await axios.get("/api/category/all/not/parent",this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 cat = response.data.object;
             })
             .catch(function (error) {
@@ -135,7 +135,7 @@ class Request {
         let cat=false
         await axios.get("/api/category/check_parent?id="+id,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 cat = response.data;
             })
             .catch(function (error) {
@@ -170,7 +170,7 @@ class Request {
         }
         await axios.get(url,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 count = response.data;
             })
             .catch(function (error) {
@@ -195,7 +195,7 @@ class Request {
 
         await axios.get(url,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 blogs = response.data.object;
             })
             .catch(function (error) {
@@ -209,7 +209,7 @@ class Request {
         let blogs=[]
         await axios.get("/api/blog/all/"+id,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 blogs = response.data.object;
             })
             .catch(function (error) {
@@ -225,7 +225,7 @@ class Request {
         let blog={};
         await axios.get("/api/blog/one/"+id,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 blog=response.data.object
             })
             .catch(function (error) {
@@ -274,7 +274,7 @@ class Request {
             }})
             .then(function (response) {
                 result=response.data.object;
-                console.log(response.data)
+                // console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error)
@@ -338,7 +338,7 @@ class Request {
         let cat=[]
         await axios.get("/api/statistics/all",this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 cat = response.data.object;
             })
             .catch(function (error) {
@@ -408,8 +408,8 @@ class Request {
 
     static async me(){
         let check="";
-        console.log("AAAAAAAA config")
-        console.log(this.config())
+        // console.log("AAAAAAAA config")
+        // console.log(this.config())
         await axios.get("/api/auth/me",this.config())
             .then(function (res) {
                 check=res.data
@@ -424,7 +424,7 @@ class Request {
         let metrics;
         await axios.get("/api/metric/all/"+year,this.config())
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 metrics = response.data;
             })
             .catch(function (error) {

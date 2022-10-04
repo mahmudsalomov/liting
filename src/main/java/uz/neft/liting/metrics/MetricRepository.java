@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface MetricRepository extends JpaRepository<Metric,Integer> {
     List<Metric> findAllByYear(int year);
+    List<Metric> findAllByYearOrderByMonthDesc(int year);
     List<Metric> findAllByMonth(Month month);
     Optional<Metric> findByYearAndMonth(int year, Month month);
 

@@ -57,6 +57,7 @@ function createViewBlogTable(blogs) {
         if (blog.category.type=="BLOGS") link+="blogs"
         link+="/"+blog.category.id+"/"+blog.id;
         let updated=blog.updatedAt!=null?blog.updatedAt:blog.createdAt;
+        let publishDate=blog.publishDate!=null?blog.publishDate:blog.createdAt;
         out+="<div class=\"card shadow mb-4 p-1\">\n" +
             "                        <div class=\"row no-gutters\">\n" +
             "                            <div class=\"col-md-4\">\n" +
@@ -71,7 +72,8 @@ function createViewBlogTable(blogs) {
             "                                    </p>\n" +
             "\n" +
             // "                                    <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\n" +
-            "                                    <p class=\"card-text\"><small class=\"text-muted\">Last updated "+dateModifier(updated)+"</small></p>\n" +
+            "                                    <p class=\"card-text\"><small class=\"text-muted\">Last updated: "+dateModifier(updated)+"</small></p>\n" +
+            "                                    <p class=\"card-text\"><small class=\"text-muted\">Publish date: "+dateModifier(publishDate)+"</small></p>\n" +
             "                                </div>\n" +
             "\n" +
             "\n" +
@@ -322,7 +324,7 @@ function editBuilder(blog) {
         const createdAtHours = createdAtDate.getHours();
         const createdAtMins = createdAtDate.getMinutes();
         const temp=blog.publishDate.replace("T"," ")
-        console.log("temp = "+temp)
+        // console.log("temp = "+temp)
         document.getElementById("publishDate").value=moment.utc(blog.publishDate).format("YYYY-MM-DDTkk:mm")
         // $("#summernote_oz").summernote("code").val(blog.text_oz)
         // $("#summernote_uz").summernote("code").val(blog.text_uz)
@@ -347,20 +349,20 @@ function editBuilder(blog) {
 }
 
 function isMainSlider(id,event) {
-    console.log("CHCHCHCHCHCHC")
-    console.log(event)
-    console.log(event.target)
-    console.log(event.target.checked)
-    console.log(id)
+    // console.log("CHCHCHCHCHCHC")
+    // console.log(event)
+    // console.log(event.target)
+    // console.log(event.target.checked)
+    // console.log(id)
     Request.changeMainSlider(id,event.target.checked)
         .then()
         .catch()
 }
 
 function checkHelper(bool,checkbox) {
-    console.log("AAAAA")
-    console.log(bool)
-    console.log(checkbox)
+    // console.log("AAAAA")
+    // console.log(bool)
+    // console.log(checkbox)
     checkbox.checked=bool;
 }
 //EDIT END
@@ -391,8 +393,8 @@ function createFilterSelect() {
 }
 
 function filterByCategoryOnSelect(value) {
-    console.log("value = ")
-    console.log(value)
+    // console.log("value = ")
+    // console.log(value)
     const nextURL = '/admin/blog?category='+value;
     const nextTitle = '';
     const nextState = { additionalInformation: '' };
@@ -415,7 +417,7 @@ function createPagination(){
     if (category){
         Request.count(category)
             .then(function (c) {
-                console.log("COUNT")
+                // console.log("COUNT")
                 count=c;
 
                 for (let i = 1; i <=(count/9)+1 ; i++) {
@@ -438,7 +440,7 @@ function createPagination(){
                 result+=`</ul>`
 
                 document.getElementById("dataTable_paginate").innerHTML=result;
-                console.log(c)
+                // console.log(c)
             })
             .catch(function (error) {
                 console.log(error)
@@ -446,8 +448,8 @@ function createPagination(){
     }else {
         Request.count()
             .then(function (c) {
-                console.log("COUNT")
-                console.log(c)
+                // console.log("COUNT")
+                // console.log(c)
 
 
                 count=c;
