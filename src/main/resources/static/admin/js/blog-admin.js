@@ -272,6 +272,20 @@ function saveBlog() {
 }
 
 function setBlog(event) {
+    // console.log("CATEGORY")
+    // console.log(event.value)
+    // if (event.type!=)
+    // EDIT_BLOG[event.target.name]=event.target.value;
+
+}
+
+function setCategory(value) {
+    // console.log("CATEGORY")
+    // console.log(value)
+    document.getElementById("blog_category_oz").value=value
+    document.getElementById("blog_category_uz").value=value
+    document.getElementById("blog_category_ru").value=value
+    document.getElementById("blog_category_en").value=value
     // if (event.type!=)
     // EDIT_BLOG[event.target.name]=event.target.value;
 
