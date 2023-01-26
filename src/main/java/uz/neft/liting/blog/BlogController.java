@@ -81,5 +81,13 @@ public class BlogController implements RestCrud<Blog> {
         return blogService.count(category);
     }
 
+    @PostMapping("/search")
+    public HttpEntity<?> search(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
+                                @RequestParam(value = "pageSize", required = false, defaultValue = "9") Optional<Integer> pageSize,
+                                @RequestParam(value = "sortBy", required = false, defaultValue = "created_at") Optional<String> sortBy,
+                                @RequestParam String keyword){
+        return blogService.search(page,pageSize,sortBy,keyword).response();
+    }
+
 
 }

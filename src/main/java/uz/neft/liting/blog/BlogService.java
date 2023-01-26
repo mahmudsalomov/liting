@@ -15,6 +15,7 @@ import uz.neft.liting.payload.Payload;
 import uz.neft.liting.user.User;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -209,4 +210,58 @@ public class BlogService {
         }
 
     }
+
+    public ApiResponse search(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, String keyword) {
+        try {
+            Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(9), Sort.Direction.DESC, sortBy.orElse("createdAt"));
+            Page<Blog> all = blogRepository.search("%"+keyword+"%", pg);
+            ApiResponseObject response = (ApiResponseObject) Payload.ok(convert(all.getContent()));
+            response.setPage(all.getNumber());
+            response.setTotalPages(all.getTotalPages());
+            response.setTotalElements(all.getTotalElements());
+            return response;
+        }catch (Exception e){
+            e.printStackTrace();
+            return Payload.conflict();
+        }
+
+    }
+
+    public List<Blog> convert(List<Blog> all){
+//        List<Blog> dtoShorts=new ArrayList<>();
+
+        for (Blog blog : all) {
+//            BlogDtoShort dtoShort = BlogDtoShort
+//                    .builder()
+//                    .title_uz(blog.getTitle_uz())
+//                    .title_ru(blog.getTitle_ru())
+//                    .title_en(blog.getTitle_en())
+//                    .title_oz(blog.getTitle_oz())
+//                    .anons_uz(blog.getTitle_uz())
+//                    .anons_oz(blog.getTitle_oz())
+//                    .anons_ru(blog.getTitle_ru())
+//                    .anons_en(blog.getTitle_en())
+//                    .createdAt(blog.getCreatedAt())
+//                    .deleted(blog.isDeleted())
+//                    .mainImage(blog.getMainImage())
+//                    .publishDate(blog.getPublishDate())
+//                    .status(blog.getStatus())
+//                    .updatedAt(blog.getUpdatedAt())
+//                    .files(blog.getFiles())
+//                    .view_count(blog.getView_count())
+//                    .id(blog.getId())
+//                    .type(blog.getType())
+//                    .category(blog.getCategory())
+//                    .build();
+//
+//            dtoShorts.add(dtoShort);
+            blog.setText_oz("");
+            blog.setText_uz("");
+            blog.setText_ru("");
+            blog.setText_en("");
+        }
+        return all;
+    }
+
+
 }
