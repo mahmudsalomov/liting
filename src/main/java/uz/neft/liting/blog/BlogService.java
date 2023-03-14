@@ -62,7 +62,7 @@ public class BlogService {
     public ApiResponse all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user){
         Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(9), Sort.Direction.DESC, sortBy.orElse("createdAt"));
         Page<Blog> all = blogRepository.findAllByDeletedFalse(pg);
-        ApiResponseObject response = (ApiResponseObject) Payload.ok(all.getContent());
+        ApiResponseObject response = (ApiResponseObject) Payload.ok(convert(all.getContent()));
         response.setPage(all.getNumber());
         response.setTotalPages(all.getTotalPages());
         response.setTotalElements(all.getTotalElements());
@@ -122,7 +122,7 @@ public class BlogService {
                 Pageable pg = PageRequest.of(page.orElse(0), pageSize.orElse(9), Sort.Direction.DESC, sortBy.orElse("createdAt"));
                 Page<Blog> all = blogRepository.findAllByCategory(category.get(),pg);
 
-                ApiResponseObject response = (ApiResponseObject) Payload.ok(all.getContent());
+                ApiResponseObject response = (ApiResponseObject) Payload.ok(convert(all.getContent()));
                 response.setPage(all.getNumber());
                 response.setTotalPages(all.getTotalPages());
                 response.setTotalElements(all.getTotalElements());
