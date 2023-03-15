@@ -24,7 +24,7 @@ public class BlogController implements RestCrud<Blog> {
 
     @Override
     public HttpEntity<?> all(Optional<Integer> page, Optional<Integer> pageSize, Optional<String> sortBy, User user) {
-        return blogService.all(page, pageSize, sortBy, user).response();
+        return blogService.all(page, pageSize, sortBy, user,false).response();
     }
 
     @Override
@@ -52,10 +52,12 @@ public class BlogController implements RestCrud<Blog> {
     public HttpEntity<?> allByCategory(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
                                        @RequestParam(value = "pageSize", required = false, defaultValue = "9") Optional<Integer> pageSize,
                                        @RequestParam(value = "sortBy", required = false, defaultValue = "createdAt") Optional<String> sortBy,
+                                       @RequestParam(value = "isText", required = false, defaultValue = "false") Boolean isText,
                                        @Valid @PathVariable("category_id") Integer category_id,
                                        @CurrentUser User user) {
-        return blogService.allByCategory(category_id,page, pageSize, sortBy, user).response();
+        return blogService.allByCategory(category_id,page, pageSize, sortBy, user, isText != null && isText).response();
     }
+
 
     @GetMapping("/all/type")
     public HttpEntity<?> allBlogByType(@RequestParam(value = "page", required = false, defaultValue = "0") Optional<Integer> page,
@@ -86,7 +88,7 @@ public class BlogController implements RestCrud<Blog> {
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "9") Optional<Integer> pageSize,
                                 @RequestParam(value = "sortBy", required = false, defaultValue = "created_at") Optional<String> sortBy,
                                 @RequestParam String keyword){
-        return blogService.search(page,pageSize,sortBy,keyword).response();
+        return blogService.search(page,pageSize,sortBy,keyword,false).response();
     }
 
 

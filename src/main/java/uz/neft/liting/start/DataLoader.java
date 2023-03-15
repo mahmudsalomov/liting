@@ -15,6 +15,7 @@ import uz.neft.liting.user.*;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @NoArgsConstructor
@@ -53,6 +54,14 @@ public class DataLoader implements CommandLineRunner {
             }
         }
 
+        try {
+            Optional<User> admin = userRepository.findByUsername("admin");
+            admin.get().setPassword(passwordEncoder.encode("uzlitiadmin123"));
+            userRepository.save(admin.get());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         if (!userRepository.existsByUsername("admin")){
             try {
 //            Role admin = roleRepository.save(new Role(RoleName.ADMIN));
@@ -66,7 +75,7 @@ public class DataLoader implements CommandLineRunner {
                                         .builder()
                                         .active(true)
                                         .email("admin")
-                                        .password(passwordEncoder.encode("admin"))
+                                        .password(passwordEncoder.encode("uzlitiadmin123"))
                                         .fio("admin")
                                         .phone("+998993793877")
                                         .roles(Collections.singleton(admin))

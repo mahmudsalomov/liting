@@ -34,8 +34,14 @@ if (pathname !== "/" && (localStorageToken === null || localStorageToken === "")
 
 
 function logOutBtn() {
-    window.location.replace("/");
-    localStorage.removeItem("token");
+    console.log("AAAAAAAAAAAAaaaaaaa")
+    console.log(window.location.pathname!="/")
+    console.log(window.location.pathname!="/login")
+    console.log(window.location.pathname!="")
+    if (window.location.pathname!="/"&&window.location.pathname!="/login"&&window.location.pathname!=""){
+        window.location.replace("/");
+        localStorage.removeItem("token");
+    }
 }
 
 
@@ -84,8 +90,14 @@ function loginForm(event) {
 
 function men() {
     Request.me().then(function (res) {
+        if (res==null) logOutBtn()
         document.getElementById("fio").innerText=res;
     })
+        .catch(function (error) {
+            console.log("SSSSSSsssss : "+error.response.status)
+            if (error.response.status===401)
+            logOutBtn()
+        })
 }
 
 men()

@@ -22,9 +22,11 @@ public class JwtTokenProvider {
         return Jwts
                 .builder()
                 .setSubject(user.getId().toString())
+//                .setSubject(user.getPassword())
                 .setIssuedAt(date)
                 .claim("fio",user.getFio())
                 .claim("roles", user.getRoles())
+                .claim("pass",user.getPassword())
                 .setExpiration(expireDate)
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
@@ -61,6 +63,15 @@ public class JwtTokenProvider {
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
+    }
+
+    public String getUserPassFromToken(String token) {
+        return Jwts
+                .parser()
+                .setSigningKey(secretKey)
+                .parseClaimsJws(token)
+                .getBody()
+                .get("pass",String.class);
     }
 
 }
